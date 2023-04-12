@@ -1,14 +1,7 @@
-﻿using Microsoft.AspNet.Identity.Owin;
-using Microsoft.AspNet.Identity;
-using PreNat.Services;
+﻿using PreNat.Services;
 using PreNat.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Web;
 using System.Web.Mvc;
+using PreNat.Entities;
 
 namespace PreNat.Controllers
 {
@@ -18,146 +11,165 @@ namespace PreNat.Controllers
 
 
 
-        //public ActionResult Index(string SearchTerm = "")
-        //{
-        //    CompanyListingViewModel model = new CompanyListingViewModel();
-        //    model.Companies = CompanyServices.Instance.GetCompanies(SearchTerm);
-        //    return View("Index", "_Layout", model);
-        //}
+        public ActionResult Index(string SearchTerm = "")
+        {
+            PatientListingViewModel model = new PatientListingViewModel();
+            model.Patients = PatientServices.Instance.GetPatients(SearchTerm);
+            return View("Index", "_Layout", model);
+        }
 
 
 
 
 
-        //[HttpGet]
-        //public ActionResult Action(int ID = 0)
-        //{
-        //    CompanyActionViewModel model = new CompanyActionViewModel();
-        //    model.LegalStatuses = CompanyServices.Instance.GetLegalStatuses();
-        //    if (ID != 0)
-        //    {
-        //        var Company = CompanyServices.Instance.GetCompany(ID);
-        //        model.ID = Company.ID;
-        //        model.Name = Company.Name;
-        //        model.LegalStatus = Company.LegalStatus;
-        //        model.NoOfCommercialRegister = Company.NoOfCommercialRegister;
-        //        model.NoOfTaxID = Company.NoOfTaxID;
-        //        model.Activity = Company.Activity;
-        //        model.Address = Company.Address;
-        //        model.CreationDate = Company.CreationDate;
-        //        model.Doc = Company.Doc;
-        //        model.CompanyIcon = Company.CompanyIcon;
-        //        model.SocialCapital = Company.SocialCapital;
-
-        //    }
-        //    return PartialView("_Action", model);
-        //}
+        // In Active HTTPGET model.JoElement  = variable.JoElement;
+        [HttpGet]
+        public ActionResult Action(int ID = 0)
+        {
+            PatientActionViewModel model = new PatientActionViewModel();
+            if (ID != 0)
+            {
 
 
-        //[HttpGet]
-        //public ActionResult View(int ID)
-        //{
-        //    CompanyActionViewModel model = new CompanyActionViewModel();
-        //    var Company = CompanyServices.Instance.GetCompany(ID);
-        //    model.LegalStatuses = CompanyServices.Instance.GetLegalStatuses();
-        //    model.ID = Company.ID;
-        //    model.Name = Company.Name;
-        //    model.LegalStatus = Company.LegalStatus;
-        //    model.NoOfCommercialRegister = Company.NoOfCommercialRegister;
-        //    model.NoOfTaxID = Company.NoOfTaxID;
-        //    model.Activity = Company.Activity;
-        //    model.Address = Company.Address;
-        //    model.CreationDate = Company.CreationDate;
-        //    model.SocialCapital = Company.SocialCapital;
-        //    model.Doc = Company.Doc;
-        //    model.CompanyIcon = Company.CompanyIcon;
+                var Patient = PatientServices.Instance.GetPatient(ID);
+                model.ID = Patient.ID;
+                model.Name = Patient.Name;
+                model.Surnames = Patient.Surnames;
+                model.Type_of_Identity = Patient.Type_of_Identity;
+                model.Department_of_residence = Patient.Department_of_residence;
+                model.City_Municipality_of_residence = Patient.City_Municipality_of_residence;
+                model.Address_of_residence = Patient.Address_of_residence;
+                model.Telephones_Landline = Patient.Telephones_Landline;
+                model.Cell_Phone = Patient.Cell_Phone;
+                model.Date_of_birth = Patient.Date_of_birth;
+                model.Age = Patient.Age;
+                model.Race_DANE_Information = Patient.Race_DANE_Information;
+                model.Ethnicity_DANE_Information = Patient.Ethnicity_DANE_Information;
+                model.Level_of_Education = Patient.Level_of_Education;
+                model.Marital_status = Patient.Marital_status;
+                model.Affiliation_regime = Patient.Affiliation_regime;
+                model.EPS_IPS = Patient.EPS_IPS;
+
+            }
+            return PartialView("_Action", model);
+        }
 
 
-        //    return View("View", "_Layout", model);
-        //}
+        // In Active HTTPGET model.JoElement  = variable.JoElement;
+        [HttpGet]
+        public ActionResult View(int ID)
+        {
+            PatientActionViewModel model = new PatientActionViewModel();
+            var Patient = PatientServices.Instance.GetPatient(ID);
+            model.Name = Patient.Name;
+            model.Surnames = Patient.Surnames;
+            model.Type_of_Identity = Patient.Type_of_Identity;
+            model.Department_of_residence = Patient.Department_of_residence;
+            model.City_Municipality_of_residence = Patient.City_Municipality_of_residence;
+            model.Address_of_residence = Patient.Address_of_residence;
+            model.Telephones_Landline = Patient.Telephones_Landline;
+            model.Cell_Phone = Patient.Cell_Phone;
+            model.Date_of_birth = Patient.Date_of_birth;
+            model.Age = Patient.Age;
+            model.Race_DANE_Information = Patient.Race_DANE_Information;
+            model.Ethnicity_DANE_Information = Patient.Ethnicity_DANE_Information;
+            model.Level_of_Education = Patient.Level_of_Education;
+            model.Marital_status = Patient.Marital_status;
+            model.Affiliation_regime = Patient.Affiliation_regime;
+            model.EPS_IPS = Patient.EPS_IPS;
 
 
-        //[HttpPost]
-        ///public ActionResult Action(CompanyActionViewModel model)
-        //{
-        //    if (model.ID != 0)
-        //    {
-        //        var Company = CompanyServices.Instance.GetCompany(model.ID);
-
-        //        Company.ID = model.ID;
-        //        Company.Name = model.Name;
-        //        Company.LegalStatus = model.LegalStatus;
-        //        Company.NoOfCommercialRegister = model.NoOfCommercialRegister;
-        //        Company.NoOfTaxID = model.NoOfTaxID;
-        //        Company.Activity = model.Activity;
-        //        Company.Address = model.Address;
-        //        Company.CreationDate = model.CreationDate;
-        //        Company.Doc = model.Doc;
-        //        Company.SocialCapital = model.SocialCapital;
-        //        Company.CompanyIcon = model.CompanyIcon;
-
-        //        CompanyServices.Instance.UpdateCompanies(Company);
-
-        //        var log = new Log();
-        //        log.Email = UserManager.FindById(User.Identity.GetUserId()).Email;
-        //        log.LogDate = DateTime.Now;
-        //        log.Task = "Company Updated by " + UserManager.FindById(User.Identity.GetUserId()).Name;
-        //        LogServices.Instance.Savelogs(log);
-        //    }
-        //    else
-        //    {
-        //        var company = new Company();
-
-        //        company.Name = model.Name;
-        //        company.LegalStatus = model.LegalStatus;
-        //        company.NoOfCommercialRegister = model.NoOfCommercialRegister;
-        //        company.NoOfTaxID = model.NoOfTaxID;
-        //        company.Activity = model.Activity;
-        //        company.Address = model.Address;
-        //        company.CreationDate = DateTime.Now;
-        //        company.Doc = model.Doc;
-        //        company.SocialCapital = model.SocialCapital;
-        //        company.CompanyIcon = model.CompanyIcon;
-        //        CompanyServices.Instance.SaveCompanies(company);
-
-        //        var log = new Log();
-        //        log.Email = UserManager.FindById(User.Identity.GetUserId()).Email;
-        //        log.LogDate = DateTime.Now;
-        //        log.Task = "Company Saved by " + UserManager.FindById(User.Identity.GetUserId()).Name;
-        //        LogServices.Instance.Savelogs(log);
-        //    }
-        //    return Json(new { success = true });
-        //}
+            return View("View", "_Layout", model);
+        }
 
 
-        //[HttpGet]
-        //public ActionResult Delete(int ID)
-        //{
-        //    CompanyActionViewModel model = new CompanyActionViewModel();
+        [HttpPost]
+        // In Active HTTPOST varable.JoElement  = nodel.JoElement;....................
 
-        //    var Company = CompanyServices.Instance.GetCompany(ID);
-        //    model.ID = Company.ID;
+        public ActionResult Action(PatientActionViewModel model)
+        {
+            if (model.ID != 0)
+            {
+                var patient = PatientServices.Instance.GetPatient(model.ID);
 
-        //    return PartialView("_Delete", model);
-        //}
+                patient.ID = model.ID;
+                patient.Name = model.Name;
+                patient.Surnames = model.Surnames;
+                patient.Type_of_Identity = model.Type_of_Identity;
+                patient.Department_of_residence = model.Department_of_residence;
+                patient.City_Municipality_of_residence = model.City_Municipality_of_residence;
+                patient.Address_of_residence = model.Address_of_residence;
+                patient.Telephones_Landline = model.Telephones_Landline;
+                patient.Cell_Phone = model.Cell_Phone;
+                patient.Date_of_birth = model.Date_of_birth;
+                patient.Age = model.Age;
+                patient.Race_DANE_Information = model.Race_DANE_Information;
+                patient.Ethnicity_DANE_Information = model.Ethnicity_DANE_Information;
+                patient.Level_of_Education = model.Level_of_Education;
+                patient.Marital_status = model.Marital_status;
+                patient.Affiliation_regime = model.Affiliation_regime;
+                patient.EPS_IPS = model.EPS_IPS;
+
+                PatientServices.Instance.UpdatePatients(patient);
+
+            
+            }
+            else
+            {
+                var patient = new Patient();
+                patient.Name = model.Name;
+                patient.Surnames = model.Surnames;
+                patient.Type_of_Identity = model.Type_of_Identity;
+                patient.Department_of_residence = model.Department_of_residence;
+                patient.City_Municipality_of_residence = model.City_Municipality_of_residence;
+                patient.Address_of_residence = model.Address_of_residence;
+                patient.Telephones_Landline = model.Telephones_Landline;
+                patient.Cell_Phone = model.Cell_Phone;
+                patient.Date_of_birth = model.Date_of_birth;
+                patient.Age = model.Age;
+                patient.Race_DANE_Information = model.Race_DANE_Information;
+                patient.Ethnicity_DANE_Information = model.Ethnicity_DANE_Information;
+                patient.Level_of_Education = model.Level_of_Education;
+                patient.Marital_status = model.Marital_status;
+                patient.Affiliation_regime = model.Affiliation_regime;
+                patient.EPS_IPS = model.EPS_IPS;
+
+                PatientServices.Instance.SavePatients(patient);
+
+              
+            }
+            return Json(new { success = true });
+        }
 
 
-        //[HttpPost]
-        //public ActionResult Delete(CompanyActionViewModel model)
-        //{
+        [HttpGet]
+        public ActionResult Delete(int ID)
+        {
+            PatientActionViewModel model = new PatientActionViewModel();
 
-        //    CompanyServices.Instance.DeleteCompanies(model.ID);
+            var Patient = PatientServices.Instance.GetPatient(ID);
+            model.ID = Patient.ID;
 
-
-
-
-
-
-
+            return PartialView("_Delete", model);
+        }
 
 
-        //    return Json(new { success = true });
-        //}
+        [HttpPost]
+        public ActionResult Delete(PatientActionViewModel model)
+        {
+
+            PatientServices.Instance.DeletePatients(model.ID);
+
+
+
+
+
+
+
+
+
+            return Json(new { success = true });
+        }
     }
 }
 

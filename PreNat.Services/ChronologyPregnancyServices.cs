@@ -31,39 +31,14 @@ namespace PreNat.Services
         {
             using (var context = new DSContext())
             {
-                if (SearchTerm != "")
-                {
-                    return context.ChronologyPregnancys.Where(p => p.ReliableFUM != null && p.ReliableFUM.ToLower()
-                                            .Contains(SearchTerm.ToLower()))
-                                            .OrderBy(x => x.ReliableFUM)
-                                            .ToList();
-                }
-                else
-                {
+              
                     return context.ChronologyPregnancys.ToList();
-                }
+                
             }
         }
 
 
-        public List<ChronologyPregnancy> GetChronologyPregnancys(int ReliableFUM, string SearchTerm = "")
-        {
-            using (var context = new DSContext())
-            {
-                if (SearchTerm != "")
-                {
-                    return context.ChronologyPregnancys.Where(p => p.ReliableFUM == ReliableFUM && p.ReliableFUM != null && p.ReliableFUM.ToLower()
-                                            .Contains(SearchTerm.ToLower()))
-                                            .OrderBy(x => x.ReliableFUM)
-                                            .ToList();
-                }
-                else
-                {
-                    return context.ChronologyPregnancys.Where(x => x.ReliableFUM == ReliableFUM).ToList();
-                }
-            }
-        }
-
+      
 
 
         public ChronologyPregnancy GetChronologyPregnancy(int ID)
