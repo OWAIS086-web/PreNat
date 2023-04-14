@@ -179,6 +179,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImmunizationsController.cs" />
     <Compile Include="Controllers\LaboratoryTestsController.cs" />
+    <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ObstetricGynecologyClinicalController.cs" />
     <Compile Include="Controllers\ObstetrichistoryController.cs" />
@@ -200,6 +201,7 @@
     <Compile Include="ViewModels\ChronologyPregnancyViewModel.cs" />
     <Compile Include="ViewModels\ImmunizationsViewModel.cs" />
     <Compile Include="ViewModels\LaboratoryTestsViewModel.cs" />
+    <Compile Include="ViewModels\MainActionViewModel.cs" />
     <Compile Include="ViewModels\ObstetricGynecologyClinicalViewModel .cs" />
     <Compile Include="ViewModels\ObstetricHistoryViewModel .cs" />
     <Compile Include="ViewModels\PatientViewModel.cs" />
@@ -1269,6 +1271,7 @@
     <Folder Include="Views\ChronologyPregnancy\" />
     <Folder Include="Views\Immunizations\" />
     <Folder Include="Views\LaboratoryTests\" />
+    <Folder Include="Views\Main\" />
     <Folder Include="Views\ObstetricGynecologyClinical\" />
     <Folder Include="Views\Obstetrichistory\" />
     <Folder Include="Views\Patient\" />

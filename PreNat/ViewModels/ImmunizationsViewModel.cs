@@ -31,5 +31,6 @@ namespace PreNat.ViewModels
         public string Hepatitis_A { get; set; }
         public int Hepatitis_A_Date { get; set; }
         public int Hepatitis_A_Quantity { get; set; }
+        public int ID { get; set; }
     }
 }

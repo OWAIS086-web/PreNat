@@ -15,6 +15,7 @@ namespace PreNat.ViewModels
     public class PsychosocialAssessmentActionViewModel
     {
         public string SmokerActive { get; set; }
+        public int ID { get; set; }
         public string PassiveSmoking { get; set; }
         public string ConsumeAlcohol { get; set; }
         public string ConsumeAlucinogenos { get; set; }

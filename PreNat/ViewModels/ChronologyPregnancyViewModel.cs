@@ -19,5 +19,7 @@ namespace PreNat.ViewModels
         public int FPP { get; set; }
         public int FPC { get; set; }
 
+        public int ID { get; set; }
+
     }
 }

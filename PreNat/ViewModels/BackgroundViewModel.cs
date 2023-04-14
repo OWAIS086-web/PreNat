@@ -30,5 +30,6 @@ namespace PreNat.ViewModels
         public string IMC39 { get; set; }
         public string Disc_Sang { get; set; }
         public string other_dises { get; set; }
+        public int ID { get; set; }
     }
 }

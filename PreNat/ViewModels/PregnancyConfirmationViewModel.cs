@@ -15,6 +15,7 @@ namespace PreNat.ViewModels
     public class PregnancyConfirmationActionViewModel
     {
         public string FUM { get; set; }
+        public int ID { get; set; }
         public int FUM_Date { get; set; }
         public string Positive_HCG_presence { get; set; }
         public int Positive_HCG_presence_Date { get; set; }

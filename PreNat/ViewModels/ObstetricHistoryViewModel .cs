@@ -14,6 +14,7 @@ namespace PreNat.ViewModels
     public class ObstetrichistoryActionViewModel
     {
         public int Gestationes_Pregnancies { get; set; }
+        public int ID { get; set; }
         public int Delivery { get; set; }
         public int Term { get; set; }
         public int Premature { get; set; }

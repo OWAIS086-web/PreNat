@@ -19,6 +19,7 @@ namespace PreNat.ViewModels
         public string Laboratory_Tests { get; set; }
         public string VDRL { get; set; }
         public string Syphilis { get; set; }
-        public string VIH { get; set; }
+        public int ID { get; set; }
+        public string VIH_L { get; set; }
     }
 }

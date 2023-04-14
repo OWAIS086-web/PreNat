@@ -13,7 +13,7 @@ namespace PreNat.Entities
         public string Laboratory_Tests { get; set; }
         public string VDRL { get; set; }
         public string Syphilis { get; set; }
-        public string VIH { get; set; }
+        public string VIH_L { get; set; }
         public int PatientID { get; set; }
     }
 }

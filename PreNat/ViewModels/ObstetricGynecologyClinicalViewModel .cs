@@ -14,6 +14,7 @@ namespace PreNat.ViewModels
 
     public class ObstetricGynecologyClinicalActionViewModel
     {
+        public int ID { get; set; }
         public string PlannedPregnancy { get; set; }
         public string DesiredPregnancy { get; set; }
         public string PreconceptionCounseling { get; set; }
