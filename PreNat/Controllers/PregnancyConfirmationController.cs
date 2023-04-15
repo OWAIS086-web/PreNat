@@ -45,7 +45,7 @@ namespace PreNat.Controllers
                
 
             }
-            return PartialView("_Action", model);
+            return View(model);
         }
 
 

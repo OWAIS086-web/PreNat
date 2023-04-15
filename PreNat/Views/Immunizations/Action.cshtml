@@ -1,0 +1,143 @@
+﻿@model PreNat.ViewModels.ImmunizationsActionViewModel
+
+@if (Model != null)
+{
+
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">
+                @if (Model.ID != 0)
+                {
+                    <span>Edit Immunizations</span>
+                }
+                else
+                {
+                    <span>Save Immunizations</span>
+                }
+            </h2>
+            <hr />
+
+
+
+
+            <form id="actionForm">
+                <input type="hidden" id="ID" name="ID" value="@Model.ID" />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Immunizations</label>
+                            <input required class="form-control" id="TetanusDiphtheria" value="@Model.TetanusDiphtheria" name="TetanusDiphtheria" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Immunizations</label>
+                            <input required class="form-control" id="TetanusDiphtheria_Date" value="@Model.TetanusDiphtheria_Date" name="TetanusDiphtheria_Date" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Immunizations</label>
+                            <input required class="form-control" id="TetanusDiphtheria_Quantity" value="@Model.TetanusDiphtheria_Quantity" name="TetanusDiphtheria_Quantity" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Immunizations</label>
+                            <input required class="form-control" id="TDAP" value="@Model.TDAP" name="TDAP" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Immunizations</label>
+                            <input required class="form-control" id="TDAP_Date" value="@Model.TDAP_Date" name="TDAP_Date" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Immunizations</label>
+                            <input required class="form-control" id="Address_of_residence" value="@Model.TDAP_Quantity" name="TDAP_Quantity" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Immunizations</label>
+                            <input required class="form-control" id="Influenza" value="@Model.Influenza" name="Influenza" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Immunizations</label>
+                            <input required class="form-control" id="Influenza_Date" value="@Model.Influenza_Date" name="Influenza_Date" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Immunizations</label>
+                            <input required class="form-control" id="Influenza_Quantity" value="@Model.Influenza_Quantity" name="Influenza_Quantity" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Immunizations</label>
+                            <input required class="form-control" id="Rubella" value="@Model.Rubella" name="Rubella" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Immunizations</label>
+                            <input required class="form-control" id="Rubella_Date" value="@Model.Rubella_Date" name="Rubella_Date" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Immunizations</label>
+                            <input required class="form-control" id="Rubella_Quantity" value="@Model.Rubella_Quantity" name="Rubella_Quantity" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Immunizations</label>
+                            <input required class="form-control" id="Hepatitis_B" value="@Model.Hepatitis_B" name="Hepatitis_B" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Immunizations</label>
+                            <input required class="form-control" id="Hepatitis_B_Date" value="@Model.Hepatitis_B_Date" name="Hepatitis_B_Date" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Immunizations</label>
+                            <input required class="form-control" id="Hepatitis_B_Quantity" value="@Model.Hepatitis_B_Quantity" name="Hepatitis_B_Quantity" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Immunizations</label>
+                            <input required class="form-control" id="Hepatitis_A" value="@Model.Hepatitis_A" name="Hepatitis_A" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Immunizations</label>
+                            <input required class="form-control" id="Hepatitis_A_Date" value="@Model.Hepatitis_A_Date" name="Hepatitis_A_Date" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Immunizations</label>
+                            <input required class="form-control" id="Hepatitis_A_Quantity" value="@Model.Hepatitis_A_Quantity" name="Hepatitis_A_Quantity" placeholder="Enter Name">
+                        </div>
+
+
+
+                    </div>
+                </div>        
+                <br />
+                @if (Model.ID != 0)
+                {
+                    <button id="actionButton" type="button" class="btn btn-outline-primary"><i class="fas fa-save mr-1"></i> Update</button>
+                }
+                else
+                {
+                    <button id="actionButton" type="button" class="btn btn-outline-primary "><i class="fas fa-save mr-1"></i> Save</button>
+                }
+                <a href="@Url.Action("Index","Immunizations")" class="btn btn-outline-danger"> CANCEL</a>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="errorDiv">
+
+    </div>
+
+}
+
+
+<script>
+    $("#actionButton").click(function () {
+		$.ajax({
+			url: '@Url.Action("Action", "Immunizations")',
+			type: "post",
+			data: $("#actionForm").serialize()
+		})
+		.done(function () {
+
+            window.location.href = "@Url.Action("Index","Immunizations")";
+
+		});
+	});
+</script>

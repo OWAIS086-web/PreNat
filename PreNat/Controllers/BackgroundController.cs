@@ -52,7 +52,7 @@ namespace PreNat.Controllers
                 model.other_dises = Background.other_dises;
 
             }
-            return PartialView("_Action", model);
+            return View(model);
         }
 
 

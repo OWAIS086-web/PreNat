@@ -1,0 +1,96 @@
+﻿@model PreNat.ViewModels.ObstetricGynecologyClinicalActionViewModel
+
+@if (Model != null)
+{
+
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">
+                @if (Model.ID != 0)
+                {
+                    <span>Edit ObstetricGynecologyClinical</span>
+                }
+                else
+                {
+                    <span>Save ObstetricGynecologyClinical</span>
+                }
+            </h2>
+            <hr />
+
+
+
+
+            <form id="actionForm">
+                <input type="hidden" id="ID" name="ID" value="@Model.ID" />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">ObstetricGynecologyClinical</label>
+                            <input required class="form-control" id="PlannedPregnancy" value="@Model.PlannedPregnancy" name="PlannedPregnancy" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">ObstetricGynecologyClinical</label>
+                            <input required class="form-control" id="DesiredPregnancy" value="@Model.DesiredPregnancy" name="DesiredPregnancy" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">ObstetricGynecologyClinical</label>
+                            <input required class="form-control" id="PreconceptionCounseling" value="@Model.PreconceptionCounseling" name="PreconceptionCounseling" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">ObstetricGynecologyClinical</label>
+                            <input required class="form-control" id="ContraceptiveFailure" value="@Model.ContraceptiveFailure" name="ContraceptiveFailure" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">ObstetricGynecologyClinical</label>
+                            <input required class="form-control" id="DefinitiveMethod" value="@Model.DefinitiveMethod" name="DefinitiveMethod" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">ObstetricGynecologyClinical</label>
+                            <input required class="form-control" id="Failure" value="@Model.Failure" name="Failure" placeholder="Enter Name">
+                        </div>
+                        
+
+
+
+                    </div>
+                </div>        
+                <br />
+                @if (Model.ID != 0)
+                {
+                    <button id="actionButton" type="button" class="btn btn-outline-primary"><i class="fas fa-save mr-1"></i> Update</button>
+                }
+                else
+                {
+                    <button id="actionButton" type="button" class="btn btn-outline-primary "><i class="fas fa-save mr-1"></i> Save</button>
+                }
+                <a href="@Url.Action("Index","ObstetricGynecologyClinical")" class="btn btn-outline-danger"> CANCEL</a>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="errorDiv">
+
+    </div>
+
+}
+
+
+<script>
+    $("#actionButton").click(function () {
+		$.ajax({
+			url: '@Url.Action("Action", "ObstetricGynecologyClinical")',
+			type: "post",
+			data: $("#actionForm").serialize()
+		})
+		.done(function () {
+
+            window.location.href = "@Url.Action("Index","ObstetricGynecologyClinical")";
+
+		});
+	});
+</script>

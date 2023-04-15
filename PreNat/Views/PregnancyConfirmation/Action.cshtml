@@ -1,0 +1,107 @@
+﻿@model PreNat.ViewModels.PregnancyConfirmationActionViewModel
+
+@if (Model != null)
+{
+
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">
+                @if (Model.ID != 0)
+                {
+                    <span>Edit PregnancyConfirmation</span>
+                }
+                else
+                {
+                    <span>Save PregnancyConfirmation</span>
+                }
+            </h2>
+            <hr />
+
+
+
+
+            <form id="actionForm">
+                <input type="hidden" id="ID" name="ID" value="@Model.ID" />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">PregnancyConfirmation</label>
+                            <input required class="form-control" id="FUM" value="@Model.FUM" name="FUM" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">PregnancyConfirmation</label>
+                            <input required class="form-control" id="FUM_Date" value="@Model.FUM_Date" name="FUM_Date" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">PregnancyConfirmation</label>
+                            <input required class="form-control" id="Positive_HCG_presence" value="@Model.Positive_HCG_presence" name="Positive_HCG_presence" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">PregnancyConfirmation</label>
+                            <input required class="form-control" id="Positive_HCG_presence_Date" value="@Model.Positive_HCG_presence_Date" name="Positive_HCG_presence_Date" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">PregnancyConfirmation</label>
+                            <input required class="form-control" id="Upload_document1" value="@Model.Upload_document1" name="Upload_document1" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">PregnancyConfirmation</label>
+                            <input required class="form-control" id="Positive_TV_ultrasound" value="@Model.Positive_TV_ultrasound" name="Positive_TV_ultrasound" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">PregnancyConfirmation</label>
+                            <input required class="form-control" id="Positive_TV_ultrasound_Date" value="@Model.Positive_TV_ultrasound_Date" name="Positive_TV_ultrasound_Date" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">PregnancyConfirmation</label>
+                            <input required class="form-control" id="Upload_document2" value="@Model.Upload_document2" name="Upload_document2" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">PregnancyConfirmation</label>
+                            <input required class="form-control" id="PregnancyConfirm" value="@Model.PregnancyConfirm" name="PregnancyConfirm" placeholder="Enter Name">
+                        </div>
+                       
+
+
+                    </div>
+                </div>        
+                <br />
+                @if (Model.ID != 0)
+                {
+                    <button id="actionButton" type="button" class="btn btn-outline-primary"><i class="fas fa-save mr-1"></i> Update</button>
+                }
+                else
+                {
+                    <button id="actionButton" type="button" class="btn btn-outline-primary "><i class="fas fa-save mr-1"></i> Save</button>
+                }
+                <a href="@Url.Action("Index","PregnancyConfirmation")" class="btn btn-outline-danger"> CANCEL</a>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="errorDiv">
+
+    </div>
+
+}
+
+
+<script>
+    $("#actionButton").click(function () {
+		$.ajax({
+			url: '@Url.Action("Action", "PregnancyConfirmation")',
+			type: "post",
+			data: $("#actionForm").serialize()
+		})
+		.done(function () {
+
+            window.location.href = "@Url.Action("Index","PregnancyConfirmation")";
+
+		});
+	});
+</script>

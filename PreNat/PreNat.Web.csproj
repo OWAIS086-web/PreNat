@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>true</Use64BitIISExpress>
     <IISExpressSSLPort>44302</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -1264,19 +1264,46 @@
     <Content Include="Views\Role\_Delete.cshtml" />
     <Content Include="Views\User\_UserRoles.cshtml" />
     <Content Include="Views\Account\UserProfile.cshtml" />
+    <Content Include="Views\Patient\Action.cshtml" />
+    <Content Include="Views\Patient\Index.cshtml" />
+    <Content Include="Views\Patient\_Delete.cshtml" />
+    <Content Include="Views\Patient\_Listing.cshtml" />
+    <Content Include="Views\Background\Action.cshtml" />
+    <Content Include="Views\Background\Index.cshtml" />
+    <Content Include="Views\Background\_Delete.cshtml" />
+    <Content Include="Views\Background\_Listing.cshtml" />
+    <Content Include="Views\ChronologyPregnancy\_Delete.cshtml" />
+    <Content Include="Views\ChronologyPregnancy\_Listing.cshtml" />
+    <Content Include="Views\ChronologyPregnancy\Action.cshtml" />
+    <Content Include="Views\ChronologyPregnancy\Index.cshtml" />
+    <Content Include="Views\Immunizations\_Delete.cshtml" />
+    <Content Include="Views\Immunizations\_Listing.cshtml" />
+    <Content Include="Views\Immunizations\Action.cshtml" />
+    <Content Include="Views\Immunizations\Index.cshtml" />
+    <Content Include="Views\LaboratoryTests\_Delete.cshtml" />
+    <Content Include="Views\LaboratoryTests\_Listing.cshtml" />
+    <Content Include="Views\LaboratoryTests\Action.cshtml" />
+    <Content Include="Views\LaboratoryTests\Index.cshtml" />
+    <Content Include="Views\Obstetrichistory\_Delete.cshtml" />
+    <Content Include="Views\Obstetrichistory\_Listing.cshtml" />
+    <Content Include="Views\Obstetrichistory\Action.cshtml" />
+    <Content Include="Views\Obstetrichistory\Index.cshtml" />
+    <Content Include="Views\ObstetricGynecologyClinical\_Delete.cshtml" />
+    <Content Include="Views\ObstetricGynecologyClinical\_Listing.cshtml" />
+    <Content Include="Views\ObstetricGynecologyClinical\Action.cshtml" />
+    <Content Include="Views\ObstetricGynecologyClinical\Index.cshtml" />
+    <Content Include="Views\PregnancyConfirmation\_Delete.cshtml" />
+    <Content Include="Views\PregnancyConfirmation\_Listing.cshtml" />
+    <Content Include="Views\PregnancyConfirmation\Action.cshtml" />
+    <Content Include="Views\PregnancyConfirmation\Index.cshtml" />
+    <Content Include="Views\PsychosocialAssessment\_Delete.cshtml" />
+    <Content Include="Views\PsychosocialAssessment\_Listing.cshtml" />
+    <Content Include="Views\PsychosocialAssessment\Action.cshtml" />
+    <Content Include="Views\PsychosocialAssessment\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Background\" />
-    <Folder Include="Views\ChronologyPregnancy\" />
-    <Folder Include="Views\Immunizations\" />
-    <Folder Include="Views\LaboratoryTests\" />
     <Folder Include="Views\Main\" />
-    <Folder Include="Views\ObstetricGynecologyClinical\" />
-    <Folder Include="Views\Obstetrichistory\" />
-    <Folder Include="Views\Patient\" />
-    <Folder Include="Views\PregnancyConfirmation\" />
-    <Folder Include="Views\PsychosocialAssessment\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -1323,9 +1350,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1432</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:4567/</IISUrl>
+          <IISUrl>https://localhost:44333/</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>https://localhost:4567/</IISAppRootUrl>
+          <IISAppRootUrl>https://localhost:44333/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

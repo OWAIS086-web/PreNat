@@ -1,0 +1,119 @@
+﻿@model PreNat.ViewModels.ObstetrichistoryActionViewModel
+
+@if (Model != null)
+{
+
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">
+                @if (Model.ID != 0)
+                {
+                    <span>Edit Obstetrichistory</span>
+                }
+                else
+                {
+                    <span>Save Obstetrichistory</span>
+                }
+            </h2>
+            <hr />
+
+
+
+
+            <form id="actionForm">
+                <input type="hidden" id="ID" name="ID" value="@Model.ID" />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Obstetrichistory</label>
+                            <input required class="form-control" id="Gestationes_Pregnancies" value="@Model.Gestationes_Pregnancies" name="Gestationes_Pregnancies" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Obstetrichistory</label>
+                            <input required class="form-control" id="Delivery" value="@Model.Delivery" name="Delivery" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Obstetrichistory</label>
+                            <input required class="form-control" id="Term" value="@Model.Term" name="Term" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Obstetrichistory</label>
+                            <input required class="form-control" id="Premature" value="@Model.Premature" name="Premature" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Obstetrichistory</label>
+                            <input required class="form-control" id="Vaginal" value="@Model.Vaginal" name="Vaginal" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Obstetrichistory</label>
+                            <input required class="form-control" id="Cesareas" value="@Model.Cesareas" name="Cesareas" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Obstetrichistory</label>
+                            <input required class="form-control" id="Obitos" value="@Model.Obitos" name="Obitos" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Obstetrichistory</label>
+                            <input required class="form-control" id="Abortions" value="@Model.Abortions" name="Abortions" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Obstetrichistory</label>
+                            <input required class="form-control" id="Gemerales" value="@Model.Gemerales" name="Gemerales" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Obstetrichistory</label>
+                            <input required class="form-control" id="Ectopicos" value="@Model.Ectopicos" name="Ectopicos" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Obstetrichistory</label>
+                            <input required class="form-control" id="Springs" value="@Model.Springs" name="Springs" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">Obstetrichistory</label>
+                            <input required class="form-control" id="Live_Births" value="@Model.Live_Births" name="Live_Births" placeholder="Enter Name">
+                        </div>
+                        
+
+
+                    </div>
+                </div>        
+                <br />
+                @if (Model.ID != 0)
+                {
+                    <button id="actionButton" type="button" class="btn btn-outline-primary"><i class="fas fa-save mr-1"></i> Update</button>
+                }
+                else
+                {
+                    <button id="actionButton" type="button" class="btn btn-outline-primary "><i class="fas fa-save mr-1"></i> Save</button>
+                }
+                <a href="@Url.Action("Index","Obstetrichistory")" class="btn btn-outline-danger"> CANCEL</a>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="errorDiv">
+
+    </div>
+
+}
+
+
+<script>
+    $("#actionButton").click(function () {
+		$.ajax({
+			url: '@Url.Action("Action", "Obstetrichistory")',
+			type: "post",
+			data: $("#actionForm").serialize()
+		})
+		.done(function () {
+
+            window.location.href = "@Url.Action("Index","Obstetrichistory")";
+
+		});
+	});
+</script>

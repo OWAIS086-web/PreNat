@@ -61,6 +61,10 @@
     <Compile Include="Migrations\202304060717154_intialized.designer.cs">
       <DependentUpon>202304060717154_intialized.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304141224476_awais.cs" />
+    <Compile Include="Migrations\202304141224476_awais.designer.cs">
+      <DependentUpon>202304141224476_awais.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DSContext.cs" />
@@ -78,6 +82,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202304060717154_intialized.resx">
       <DependentUpon>202304060717154_intialized.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304141224476_awais.resx">
+      <DependentUpon>202304141224476_awais.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
