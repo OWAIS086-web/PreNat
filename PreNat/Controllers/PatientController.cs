@@ -51,7 +51,7 @@ namespace PreNat.Controllers
                 model.EPS_IPS = Patient.EPS_IPS;
 
             }
-            return PartialView("_Action", model);
+            return View(model);
         }
 
 

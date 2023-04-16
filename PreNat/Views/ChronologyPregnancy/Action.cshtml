@@ -1,0 +1,87 @@
+﻿@model PreNat.ViewModels.ChronologyPregnancyActionViewModel
+
+@if (Model != null)
+{
+
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">
+                @if (Model.ID != 0)
+                {
+                    <span>Edit ChronologyPregnancy</span>
+                }
+                else
+                {
+                    <span>Save ChronologyPregnancy</span>
+                }
+            </h2>
+            <hr />
+
+
+
+
+            <form id="actionForm">
+                <input type="hidden" id="ID" name="ID" value="@Model.ID" />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">ChronologyPregnancy</label>
+                            <input required class="form-control" id="ReliableFUM" value="@Model.ReliableFUM" name="ReliableFUM" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">ChronologyPregnancy</label>
+                            <input required class="form-control" id="UltrasoundObstetrics" value="@Model.UltrasoundObstetrics" name="UltrasoundObstetrics" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">ChronologyPregnancy</label>
+                            <input required class="form-control" id="FPP" value="@Model.FPP" name="FPP" placeholder="Enter Name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label class="col-sm-12">ChronologyPregnancy</label>
+                            <input required class="form-control" id="FPC" value="@Model.FPC" name="FPC" placeholder="Enter Name">
+                        </div>
+                        
+
+
+                    </div>
+                </div>        
+                <br />
+                @if (Model.ID != 0)
+                {
+                    <button id="actionButton" type="button" class="btn btn-outline-primary"><i class="fas fa-save mr-1"></i> Update</button>
+                }
+                else
+                {
+                    <button id="actionButton" type="button" class="btn btn-outline-primary "><i class="fas fa-save mr-1"></i> Save</button>
+                }
+                <a href="@Url.Action("Index","ChronologyPregnancy")" class="btn btn-outline-danger"> CANCEL</a>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="errorDiv">
+
+    </div>
+
+}
+
+
+<script>
+    $("#actionButton").click(function () {
+		$.ajax({
+			url: '@Url.Action("Action", "ChronologyPregnancy")',
+			type: "post",
+			data: $("#actionForm").serialize()
+		})
+		.done(function () {
+
+            window.location.href = "@Url.Action("Index","ChronologyPregnancy")";
+
+		});
+	});
+</script>
