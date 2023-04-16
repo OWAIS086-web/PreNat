@@ -1323,9 +1323,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1432</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:4567/</IISUrl>
-          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>https://localhost:4567/</IISAppRootUrl>
+          <IISUrl>https://localhost:44333/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
