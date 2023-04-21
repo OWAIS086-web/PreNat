@@ -57,8 +57,8 @@
 
 
                                 <td>
-                                    <button data-id="@item.ID" type="button" class="btnEdit btn btn-info btn-icon-text"><i class="mdi mdi-pencil"></i> EDIT</button>
-                                    <button data-href="@Url.Action("Delete", "Patient", new { ID = item.ID })" type="button" class="data-btn btn btn-danger btn-icon-text"><i class="mdi mdi-delete"></i>DELETE</button>
+                                    <a href="@Url.Action("Action", "Patient", new {ID=item.ID })"  class="btnEdit btn btn-info btn-icon-text"><i class="mdi mdi-pencil"></i> EDIT</a>
+                                    <button data-toggle="modal" data-target="#actionModal" data-href="@Url.Action("Delete", "Patient", new { ID = item.ID })" type="button" class="data-btn btn btn-danger btn-icon-text"><i class="mdi mdi-delete"></i>DELETE</button>
 
                                 </td>
                             </tr>
@@ -79,19 +79,7 @@
 </div>
 
 <script>
-    $(".btnEdit").click(function () {
-        $.ajax({
-            url: '@Url.Action("Action", "Patient")',
-            type: "GET",
-            data: {ID: $(this).attr("data-id") }
-        })
-            .done(function (oData) {
-                $("#actionContainer").html(oData);
-            })
-            .error(function (error) {
-                alert(error);
-            })
-    })
+   
 
 
 </script>

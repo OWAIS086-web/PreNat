@@ -15,6 +15,9 @@ namespace PreNat.ViewModels
     public class MainActionViewModel
     {
         //patient
+        public User SignedInUser { get; set; }
+        public List<Patient> Patients { get; set; }
+
         public int ID { get; set; }
         public string Name { get; set; }
         public string Surnames { get; set; }

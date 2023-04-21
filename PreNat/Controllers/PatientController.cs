@@ -159,15 +159,6 @@ namespace PreNat.Controllers
         {
 
             PatientServices.Instance.DeletePatients(model.ID);
-
-
-
-
-
-             
-
-
-
             return Json(new { success = true });
         }
     }

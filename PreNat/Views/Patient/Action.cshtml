@@ -1,5 +1,9 @@
 ﻿@model PreNat.ViewModels.PatientActionViewModel
-
+<style>
+    .form-control{
+        border:solid 1px black;
+    }
+</style>
 @if (Model != null)
 {
 
@@ -23,76 +27,90 @@
             <form id="actionForm">
                 <input type="hidden" id="ID" name="ID" value="@Model.ID" />
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group col-md-5">
-                            <label class="col-sm-12">Patient</label>
-                            <input required class="form-control" id="Name" value="@Model.Name" name="Name" placeholder="Enter Name">
-                        </div>
-                        <div class="form-group col-md-5">
-                            <label class="col-sm-12">Patient</label>
-                            <input required class="form-control" id="Surnames" value="@Model.Surnames" name="Surnames" placeholder="Enter Name">
-                        </div>
-                        <div class="form-group col-md-5">
-                            <label class="col-sm-12">Patient</label>
-                            <input required class="form-control" id="Type_of_Identity" value="@Model.Type_of_Identity" name="Type_of_Identity" placeholder="Enter Name">
-                        </div>
-                        <div class="form-group col-md-5">
-                            <label class="col-sm-12">Patient</label>
-                            <input required class="form-control" id="Department_of_residence" value="@Model.Department_of_residence" name="Department_of_residence" placeholder="Enter Name">
-                        </div>
-                        <div class="form-group col-md-5">
-                            <label class="col-sm-12">Patient</label>
-                            <input required class="form-control" id="City_Municipality_of_residence" value="@Model.City_Municipality_of_residence" name="City_Municipality_of_residence" placeholder="Enter Name">
-                        </div>
-                        <div class="form-group col-md-5">
-                            <label class="col-sm-12">Patient</label>
-                            <input required class="form-control" id="Address_of_residence" value="@Model.Address_of_residence" name="Address_of_residence" placeholder="Enter Name">
-                        </div>
-                        <div class="form-group col-md-5">
-                            <label class="col-sm-12">Patient</label>
-                            <input required class="form-control" id="Telephones_Landline" value="@Model.Telephones_Landline" name="Telephones_Landline" placeholder="Enter Name">
-                        </div>
-                        <div class="form-group col-md-5">
-                            <label class="col-sm-12">Patient</label>
-                            <input required class="form-control" id="Cell_Phone" value="@Model.Cell_Phone" name="Cell_Phone" placeholder="Enter Name">
-                        </div>
-                        <div class="form-group col-md-5">
-                            <label class="col-sm-12">Patient</label>
-                            <input required class="form-control" id="Date_of_birth" value="@Model.Date_of_birth" name="Date_of_birth" placeholder="Enter Name">
-                        </div>
-                        <div class="form-group col-md-5">
-                            <label class="col-sm-12">Patient</label>
-                            <input required class="form-control" id="Age" value="@Model.Age" name="Age" placeholder="Enter Name">
-                        </div>
-                        <div class="form-group col-md-5">
-                            <label class="col-sm-12">Patient</label>
-                            <input required class="form-control" id="Race_DANE_Information" value="@Model.Race_DANE_Information" name="Race_DANE_Information" placeholder="Enter Name">
-                        </div>
-                        <div class="form-group col-md-5">
-                            <label class="col-sm-12">Patient</label>
-                            <input required class="form-control" id="Ethnicity_DANE_Information" value="@Model.Ethnicity_DANE_Information" name="Ethnicity_DANE_Information" placeholder="Enter Name">
-                        </div>
-                        <div class="form-group col-md-5">
-                            <label class="col-sm-12">Patient</label>
-                            <input required class="form-control" id="Level_of_Education" value="@Model.Level_of_Education" name="Level_of_Education" placeholder="Enter Name">
-                        </div>
-                        <div class="form-group col-md-5">
-                            <label class="col-sm-12">Patient</label>
-                            <input required class="form-control" id="Marital_status" value="@Model.Marital_status" name="Marital_status" placeholder="Enter Name">
-                        </div>
-                        <div class="form-group col-md-5">
-                            <label class="col-sm-12">Patient</label>
-                            <input required class="form-control" id="Affiliation_regime" value="@Model.Affiliation_regime" name="Affiliation_regime" placeholder="Enter Name">
-                        </div>
-                        <div class="form-group col-md-5">
-                            <label class="col-sm-12">Patient</label>
-                            <input required class="form-control" id="EPS_IPS" value="@Model.EPS_IPS" name="EPS_IPS" placeholder="Enter Name">
-                        </div>
-
-
-
+                    <div class="form-group col-md-4">
+                        <label class="col-sm-12">Name</label>
+                        <input required class="form-control" id="Name" value="@Model.Name" name="Name" placeholder="Enter Name">
                     </div>
-                </div>        
+
+                    <div class="form-group col-md-4">
+                        <label class="col-sm-12">Surnames</label>
+                        <input required class="form-control" id="Surnames" value="@Model.Surnames" name="Surnames" placeholder="Enter Name">
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label class="col-sm-12">Patient</label>
+                        <input required class="form-control" id="Type_of_Identity" value="@Model.Type_of_Identity" name="Type_of_Identity" placeholder="Enter Name">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label class="col-sm-12">Patient</label>
+                        <input required class="form-control" id="Department_of_residence" value="@Model.Department_of_residence" name="Department_of_residence" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="col-sm-12">Patient</label>
+                        <input required class="form-control" id="City_Municipality_of_residence" value="@Model.City_Municipality_of_residence" name="City_Municipality_of_residence" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="col-sm-12">Patient</label>
+                        <input required class="form-control" id="Address_of_residence" value="@Model.Address_of_residence" name="Address_of_residence" placeholder="Enter Name">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label class="col-sm-12">Patient</label>
+                        <input required class="form-control" id="Telephones_Landline" value="@Model.Telephones_Landline" name="Telephones_Landline" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="col-sm-12">Patient</label>
+                        <input required class="form-control" id="Cell_Phone" value="@Model.Cell_Phone" name="Cell_Phone" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="col-sm-12">Patient</label>
+                        <input required class="form-control" type="date" id="Date_of_birth" value="@Model.Date_of_birth" name="Date_of_birth" placeholder="Enter Name">
+                    </div>
+                        </div>
+                <div class="row">
+
+                    <div class="form-group col-md-4">
+                        <label class="col-sm-12">Patient</label>
+                        <input required class="form-control" id="Age" value="@Model.Age" name="Age" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="col-sm-12">Patient</label>
+                        <input required class="form-control" id="Race_DANE_Information" value="@Model.Race_DANE_Information" name="Race_DANE_Information" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="col-sm-12">Patient</label>
+                        <input required class="form-control" id="Ethnicity_DANE_Information" value="@Model.Ethnicity_DANE_Information" name="Ethnicity_DANE_Information" placeholder="Enter Name">
+                    </div>
+                    </div>
+
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label class="col-sm-12">Patient</label>
+                        <input required class="form-control" id="Level_of_Education" value="@Model.Level_of_Education" name="Level_of_Education" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="col-sm-12">Patient</label>
+                        <input required class="form-control" id="Marital_status" value="@Model.Marital_status" name="Marital_status" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label class="col-sm-12">Patient</label>
+                        <input required class="form-control" id="Affiliation_regime" value="@Model.Affiliation_regime" name="Affiliation_regime" placeholder="Enter Name">
+                    </div>
+                    </div>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label class="col-sm-12">Patient</label>
+                        <input required class="form-control" id="EPS_IPS" value="@Model.EPS_IPS" name="EPS_IPS" placeholder="Enter Name">
+                    </div>
+
+
+
+                </div>
                 <br />
                 @if (Model.ID != 0)
                 {

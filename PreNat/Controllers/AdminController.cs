@@ -59,10 +59,17 @@ namespace PreNat.Controllers
         }
 
 
+        [HttpPost]
+        public JsonResult GetPaitents(string Prefix)
+        {
+            var patients = PatientServices.Instance.GetPatients(Prefix).Distinct().ToList();
+            return Json(patients, JsonRequestBehavior.AllowGet);
+        }
         public ActionResult Dashboard()
         {
-            AdminViewModel model = new AdminViewModel();
+            MainActionViewModel model = new MainActionViewModel();
             var user = UserManager.FindById(User.Identity.GetUserId());
+            model.Patients = PatientServices.Instance.GetPatients();
             model.SignedInUser = user;
             return View(model);
         }

@@ -111,7 +111,7 @@
                                 
 
                                 <td>
-                                    <button data-id="@item.ID" type="button" class="btnEdit btn btn-info btn-icon-text"><i class="mdi mdi-pencil"></i> EDIT</button>
+                                    <a href="@Url.Action("Action", "Background", new {ID=item.ID })" class="btnEdit btn btn-info btn-icon-text"><i class="mdi mdi-pencil"></i> EDIT</a>
                                     <button data-href="@Url.Action("Delete", "Background", new { ID = item.ID })" type="button" class="data-btn btn btn-danger btn-icon-text"><i class="mdi mdi-delete"></i>DELETE</button>
 
                                 </td>
