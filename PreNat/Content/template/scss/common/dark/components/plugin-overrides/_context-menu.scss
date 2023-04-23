@@ -1,0 +1,60 @@
+/* Context Menu */
+
+.context-menu-icon {
+  &:before {
+    color: $body-color;
+    font: normal normal normal 15px/1 "typicons";
+  }
+  &.context-menu-icon-cut {
+    &:before {
+      content: '\e0dd';
+    }
+  }
+  &.context-menu-icon-edit {
+    &:before {
+      content: '\e0c3';
+    }
+  }
+  &.context-menu-icon-copy {
+    &:before {
+      content: '\e060';
+    }
+  }
+  &.context-menu-icon-paste {
+    &:before {
+      content: '\e04a';
+    }
+  }
+  &.context-menu-icon-delete {
+    &:before {
+      content: '\e123';
+    }
+  }
+  &.context-menu-icon-quit {
+    &:before {
+      content: '\e057';
+    }
+  }
+}
+.context-menu-list {
+  background: $card-bg;
+  box-shadow: none;
+  border: 1px solid $border-color;
+  .context-menu-item {
+    background: $card-bg;
+    span {
+      color: $body-color;
+      font-size: .75rem;
+      font-weight: 600;
+    }
+    &.context-menu-hover {
+      background: rgba($white, .3);
+      span {
+        color: $white;
+      }
+    }
+  }
+  .context-menu-separator {
+    border-bottom: 1px solid $border-color;
+  }
+}

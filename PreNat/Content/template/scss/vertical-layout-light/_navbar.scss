@@ -6,10 +6,10 @@
   -webkit-transition:background $action-transition-duration $action-transition-timing-function;
   -moz-transition:background $action-transition-duration $action-transition-timing-function;
   -ms-transition:background $action-transition-duration $action-transition-timing-function;
-  border-bottom: 4px solid theme-color(primary);  
+  border-bottom: 4px solid $primary;  
 
   .navbar-brand-wrapper {
-    background: theme-color(primary);
+    background: $primary;
     transition: width $action-transition-duration $action-transition-timing-function, background $action-transition-duration $action-transition-timing-function;
     -webkit-transition: width $action-transition-duration $action-transition-timing-function, background $action-transition-duration $action-transition-timing-function;
     -moz-transition: width $action-transition-duration $action-transition-timing-function, background $action-transition-duration $action-transition-timing-function;
@@ -20,7 +20,7 @@
       margin-right: 1.3rem;
       margin-left: 1.8rem;
       .navbar-brand {
-        color: lighten(color(gray-dark), 20%);
+        color: lighten($gray-dark, 20%);
         font-size: 1.5rem;
         margin-right: 0;
         padding: .25rem 0;
@@ -36,7 +36,7 @@
         &:active,
         &:focus,
         &:hover {
-          color: lighten(color(gray-dark), 10%);
+          color: lighten($gray-dark, 10%);
         }
 
         img {
@@ -51,6 +51,10 @@
         padding: 0;
         color: $white;
         border: 0;
+        &:focus {
+          box-shadow: none;
+          border: none;
+        }
         @media(max-width: 991px) {
           display: none;
         }
@@ -80,6 +84,7 @@
       color: inherit;
       font-size: 1.5rem;
       padding: 0;
+      
       &:not(.navbar-toggler-right) {
         @media (max-width: 991px) {
           display: none;
@@ -208,7 +213,7 @@
               }
               .rtl & {
                 i {
-                  @extend .mr-0;
+                  @extend .me-0;
                   margin-left: 10px;
                 }
                 .badge {
@@ -252,7 +257,7 @@
               width: 7px;
               height: 7px;
               border-radius: 100%;
-              background: theme-color(danger);
+              background: $danger;
             }
             &:after {
               display: none;
@@ -319,15 +324,15 @@
         background: $white;
         border-left: 1px solid $border-color;
         .navbar-toggler {
-          color: theme-color(dark);
+          color: $dark;
         }
         .nav-item {
           .nav-link {
-            color: theme-color(dark);
+            color: $dark;
           }
           &.nav-search {
             .input-group {
-              background: rgba(theme-color(dark), .24);
+              background: rgba($dark, .24);
             }
           }
         }
@@ -344,7 +349,7 @@
           .nav-link {
             &.count-indicator {
               .count {
-                background: theme-color(primary);
+                background: $primary;
               }
             }
           }
@@ -474,7 +479,7 @@
               }
             }
             .input-group-prepend {
-              background: theme-color(danger);
+              background: $danger;
               cursor: pointer;
               border-radius: 0 2px 2px 0;
               width: 2.75rem;

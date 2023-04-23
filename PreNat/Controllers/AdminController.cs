@@ -74,6 +74,15 @@ namespace PreNat.Controllers
             return View(model);
         }
 
+        public ActionResult UserDashboard()
+        {
+            MainActionViewModel model = new MainActionViewModel();
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            model.Patients = PatientServices.Instance.GetPatients();
+            model.SignedInUser = user;
+            return View(model);
+        }
+
 
 
         [HttpPost]

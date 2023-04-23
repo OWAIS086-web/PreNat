@@ -37,7 +37,7 @@
         @include justify-content(center);
         &.active {
           background: transparent;
-          color: theme-color(primary);
+          color: $primary;
         }
       }
     }
@@ -86,12 +86,12 @@
     @include transition-duration($action-transition-duration);
     @include transition-property(background);
     &.selected {
-      background: color(gray-lightest);
+      background: $gray-lightest;
     }
     .rtl & {
       .rounded-circle {
-        @extend .mr-0;
-        @extend .ml-3;
+        @extend .me-0;
+        @extend .ms-3;
       }
     }
   }
@@ -146,7 +146,7 @@
         @extend .bg-dark;
       }
       &.default {
-        background: lighten(color(gray),60%);
+        background: lighten($gray,60%);
       }
     }
   }
@@ -177,10 +177,10 @@
           border: 0.13rem solid $white;
           @include border-radius(100%);
           &.online {
-            background: theme-color(success);
+            background: $success;
           }
           &.offline{
-            background: theme-color(warning);
+            background: $warning;
           }
         }
       }
@@ -200,7 +200,7 @@
         }
       }
       &.active {
-        background: theme-color(light);
+        background: $light;
       }
     }
   }
@@ -211,7 +211,7 @@
     position: absolute;
     top: 16px;
     right: 10px;
-    color: theme-color(primary);
+    color: $primary;
     background: transparent;
     @include border-radius(4px);
     padding: 0 3px;
@@ -236,8 +236,8 @@
         text-align: right;
       }
       i{
-        @extend .mr-0;
-        @extend .ml-2;
+        @extend .me-0;
+        @extend .ms-2;
       }
     }
   }
@@ -281,7 +281,7 @@
   right: 30px;
   height: 45px;
   width: 45px;
-  background: theme-color(primary);
+  background: $primary;
   z-index: 99;
   @include display-flex;
   @include align-items(center);

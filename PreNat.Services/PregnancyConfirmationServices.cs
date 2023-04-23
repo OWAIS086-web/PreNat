@@ -33,9 +33,9 @@ namespace PreNat.Services
             {
                 if (SearchTerm != "")
                 {
-                    return context.PregnancyConfirmations.Where(p => p.FUM != null && p.FUM.ToLower()
+                    return context.PregnancyConfirmations.Where(p => p.PregnancyConfirm != null && p.PregnancyConfirm.ToLower()
                                             .Contains(SearchTerm.ToLower()))
-                                            .OrderBy(x => x.FUM)
+                                            .OrderBy(x => x.PregnancyConfirm)
                                             .ToList();
                 }
                 else
@@ -46,23 +46,16 @@ namespace PreNat.Services
         }
 
 
-        public List<PregnancyConfirmation> GetPregnancyConfirmations(string FUM, string SearchTerm = "")
+        public PregnancyConfirmation GetPregnancyConfirmationViaPatientID(int ID)
         {
             using (var context = new DSContext())
             {
-                if (SearchTerm != "")
-                {
-                    return context.PregnancyConfirmations.Where(p => p.FUM == FUM && p.FUM != null && p.FUM.ToLower()
-                                            .Contains(SearchTerm.ToLower()))
-                                            .OrderBy(x => x.FUM)
-                                            .ToList();
-                }
-                else
-                {
-                    return context.PregnancyConfirmations.Where(x => x.FUM == FUM).ToList();
-                }
+
+                return context.PregnancyConfirmations.Where(x => x.PatientID == ID).FirstOrDefault();
+
             }
         }
+
 
 
 

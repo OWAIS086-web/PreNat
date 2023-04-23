@@ -142,6 +142,63 @@ namespace PreNat.Controllers
         }
 
 
+
+
+        public ActionResult MainAction(MainActionViewModel model)
+        {
+
+            if (Session["PatientID"] != null)
+            {
+                var patient = PatientServices.Instance.GetPatient(int.Parse(Session["PatientID"].ToString()));
+                patient.Name = model.Name;
+                patient.Surnames = model.Surnames;
+                patient.Type_of_Identity = model.Type_of_Identity;
+                patient.Department_of_residence = model.Department_of_residence;
+                patient.City_Municipality_of_residence = model.City_Municipality_of_residence;
+                patient.Address_of_residence = model.Address_of_residence;
+                patient.Telephones_Landline = model.Telephones_Landline;
+                patient.Cell_Phone = model.Cell_Phone;
+                patient.Date_of_birth = model.Date_of_birth;
+                patient.Age = model.Age;
+                patient.Race_DANE_Information = model.Race_DANE_Information;
+                patient.Ethnicity_DANE_Information = model.Ethnicity_DANE_Information;
+                patient.Level_of_Education = model.Level_of_Education;
+                patient.Marital_status = model.Marital_status;
+                patient.Affiliation_regime = model.Affiliation_regime;
+                patient.EPS_IPS = model.EPS_IPS;
+
+                PatientServices.Instance.UpdatePatients(patient);
+                Session["PatientID"] = patient.ID;
+                return Json(new { success = true, PatientID = patient.ID });
+            }
+            else
+            {
+                var patient = new Patient();
+                patient.Name = model.Name;
+                patient.Surnames = model.Surnames;
+                patient.Type_of_Identity = model.Type_of_Identity;
+                patient.Department_of_residence = model.Department_of_residence;
+                patient.City_Municipality_of_residence = model.City_Municipality_of_residence;
+                patient.Address_of_residence = model.Address_of_residence;
+                patient.Telephones_Landline = model.Telephones_Landline;
+                patient.Cell_Phone = model.Cell_Phone;
+                patient.Date_of_birth = model.Date_of_birth;
+                patient.Age = model.Age;
+                patient.Race_DANE_Information = model.Race_DANE_Information;
+                patient.Ethnicity_DANE_Information = model.Ethnicity_DANE_Information;
+                patient.Level_of_Education = model.Level_of_Education;
+                patient.Marital_status = model.Marital_status;
+                patient.Affiliation_regime = model.Affiliation_regime;
+                patient.EPS_IPS = model.EPS_IPS;
+
+                PatientServices.Instance.SavePatients(patient);
+                Session["PatientID"] = patient.ID;
+                return Json(new { success = true, PatientID = patient.ID });
+            }
+
+        }
+
+
         [HttpGet]
         public ActionResult Delete(int ID)
         {

@@ -530,9 +530,9 @@ namespace PreNat.Controllers
                 return RedirectToAction("Dashboard", "Admin");
 
             }
-            else if (UserManager.IsInRole(userID, "Copywriter") == true)
+            else if (UserManager.IsInRole(userID, "User") == true)
             {
-                return RedirectToAction("Dashboard", "Copywriter");
+                return RedirectToAction("UserDashboard", "Admin");
             }
             else
             {

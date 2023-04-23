@@ -1,10 +1,7 @@
 (function($) {
   'use strict';
   $(function() {
-    // Remove pro banner on close
-    document.querySelector('#bannerClose').addEventListener('click',function() {
-      document.querySelector('#proBanner').classList.add('d-none');
-    });
+
     if ($("#transactions-chart").length) {
       var transactionsChartCanvas = $("#transactions-chart").get(0).getContext("2d");
 
@@ -545,15 +542,15 @@
         legendCallback: function(chart) { 
           var text = [];
           text.push('<div class="d-flex align-items-center mb-3">');
-            text.push('<div class="mr-2" style="width: 10px; height: 10px; border-radius: 50%;  background: ' + chart.data.datasets[0]. backgroundColor[0] + ' "></div>');
+            text.push('<div class="me-2" style="width: 10px; height: 10px; border-radius: 50%;  background: ' + chart.data.datasets[0]. backgroundColor[0] + ' "></div>');
             text.push('<p class="mb-0">Desktop&nbsp;(24%)</p>')
           text.push('</div>');
           text.push('<div class="d-flex align-items-center mb-3">');
-            text.push('<div class="mr-2" style="width: 10px; height: 10px; border-radius: 50%; background: ' + chart.data.datasets[0]. backgroundColor[1] + ' "></div>');
+            text.push('<div class="me-2" style="width: 10px; height: 10px; border-radius: 50%; background: ' + chart.data.datasets[0]. backgroundColor[1] + ' "></div>');
             text.push('<p class="mb-0">Mobile&nbsp;(26%)</p>')
           text.push('</div>');
           text.push('<div class="d-flex align-items-center">');
-            text.push('<div class="mr-2" style="width: 10px; height: 10px; border-radius: 50%; background: ' + chart.data.datasets[0]. backgroundColor[2] + ' "></div>');
+            text.push('<div class="me-2" style="width: 10px; height: 10px; border-radius: 50%; background: ' + chart.data.datasets[0]. backgroundColor[2] + ' "></div>');
             text.push('<p class="mb-0">Tablet&nbsp;(50%)</p>')
           text.push('</div>');
           return text.join("");
@@ -663,12 +660,12 @@
         },
         legendCallback : function(chart) {
           var text = [];
-          text.push('<div class="d-flex align-items-center mr-3">');
-            text.push('<div class="mr-2" style="width: 12px; border-radius: 50%; height: 12px; background-color: ' + chart.data.datasets[0].borderColor[0] +' "></div>');
+          text.push('<div class="d-flex align-items-center me-3">');
+            text.push('<div class="me-2" style="width: 12px; border-radius: 50%; height: 12px; background-color: ' + chart.data.datasets[0].borderColor[0] +' "></div>');
             text.push('<p class="mb-0">Register User</p>');
           text.push('</div>');
           text.push('<div class="d-flex align-items-center">');
-            text.push('<div class="mr-2" style="width: 12px; border-radius: 50%; height: 12px; background-color: ' + chart.data.datasets[1].borderColor[0] +' "></div>');
+            text.push('<div class="me-2" style="width: 12px; border-radius: 50%; height: 12px; background-color: ' + chart.data.datasets[1].borderColor[0] +' "></div>');
             text.push('<p class="mb-0">Premium User</p>');
           text.push('</div>');
           return text.join('');
@@ -773,12 +770,12 @@
         },
         legendCallback : function(chart) {
           var text = [];
-          text.push('<div class="d-flex align-items-center mr-3">');
-            text.push('<div class="mr-2" style="width: 12px; border-radius: 50%; height: 12px; background-color: ' + chart.data.datasets[0].borderColor[0] +' "></div>');
+          text.push('<div class="d-flex align-items-center me-3">');
+            text.push('<div class="me-2" style="width: 12px; border-radius: 50%; height: 12px; background-color: ' + chart.data.datasets[0].borderColor[0] +' "></div>');
             text.push('<p class="mb-0">Register User</p>');
           text.push('</div>');
           text.push('<div class="d-flex align-items-center">');
-            text.push('<div class="mr-2" style="width: 12px; border-radius: 50%; height: 12px; background-color: ' + chart.data.datasets[1].borderColor[0] +' "></div>');
+            text.push('<div class="me-2" style="width: 12px; border-radius: 50%; height: 12px; background-color: ' + chart.data.datasets[1].borderColor[0] +' "></div>');
             text.push('<p class="mb-0">Premium User</p>');
           text.push('</div>');
           return text.join('');
@@ -1649,6 +1646,36 @@
       });
     }
     // memory-chart end
+    if ($.cookie('polluxui-pro-banner')!="true") {
+      document.querySelector('#proBanner').classList.add('d-flex');
+      document.querySelector('.navbar').classList.remove('fixed-top');
+    }
+    else {
+      document.querySelector('#proBanner').classList.add('d-none');
+      document.querySelector('.navbar').classList.add('fixed-top');
+    }
+    
+    if ($( ".navbar" ).hasClass( "fixed-top" )) {
+      document.querySelector('.navbar-breadcrumb').classList.remove('mt-0');
+      document.querySelector('.navbar').classList.remove('pt-5');
+    }
+    else {
+      document.querySelector('.navbar-breadcrumb').classList.add('mt-0');
+      document.querySelector('.navbar').classList.add('pt-5');
+      document.querySelector('.navbar').classList.add('mt-3');
+      
+    }
+    document.querySelector('#bannerClose').addEventListener('click',function() {
+      document.querySelector('#proBanner').classList.add('d-none');
+      document.querySelector('#proBanner').classList.remove('d-flex');
+      document.querySelector('.navbar').classList.remove('pt-5');
+      document.querySelector('.navbar').classList.add('fixed-top');
+      document.querySelector('.navbar-breadcrumb').classList.add('proBanner-margin-top');
+      document.querySelector('.navbar').classList.remove('mt-3');
+      var date = new Date();
+      date.setTime(date.getTime() + 24 * 60 * 60 * 1000); 
+      $.cookie('polluxui-pro-banner', "true", { expires: date });
+    });
     
   });
 })(jQuery);

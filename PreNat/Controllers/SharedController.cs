@@ -10,7 +10,7 @@ namespace PreNat.Controllers
     public class SharedController : Controller
     {
         // GET: Shared
-        public JsonResult UploadImage()
+        public JsonResult UploadDoc()
         {
             JsonResult result = new JsonResult();
             result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
@@ -18,9 +18,9 @@ namespace PreNat.Controllers
             {
                 var file = Request.Files[0];
 
-                var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                var fileName = DateTime.Now.ToString("dd-MM-yyyy") + file.FileName;
 
-                var path = Path.Combine(Server.MapPath("~/PdfFiles/"), fileName);
+                var path = Path.Combine(Server.MapPath("~/Docs/"), fileName);
                 file.SaveAs(path);
                 result.Data = new { Success = true, DocURL = string.Format("/PdfFiles/{0}", fileName) };
             }
@@ -34,27 +34,7 @@ namespace PreNat.Controllers
 
 
 
-        public JsonResult ArticleUploadImage()
-        {
-            JsonResult result = new JsonResult();
-            result.JsonRequestBehavior = JsonRequestBehavior.AllowGet;
-            try
-            {
-                var file = Request.Files[0];
-
-                var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
-
-                var path = Path.Combine(Server.MapPath("~/Content/template/images/"), fileName);
-                file.SaveAs(path);
-                result.Data = new { Success = true, ImageURL = string.Format("/Content/template/images/{0}", fileName) };
-            }
-            catch (Exception ex)
-            {
-                result.Data = new { Success = false, Message = ex.Message };
-                throw;
-            }
-            return result;
-        }
+        
 
     }
 }

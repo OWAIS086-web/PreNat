@@ -61,9 +61,9 @@
     <Compile Include="BaseEntity.cs" />
     <Compile Include="ChronologyPregnancy.cs" />
     <Compile Include="Immunizations.cs" />
-    <Compile Include="LaboratoryTests .cs" />
+    <Compile Include="LaboratoryTests.cs" />
     <Compile Include="ObstetricGynecologyClinical.cs" />
-    <Compile Include="Obstetrichistory .cs" />
+    <Compile Include="Obstetrichistory.cs" />
     <Compile Include="Patient.cs" />
     <Compile Include="PregnancyConfirmation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
