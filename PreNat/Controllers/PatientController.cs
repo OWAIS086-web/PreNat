@@ -193,7 +193,7 @@ namespace PreNat.Controllers
 
                 PatientServices.Instance.SavePatients(patient);
                 Session["PatientID"] = patient.ID;
-                return Json(new { success = true, PatientID = patient.ID });
+                return Json(new { success = true });
             }
 
         }

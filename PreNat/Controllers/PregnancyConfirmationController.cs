@@ -72,25 +72,7 @@ namespace PreNat.Controllers
         [HttpPost]
         public ActionResult MainAction(PregnancyConfirmationActionViewModel model)
         {
-            if (Session["PatientID"] != null)
-            {
-                var PregnancyConfirmation = PregnancyConfirmationServices.Instance.GetPregnancyConfirmationViaPatientID(int.Parse(Session["PatientID"].ToString()));
-                PregnancyConfirmation.PatientID = int.Parse(Session["PatientID"].ToString());
-                PregnancyConfirmation.FUM = model.FUM;
-                PregnancyConfirmation.Positive_HCG_presence = model.Positive_HCG_presence;
-                PregnancyConfirmation.Positive_HCG_presence_Date = model.Positive_HCG_presence_Date;
-                PregnancyConfirmation.Upload_document1 = model.Upload_document1;
-                PregnancyConfirmation.Positive_TV_ultrasound = model.Positive_TV_ultrasound;
-                PregnancyConfirmation.Positive_TV_ultrasound_Date = model.Positive_TV_ultrasound_Date;
-                PregnancyConfirmation.Upload_document2 = model.Upload_document2;
-                PregnancyConfirmation.PregnancyConfirm = model.PregnancyConfirm;
-
-                PregnancyConfirmationServices.Instance.UpdatePregnancyConfirmations(PregnancyConfirmation);
-
-
-            }
-            else
-            {
+            
                 var PregnancyConfirmation = new PregnancyConfirmation();
                 PregnancyConfirmation.FUM = model.FUM;
                 PregnancyConfirmation.Positive_HCG_presence = model.Positive_HCG_presence;
@@ -106,7 +88,7 @@ namespace PreNat.Controllers
                 PregnancyConfirmationServices.Instance.SavePregnancyConfirmations(PregnancyConfirmation);
 
 
-            }
+            
             return Json(new { success = true });
         }
 

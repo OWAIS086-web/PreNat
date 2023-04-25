@@ -5,16 +5,38 @@
 }
 
 <style>
-    .form-control{
+    .form-control {
         border: solid 1px black;
-       
+        height: 40px;
     }
 
-    select.form-control, .select2-container--default select.select2-selection--single, .select2-container--default .select2-selection--single select.select2-search__field, select.typeahead, select.tt-query, select.tt-hint {
-        padding: 0.4375rem 0.75rem;
-        border: 0;
-        outline: 1px solid black;
-        color: black;
+
+    .form-check text-center {
+        position: relative;
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-left: 0;
+        height: 40px;
+        width: 40px;
+    }
+    .form-select {
+        display: block;
+        width: 100%;
+        padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+        --moz-padding-start: calc(0.75rem - 3px);
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        background-color: #fff;
+        background-repeat: no-repeat;
+        background-position: right 0.75rem center;
+        background-size: 16px 12px;
+        border: 1px solid black;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        appearance: none;
     }
 </style>
 <h2>Dashboard - Welcome @Model.SignedInUser.Name</h2>
@@ -23,38 +45,76 @@
 <!-- FORMS -->
 <div class="col-12">
     <div class="card">
+        
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12 mx-auto">
-                    <ul class="nav nav-pills nav-pills-custom" id="pills-tab-custom" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="pills-pi-tab-custom" data-toggle="pill" href="#pills-pi" role="tab" aria-controls="pills-pi" aria-selected="true">
-                                Patient Identification
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-cop-tab-custom" data-toggle="pill" href="#pills-cop" role="tab" aria-controls="pills-cop" aria-selected="false">
-                                Confirmation of Preganancy
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-b-tab-custom" data-toggle="pill" href="#pills-b" role="tab" aria-controls="pills-b" aria-selected="false">
-                                Background
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-cg-tab-custom" data-toggle="pill" href="#pills-cg" role="tab" aria-controls="pills-cg" aria-selected="false">
-                                Current Gestation
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="pills-r-tab-custom" data-toggle="pill" href="#pills-r" role="tab" aria-controls="pills-r" aria-selected="false">
-                                Report
-                            </a>
-                        </li>
-                    </ul>
+                    @if (@Session["PatientID"] != null)
+                    {
+                        <input type="hidden" id="PatientID" value="@Session["PatientID"].ToString()" />
+                        <ul class="nav nav-pills nav-pills-custom" id="pills-tab-custom" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="pills-pi-tab-custom" data-bs-toggle="pill" href="#pills-pi" role="tab" aria-bs-controls="pills-pi" aria-bs-selected="true">
+                                    Patient Identification
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-cop-tab-custom" data-bs-toggle="pill" href="#pills-cop" role="tab" aria-bs-controls="pills-cop" aria-bs-selected="false">
+                                    Confirmation of Preganancy
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-b-tab-custom" data-bs-toggle="pill" href="#pills-b" role="tab" aria-bs-controls="pills-b" aria-bs-selected="false">
+                                    Background
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-cg-tab-custom" data-bs-toggle="pill" href="#pills-cg" role="tab" aria-bs-controls="pills-cg" aria-bs-selected="false">
+                                    Current Gestation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-r-tab-custom" data-bs-toggle="pill" href="#pills-r" role="tab" aria-bs-controls="pills-r" aria-bs-selected="false">
+                                    Report
+                                </a>
+                            </li>
+                        </ul>
+                    }
+                    else
+                    {
+                        <input type="hidden" id="PatientID" value="" />
+                        <ul class="nav nav-pills nav-pills-custom" id="pills-tab-custom" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="pills-pi-tab-custom" data--toggle="pill" href="#pills-pi" role="tab" aria-controls="pills-pi" aria-selected="true">
+                                    Patient Identification
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-cop-tab-custom" data-toggle="pill" href="#pills-cop" role="tab" aria-controls="pills-cop" aria-selected="false">
+                                    Confirmation of Preganancy
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-b-tab-custom" data-toggle="pill" href="#pills-b" role="tab" aria-controls="pills-b" aria-selected="false">
+                                    Background
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-cg-tab-custom" data-toggle="pill" href="#pills-cg" role="tab" aria-controls="pills-cg" aria-selected="false">
+                                    Current Gestation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-r-tab-custom" data-toggle="pill" href="#pills-r" role="tab" aria-controls="pills-r" aria-selected="false">
+                                    Report
+                                </a>
+                            </li>
+                        </ul>
+                    }
+
+
                     <br />
-                    <div class="tab-content tab-content-custom-pill" id="pills-tabContent-custom">               
+                    <div class="tab-content tab-content-custom-pill" id="pills-tabContent-custom">
                         <div class="tab-pane fade show active" id="pills-pi" role="tabpanel" aria-labelledby="pills-pi-tab-custom">
                             <form id="patientIdForm">
                                 <div class="row">
@@ -73,7 +133,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="type_of_identity">Type of Identity</label>
-                                            <select required class="form-control" name="type_of_identity" id="type_of_identity">
+                                            <select required class="form-select" name="type_of_identity" id="type_of_identity">
                                                 <option value="Cedula de Ciudadanía" @(Model.Type_of_Identity == "Cedula de Ciudadanía" ? "selected" : "")>Cedula de Ciudadanía</option>
                                                 <option value="Cédula de Extranjería" @(Model.Type_of_Identity == "CE" ? "selected" : "")>Cédula de Extranjería</option>
                                                 <option value="Tarjeta de Identidad" @(Model.Type_of_Identity == "TI" ? "selected" : "")>Tarjeta de Identidad</option>
@@ -125,7 +185,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="race_dane_information">Race (DANE Information)</label>
-                                            <select required class="form-control" name="race_dane_information" id="race_dane_information">
+                                            <select required class="form-select" name="race_dane_information" id="race_dane_information">
                                                 <option value="Black" @(Model.Race_DANE_Information == "Black" ? "selected" : "")>Black (Afro-descendant)</option>
                                                 <option value="Mestizo" @(Model.Race_DANE_Information == "Mestizo" ? "selected" : "")>Mestizo</option>
                                                 <option value="White" @(Model.Race_DANE_Information == "White" ? "selected" : "")>White</option>
@@ -134,7 +194,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="ethnicity_dane_information">Ethnicity (DANE Information)</label>
-                                            <select required class="form-control" name="ethnicity_dane_information" id="ethnicity_dane_information">
+                                            <select required class="form-select" name="ethnicity_dane_information" id="ethnicity_dane_information">
                                                 <option value="Palenquera" @(Model.Ethnicity_DANE_Information == "Palenquera" ? "selected" : "")>Palenquera</option>
                                                 <option value="Raizal" @(Model.Ethnicity_DANE_Information == "Raizal" ? "selected" : "")>Raizal</option>
                                                 <option value="Indigenous" @(Model.Ethnicity_DANE_Information == "Indigenous" ? "selected" : "")>Indigenous</option>
@@ -148,7 +208,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="level_of_education">Level of Education</label>
-                                            <select required class="form-control" name="level_of_education" id="level_of_education">
+                                            <select required class="form-select" name="level_of_education" id="level_of_education">
                                                 <option value="Primary" @(Model.Level_of_Education == "Primary" ? "selected" : "")>Primary</option>
                                                 <option value="Bachelor" @(Model.Level_of_Education == "Bachelor" ? "selected" : "")>Bachelor</option>
                                                 <option value="Technical" @(Model.Level_of_Education == "Technical" ? "selected" : "")>Technical</option>
@@ -157,7 +217,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="marital_status">Marital Status</label>
-                                            <select required class="form-control" name="marital_status" id="marital_status">
+                                            <select required class="form-select" name="marital_status" id="marital_status">
                                                 <option value="Married" @(Model.Marital_status == "Married" ? "selected" : "")>Married</option>
                                                 <option value="Single" @(Model.Marital_status == "Single" ? "selected" : "")>Single</option>
                                                 <option value="Separated" @(Model.Marital_status == "Separated" ? "selected" : "")>Separated</option>
@@ -171,7 +231,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="affiliation_regime">Affiliation Regime</label>
-                                            <select required class="form-control" name="affiliation_regime" id="affiliation_regime">
+                                            <select required class="form-select" name="affiliation_regime" id="affiliation_regime">
                                                 <option value="Subsidized" @(Model.Affiliation_regime == "Subsidized" ? "selected" : "")>Subsidized</option>
                                                 <option value="Contributory" @(Model.Affiliation_regime == "Contributory" ? "selected" : "")>Contributory</option>
                                             </select>
@@ -185,15 +245,15 @@
                                 </div>
 
 
-                                
+
                             </form>
 
-                            <button type="button" id="PatientIDActionBtn" class="btn btn-primary" >
+                            <button type="button" id="PatientIDActionBtn" class="btn btn-primary">
                                 Save and Continue
                             </button>
                         </div>
-                       
-                               
+
+
                         <div class="tab-pane fade" id="pills-cop" role="tabpanel" aria-labelledby="pills-cop-tab-custom">
                             <form id="pocForm">
 
@@ -204,8 +264,11 @@
                                             <label for="fum">FUM</label>
                                             <input type="date" class="form-control" value="@Model.FUM.ToString("MM-dd-yyyy")" name="FUM" id="FUM">
                                         </div>
+
+                                    </div>
+                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="age">Age</label>
+                                            <label for="age">Weeks Pregnant</label>
                                             <input required type="text" class="form-control" value="@Model.WeeksPregnant" name="WeeksPregnant" id="WeeksPregnant">
                                         </div>
                                     </div>
@@ -216,6 +279,9 @@
                                             <label for="date_of_birth">Positive HCG Presence</label>
                                             <input type="date" class="form-control" value="@Model.Positive_HCG_presence_Date.ToString("MM-dd-yyyy")" name="Positive_HCG_presence_Date" id="Positive_HCG_presence_Date">
                                         </div>
+
+                                    </div>
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Attachment</label>
                                             <input class="form-control" value="@Model.Upload_document1" name="Upload_document1" id="Upload_document1" type="hidden" />
@@ -230,6 +296,9 @@
                                             <label for="date_of_birth">Positive TV Ultrasound Date</label>
                                             <input type="date" class="form-control" value="@Model.Positive_TV_ultrasound_Date.ToString("MM-dd-yyyy")" name="Positive_TV_ultrasound_Date" id="Positive_TV_ultrasound_Date">
                                         </div>
+
+                                    </div>
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Attachment</label>
                                             <input class="form-control" value="@Model.Upload_document2" name="Upload_document2" id="Upload_document2" type="hidden" />
@@ -241,10 +310,15 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="affiliation_regime">Pregnancy Confirm</label>
-                                        <select required class="form-control" name="PregnancyConfirm" id="PregnancyConfirm">
+                                        <select required class="form-select" name="PregnancyConfirm" id="PregnancyConfirm">
                                             <option value="Yes" @(Model.PregnancyConfirm == "Yes" ? "selected" : "")>Yes</option>
                                             <option value="No" @(Model.PregnancyConfirm == "No" ? "selected" : "")>No</option>
                                         </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Weeks Pregnant</label>
+                                        <input class="form-control" value="@Model.WeeksPregnant" name="WeeksPregnant" id="WeeksPregnant" type="text" />
                                     </div>
                                 </div>
 
@@ -254,31 +328,209 @@
 
 
                             </form>
-
+                            <br />
                             <button type="button" id="PregConfirmActionBtn" class="btn btn-primary">
                                 Save and Continue
                             </button>
                         </div>
-                       
-                        
-                        
-                        
+
+
+
+
                         <div class="tab-pane fade" id="pills-b" role="tabpanel" aria-labelledby="pills-b-tab-custom">
-                            
+                            <form id="backgroundForm">
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <td>
+                                                    Generaal Pathologies
+                                                </td>
+                                                <td>
+                                                    Absence of Pathologies
+                                                </td>
+                                                <td>
+                                                    Family
+                                                </td>
+                                                <td>
+                                                    Personal
+                                                </td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    Tbc
+                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="tbc-absent-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="tbc-present-family-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="tbc-present-personally-checkbox"></td>                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    Diabetes
+                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="diabetes-absent-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="diabetes-present-family-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="diabetes-present-personally-checkbox"></td>                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    Hypertension
+                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="hypertension-absent-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="hypertension-present-family-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="hypertension-present-personally-checkbox"></td>                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    Eclampsia
+                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="eclampsia-absent-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="eclampsia-present-family-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="eclampsia-present-personally-checkbox"></td>                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    Preeclampsia
+                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="preeclampsia-absent-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="preeclampsia-present-family-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="preeclampsia-present-personally-checkbox"></td>                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    Surgery
+                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="surgery-absent-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="surgery-present-family-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="surgery-present-personally-checkbox"></td>                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    Infertility
+                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="infertility-absent-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="infertility-present-family-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="infertility-present-personally-checkbox"></td>                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    Cardiopathy
+                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="cardiopathy-absent-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="cardiopathy-present-family-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="cardiopathy-present-personally-checkbox"></td>                                                </td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td>
+                                                    Nephropathy
+                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="nephropathy-absent-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="nephropathy-present-family-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="nephropathy-present-personally-checkbox"></td>                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    Violence
+                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="violence-absent-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="violence-present-family-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="violence-present-personally-checkbox"></td>                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    HIV+
+                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="hiv-absent-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="hiv-present-family-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="hiv-present-personally-checkbox"></td>                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    Migraine
+                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="migraine-absent-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="migraine-present-family-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="migraine-present-personally-checkbox"></td>                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    Thromboembolic
+                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="thromboembolic-absent-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="thromboembolic-present-family-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="thromboembolic-present-personally-checkbox"></td>                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    BMI > 29
+                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="bmi_29-absent-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="bmi_29-present-family-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="bmi_29-present-personally-checkbox"></td>                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    BMI > 39.5
+                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="bmi_39-absent-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="bmi_39-present-family-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="bmi_39-present-personally-checkbox"></td>                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    Disc. Sang.
+                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="discsang-absent-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="discsang-present-family-checkbox"></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="discsang-present-personally-checkbox"></td>                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    Other Medical Condition Which one?
+                                                </td>
+                                                <td><input class="form-control" type="text" id="other-absent-checkbox"></td>
+                                                <td><input class="form-control" type="text" id="other-present-family-checkbox"></td>
+                                                <td><input class="form-control" type="text" id="other-present-personally-checkbox"></td>                                                </td>
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
                         </div>
-                        
-                        
-                        
+
+
+
                         <div class="tab-pane fade" id="pills-cg" role="tabpanel" aria-labelledby="pills-cg-tab-custom">
-                            
+
                         </div>
-               
-                        
-                        
-                        
-                
+
+
+
+
+
                         <div class="tab-pane fade" id="pills-r" role="tabpanel" aria-labelledby="pills-r-tab-custom">
-                           
+
                         </div>
                     </div>
                 </div>
@@ -296,6 +548,15 @@
 <script src="~/Content/template/js/tabs.js"></script>
 
 <script>
+
+    var patientID = $("#PatientID").val();
+
+    $(document).ready(function () {
+        if (patientID != null && patientID != "") {
+            
+        }
+    })
+  
 
     $("#FileAttachmentUpload").change(function () {
         var element = this;
@@ -353,53 +614,62 @@
 
 
     $("#PatientIDActionBtn").click(function () {
-        const form = document.getElementById('patientIdForm');
-        const requiredInputs = form.querySelectorAll('input[required], select[required]');
-        let isValid = true;
-        requiredInputs.forEach(function (input) {
-            if (input.value.trim() === '') {
-                input.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                input.classList.remove('is-invalid');
-            }
-        });
-
-
-        // If any required field is empty, prevent the form from being submitted
-        if (!isValid) {
-            alert("All Fields are mandatory");
-            return false;
+    const form = document.getElementById('patientIdForm');
+    const requiredInputs = form.querySelectorAll('input[required], select[required]');
+    let isValid = true;
+    requiredInputs.forEach(function (input) {
+        if (input.value.trim() === '') {
+            input.classList.add('is-invalid');
+            isValid = false;
         } else {
+            input.classList.remove('is-invalid');
+        }
+    });
 
-            $.ajax({
-                url: '@Url.Action("MainAction", "Patient")',
-                type: "post",
-                data: $("#patientIdForm").serialize()
-            })
-                .done(function (result) {
-                    if (result.success) {
-                        alert("Saved Successfully!!");
+    // If any required field is empty, prevent the form from being submitted
+    if (!isValid) {
+        alert("All Fields are mandatory");
+        return false;
+    } else {
+        $.ajax({
+            url: '@Url.Action("MainAction", "Patient")',
+            type: "post",
+            data: $("#patientIdForm").serialize()
+        })
+            .done(function (result) {
+                if (result.success) {
+                    alert("Saved Successfully!!");
+
+                    var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+                    // get the next tab
+                    var nextTab = activeTab.nextElementSibling;
+
+                    // activate the next tab
+                    if (nextTab) {
+                        var tabLink = nextTab.querySelector(".nav-link");
+                        if (tabLink) {
+                            var activeTabLink = activeTab.querySelector('.nav-link.active');
+                            var nextTabLink = nextTab.querySelector('.nav-link');
+                            activeTabLink.classList.remove('active');
+                            nextTabLink.classList.add('active');
 
 
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+                          
+                            // To remove classes
+                            $('.tab-pane.active.show').removeClass('active show');
 
-                        // get the next tab
-                        var nextTab = activeTab.nextElementSibling;
-
-                        // activate the next tab
-                        if (nextTab) {
-                            var tabLink = nextTab.querySelector(".nav-link");
                             tabLink.click();
+                            $("#pills-cop").addClass('active show');
                         }
-                    } else {
+                    }
+                    else {
                         alert("Data Didn't Saved!!!!");
                     }
-                    @*window.location.href = "@Url.Action("Index","Immunizations")";*@
-
-                });
-        }
-	});
+                }
+            });
+    }
+});
 
 
 
@@ -416,13 +686,11 @@
             }
         });
 
-
         // If any required field is empty, prevent the form from being submitted
         if (!isValid) {
             alert("All Fields are mandatory");
             return false;
         } else {
-
             $.ajax({
                 url: '@Url.Action("MainAction", "PregnancyConfirmation")',
                 type: "post",
@@ -431,8 +699,9 @@
                 .done(function (result) {
                     if (result.success) {
                         alert("Saved Successfully!!");
+                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
 
-
+                        // get the next tab
                         var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
 
                         // get the next tab
@@ -441,15 +710,27 @@
                         // activate the next tab
                         if (nextTab) {
                             var tabLink = nextTab.querySelector(".nav-link");
-                            tabLink.click();
-                        }
-                    } else {
-                        alert("Data Didn't Saved!!!!");
-                    }
+                            if (tabLink) {
+                                var activeTabLink = activeTab.querySelector('.nav-link.active');
+                                var nextTabLink = nextTab.querySelector('.nav-link');
+                                activeTabLink.classList.remove('active');
+                                nextTabLink.classList.add('active');
 
+
+
+                                // To remove classes
+                                $('.tab-pane.active.show').removeClass('active show');
+
+                                tabLink.click();
+                                $("#pills-b").addClass('active show');
+                            }
+                        } else {
+                            alert("Data Didn't Saved!!!!");
+                        }
+                    }
                 });
         }
-	});
+    });
 
 
 

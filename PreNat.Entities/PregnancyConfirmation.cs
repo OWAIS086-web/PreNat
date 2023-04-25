@@ -10,10 +10,8 @@ namespace PreNat.Entities
     {
         public DateTime FUM { get; set; }
         public string WeeksPregnant { get; set; }
-        public string Positive_HCG_presence { get; set; }
         public DateTime Positive_HCG_presence_Date { get; set; }
         public string Upload_document1 {get; set;}
-        public string Positive_TV_ultrasound { get; set; }
         public DateTime Positive_TV_ultrasound_Date { get; set; }
         public string Upload_document2 { get; set; }
         public string PregnancyConfirm{ get; set; } //Yes or No
