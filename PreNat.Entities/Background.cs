@@ -18,13 +18,13 @@ namespace PreNat.Entities
         public string Cardiopathy { get; set; }       //Absence   -   Family  - Personal
         public string Nephropathy { get; set; }       //Absence   -   Family  - Personal
         public string Violence { get; set; }          //Absence   -   Family  - Personal
-        public string VIH { get; set; }               //Absence   -   Family  - Personal
+        public string HIV { get; set; }               //Absence   -   Family  - Personal
         public string Migraine { get; set; }          //Absence   -   Family  - Personal
-        public string Enf_Tromboembólica { get; set; }//Absence   -   Family  - Personal
-        public string IMC29 { get; set; }             //Absence   -   Family  - Personal
-        public string IMC39 { get; set; }             //Absence   -   Family  - Personal
+        public string Thromboembolic { get; set; }//Absence   -   Family  - Personal
+        public string BMI_29 { get; set; }             //Absence   -   Family  - Personal
+        public string BMI_39 { get; set; }             //Absence   -   Family  - Personal
         public string Disc_Sang{ get; set; }          //Absence   -   Family  - Personal
-        public string other_dises { get; set; }       //Absence   -   Family  - Personal
+        public string Other { get; set; }       //Absence   -   Family  - Personal
         public int PatientID { get; set; }
 
 

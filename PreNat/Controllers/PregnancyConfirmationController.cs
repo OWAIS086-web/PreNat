@@ -35,14 +35,12 @@ namespace PreNat.Controllers
                 model.ID = PregnancyConfirmation.ID;
                 model.FUM = PregnancyConfirmation.FUM;
                 model.WeeksPregnant = PregnancyConfirmation.WeeksPregnant;
-                model.Positive_HCG_presence = PregnancyConfirmation.Positive_HCG_presence;
                 model.Positive_HCG_presence_Date = PregnancyConfirmation.Positive_HCG_presence_Date;
                 model.Upload_document1 = PregnancyConfirmation.Upload_document1;
-                model.Positive_TV_ultrasound = PregnancyConfirmation.Positive_TV_ultrasound;
                 model.Positive_TV_ultrasound_Date = PregnancyConfirmation.Positive_TV_ultrasound_Date;
                 model.Upload_document2 = PregnancyConfirmation.Upload_document2;
                 model.PregnancyConfirm = PregnancyConfirmation.PregnancyConfirm;
-               
+                model.WeeksPregnant = PregnancyConfirmation.WeeksPregnant;
 
             }
             return View(model);
@@ -56,14 +54,12 @@ namespace PreNat.Controllers
             PregnancyConfirmationActionViewModel model = new PregnancyConfirmationActionViewModel();
             var PregnancyConfirmation = PregnancyConfirmationServices.Instance.GetPregnancyConfirmation(ID);
             model.FUM = PregnancyConfirmation.FUM;
-            model.Positive_HCG_presence = PregnancyConfirmation.Positive_HCG_presence;
             model.Positive_HCG_presence_Date = PregnancyConfirmation.Positive_HCG_presence_Date;
             model.Upload_document1 = PregnancyConfirmation.Upload_document1;
-            model.Positive_TV_ultrasound = PregnancyConfirmation.Positive_TV_ultrasound;
             model.Positive_TV_ultrasound_Date = PregnancyConfirmation.Positive_TV_ultrasound_Date;
             model.Upload_document2 = PregnancyConfirmation.Upload_document2;
             model.PregnancyConfirm = PregnancyConfirmation.PregnancyConfirm;
-   
+            model.WeeksPregnant = PregnancyConfirmation.WeeksPregnant;
 
 
             return View("View", "_Layout", model);
@@ -75,15 +71,13 @@ namespace PreNat.Controllers
             
                 var PregnancyConfirmation = new PregnancyConfirmation();
                 PregnancyConfirmation.FUM = model.FUM;
-                PregnancyConfirmation.Positive_HCG_presence = model.Positive_HCG_presence;
                 PregnancyConfirmation.Positive_HCG_presence_Date = model.Positive_HCG_presence_Date;
                 PregnancyConfirmation.Upload_document1 = model.Upload_document1;
-                PregnancyConfirmation.Positive_TV_ultrasound = model.Positive_TV_ultrasound;
                 PregnancyConfirmation.Positive_TV_ultrasound_Date = model.Positive_TV_ultrasound_Date;
                 PregnancyConfirmation.Upload_document2 = model.Upload_document2;
                 PregnancyConfirmation.PregnancyConfirm = model.PregnancyConfirm;
-                PregnancyConfirmation.PatientID = int.Parse(Session["PatientID"].ToString());
-
+            PregnancyConfirmation.PatientID = int.Parse(Session["PatientID"].ToString());
+            PregnancyConfirmation.WeeksPregnant = model.WeeksPregnant;
 
                 PregnancyConfirmationServices.Instance.SavePregnancyConfirmations(PregnancyConfirmation);
 
@@ -104,10 +98,9 @@ namespace PreNat.Controllers
 
                 PregnancyConfirmation.ID = model.ID;
                 PregnancyConfirmation.FUM = model.FUM;
-                PregnancyConfirmation.Positive_HCG_presence = model.Positive_HCG_presence;
                 PregnancyConfirmation.Positive_HCG_presence_Date = model.Positive_HCG_presence_Date;
                 PregnancyConfirmation.Upload_document1 = model.Upload_document1;
-                PregnancyConfirmation.Positive_TV_ultrasound = model.Positive_TV_ultrasound;
+                PregnancyConfirmation.WeeksPregnant = model.WeeksPregnant;
                 PregnancyConfirmation.Positive_TV_ultrasound_Date = model.Positive_TV_ultrasound_Date;
                 PregnancyConfirmation.Upload_document2 = model.Upload_document2;
                 PregnancyConfirmation.PregnancyConfirm = model.PregnancyConfirm;
@@ -121,10 +114,9 @@ namespace PreNat.Controllers
             {
                 var PregnancyConfirmation = new PregnancyConfirmation();
                 PregnancyConfirmation.FUM = model.FUM;
-                PregnancyConfirmation.Positive_HCG_presence = model.Positive_HCG_presence;
+                PregnancyConfirmation.WeeksPregnant = model.WeeksPregnant;
                 PregnancyConfirmation.Positive_HCG_presence_Date = model.Positive_HCG_presence_Date;
                 PregnancyConfirmation.Upload_document1 = model.Upload_document1;
-                PregnancyConfirmation.Positive_TV_ultrasound = model.Positive_TV_ultrasound;
                 PregnancyConfirmation.Positive_TV_ultrasound_Date = model.Positive_TV_ultrasound_Date;
                 PregnancyConfirmation.Upload_document2 = model.Upload_document2;
                 PregnancyConfirmation.PregnancyConfirm = model.PregnancyConfirm;

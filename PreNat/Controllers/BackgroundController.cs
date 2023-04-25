@@ -43,13 +43,13 @@ namespace PreNat.Controllers
                 model.Cardiopathy = Background.Cardiopathy;
                 model.Nephropathy = Background.Nephropathy;
                 model.Violence = Background.Violence;
-                model.VIH = Background.VIH;
+                model.HIV = Background.HIV;
                 model.Migraine = Background.Migraine;
-                model.Enf_Tromboembólica = Background.Enf_Tromboembólica;
-                model.IMC29 = Background.IMC29;
-                model.IMC39 = Background.IMC39;
+                model.Thromboembolic = Background.Thromboembolic;
+                model.BMI_39 = Background.BMI_39;
+                model.BMI_29 = Background.BMI_29;
                 model.Disc_Sang = Background.Disc_Sang;
-                model.other_dises = Background.other_dises;
+                model.Other = Background.Other;
 
             }
             return View(model);
@@ -72,14 +72,14 @@ namespace PreNat.Controllers
             model.Cardiopathy = Background.Cardiopathy;
             model.Nephropathy = Background.Nephropathy;
             model.Violence = Background.Violence;
-            model.VIH = Background.VIH;
+            model.Violence = Background.Violence;
+            model.HIV = Background.HIV;
             model.Migraine = Background.Migraine;
-            model.Enf_Tromboembólica = Background.Enf_Tromboembólica;
-            model.IMC29 = Background.IMC29;
-            model.IMC39 = Background.IMC39;
+            model.Thromboembolic = Background.Thromboembolic;
+            model.BMI_39 = Background.BMI_39;
+            model.BMI_29 = Background.BMI_29;
             model.Disc_Sang = Background.Disc_Sang;
-            model.other_dises = Background.other_dises;
-
+            model.Other = Background.Other;
             return View("View", "_Layout", model);
         }
 
@@ -104,13 +104,13 @@ namespace PreNat.Controllers
                 Background.Cardiopathy = model.Cardiopathy;
                 Background.Nephropathy = model.Nephropathy;
                 Background.Violence = model.Violence;
-                Background.VIH = model.VIH;
+                Background.HIV = model.HIV;
                 Background.Migraine = model.Migraine;
-                Background.Enf_Tromboembólica = model.Enf_Tromboembólica;
-                Background.IMC29 = model.IMC29;
-                Background.IMC39 = model.IMC39;
+                Background.Thromboembolic = model.Thromboembolic;
+                Background.BMI_39 = model.BMI_39;
+                Background.BMI_29 = model.BMI_29;
                 Background.Disc_Sang = model.Disc_Sang;
-                Background.other_dises = model.other_dises;
+                Background.Other = model.Other;
 
                 BackgroundServices.Instance.UpdateBackgrounds(Background);
 
@@ -129,13 +129,13 @@ namespace PreNat.Controllers
                 Background.Cardiopathy = model.Cardiopathy;
                 Background.Nephropathy = model.Nephropathy;
                 Background.Violence = model.Violence;
-                Background.VIH = model.VIH;
+                Background.HIV = model.HIV;
                 Background.Migraine = model.Migraine;
-                Background.Enf_Tromboembólica = model.Enf_Tromboembólica;
-                Background.IMC29 = model.IMC29;
-                Background.IMC39 = model.IMC39;
+                Background.Thromboembolic = model.Thromboembolic;
+                Background.BMI_39 = model.BMI_39;
+                Background.BMI_29 = model.BMI_29;
                 Background.Disc_Sang = model.Disc_Sang;
-                Background.other_dises = model.other_dises;
+                Background.Other = model.Other;
 
                 BackgroundServices.Instance.SaveBackgrounds(Background);
 

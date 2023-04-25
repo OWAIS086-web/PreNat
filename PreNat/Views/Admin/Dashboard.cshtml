@@ -316,10 +316,6 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label>Weeks Pregnant</label>
-                                        <input class="form-control" value="@Model.WeeksPregnant" name="WeeksPregnant" id="WeeksPregnant" type="text" />
-                                    </div>
                                 </div>
 
 
@@ -355,6 +351,7 @@
                                                 <td>
                                                     Personal
                                                 </td>
+                                          
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -364,16 +361,17 @@
                                                 </td>
                                                 <td><input class="form-check text-center" type="checkbox" id="tbc-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="tbc-present-family-checkbox"></td>
-                                                <td><input class="form-check text-center" type="checkbox" id="tbc-present-personally-checkbox"></td>                                                </td>
-                                            </tr>
-
+                                                <td><input class="form-check text-center" type="checkbox" id="tbc-present-personally-checkbox"></td>                           
+                                                <td hidden ><input type="hidden" id="Tbc" name="Tbc" value="@Model.Tbc"/></td>
                                             <tr>
                                                 <td>
                                                     Diabetes
                                                 </td>
                                                 <td><input class="form-check text-center" type="checkbox" id="diabetes-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="diabetes-present-family-checkbox"></td>
-                                                <td><input class="form-check text-center" type="checkbox" id="diabetes-present-personally-checkbox"></td>                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="diabetes-present-personally-checkbox"></td>
+                                                <td hidden><input type="hidden" id="Diabetes" name="Diabetes" value="@Model.Diabetes" /></td>
+
                                             </tr>
 
                                             <tr>
@@ -382,7 +380,10 @@
                                                 </td>
                                                 <td><input class="form-check text-center" type="checkbox" id="hypertension-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="hypertension-present-family-checkbox"></td>
-                                                <td><input class="form-check text-center" type="checkbox" id="hypertension-present-personally-checkbox"></td>                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="hypertension-present-personally-checkbox"></td>
+                                                <td hidden><input type="hidden" id="Hypertension" name="Hypertension" value="@Model.Hypertension" /></td>
+
+
                                             </tr>
 
                                             <tr>
@@ -391,7 +392,9 @@
                                                 </td>
                                                 <td><input class="form-check text-center" type="checkbox" id="eclampsia-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="eclampsia-present-family-checkbox"></td>
-                                                <td><input class="form-check text-center" type="checkbox" id="eclampsia-present-personally-checkbox"></td>                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="eclampsia-present-personally-checkbox"></td>
+                                                <td hidden><input type="hidden" id="Eclampsia" name="Eclampsia" value="@Model.Eclampsia" /></td>
+
                                             </tr>
 
                                             <tr>
@@ -400,7 +403,9 @@
                                                 </td>
                                                 <td><input class="form-check text-center" type="checkbox" id="preeclampsia-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="preeclampsia-present-family-checkbox"></td>
-                                                <td><input class="form-check text-center" type="checkbox" id="preeclampsia-present-personally-checkbox"></td>                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="preeclampsia-present-personally-checkbox"></td>
+                                                <td hidden><input type="hidden" id="Preeclampsia" name="Preeclampsia" value="@Model.Preeclampsia" /></td>
+
                                             </tr>
 
                                             <tr>
@@ -409,7 +414,9 @@
                                                 </td>
                                                 <td><input class="form-check text-center" type="checkbox" id="surgery-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="surgery-present-family-checkbox"></td>
-                                                <td><input class="form-check text-center" type="checkbox" id="surgery-present-personally-checkbox"></td>                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="surgery-present-personally-checkbox"></td>
+                                                <td hidden><input type="hidden" id="Surgery" name="Surgery" value="@Model.Surgery" /></td>
+
                                             </tr>
 
                                             <tr>
@@ -418,7 +425,9 @@
                                                 </td>
                                                 <td><input class="form-check text-center" type="checkbox" id="infertility-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="infertility-present-family-checkbox"></td>
-                                                <td><input class="form-check text-center" type="checkbox" id="infertility-present-personally-checkbox"></td>                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="infertility-present-personally-checkbox"></td>
+                                                <td hidden><input type="hidden" id="Infertility" name="Infertility" value="@Model.Infertility" /></td>
+
                                             </tr>
 
                                             <tr>
@@ -427,7 +436,9 @@
                                                 </td>
                                                 <td><input class="form-check text-center" type="checkbox" id="cardiopathy-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="cardiopathy-present-family-checkbox"></td>
-                                                <td><input class="form-check text-center" type="checkbox" id="cardiopathy-present-personally-checkbox"></td>                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="cardiopathy-present-personally-checkbox"></td>
+                                                <td hidden><input type="hidden" id="Cardiopathy" name="Cardiopathy" value="@Model.Cardiopathy" /></td>
+
                                             </tr>
 
 
@@ -437,7 +448,9 @@
                                                 </td>
                                                 <td><input class="form-check text-center" type="checkbox" id="nephropathy-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="nephropathy-present-family-checkbox"></td>
-                                                <td><input class="form-check text-center" type="checkbox" id="nephropathy-present-personally-checkbox"></td>                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="nephropathy-present-personally-checkbox"></td>
+                                                <td hidden><input type="hidden" id="Nephropathy" name="Nephropathy" value="@Model.Nephropathy" /></td>
+
                                             </tr>
 
                                             <tr>
@@ -446,7 +459,9 @@
                                                 </td>
                                                 <td><input class="form-check text-center" type="checkbox" id="violence-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="violence-present-family-checkbox"></td>
-                                                <td><input class="form-check text-center" type="checkbox" id="violence-present-personally-checkbox"></td>                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="violence-present-personally-checkbox"></td>
+                                                <td hidden><input type="hidden" id="Violence" name="Violence" value="@Model.Violence" /></td>
+
                                             </tr>
 
                                             <tr>
@@ -455,7 +470,9 @@
                                                 </td>
                                                 <td><input class="form-check text-center" type="checkbox" id="hiv-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="hiv-present-family-checkbox"></td>
-                                                <td><input class="form-check text-center" type="checkbox" id="hiv-present-personally-checkbox"></td>                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="hiv-present-personally-checkbox"></td>
+                                                <td hidden><input type="hidden" id="HIV" name="HIV" value="@Model.HIV" /></td>
+
                                             </tr>
 
                                             <tr>
@@ -464,7 +481,9 @@
                                                 </td>
                                                 <td><input class="form-check text-center" type="checkbox" id="migraine-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="migraine-present-family-checkbox"></td>
-                                                <td><input class="form-check text-center" type="checkbox" id="migraine-present-personally-checkbox"></td>                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="migraine-present-personally-checkbox"></td>
+                                                <td hidden><input type="hidden" id="Migraine" name="Migraine" value="@Model.Migraine" /></td>
+
                                             </tr>
 
                                             <tr>
@@ -473,7 +492,9 @@
                                                 </td>
                                                 <td><input class="form-check text-center" type="checkbox" id="thromboembolic-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="thromboembolic-present-family-checkbox"></td>
-                                                <td><input class="form-check text-center" type="checkbox" id="thromboembolic-present-personally-checkbox"></td>                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="thromboembolic-present-personally-checkbox"></td>
+                                                <td hidden><input type="hidden" id="Thromboembolic" name="Thromboembolic" value="@Model.Thromboembolic" /></td>
+
                                             </tr>
 
                                             <tr>
@@ -482,7 +503,9 @@
                                                 </td>
                                                 <td><input class="form-check text-center" type="checkbox" id="bmi_29-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="bmi_29-present-family-checkbox"></td>
-                                                <td><input class="form-check text-center" type="checkbox" id="bmi_29-present-personally-checkbox"></td>                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="bmi_29-present-personally-checkbox"></td>
+                                                <td hidden><input type="hidden" id="BMI_29" name="BMI_29" value="@Model.BMI_29" /></td>
+
                                             </tr>
 
                                             <tr>
@@ -491,7 +514,9 @@
                                                 </td>
                                                 <td><input class="form-check text-center" type="checkbox" id="bmi_39-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="bmi_39-present-family-checkbox"></td>
-                                                <td><input class="form-check text-center" type="checkbox" id="bmi_39-present-personally-checkbox"></td>                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="bmi_39-present-personally-checkbox"></td>
+                                                <td hidden><input type="hidden" id="BMI_39" name="BMI_39" value="@Model.BMI_39" /></td>
+
                                             </tr>
 
                                             <tr>
@@ -500,7 +525,9 @@
                                                 </td>
                                                 <td><input class="form-check text-center" type="checkbox" id="discsang-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="discsang-present-family-checkbox"></td>
-                                                <td><input class="form-check text-center" type="checkbox" id="discsang-present-personally-checkbox"></td>                                                </td>
+                                                <td><input class="form-check text-center" type="checkbox" id="discsang-present-personally-checkbox"></td>
+                                                <td hidden><input type="hidden" id="Disc_Sang" name="Disc_Sang" value="@Model.Disc_Sang" /></td>
+
                                             </tr>
 
                                             <tr>
@@ -509,7 +536,9 @@
                                                 </td>
                                                 <td><input class="form-control" type="text" id="other-absent-checkbox"></td>
                                                 <td><input class="form-control" type="text" id="other-present-family-checkbox"></td>
-                                                <td><input class="form-control" type="text" id="other-present-personally-checkbox"></td>                                                </td>
+                                                <td><input class="form-control" type="text" id="other-present-personally-checkbox"></td>
+                                                <td hidden><input type="hidden" id="Other" name="Other" value="@Model.Other" /></td>
+
                                             </tr>
 
 
@@ -550,14 +579,11 @@
 <script>
 
     var patientID = $("#PatientID").val();
-
     $(document).ready(function () {
         if (patientID != null && patientID != "") {
             
         }
     })
-  
-
     $("#FileAttachmentUpload").change(function () {
         var element = this;
         var formData = new FormData();
@@ -583,9 +609,6 @@
                 alert("FAIL");
             })
     });
-
-
-
     $("#FileAttachmentUpload2").change(function () {
         var element = this;
         var formData = new FormData();
@@ -611,8 +634,6 @@
                 alert("FAIL");
             })
     });
-
-
     $("#PatientIDActionBtn").click(function () {
     const form = document.getElementById('patientIdForm');
     const requiredInputs = form.querySelectorAll('input[required], select[required]');
@@ -670,9 +691,6 @@
             });
     }
 });
-
-
-
     $("#PregConfirmActionBtn").click(function () {
         const form = document.getElementById('pocForm');
         const requiredInputs = form.querySelectorAll('input[required], select[required]');
@@ -731,10 +749,6 @@
                 });
         }
     });
-
-
-
-
     $(".data-btn").click(function () {
         $.ajax({
             url: $(this).attr("data-href"),
@@ -742,6 +756,25 @@
             .done(function (response) {
                 $("#actionModal .modal-dialog").html(response);
             });
+    });
+
+
+
+    //Background JS
+    $(document).ready(function () {
+        $('#tbc-absent-checkbox, #tbc-present-family-checkbox, #tbc-present-personally-checkbox').click(function () {
+            var diseaseName = '';
+            if ($('#tbc-absent-checkbox').is(':checked')) {
+                diseaseName += ',Absent';
+            }
+            if ($('#tbc-present-family-checkbox').is(':checked')) {
+                diseaseName += ', Family';
+            }
+            if ($('#tbc-present-personally-checkbox').is(':checked')) {
+                diseaseName += ', Personally';
+            }
+            $('#Tbc').val(diseaseName);
+        });
     });
 
 </script>

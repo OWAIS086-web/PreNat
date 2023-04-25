@@ -42,23 +42,23 @@ namespace PreNat.ViewModels
 
 
         // background
-        public string Tbc { get; set; }
-        public string Diabetes { get; set; }
-        public string Hypertension { get; set; }
-        public string Eclampsia { get; set; }
-        public string Preeclampsia { get; set; }
-        public string Surgery { get; set; }
-        public string Infertility { get; set; }
-        public string Cardiopathy { get; set; }
-        public string Nephropathy { get; set; }
-        public string Violence { get; set; }
-        public string VIH { get; set; }
-        public string Migraine { get; set; }
-        public string Enf_Tromboembólica { get; set; }
-        public string IMC29 { get; set; }
-        public string IMC39 { get; set; }
-        public string Disc_Sang { get; set; }
-        public string other_dises { get; set; }
+        public string Tbc { get; set; }               //Absence   -   Family  - Personal
+        public string Diabetes { get; set; }          //Absence   -   Family  - Personal
+        public string Hypertension { get; set; }      //Absence   -   Family  - Personal
+        public string Eclampsia { get; set; }         //Absence   -   Family  - Personal
+        public string Preeclampsia { get; set; }      //Absence   -   Family  - Personal
+        public string Surgery { get; set; }           //Absence   -   Family  - Personal
+        public string Infertility { get; set; }       //Absence   -   Family  - Personal
+        public string Cardiopathy { get; set; }       //Absence   -   Family  - Personal
+        public string Nephropathy { get; set; }       //Absence   -   Family  - Personal
+        public string Violence { get; set; }          //Absence   -   Family  - Personal
+        public string HIV { get; set; }               //Absence   -   Family  - Personal
+        public string Migraine { get; set; }          //Absence   -   Family  - Personal
+        public string Thromboembolic { get; set; }//Absence   -   Family  - Personal
+        public string BMI_29 { get; set; }             //Absence   -   Family  - Personal
+        public string BMI_39 { get; set; }             //Absence   -   Family  - Personal
+        public string Disc_Sang { get; set; }          //Absence   -   Family  - Personal
+        public string Other { get; set; }       //Absence   -   Family  - Personal
         public int PatientID { get; set; }
 
         //ChronologyPregnancy
