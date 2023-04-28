@@ -83,6 +83,37 @@ namespace PreNat.Controllers
             return View("View", "_Layout", model);
         }
 
+        [HttpPost]
+        public ActionResult MainAction(BackgroundActionViewModel model)
+        {
+
+            var background = new Background();
+            background.Tbc = model.Tbc.Replace(",", "").ToString();
+            background.Diabetes = model.Diabetes.Replace(",", "").ToString();
+            background.Hypertension = model.Hypertension.Replace(",", "").ToString();
+            background.Eclampsia = model.Eclampsia.Replace(",", "").ToString();
+            background.Preeclampsia = model.Preeclampsia.Replace(",", "").ToString();
+            background.Surgery = model.Surgery.Replace(",", "").ToString();
+            background.Infertility = model.Infertility.Replace(",", "").ToString();
+            background.Cardiopathy = model.Cardiopathy.Replace(",", "").ToString();
+            background.Nephropathy = model.Nephropathy.Replace(",", "").ToString();
+            background.Violence = model.Violence.Replace(",", "").ToString();
+            background.HIV = model.HIV.Replace(",", "").ToString();
+            background.Migraine = model.Migraine.Replace(",", "").ToString();
+            background.Thromboembolic = model.Thromboembolic.Replace(",", "").ToString();
+            background.BMI_39 = model.BMI_39.Replace(",", "").ToString();
+            background.BMI_29 = model.BMI_29.Replace(",", "").ToString();
+            background.Disc_Sang = model.Disc_Sang.Replace(",", "").ToString();
+            background.Other = model.Other;
+
+            BackgroundServices.Instance.SaveBackgrounds(background);
+
+
+
+            return Json(new { success = true });
+        }
+
+
 
         [HttpPost]
         // In Active HTTPOST varable.JoElement  = nodel.JoElement;....................

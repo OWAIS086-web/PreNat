@@ -14,11 +14,19 @@
     .form-check text-center {
         position: relative;
         display: block;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        width: 160px;
+        margin-top: 0;
+        margin-bottom: 0;
         padding-left: 0;
-        height: 40px;
-        width: 40px;
+    }
+
+    .form-check {
+        position: relative;
+        display: block;
+        width: 160px;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: 0;    
     }
     .form-select {
         display: block;
@@ -351,7 +359,7 @@
                                                 <td>
                                                     Personal
                                                 </td>
-                                          
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -361,8 +369,8 @@
                                                 </td>
                                                 <td><input class="form-check text-center" type="checkbox" id="tbc-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="tbc-present-family-checkbox"></td>
-                                                <td><input class="form-check text-center" type="checkbox" id="tbc-present-personally-checkbox"></td>                           
-                                                <td hidden ><input type="hidden" id="Tbc" name="Tbc" value="@Model.Tbc"/></td>
+                                                <td><input class="form-check text-center" type="checkbox" id="tbc-present-personally-checkbox"></td>
+                                                <td hidden><input type="hidden" required id="Tbc" name="Tbc" value="@Model.Tbc" /></td>
                                             <tr>
                                                 <td>
                                                     Diabetes
@@ -370,7 +378,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="diabetes-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="diabetes-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="diabetes-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" id="Diabetes" name="Diabetes" value="@Model.Diabetes" /></td>
+                                                <td hidden><input type="hidden" required id="Diabetes" name="Diabetes" value="@Model.Diabetes" /></td>
 
                                             </tr>
 
@@ -381,7 +389,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="hypertension-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="hypertension-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="hypertension-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" id="Hypertension" name="Hypertension" value="@Model.Hypertension" /></td>
+                                                <td hidden><input type="hidden" required id="Hypertension" name="Hypertension" value="@Model.Hypertension" /></td>
 
 
                                             </tr>
@@ -393,7 +401,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="eclampsia-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="eclampsia-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="eclampsia-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" id="Eclampsia" name="Eclampsia" value="@Model.Eclampsia" /></td>
+                                                <td hidden><input type="hidden" required id="Eclampsia" name="Eclampsia" value="@Model.Eclampsia" /></td>
 
                                             </tr>
 
@@ -404,7 +412,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="preeclampsia-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="preeclampsia-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="preeclampsia-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" id="Preeclampsia" name="Preeclampsia" value="@Model.Preeclampsia" /></td>
+                                                <td hidden><input type="hidden" required id="Preeclampsia" name="Preeclampsia" value="@Model.Preeclampsia" /></td>
 
                                             </tr>
 
@@ -415,7 +423,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="surgery-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="surgery-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="surgery-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" id="Surgery" name="Surgery" value="@Model.Surgery" /></td>
+                                                <td hidden><input type="hidden" required id="Surgery" name="Surgery" value="@Model.Surgery" /></td>
 
                                             </tr>
 
@@ -426,7 +434,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="infertility-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="infertility-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="infertility-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" id="Infertility" name="Infertility" value="@Model.Infertility" /></td>
+                                                <td hidden><input type="hidden" required id="Infertility" name="Infertility" value="@Model.Infertility" /></td>
 
                                             </tr>
 
@@ -437,7 +445,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="cardiopathy-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="cardiopathy-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="cardiopathy-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" id="Cardiopathy" name="Cardiopathy" value="@Model.Cardiopathy" /></td>
+                                                <td hidden><input type="hidden" required id="Cardiopathy" name="Cardiopathy" value="@Model.Cardiopathy" /></td>
 
                                             </tr>
 
@@ -449,7 +457,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="nephropathy-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="nephropathy-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="nephropathy-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" id="Nephropathy" name="Nephropathy" value="@Model.Nephropathy" /></td>
+                                                <td hidden><input type="hidden" required id="Nephropathy" name="Nephropathy" value="@Model.Nephropathy" /></td>
 
                                             </tr>
 
@@ -460,7 +468,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="violence-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="violence-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="violence-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" id="Violence" name="Violence" value="@Model.Violence" /></td>
+                                                <td hidden><input type="hidden" required id="Violence" name="Violence" value="@Model.Violence" /></td>
 
                                             </tr>
 
@@ -471,7 +479,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="hiv-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="hiv-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="hiv-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" id="HIV" name="HIV" value="@Model.HIV" /></td>
+                                                <td hidden><input type="hidden" required id="HIV" name="HIV" value="@Model.HIV" /></td>
 
                                             </tr>
 
@@ -482,7 +490,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="migraine-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="migraine-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="migraine-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" id="Migraine" name="Migraine" value="@Model.Migraine" /></td>
+                                                <td hidden><input type="hidden" required id="Migraine" name="Migraine" value="@Model.Migraine" /></td>
 
                                             </tr>
 
@@ -493,7 +501,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="thromboembolic-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="thromboembolic-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="thromboembolic-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" id="Thromboembolic" name="Thromboembolic" value="@Model.Thromboembolic" /></td>
+                                                <td hidden><input type="hidden" required id="Thromboembolic" name="Thromboembolic" value="@Model.Thromboembolic" /></td>
 
                                             </tr>
 
@@ -504,7 +512,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="bmi_29-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="bmi_29-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="bmi_29-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" id="BMI_29" name="BMI_29" value="@Model.BMI_29" /></td>
+                                                <td hidden><input type="hidden" required id="BMI_29" name="BMI_29" value="@Model.BMI_29" /></td>
 
                                             </tr>
 
@@ -515,7 +523,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="bmi_39-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="bmi_39-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="bmi_39-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" id="BMI_39" name="BMI_39" value="@Model.BMI_39" /></td>
+                                                <td hidden><input type="hidden" required id="BMI_39" name="BMI_39" value="@Model.BMI_39" /></td>
 
                                             </tr>
 
@@ -526,7 +534,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="discsang-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="discsang-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="discsang-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" id="Disc_Sang" name="Disc_Sang" value="@Model.Disc_Sang" /></td>
+                                                <td hidden><input type="hidden" required id="Disc_Sang" name="Disc_Sang" value="@Model.Disc_Sang" /></td>
 
                                             </tr>
 
@@ -537,7 +545,7 @@
                                                 <td><input class="form-control" type="text" id="other-absent-checkbox"></td>
                                                 <td><input class="form-control" type="text" id="other-present-family-checkbox"></td>
                                                 <td><input class="form-control" type="text" id="other-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" id="Other" name="Other" value="@Model.Other" /></td>
+                                                <td hidden><input type="hidden" required id="Other" name="Other" value="@Model.Other" /></td>
 
                                             </tr>
 
@@ -546,6 +554,10 @@
                                     </table>
                                 </div>
                             </form>
+
+                            <button type="button" id="BackgroundActionBtn" class="btn btn-primary">
+                                Save and Continue
+                            </button>
                         </div>
 
 
@@ -581,7 +593,7 @@
     var patientID = $("#PatientID").val();
     $(document).ready(function () {
         if (patientID != null && patientID != "") {
-            
+
         }
     })
     $("#FileAttachmentUpload").change(function () {
@@ -676,7 +688,7 @@
                             nextTabLink.classList.add('active');
 
 
-                          
+
                             // To remove classes
                             $('.tab-pane.active.show').removeClass('active show');
 
@@ -759,9 +771,69 @@
     });
 
 
+    $("#BackgroundActionBtn").click(function () {
+        const form = document.getElementById('backgroundForm');
+        const requiredInputs = form.querySelectorAll('input[required]');
+        let isValid = true;
+        requiredInputs.forEach(function (input) {
+            if (input.value.trim() === '') {
+                input.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                input.classList.remove('is-invalid');
+            }
+        });
+
+        // If any required field is empty, prevent the form from being submitted
+        if (!isValid) {
+            alert("All Fields are mandatory");
+            return false;
+        } else {
+            $.ajax({
+                url: '@Url.Action("MainAction", "Background")',
+                type: "post",
+                data: $("#backgroundForm").serialize()
+            })
+                .done(function (result) {
+                    if (result.success) {
+                        alert("Saved Successfully!!");
+                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+                        // get the next tab
+                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+                        // get the next tab
+                        var nextTab = activeTab.nextElementSibling;
+
+                        // activate the next tab
+                        if (nextTab) {
+                            var tabLink = nextTab.querySelector(".nav-link");
+                            if (tabLink) {
+                                var activeTabLink = activeTab.querySelector('.nav-link.active');
+                                var nextTabLink = nextTab.querySelector('.nav-link');
+                                activeTabLink.classList.remove('active');
+                                nextTabLink.classList.add('active');
+
+
+
+                                // To remove classes
+                                $('.tab-pane.active.show').removeClass('active show');
+
+                                tabLink.click();
+                                $("#pills-cg").addClass('active show');
+                            }
+                        } else {
+                            alert("Data Didn't Saved!!!!");
+                        }
+                    }
+                });
+        }
+    });
+
 
     //Background JS
     $(document).ready(function () {
+        // TBC
         $('#tbc-absent-checkbox, #tbc-present-family-checkbox, #tbc-present-personally-checkbox').click(function () {
             var diseaseName = '';
             if ($('#tbc-absent-checkbox').is(':checked')) {
@@ -775,6 +847,238 @@
             }
             $('#Tbc').val(diseaseName);
         });
+
+
+        // Diabetes
+        $('#diabetes-absent-checkbox, #diabetes-present-family-checkbox, #diabetes-present-personally-checkbox').click(function () {
+            var diseaseName = '';
+            if ($('#diabetes-absent-checkbox').is(':checked')) {
+                diseaseName += ',Absent';
+            }
+            if ($('#diabetes-present-family-checkbox').is(':checked')) {
+                diseaseName += ', Family';
+            }
+            if ($('#diabetes-present-personally-checkbox').is(':checked')) {
+                diseaseName += ', Personally';
+            }
+            $('#Tbc').val(diseaseName);
+        });
+
+        // Hypertension
+        $('#hypertension-absent-checkbox, #hypertension-present-family-checkbox, #hypertension-present-personally-checkbox').click(function () {
+            var diseaseName = '';
+            if ($('#hypertension-absent-checkbox').is(':checked')) {
+                diseaseName += ',Absent';
+            }
+            if ($('#hypertension-present-family-checkbox').is(':checked')) {
+                diseaseName += ', Family';
+            }
+            if ($('#hypertension-present-personally-checkbox').is(':checked')) {
+                diseaseName += ', Personally';
+            }
+            $('#Hypertension').val(diseaseName);
+        });
+
+        // Eclampsia
+        $('#eclampsia-absent-checkbox, #eclampsia-present-family-checkbox, #eclampsia-present-personally-checkbox').click(function () {
+            var diseaseName = '';
+            if ($('#eclampsia-absent-checkbox').is(':checked')) {
+                diseaseName += ',Absent';
+            }
+            if ($('#eclampsia-present-family-checkbox').is(':checked')) {
+                diseaseName += ', Family';
+            }
+            if ($('#eclampsia-present-personally-checkbox').is(':checked')) {
+                diseaseName += ', Personally';
+            }
+            $('#Eclampsia').val(diseaseName);
+        });
+
+        // Preeclampsia
+        $('#preeclampsia-absent-checkbox, #preeclampsia-present-family-checkbox, #preeclampsia-present-personally-checkbox').click(function () {
+            var diseaseName = '';
+            if ($('#preeclampsia-absent-checkbox').is(':checked')) {
+                diseaseName += ',Absent';
+            }
+            if ($('#preeclampsia-present-family-checkbox').is(':checked')) {
+                diseaseName += ', Family';
+            }
+            if ($('#preeclampsia-present-personally-checkbox').is(':checked')) {
+                diseaseName += ', Personally';
+            }
+            $('#Preeclampsia').val(diseaseName);
+        });
+
+        // Surgery
+        $('#surgery-absent-checkbox, #surgery-present-family-checkbox, #surgery-present-personally-checkbox').click(function () {
+            var diseaseName = '';
+            if ($('#surgery-absent-checkbox').is(':checked')) {
+                diseaseName += ',Absent';
+            }
+            if ($('#surgery-present-family-checkbox').is(':checked')) {
+                diseaseName += ', Family';
+            }
+            if ($('#surgery-present-personally-checkbox').is(':checked')) {
+                diseaseName += ', Personally';
+            }
+            $('#Surgery').val(diseaseName);
+        });
+
+        // Infertility
+        $('#infertility-absent-checkbox, #infertility-present-family-checkbox, #infertility-present-personally-checkbox').click(function () {
+            var diseaseName = '';
+            if ($('#infertility-absent-checkbox').is(':checked')) {
+                diseaseName += ',Absent';
+            }
+            if ($('#infertility-present-family-checkbox').is(':checked')) {
+                diseaseName += ', Family';
+            }
+            if ($('#infertility-present-personally-checkbox').is(':checked')) {
+                diseaseName += ', Personally';
+            }
+            $('#Infertility').val(diseaseName);
+        });
+
+// Cardiopathy
+        $('#cardiopathy-absent-checkbox, #cardiopathy-present-family-checkbox, #cardiopathy-present-personally-checkbox').click(function () {
+            var diseaseName = '';
+            if ($('#cardiopathy-absent-checkbox').is(':checked')) {
+                diseaseName += ',Absent';
+            }
+            if ($('#cardiopathy-present-family-checkbox').is(':checked')) {
+                diseaseName += ', Family';
+            }
+            if ($('#cardiopathy-present-personally-checkbox').is(':checked')) {
+                diseaseName += ', Personally';
+            }
+            $('#Cardiopathy').val(diseaseName);
+        });
+
+        // Nephropathy
+        $('#nephropathy-absent-checkbox, #nephropathy-present-family-checkbox, #nephropathy-present-personally-checkbox').click(function () {
+            var diseaseName = '';
+            if ($('#nephropathy-absent-checkbox').is(':checked')) {
+                diseaseName += ',Absent';
+            }
+            if ($('#nephropathy-present-family-checkbox').is(':checked')) {
+                diseaseName += ', Family';
+            }
+            if ($('#nephropathy-present-personally-checkbox').is(':checked')) {
+                diseaseName += ', Personally';
+            }
+            $('#Nephropathy').val(diseaseName);
+        });
+
+        // Violence
+        $('#violence-absent-checkbox, #violence-present-family-checkbox, #violence-present-personally-checkbox').click(function () {
+            var diseaseName = '';
+            if ($('#violence-absent-checkbox').is(':checked')) {
+                diseaseName += ',Absent';
+            }
+            if ($('#violence-present-family-checkbox').is(':checked')) {
+                diseaseName += ', Family';
+            }
+            if ($('#violence-present-personally-checkbox').is(':checked')) {
+                diseaseName += ', Personally';
+            }
+            $('#Violence').val(diseaseName);
+        });
+
+        // HIV
+        $('#hiv-absent-checkbox, #hiv-present-family-checkbox, #hiv-present-personally-checkbox').click(function () {
+            var diseaseName = '';
+            if ($('#hiv-absent-checkbox').is(':checked')) {
+                diseaseName += ',Absent';
+            }
+            if ($('#hiv-present-family-checkbox').is(':checked')) {
+                diseaseName += ', Family';
+            }
+            if ($('#hiv-present-personally-checkbox').is(':checked')) {
+                diseaseName += ', Personally';
+            }
+            $('#HIV').val(diseaseName);
+        });
+
+        // Migraine
+        $('#migraine-absent-checkbox, #migraine-present-family-checkbox, #migraine-present-personally-checkbox').click(function () {
+            var diseaseName = '';
+            if ($('#migraine-absent-checkbox').is(':checked')) {
+                diseaseName += ',Absent';
+            }
+            if ($('#migraine-present-family-checkbox').is(':checked')) {
+                diseaseName += ', Family';
+            }
+            if ($('#migraine-present-personally-checkbox').is(':checked')) {
+                diseaseName += ', Personally';
+            }
+            $('#Migraine').val(diseaseName);
+        });
+
+        // Thromboembolic
+        $('#thromboembolic-absent-checkbox, #thromboembolic-present-family-checkbox, #thromboembolic-present-personally-checkbox').click(function () {
+            var diseaseName = '';
+            if ($('#thromboembolic-absent-checkbox').is(':checked')) {
+                diseaseName += ',Absent';
+            }
+            if ($('#thromboembolic-present-family-checkbox').is(':checked')) {
+                diseaseName += ', Family';
+            }
+            if ($('#thromboembolic-present-personally-checkbox').is(':checked')) {
+                diseaseName += ', Personally';
+            }
+            $('#Thromboembolic').val(diseaseName);
+        });
+
+        // BMI 29
+        $('#bmi29-absent-checkbox, #bmi29-present-family-checkbox, #bmi29-present-personally-checkbox').click(function () {
+            var diseaseName = '';
+            if ($('#bmi29-absent-checkbox').is(':checked')) {
+                diseaseName += ',Absent';
+            }
+            if ($('#bmi29-present-family-checkbox').is(':checked')) {
+                diseaseName += ', Family';
+            }
+            if ($('#bmi29-present-personally-checkbox').is(':checked')) {
+                diseaseName += ', Personally';
+            }
+            $('#BMI_29').val(diseaseName);
+        });
+
+        // BMI 39
+        $('#bmi39-absent-checkbox, #bmi39-present-family-checkbox, #bmi39-present-personally-checkbox').click(function () {
+            var diseaseName = '';
+            if ($('#bmi39-absent-checkbox').is(':checked')) {
+                diseaseName += ',Absent';
+            }
+            if ($('#bmi39-present-family-checkbox').is(':checked')) {
+                diseaseName += ', Family';
+            }
+            if ($('#bmi39-present-personally-checkbox').is(':checked')) {
+                diseaseName += ', Personally';
+            }
+            $('#BMI_39').val(diseaseName);
+        });
+
+        // Disc Sang
+        $('#discsang-absent-checkbox, #discsang-present-family-checkbox, #discsang-present-personally-checkbox').click(function () {
+            var diseaseName = '';
+            if ($('#discsang-absent-checkbox').is(':checked')) {
+                diseaseName += ',Absent';
+            }
+            if ($('#discsang-present-family-checkbox').is(':checked')) {
+                diseaseName += ', Family';
+            }
+            if ($('#discsang-present-personally-checkbox').is(':checked')) {
+                diseaseName += ', Personally';
+            }
+            $('#Disc_Sang').val(diseaseName);
+        });
+
+
+
+
+
+
     });
 
 </script>

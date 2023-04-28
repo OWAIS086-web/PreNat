@@ -60,7 +60,7 @@
 
                                 <td>
                                     <a href="@Url.Action("Action", "Obstetrichistory", new {ID=item.ID })" class="btnEdit btn btn-info btn-icon-text"><i class="mdi mdi-pencil"></i> EDIT</a>
-                                    <button data-href="@Url.Action("Delete", "Obstetrichistory", new { ID = item.ID })" type="button" class="data-btn btn btn-danger btn-icon-text"><i class="mdi mdi-delete"></i>DELETE</button>
+                                    <button data-bs-toggle="modal" data-bs-target="#actionModal" data-href="@Url.Action("Delete", "Obstetrichistory", new { ID = item.ID })" type="button" class="data-btn btn btn-danger btn-icon-text"><i class="mdi mdi-delete"></i>DELETE</button>
 
                                 </td>
                             </tr>

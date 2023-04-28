@@ -20,15 +20,9 @@
                                 <th>
                                     FUM
                                 </th>
-                                <th>
-                                    FUM_Date
-                                </th>
+                               
                                 <th>Positive_HCG_presence</th>
-                                <th>Positive_HCG_presence_Date</th>
-                                <th>Upload_document1</th>
-                                <th>Positive_TV_ultrasound</th>
                                 <th>Positive_TV_ultrasound_Date</th>
-                                <th>Upload_document2</th>
                                 <th>PregnancyConfirm</th>
 
 
@@ -43,20 +37,15 @@
                             <tr>
 
                                 <td>@item.FUM</td>
-                                <td>@item.FUM_Date</td>
-                                <td>@item.Positive_HCG_presence</td>
                                 <td>@item.Positive_HCG_presence_Date</td>
-                                <td>@item.Upload_document1</td>
-                                <td>@item.Positive_TV_ultrasound</td>
                                 <td>@item.Positive_TV_ultrasound_Date</td>
-                                <td>@item.Upload_document2</td>
                                 <td>@item.PregnancyConfirm</td>
                              
 
 
                                 <td>
                                     <a href="@Url.Action("Action", "PregnancyConfirmation", new {ID=item.ID })" class="btnEdit btn btn-info btn-icon-text"><i class="mdi mdi-pencil"></i> EDIT</a>
-                                    <button data-href="@Url.Action("Delete", "PregnancyConfirmation", new { ID = item.ID })" type="button" class="data-btn btn btn-danger btn-icon-text"><i class="mdi mdi-delete"></i>DELETE</button>
+                                    <button data-href="@Url.Action("Delete", "PregnancyConfirmation", new { ID = item.ID })" type="button" class="data-btn btn btn-danger btn-icon-text" data-bs-toggle="modal" data-bs-target="#actionModal"><i class="mdi mdi-delete"></i>DELETE</button>
 
                                 </td>
                             </tr>

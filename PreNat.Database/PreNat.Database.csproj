@@ -57,25 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202304060717154_intialized.cs" />
-    <Compile Include="Migrations\202304060717154_intialized.designer.cs">
-      <DependentUpon>202304060717154_intialized.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304231758087_datatypesfixed.cs" />
-    <Compile Include="Migrations\202304231758087_datatypesfixed.designer.cs">
-      <DependentUpon>202304231758087_datatypesfixed.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304231822443_fiic.cs" />
-    <Compile Include="Migrations\202304231822443_fiic.designer.cs">
-      <DependentUpon>202304231822443_fiic.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304250514000_changes.cs" />
-    <Compile Include="Migrations\202304250514000_changes.designer.cs">
-      <DependentUpon>202304250514000_changes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304250902477_newchanges.cs" />
-    <Compile Include="Migrations\202304250902477_newchanges.designer.cs">
-      <DependentUpon>202304250902477_newchanges.cs</DependentUpon>
+    <Compile Include="Migrations\202304251515106_almostdone.cs" />
+    <Compile Include="Migrations\202304251515106_almostdone.designer.cs">
+      <DependentUpon>202304251515106_almostdone.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,20 +76,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202304060717154_intialized.resx">
-      <DependentUpon>202304060717154_intialized.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304231758087_datatypesfixed.resx">
-      <DependentUpon>202304231758087_datatypesfixed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304231822443_fiic.resx">
-      <DependentUpon>202304231822443_fiic.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304250514000_changes.resx">
-      <DependentUpon>202304250514000_changes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304250902477_newchanges.resx">
-      <DependentUpon>202304250902477_newchanges.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202304251515106_almostdone.resx">
+      <DependentUpon>202304251515106_almostdone.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

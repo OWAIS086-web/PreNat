@@ -7,13 +7,13 @@ namespace PreNat.Database.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class intialized : IMigrationMetadata
+    public sealed partial class almostdone : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(intialized));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(almostdone));
         
         string IMigrationMetadata.Id
         {
-            get { return "202304060717154_intialized"; }
+            get { return "202304251515106_almostdone"; }
         }
         
         string IMigrationMetadata.Source
