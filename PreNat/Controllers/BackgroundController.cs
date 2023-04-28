@@ -88,23 +88,23 @@ namespace PreNat.Controllers
         {
 
             var background = new Background();
-            background.Tbc = model.Tbc.Replace(",", "").ToString();
-            background.Diabetes = model.Diabetes.Replace(",", "").ToString();
-            background.Hypertension = model.Hypertension.Replace(",", "").ToString();
-            background.Eclampsia = model.Eclampsia.Replace(",", "").ToString();
-            background.Preeclampsia = model.Preeclampsia.Replace(",", "").ToString();
-            background.Surgery = model.Surgery.Replace(",", "").ToString();
-            background.Infertility = model.Infertility.Replace(",", "").ToString();
-            background.Cardiopathy = model.Cardiopathy.Replace(",", "").ToString();
-            background.Nephropathy = model.Nephropathy.Replace(",", "").ToString();
-            background.Violence = model.Violence.Replace(",", "").ToString();
-            background.HIV = model.HIV.Replace(",", "").ToString();
-            background.Migraine = model.Migraine.Replace(",", "").ToString();
-            background.Thromboembolic = model.Thromboembolic.Replace(",", "").ToString();
-            background.BMI_39 = model.BMI_39.Replace(",", "").ToString();
-            background.BMI_29 = model.BMI_29.Replace(",", "").ToString();
-            background.Disc_Sang = model.Disc_Sang.Replace(",", "").ToString();
-            background.Other = model.Other;
+            background.Tbc = model.Tbc.Replace(",", "_").ToString();
+            background.Diabetes = model.Diabetes.Replace(",", "_").ToString();
+            background.Hypertension = model.Hypertension.Replace(",", "_").ToString();
+            background.Eclampsia = model.Eclampsia.Replace(",", "_").ToString();
+            background.Preeclampsia = model.Preeclampsia.Replace(",", "_").ToString();
+            background.Surgery = model.Surgery.Replace(",", "_").ToString();
+            background.Infertility = model.Infertility.Replace(",", "_").ToString();
+            background.Cardiopathy = model.Cardiopathy.Replace(",", "_").ToString();
+            background.Nephropathy = model.Nephropathy.Replace(",", "_").ToString();
+            background.Violence = model.Violence.Replace(",", "_").ToString();
+            background.HIV = model.HIV.Replace(",", "_").ToString();
+            background.Migraine = model.Migraine.Replace(",", "_").ToString();
+            background.Thromboembolic = model.Thromboembolic.Replace(",", "_").ToString();
+            background.BMI_39 = model.BMI_39.Replace(",", "_").ToString();
+            background.BMI_29 = model.BMI_29.Replace(",", "_").ToString();
+            background.Disc_Sang = model.Disc_Sang.Replace(",", "_").ToString();
+            background.Other = model.Other.Replace(",", "_").ToString(); 
 
             BackgroundServices.Instance.SaveBackgrounds(background);
 

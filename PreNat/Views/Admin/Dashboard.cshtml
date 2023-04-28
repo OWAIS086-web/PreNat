@@ -542,9 +542,9 @@
                                                 <td>
                                                     Other Medical Condition Which one?
                                                 </td>
-                                                <td><input class="form-control" type="text" id="other-absent-checkbox"></td>
-                                                <td><input class="form-control" type="text" id="other-present-family-checkbox"></td>
-                                                <td><input class="form-control" type="text" id="other-present-personally-checkbox"></td>
+                                                <td><input class="form-control" type="text" onchange="DisplayValues()" id="other-absent-checkbox"></td>
+                                                <td><input class="form-control" type="text" onchange="DisplayValues()" id="other-present-family-checkbox"></td>
+                                                <td><input class="form-control" type="text" onchange="DisplayValues()" id="other-present-personally-checkbox"></td>
                                                 <td hidden><input type="hidden" required id="Other" name="Other" value="@Model.Other" /></td>
 
                                             </tr>
@@ -589,6 +589,17 @@
 <script src="~/Content/template/js/tabs.js"></script>
 
 <script>
+
+    function DisplayValues() {
+        var textbox1 = document.getElementById("other-absent-checkbox").value;
+        var textbox2 = document.getElementById("other-present-family-checkbox").value;
+        var textbox3 = document.getElementById("other-present-personally-checkbox").value;
+        var output = document.getElementById("Other");
+
+        output.value = textbox1 + ", " + textbox2 + ", " + textbox3;
+    }
+
+
 
     var patientID = $("#PatientID").val();
     $(document).ready(function () {
@@ -861,7 +872,7 @@
             if ($('#diabetes-present-personally-checkbox').is(':checked')) {
                 diseaseName += ', Personally';
             }
-            $('#Tbc').val(diseaseName);
+            $('#Diabetes').val(diseaseName);
         });
 
         // Hypertension
@@ -1030,30 +1041,30 @@
         });
 
         // BMI 29
-        $('#bmi29-absent-checkbox, #bmi29-present-family-checkbox, #bmi29-present-personally-checkbox').click(function () {
+        $('#bmi_29-absent-checkbox, #bmi_29-present-family-checkbox, #bmi_29-present-personally-checkbox').click(function () {
             var diseaseName = '';
-            if ($('#bmi29-absent-checkbox').is(':checked')) {
+            if ($('#bmi_29-absent-checkbox').is(':checked')) {
                 diseaseName += ',Absent';
             }
-            if ($('#bmi29-present-family-checkbox').is(':checked')) {
+            if ($('#bmi_29-present-family-checkbox').is(':checked')) {
                 diseaseName += ', Family';
             }
-            if ($('#bmi29-present-personally-checkbox').is(':checked')) {
+            if ($('#bmi_29-present-personally-checkbox').is(':checked')) {
                 diseaseName += ', Personally';
             }
             $('#BMI_29').val(diseaseName);
         });
 
         // BMI 39
-        $('#bmi39-absent-checkbox, #bmi39-present-family-checkbox, #bmi39-present-personally-checkbox').click(function () {
+        $('#bmi_39-absent-checkbox, #bmi_39-present-family-checkbox, #bmi_39-present-personally-checkbox').click(function () {
             var diseaseName = '';
-            if ($('#bmi39-absent-checkbox').is(':checked')) {
+            if ($('#bmi_39-absent-checkbox').is(':checked')) {
                 diseaseName += ',Absent';
             }
-            if ($('#bmi39-present-family-checkbox').is(':checked')) {
+            if ($('#bmi_39-present-family-checkbox').is(':checked')) {
                 diseaseName += ', Family';
             }
-            if ($('#bmi39-present-personally-checkbox').is(':checked')) {
+            if ($('#bmi_39-present-personally-checkbox').is(':checked')) {
                 diseaseName += ', Personally';
             }
             $('#BMI_39').val(diseaseName);
