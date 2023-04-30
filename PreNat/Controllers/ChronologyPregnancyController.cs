@@ -34,10 +34,11 @@ namespace PreNat.Controllers
                 var ChronologyPregnancy = ChronologyPregnancyServices.Instance.GetChronologyPregnancy(ID);
                 model.ID = ChronologyPregnancy.ID;
                 model.ReliableFUM = ChronologyPregnancy.ReliableFUM;
-                model.UltrasoundObstetrics = ChronologyPregnancy.UltrasoundObstetrics;
+                model.ProbableDateOfDelivery = ChronologyPregnancy.ProbableDateOfDelivery;
+                model.ProbableDateOfConception = ChronologyPregnancy.ProbableDateOfConception;
                 model.FPP = ChronologyPregnancy.FPP;
                 model.FPC = ChronologyPregnancy.FPC;
-               
+                model.UltrasoundObstetrics = ChronologyPregnancy.UltrasoundObstetrics;
 
             }
             return View(model);
@@ -51,10 +52,12 @@ namespace PreNat.Controllers
             ChronologyPregnancyActionViewModel model = new ChronologyPregnancyActionViewModel();
             var ChronologyPregnancy = ChronologyPregnancyServices.Instance.GetChronologyPregnancy(ID);
             model.ReliableFUM = ChronologyPregnancy.ReliableFUM;
-            model.UltrasoundObstetrics = ChronologyPregnancy.UltrasoundObstetrics;
+            model.ProbableDateOfDelivery = ChronologyPregnancy.ProbableDateOfDelivery;
+            model.ProbableDateOfConception = ChronologyPregnancy.ProbableDateOfConception; 
             model.FPP = ChronologyPregnancy.FPP;
             model.FPC = ChronologyPregnancy.FPC;
-            
+            model.UltrasoundObstetrics = ChronologyPregnancy.UltrasoundObstetrics;
+
 
 
             return View("View", "_Layout", model);
@@ -72,10 +75,12 @@ namespace PreNat.Controllers
 
                 ChronologyPregnancy.ID = model.ID;
                 ChronologyPregnancy.ReliableFUM = model.ReliableFUM;
-                ChronologyPregnancy.UltrasoundObstetrics = model.UltrasoundObstetrics;
+                ChronologyPregnancy.ProbableDateOfDelivery = model.ProbableDateOfDelivery;
+                ChronologyPregnancy.ProbableDateOfConception = model.ProbableDateOfConception;
                 ChronologyPregnancy.FPP = model.FPP;
                 ChronologyPregnancy.FPC = model.FPC;
-                
+                ChronologyPregnancy.UltrasoundObstetrics = model.UltrasoundObstetrics;
+
 
                 ChronologyPregnancyServices.Instance.UpdateChronologyPregnancys(ChronologyPregnancy);
 
@@ -85,10 +90,10 @@ namespace PreNat.Controllers
             {
                 var ChronologyPregnancy = new ChronologyPregnancy();
                 ChronologyPregnancy.ReliableFUM = model.ReliableFUM;
-                ChronologyPregnancy.UltrasoundObstetrics = model.UltrasoundObstetrics;
-                ChronologyPregnancy.FPP = model.FPP;
+                ChronologyPregnancy.ProbableDateOfDelivery = model.ProbableDateOfDelivery;
+                ChronologyPregnancy.ProbableDateOfConception = model.ProbableDateOfConception; ChronologyPregnancy.FPP = model.FPP;
                 ChronologyPregnancy.FPC = model.FPC;
-               
+                ChronologyPregnancy.UltrasoundObstetrics= model.UltrasoundObstetrics;
 
                 ChronologyPregnancyServices.Instance.SaveChronologyPregnancys(ChronologyPregnancy);
 
@@ -115,15 +120,6 @@ namespace PreNat.Controllers
         {
 
             ChronologyPregnancyServices.Instance.DeleteChronologyPregnancys(model.ID);
-
-
-
-
-
-
-
-
-
             return Json(new { success = true });
         }
     }

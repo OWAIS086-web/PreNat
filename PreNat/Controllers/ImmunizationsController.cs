@@ -33,24 +33,36 @@ namespace PreNat.Controllers
 
                 var Immunizations = ImmunizationsServices.Instance.GetImmunizations(ID);
                 model.ID = Immunizations.ID;
-                model.TetanusDiphtheria = Immunizations.TetanusDiphtheria;
+                model.TetanusDiphtheriaNo = Immunizations.TetanusDiphtheriaNo;
+                model.TetanusDiphtheriaYesPrevPreg = Immunizations.TetanusDiphtheriaYesPrevPreg;
+                model.TetanusDiphtheriaYesDuringPreg = Immunizations.TetanusDiphtheriaYesDuringPreg;
                 model.TetanusDiphtheria_Date = Immunizations.TetanusDiphtheria_Date;
-                model.TetanusDiphtheria_Quantity = Immunizations.TetanusDiphtheria_Quantity;
-                model.TDAP = Immunizations.TDAP;
-                model.TDAP_Date = Immunizations.TDAP_Date;
-                model.TDAP_Quantity = Immunizations.TDAP_Quantity;
-                model.Influenza = Immunizations.Influenza;
+                model.TetanusDiphtheria_Dozes = Immunizations.TetanusDiphtheria_Dozes;
+                model.TdapNo = Immunizations.TdapNo;
+                model.TdapYesPrevPreg = Immunizations.TdapYesPrevPreg;
+                model.TdapYesDuringPreg = Immunizations.TdapYesDuringPreg;
+                model.Tdap_Date = Immunizations.Tdap_Date;
+                model.Tdap_Dozes = Immunizations.Tdap_Dozes;
+                model.InfluenzaNo = Immunizations.InfluenzaNo;
+                model.InfluenzaYesPrevPreg = Immunizations.InfluenzaYesPrevPreg;
+                model.InfluenzaYesDuringPreg = Immunizations.InfluenzaYesDuringPreg;
                 model.Influenza_Date = Immunizations.Influenza_Date;
-                model.Influenza_Quantity = Immunizations.Influenza_Quantity;
-                model.Rubella = Immunizations.Rubella;
+                model.Influenza_Dozes = Immunizations.Influenza_Dozes;
+                model.RubellaNo = Immunizations.RubellaNo;
+                model.RubellaYesPrevPreg = Immunizations.RubellaYesPrevPreg;
+                model.RubellaYesDuringPreg = Immunizations.RubellaYesDuringPreg;
                 model.Rubella_Date = Immunizations.Rubella_Date;
-                model.Rubella_Quantity = Immunizations.Rubella_Quantity;
-                model.Hepatitis_B = Immunizations.Hepatitis_B;
-                model.Hepatitis_B_Date = Immunizations.Hepatitis_B_Date;
-                model.Hepatitis_B_Quantity = Immunizations.Hepatitis_B_Quantity;
-                model.Hepatitis_A = Immunizations.Hepatitis_A;
+                model.Rubella_Dozes = Immunizations.Rubella_Dozes;
+                model.Hepatitis_ANo = Immunizations.Hepatitis_ANo;
+                model.Hepatitis_AYesPrevPreg = Immunizations.Hepatitis_AYesPrevPreg;
+                model.Hepatitis_AYesDuringPreg = Immunizations.Hepatitis_AYesDuringPreg;
                 model.Hepatitis_A_Date = Immunizations.Hepatitis_A_Date;
-                model.Hepatitis_A_Quantity = Immunizations.Hepatitis_A_Quantity;
+                model.Hepatitis_A_Dozes = Immunizations.Hepatitis_A_Dozes;
+                model.Hepatitis_BNo = Immunizations.Hepatitis_BNo;
+                model.Hepatitis_BYesPrevPreg = Immunizations.Hepatitis_BYesPrevPreg;
+                model.Hepatitis_BYesDuringPreg = Immunizations.Hepatitis_BYesDuringPreg;
+                model.Hepatitis_B_Date = Immunizations.Hepatitis_B_Date;
+                model.Hepatitis_B_Dozes = Immunizations.Hepatitis_B_Dozes;
 
 
             }
@@ -64,24 +76,37 @@ namespace PreNat.Controllers
         {
             ImmunizationsActionViewModel model = new ImmunizationsActionViewModel();
             var Immunizations = ImmunizationsServices.Instance.GetImmunizations(ID);
-            model.TetanusDiphtheria = Immunizations.TetanusDiphtheria;
+            model.ID = Immunizations.ID;
+            model.TetanusDiphtheriaNo = Immunizations.TetanusDiphtheriaNo;
+            model.TetanusDiphtheriaYesPrevPreg = Immunizations.TetanusDiphtheriaYesPrevPreg;
+            model.TetanusDiphtheriaYesDuringPreg = Immunizations.TetanusDiphtheriaYesDuringPreg;
             model.TetanusDiphtheria_Date = Immunizations.TetanusDiphtheria_Date;
-            model.TetanusDiphtheria_Quantity = Immunizations.TetanusDiphtheria_Quantity;
-            model.TDAP = Immunizations.TDAP;
-            model.TDAP_Date = Immunizations.TDAP_Date;
-            model.TDAP_Quantity = Immunizations.TDAP_Quantity;
-            model.Influenza = Immunizations.Influenza;
+            model.TetanusDiphtheria_Dozes = Immunizations.TetanusDiphtheria_Dozes;
+            model.TdapNo = Immunizations.TdapNo;
+            model.TdapYesPrevPreg = Immunizations.TdapYesPrevPreg;
+            model.TdapYesDuringPreg = Immunizations.TdapYesDuringPreg;
+            model.Tdap_Date = Immunizations.Tdap_Date;
+            model.Tdap_Dozes = Immunizations.Tdap_Dozes;
+            model.InfluenzaNo = Immunizations.InfluenzaNo;
+            model.InfluenzaYesPrevPreg = Immunizations.InfluenzaYesPrevPreg;
+            model.InfluenzaYesDuringPreg = Immunizations.InfluenzaYesDuringPreg;
             model.Influenza_Date = Immunizations.Influenza_Date;
-            model.Influenza_Quantity = Immunizations.Influenza_Quantity;
-            model.Rubella = Immunizations.Rubella;
+            model.Influenza_Dozes = Immunizations.Influenza_Dozes;
+            model.RubellaNo = Immunizations.RubellaNo;
+            model.RubellaYesPrevPreg = Immunizations.RubellaYesPrevPreg;
+            model.RubellaYesDuringPreg = Immunizations.RubellaYesDuringPreg;
             model.Rubella_Date = Immunizations.Rubella_Date;
-            model.Rubella_Quantity = Immunizations.Rubella_Quantity;
-            model.Hepatitis_B = Immunizations.Hepatitis_B;
-            model.Hepatitis_B_Date = Immunizations.Hepatitis_B_Date;
-            model.Hepatitis_B_Quantity = Immunizations.Hepatitis_B_Quantity;
-            model.Hepatitis_A = Immunizations.Hepatitis_A;
+            model.Rubella_Dozes = Immunizations.Rubella_Dozes;
+            model.Hepatitis_ANo = Immunizations.Hepatitis_ANo;
+            model.Hepatitis_AYesPrevPreg = Immunizations.Hepatitis_AYesPrevPreg;
+            model.Hepatitis_AYesDuringPreg = Immunizations.Hepatitis_AYesDuringPreg;
             model.Hepatitis_A_Date = Immunizations.Hepatitis_A_Date;
-            model.Hepatitis_A_Quantity = Immunizations.Hepatitis_A_Quantity;
+            model.Hepatitis_A_Dozes = Immunizations.Hepatitis_A_Dozes;
+            model.Hepatitis_BNo = Immunizations.Hepatitis_BNo;
+            model.Hepatitis_BYesPrevPreg = Immunizations.Hepatitis_BYesPrevPreg;
+            model.Hepatitis_BYesDuringPreg = Immunizations.Hepatitis_BYesDuringPreg;
+            model.Hepatitis_B_Date = Immunizations.Hepatitis_B_Date;
+            model.Hepatitis_B_Dozes = Immunizations.Hepatitis_B_Dozes;
 
 
             return View("View", "_Layout", model);
@@ -95,55 +120,79 @@ namespace PreNat.Controllers
         {
             if (model.ID != 0)
             {
-                var Immunizations = ImmunizationsServices.Instance.GetImmunizations(model.ID);
+                var immunizations = ImmunizationsServices.Instance.GetImmunizations(model.ID);
 
-                Immunizations.ID = model.ID;
-                Immunizations.TetanusDiphtheria = model.TetanusDiphtheria;
-                Immunizations.TetanusDiphtheria_Date = model.TetanusDiphtheria_Date;
-                Immunizations.TetanusDiphtheria_Quantity = model.TetanusDiphtheria_Quantity;
-                Immunizations.TDAP = model.TDAP;
-                Immunizations.TDAP_Date = model.TDAP_Date;
-                Immunizations.TDAP_Quantity = model.TDAP_Quantity;
-                Immunizations.Influenza = model.Influenza;
-                Immunizations.Influenza_Date = model.Influenza_Date;
-                Immunizations.Influenza_Quantity = model.Influenza_Quantity;
-                Immunizations.Rubella = model.Rubella;
-                Immunizations.Rubella_Date = model.Rubella_Date;
-                Immunizations.Rubella_Quantity = model.Rubella_Quantity;
-                Immunizations.Hepatitis_B = model.Hepatitis_B;
-                Immunizations.Hepatitis_B_Date = model.Hepatitis_B_Date;
-                Immunizations.Hepatitis_B_Quantity = model.Hepatitis_B_Quantity;
-                Immunizations.Hepatitis_A = model.Hepatitis_A;
-                Immunizations.Hepatitis_A_Date = model.Hepatitis_A_Date;
-                Immunizations.Hepatitis_A_Quantity = model.Hepatitis_A_Quantity;
+                immunizations.ID = model.ID;
+                immunizations.TetanusDiphtheriaNo = model.TetanusDiphtheriaNo;
+                immunizations.TetanusDiphtheriaYesPrevPreg = model.TetanusDiphtheriaYesPrevPreg;
+                immunizations.TetanusDiphtheriaYesDuringPreg = model.TetanusDiphtheriaYesDuringPreg;
+                immunizations.TetanusDiphtheria_Date = model.TetanusDiphtheria_Date;
+                immunizations.TetanusDiphtheria_Dozes = model.TetanusDiphtheria_Dozes;
+                immunizations.TdapNo = model.TdapNo;
+                immunizations.TdapYesPrevPreg = model.TdapYesPrevPreg;
+                immunizations.TdapYesDuringPreg = model.TdapYesDuringPreg;
+                immunizations.Tdap_Date = model.Tdap_Date;
+                immunizations.Tdap_Dozes = model.Tdap_Dozes;
+                immunizations.InfluenzaNo = model.InfluenzaNo;
+                immunizations.InfluenzaYesPrevPreg = model.InfluenzaYesPrevPreg;
+                immunizations.InfluenzaYesDuringPreg = model.InfluenzaYesDuringPreg;
+                immunizations.Influenza_Date = model.Influenza_Date;
+                immunizations.Influenza_Dozes = model.Influenza_Dozes;
+                immunizations.RubellaNo = model.RubellaNo;
+                immunizations.RubellaYesPrevPreg = model.RubellaYesPrevPreg;
+                immunizations.RubellaYesDuringPreg = model.RubellaYesDuringPreg;
+                immunizations.Rubella_Date = model.Rubella_Date;
+                immunizations.Rubella_Dozes = model.Rubella_Dozes;
+                immunizations.Hepatitis_ANo = model.Hepatitis_ANo;
+                immunizations.Hepatitis_AYesPrevPreg = model.Hepatitis_AYesPrevPreg;
+                immunizations.Hepatitis_AYesDuringPreg = model.Hepatitis_AYesDuringPreg;
+                immunizations.Hepatitis_A_Date = model.Hepatitis_A_Date;
+                immunizations.Hepatitis_A_Dozes = model.Hepatitis_A_Dozes;
+                immunizations.Hepatitis_BNo = model.Hepatitis_BNo;
+                immunizations.Hepatitis_BYesPrevPreg = model.Hepatitis_BYesPrevPreg;
+                immunizations.Hepatitis_BYesDuringPreg = model.Hepatitis_BYesDuringPreg;
+                immunizations.Hepatitis_B_Date = model.Hepatitis_B_Date;
+                immunizations.Hepatitis_B_Dozes = model.Hepatitis_B_Dozes;
 
-                ImmunizationsServices.Instance.UpdateImmunizationss(Immunizations);
+                ImmunizationsServices.Instance.UpdateImmunizationss(immunizations);
 
 
             }
             else
             {
-                var Immunizations = new Immunizations();
-                Immunizations.TetanusDiphtheria = model.TetanusDiphtheria;
-                Immunizations.TetanusDiphtheria_Date = model.TetanusDiphtheria_Date;
-                Immunizations.TetanusDiphtheria_Quantity = model.TetanusDiphtheria_Quantity;
-                Immunizations.TDAP = model.TDAP;
-                Immunizations.TDAP_Date = model.TDAP_Date;
-                Immunizations.TDAP_Quantity = model.TDAP_Quantity;
-                Immunizations.Influenza = model.Influenza;
-                Immunizations.Influenza_Date = model.Influenza_Date;
-                Immunizations.Influenza_Quantity = model.Influenza_Quantity;
-                Immunizations.Rubella = model.Rubella;
-                Immunizations.Rubella_Date = model.Rubella_Date;
-                Immunizations.Rubella_Quantity = model.Rubella_Quantity;
-                Immunizations.Hepatitis_B = model.Hepatitis_B;
-                Immunizations.Hepatitis_B_Date = model.Hepatitis_B_Date;
-                Immunizations.Hepatitis_B_Quantity = model.Hepatitis_B_Quantity;
-                Immunizations.Hepatitis_A = model.Hepatitis_A;
-                Immunizations.Hepatitis_A_Date = model.Hepatitis_A_Date;
-                Immunizations.Hepatitis_A_Quantity = model.Hepatitis_A_Quantity;
+                var immunizations = new Immunizations();
+                immunizations.TetanusDiphtheriaNo = model.TetanusDiphtheriaNo;
+                immunizations.TetanusDiphtheriaYesPrevPreg = model.TetanusDiphtheriaYesPrevPreg;
+                immunizations.TetanusDiphtheriaYesDuringPreg = model.TetanusDiphtheriaYesDuringPreg;
+                immunizations.TetanusDiphtheria_Date = model.TetanusDiphtheria_Date;
+                immunizations.TetanusDiphtheria_Dozes = model.TetanusDiphtheria_Dozes;
+                immunizations.TdapNo = model.TdapNo;
+                immunizations.TdapYesPrevPreg = model.TdapYesPrevPreg;
+                immunizations.TdapYesDuringPreg = model.TdapYesDuringPreg;
+                immunizations.Tdap_Date = model.Tdap_Date;
+                immunizations.Tdap_Dozes = model.Tdap_Dozes;
+                immunizations.InfluenzaNo = model.InfluenzaNo;
+                immunizations.InfluenzaYesPrevPreg = model.InfluenzaYesPrevPreg;
+                immunizations.InfluenzaYesDuringPreg = model.InfluenzaYesDuringPreg;
+                immunizations.Influenza_Date = model.Influenza_Date;
+                immunizations.Influenza_Dozes = model.Influenza_Dozes;
+                immunizations.RubellaNo = model.RubellaNo;
+                immunizations.RubellaYesPrevPreg = model.RubellaYesPrevPreg;
+                immunizations.RubellaYesDuringPreg = model.RubellaYesDuringPreg;
+                immunizations.Rubella_Date = model.Rubella_Date;
+                immunizations.Rubella_Dozes = model.Rubella_Dozes;
+                immunizations.Hepatitis_ANo = model.Hepatitis_ANo;
+                immunizations.Hepatitis_AYesPrevPreg = model.Hepatitis_AYesPrevPreg;
+                immunizations.Hepatitis_AYesDuringPreg = model.Hepatitis_AYesDuringPreg;
+                immunizations.Hepatitis_A_Date = model.Hepatitis_A_Date;
+                immunizations.Hepatitis_A_Dozes = model.Hepatitis_A_Dozes;
+                immunizations.Hepatitis_BNo = model.Hepatitis_BNo;
+                immunizations.Hepatitis_BYesPrevPreg = model.Hepatitis_BYesPrevPreg;
+                immunizations.Hepatitis_BYesDuringPreg = model.Hepatitis_BYesDuringPreg;
+                immunizations.Hepatitis_B_Date = model.Hepatitis_B_Date;
+                immunizations.Hepatitis_B_Dozes = model.Hepatitis_B_Dozes;
 
-                ImmunizationsServices.Instance.SaveImmunizationss(Immunizations);
+                ImmunizationsServices.Instance.SaveImmunizationss(immunizations);
 
 
             }

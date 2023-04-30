@@ -81,6 +81,29 @@
                                     Current Gestation
                                 </a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-ogcc-tab-custom" data-bs-toggle="pill" href="#pills-ogcc" role="tab" aria-bs-controls="pills-ogcc" aria-bs-selected="false">
+                                    Obstetric Gynecology Clinical Condition
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-cp-tab-custom" data-bs-toggle="pill" href="#pills-cp" role="tab" aria-bs-controls="pills-cp" aria-bs-selected="false">
+                                    Chronlogical Pregnancy
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-pa-tab-custom" data-bs-toggle="pill" href="#pills-pa" role="tab" aria-bs-controls="pills-pa" aria-bs-selected="false">
+                                    Psychosocial Assessment
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-imm-tab-custom" data-bs-toggle="pill" href="#pills-imm" role="tab" aria-bs-controls="pills-imm" aria-bs-selected="false">
+                                    Immunizations
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="pills-r-tab-custom" data-bs-toggle="pill" href="#pills-r" role="tab" aria-bs-controls="pills-r" aria-bs-selected="false">
                                     Report
@@ -110,6 +133,28 @@
                             <li class="nav-item">
                                 <a class="nav-link" id="pills-cg-tab-custom" data-toggle="pill" href="#pills-cg" role="tab" aria-controls="pills-cg" aria-selected="false">
                                     Current Gestation
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-ogcc-tab-custom" data-toggle="pill" href="#pills-ogcc" role="tab" aria-controls="pills-ogcc" aria-selected="false">
+                                    Obstetric Gynecology Clinical Condition
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-cp-tab-custom" data-toggle="pill" href="#pills-cp" role="tab" aria-controls="pills-cp" aria-selected="false">
+                                    Chronlogical Pregnancy
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-pa-tab-custom" data-toggle="pill" href="#pills-pa" role="tab" aria-controls="pills-pa" aria-selected="false">
+                                    Psychosocial Assessment
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-imm-tab-custom" data-toggle="pill" href="#pills-imm" role="tab" aria-controls="pills-imm" aria-selected="false">
+                                    Immunizations
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -339,8 +384,6 @@
                         </div>
 
 
-
-
                         <div class="tab-pane fade" id="pills-b" role="tabpanel" aria-labelledby="pills-b-tab-custom">
                             <form id="backgroundForm">
                                 <div class="table-responsive">
@@ -370,7 +413,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="tbc-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="tbc-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="tbc-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" required id="Tbc" name="Tbc" value="@Model.Tbc" /></td>
+                                                <td hidden><input type="hidden" id="Tbc" name="Tbc" value="@Model.Tbc" /></td>
                                             <tr>
                                                 <td>
                                                     Diabetes
@@ -378,7 +421,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="diabetes-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="diabetes-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="diabetes-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" required id="Diabetes" name="Diabetes" value="@Model.Diabetes" /></td>
+                                                <td hidden><input type="hidden" id="Diabetes" name="Diabetes" value="@Model.Diabetes" /></td>
 
                                             </tr>
 
@@ -389,7 +432,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="hypertension-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="hypertension-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="hypertension-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" required id="Hypertension" name="Hypertension" value="@Model.Hypertension" /></td>
+                                                <td hidden><input type="hidden" id="Hypertension" name="Hypertension" value="@Model.Hypertension" /></td>
 
 
                                             </tr>
@@ -401,7 +444,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="eclampsia-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="eclampsia-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="eclampsia-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" required id="Eclampsia" name="Eclampsia" value="@Model.Eclampsia" /></td>
+                                                <td hidden><input type="hidden" id="Eclampsia" name="Eclampsia" value="@Model.Eclampsia" /></td>
 
                                             </tr>
 
@@ -412,7 +455,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="preeclampsia-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="preeclampsia-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="preeclampsia-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" required id="Preeclampsia" name="Preeclampsia" value="@Model.Preeclampsia" /></td>
+                                                <td hidden><input type="hidden" id="Preeclampsia" name="Preeclampsia" value="@Model.Preeclampsia" /></td>
 
                                             </tr>
 
@@ -423,7 +466,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="surgery-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="surgery-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="surgery-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" required id="Surgery" name="Surgery" value="@Model.Surgery" /></td>
+                                                <td hidden><input type="hidden" id="Surgery" name="Surgery" value="@Model.Surgery" /></td>
 
                                             </tr>
 
@@ -434,7 +477,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="infertility-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="infertility-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="infertility-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" required id="Infertility" name="Infertility" value="@Model.Infertility" /></td>
+                                                <td hidden><input type="hidden" id="Infertility" name="Infertility" value="@Model.Infertility" /></td>
 
                                             </tr>
 
@@ -445,7 +488,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="cardiopathy-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="cardiopathy-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="cardiopathy-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" required id="Cardiopathy" name="Cardiopathy" value="@Model.Cardiopathy" /></td>
+                                                <td hidden><input type="hidden" id="Cardiopathy" name="Cardiopathy" value="@Model.Cardiopathy" /></td>
 
                                             </tr>
 
@@ -457,7 +500,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="nephropathy-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="nephropathy-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="nephropathy-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" required id="Nephropathy" name="Nephropathy" value="@Model.Nephropathy" /></td>
+                                                <td hidden><input type="hidden" id="Nephropathy" name="Nephropathy" value="@Model.Nephropathy" /></td>
 
                                             </tr>
 
@@ -468,7 +511,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="violence-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="violence-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="violence-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" required id="Violence" name="Violence" value="@Model.Violence" /></td>
+                                                <td hidden><input type="hidden" id="Violence" name="Violence" value="@Model.Violence" /></td>
 
                                             </tr>
 
@@ -479,7 +522,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="hiv-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="hiv-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="hiv-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" required id="HIV" name="HIV" value="@Model.HIV" /></td>
+                                                <td hidden><input type="hidden" id="HIV" name="HIV" value="@Model.HIV" /></td>
 
                                             </tr>
 
@@ -490,7 +533,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="migraine-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="migraine-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="migraine-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" required id="Migraine" name="Migraine" value="@Model.Migraine" /></td>
+                                                <td hidden><input type="hidden" id="Migraine" name="Migraine" value="@Model.Migraine" /></td>
 
                                             </tr>
 
@@ -501,7 +544,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="thromboembolic-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="thromboembolic-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="thromboembolic-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" required id="Thromboembolic" name="Thromboembolic" value="@Model.Thromboembolic" /></td>
+                                                <td hidden><input type="hidden" id="Thromboembolic" name="Thromboembolic" value="@Model.Thromboembolic" /></td>
 
                                             </tr>
 
@@ -512,7 +555,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="bmi_29-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="bmi_29-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="bmi_29-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" required id="BMI_29" name="BMI_29" value="@Model.BMI_29" /></td>
+                                                <td hidden><input type="hidden" id="BMI_29" name="BMI_29" value="@Model.BMI_29" /></td>
 
                                             </tr>
 
@@ -523,7 +566,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="bmi_39-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="bmi_39-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="bmi_39-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" required id="BMI_39" name="BMI_39" value="@Model.BMI_39" /></td>
+                                                <td hidden><input type="hidden" id="BMI_39" name="BMI_39" value="@Model.BMI_39" /></td>
 
                                             </tr>
 
@@ -534,7 +577,7 @@
                                                 <td><input class="form-check text-center" type="checkbox" id="discsang-absent-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="discsang-present-family-checkbox"></td>
                                                 <td><input class="form-check text-center" type="checkbox" id="discsang-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" required id="Disc_Sang" name="Disc_Sang" value="@Model.Disc_Sang" /></td>
+                                                <td hidden><input type="hidden" id="Disc_Sang" name="Disc_Sang" value="@Model.Disc_Sang" /></td>
 
                                             </tr>
 
@@ -545,7 +588,7 @@
                                                 <td><input class="form-control" type="text" onchange="DisplayValues()" id="other-absent-checkbox"></td>
                                                 <td><input class="form-control" type="text" onchange="DisplayValues()" id="other-present-family-checkbox"></td>
                                                 <td><input class="form-control" type="text" onchange="DisplayValues()" id="other-present-personally-checkbox"></td>
-                                                <td hidden><input type="hidden" required id="Other" name="Other" value="@Model.Other" /></td>
+                                                <td hidden><input type="hidden" id="Other" name="Other" value="@Model.Other" /></td>
 
                                             </tr>
 
@@ -563,11 +606,498 @@
 
 
                         <div class="tab-pane fade" id="pills-cg" role="tabpanel" aria-labelledby="pills-cg-tab-custom">
+                            <form id="obform">
+                                <div class="row">
+                                    <div class="form-group col-md-4">
+                                        <label>
+                                            Gestationes
+                                        </label>
+                                        <input type="text" class="form-control" name="Gestations" value="@Model.Gestationes_Pregnancies" />
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label>
+                                            Gestationes
+                                        </label>
+                                        <input type="text" class="form-control" name="Gestations" value="@Model.Gestationes_Pregnancies" />
+                                    </div>
 
+                                    <div class="form-group col-md-4">
+                                        <label>
+                                            Delivery
+                                        </label>
+                                        <input type="text" class="form-control" name="Delivery" value="@Model.Delivery" />
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="form-group col-md-4">
+                                        <label>
+                                            Term
+                                        </label>
+                                        <input type="text" class="form-control" name="Term" value="@Model.Term" />
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label>
+                                            Preterm
+                                        </label>
+                                        <input type="text" class="form-control" name="Preterm" value="@Model.Preterm" />
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label>
+                                            Vaginal
+                                        </label>
+                                        <input type="text" class="form-control" name="Vaginal" value="@Model.Vaginal" />
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="form-group col-md-4">
+                                        <label>
+                                            Cesareas
+                                        </label>
+                                        <input type="text" class="form-control" name="Cesareas" value="@Model.Cesareas" />
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label>
+                                            Abortions
+                                        </label>
+                                        <input type="text" class="form-control" name="Abortions" value="@Model.Abortions" />
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label>
+                                            Gemerales
+                                        </label>
+                                        <input type="text" class="form-control" name="Gemerales" value="@Model.Gemerales" />
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="form-group col-md-4">
+                                        <label>
+                                            Ectopic
+                                        </label>
+                                        <input type="text" class="form-control" name="Ectopic" value="@Model.Ectopic" />
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label>
+                                            Obitus
+                                        </label>
+                                        <input type="text" class="form-control" name="Obitus" value="@Model.Obitus" />
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label>
+                                            Molas
+                                        </label>
+                                        <input type="text" class="form-control" name="Molas" value="@Model.Molas" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-4">
+                                        <label>
+                                            Live_Births
+                                        </label>
+                                        <input type="text" class="form-control" name="Live_Births" value="@Model.Live_Births" />
+                                    </div>
+
+                                </div>
+                            </form>
+                            <button type="button" id="ObActionBtn" class="btn btn-primary">
+                                Save and Continue
+                            </button>
+                        </div>
+
+
+                        <div class="tab-pane fade" id="pills-ogcc" role="tabpanel" aria-labelledby="pills-ogcc-tab-custom">
+                            <form id="ogcform">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="PlannedPregnancy">Planned Pregancies</label>
+                                        <select required class="form-select" name="PlannedPregnancy" id="PlannedPregnancy">
+                                            <option value="Yes" @(Model.PlannedPregnancy == "Yes" ? "selected" : "")>Yes</option>
+                                            <option value="No" @(Model.PlannedPregnancy == "No" ? "selected" : "")>No</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="PlannedPregnancy">Desired Pregnancy</label>
+                                        <select required class="form-select" name="DesiredPregnancy" id="DesiredPregnancy">
+                                            <option value="Yes" @(Model.DesiredPregnancy == "Yes" ? "selected" : "")>Yes</option>
+                                            <option value="No" @(Model.DesiredPregnancy == "No" ? "selected" : "")>No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="form-group col-md-6">
+                                        <label for="PreconceptionCounseling">Preconception Counseling</label>
+                                        <select required class="form-select" name="PreconceptionCounseling" id="PreconceptionCounseling">
+                                            <option value="Yes" @(Model.PreconceptionCounseling == "Yes" ? "selected" : "")>Yes</option>
+                                            <option value="No" @(Model.PreconceptionCounseling == "No" ? "selected" : "")>No</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="ContraceptiveFailure">Contraceptive Failure</label>
+                                        <select required class="form-select" name="ContraceptiveFailure" id="ContraceptiveFailure">
+                                            <option value="Yes" @(Model.ContraceptiveFailure == "Yes" ? "selected" : "")>Yes</option>
+                                            <option value="No" @(Model.ContraceptiveFailure == "No" ? "selected" : "")>No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="ContraceptiveFailure">Failure of Definitive Method</label>
+                                        <select required class="form-select" name="DefinitiveMethod" id="DefinitiveMethod">
+                                            <option value="Yes" @(Model.DefinitiveMethod == "Yes" ? "selected" : "")>Yes</option>
+                                            <option value="No" @(Model.DefinitiveMethod == "No" ? "selected" : "")>No</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+
+                                    <div class="form-group col-md-4">
+                                        <label>
+                                            Ectopic
+                                        </label>
+                                        <input type="text" class="form-control" name="Ectopic" value="@Model.Ectopic" />
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label>
+                                            Obitus
+                                        </label>
+                                        <input type="text" class="form-control" name="Obitus" value="@Model.Obitus" />
+                                    </div>
+
+                                    <div class="form-group col-md-4">
+                                        <label>
+                                            Molas
+                                        </label>
+                                        <input type="text" class="form-control" name="Molas" value="@Model.Molas" />
+                                    </div>
+                                </div>
+
+                            </form>
+                            <button type="button" id="OgcActionBtn" class="btn btn-primary">
+                                Save and Continue
+                            </button>
                         </div>
 
 
 
+
+                        <div class="tab-pane fade" id="pills-cp" role="tabpanel" aria-labelledby="pills-cp-tab-custom">
+                            <form id="cpform">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="PlannedPregnancy">Reliable FUM</label>
+                                        <input class="form-control" type="text" value="@Model.ReliableFUM" name="ReliableFUM" id="ReliableFUM" />
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="PlannedPregnancy">Ultrasound Obstetrics</label>
+                                        <input class="form-control" type="text" value="@Model.UltrasoundObstetrics" name="UltrasoundObstetrics" id="UltrasoundObstetrics" />
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="form-group col-md-6">
+                                        <label for="PreconceptionCounseling">Probable Date Of Delivery</label>
+                                        <input type="date" class="form-control" value="@Model.ProbableDateOfDelivery.ToString("MM-dd-yyyy")" name="ProbableDateOfDelivery" id="ProbableDateOfDelivery">
+
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="ContraceptiveFailure">Probable Date Of Conception</label>
+                                        <input type="date" class="form-control" value="@Model.ProbableDateOfConception.ToString("MM-dd-yyyy")" name="ProbableDateOfConception" id="ProbableDateOfConception">
+
+                                    </div>
+                                </div>
+
+
+                            </form>
+                            <button type="button" id="CPactionBtn" class="btn btn-primary">
+                                Save and Continue
+                            </button>
+                        </div>
+
+
+
+
+
+                        <div class="tab-pane fade" id="pills-pa" role="tabpanel" aria-labelledby="pills-pa-tab-custom">
+                            <form id="paform">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="SmokerActive">Smoker Active?</label>
+                                        <select required class="form-select" name="SmokerActive" id="SmokerActive">
+                                            <option value="Yes" @(Model.SmokerActive == "Yes" ? "selected" : "")>Yes</option>
+                                            <option value="No" @(Model.SmokerActive == "No" ? "selected" : "")>No</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="PassiveSmoking">Passive Smoking</label>
+                                        <select required class="form-select" name="PassiveSmoking" id="PassiveSmoking">
+                                            <option value="Yes" @(Model.PassiveSmoking == "Yes" ? "selected" : "")>Yes</option>
+                                            <option value="No" @(Model.PassiveSmoking == "No" ? "selected" : "")>No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="form-group col-md-6">
+                                        <label for="ConsumeAlcohol">Consume Alcohol</label>
+                                        <select required class="form-select" name="ConsumeAlcohol" id="ConsumeAlcohol">
+                                            <option value="Yes" @(Model.ConsumeAlcohol == "Yes" ? "selected" : "")>Yes</option>
+                                            <option value="No" @(Model.ConsumeAlcohol == "No" ? "selected" : "")>No</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="ConsumeAlucinogenos">Consume Alucinogenos</label>
+                                        <select required class="form-select" name="ConsumeAlucinogenos" id="ConsumeAlucinogenos">
+                                            <option value="Yes" @(Model.ConsumeAlucinogenos == "Yes" ? "selected" : "")>Yes</option>
+                                            <option value="No" @(Model.ConsumeAlucinogenos == "No" ? "selected" : "")>No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label for="DomesticViolence">Victim Of Domestic Violence</label>
+                                        <select required class="form-select" name="DomesticViolence" id="DomesticViolence">
+                                            <option value="Yes" @(Model.DomesticViolence == "Yes" ? "selected" : "")>Yes</option>
+                                            <option value="No" @(Model.DomesticViolence == "No" ? "selected" : "")>No</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+
+
+                            </form>
+                            <button type="button" id="PAActionBtn" class="btn btn-primary">
+                                Save and Continue
+                            </button>
+                        </div>
+
+
+
+
+
+                        <div class="tab-pane fade" id="pills-imm" role="tabpanel" aria-labelledby="pills-imm-tab-custom">
+                            <form id="paform">
+                                <div class="row table-responsive">
+                                   <table class="table table-striped">
+                                       <thead>
+                                           <tr>
+                                               <th>
+                                                   Vaccines
+                                               </th>
+                                               <th>
+                                                   No
+                                               </th>
+                                               <th>
+                                                   Yes, Previous Pregnancy
+                                               </th>
+                                               <th>
+                                                   Yes, During Pregnancy
+                                               </th>
+                                               <th>
+                                                   Date of Last Dose
+                                               </th>
+                                               <th>
+                                                   Dosage No
+                                               </th>
+                                           </tr>
+                                       </thead>
+                                       <tbody>
+                                           <tr>
+                                               <td>
+                                                   Tetanus/diphtheria
+                                               </td>
+                                               <td>
+                                                   <select style="width:90px;" required class="form-select" name="TetanusDiphtheriaNo" id="TetanusDiphtheriaNo">
+                                                       <option value="Yes" @(Model.TetanusDiphtheriaNo == "Yes" ? "selected" : "")>Yes</option>
+                                                       <option value="No" @(Model.TetanusDiphtheriaNo == "No" ? "selected" : "")>No</option>
+                                                   </select>
+                                               </td>
+                                               <td>
+                                                   <select required class="form-select" name="TetanusDiphtheriaYesDuringPreg" id="TetanusDiphtheriaYesDuringPreg">
+                                                       <option value="Yes" @(Model.TetanusDiphtheriaYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                       <option value="No" @(Model.TetanusDiphtheriaYesDuringPreg == "No" ? "selected" : "")>No</option>
+                                                   </select>
+                                               </td>
+                                               <td>
+                                                   <select required class="form-select" name="TetanusDiphtheriaYesPrevPreg" id="TetanusDiphtheriaYesPrevPreg">
+                                                       <option value="Yes" @(Model.TetanusDiphtheriaYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                       <option value="No" @(Model.TetanusDiphtheriaYesPrevPreg == "No" ? "selected" : "")>No</option>
+                                                   </select>
+                                               </td>
+                                               <td>
+                                                   <input type="date" name="TetanusDiphtheria_Date" value="@Model.TetanusDiphtheria_Date.ToShortDateString()" id="TetanusDiphtheria_Date" class="form-control" />
+                                               </td>
+                                               <td>
+                                                   <input type="text" name="TetanusDiphtheriaNo" value="@Model.TetanusDiphtheriaNo" id="TetanusDiphtheriaNo" class="form-control" />
+                                               </td>
+                                           </tr>
+                                           <tr>
+                                               <td>
+                                                   TDAP
+                                               </td>
+                                               <td>
+                                                   <select  style="width:90px;" required class="form-select" name="TdapNo" id="TdapNo">
+                                                       <option value="Yes" @(Model.TdapNo == "Yes" ? "selected" : "")>Yes</option>
+                                                       <option value="No" @(Model.TdapNo == "No" ? "selected" : "")>No</option>
+                                                   </select>
+                                               </td>
+                                               <td>
+                                                   <select required class="form-select" name="TdapYesPrevPreg" id="TdapYesPrevPreg">
+                                                       <option value="Yes" @(Model.TdapYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                       <option value="No" @(Model.TdapYesPrevPreg == "No" ? "selected" : "")>No</option>
+                                                   </select>
+                                               </td>
+                                               <td>
+                                                   <select required class="form-select" name="TetanusDiphtheriaYesDuringPreg" id="TetanusDiphtheriaYesDuringPreg">
+                                                       <option value="Yes" @(Model.TetanusDiphtheriaYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                       <option value="No" @(Model.TetanusDiphtheriaYesDuringPreg == "No" ? "selected" : "")>No</option>
+                                                   </select>
+                                               </td>
+                                               <td>
+                                                   <input type="date" name="Tdap_Date" value="@Model.Tdap_Date.ToShortDateString()" id="Tdap_Date" class="form-control" />
+                                               </td>
+                                               <td>
+                                                   <input type="text" name="Tdap_Dozes" value="@Model.Tdap_Dozes" id="Tdap_Dozes" class="form-control" />
+                                               </td>
+                                           </tr>
+                                           <tr>
+                                               <td>
+                                                   Influenza
+                                               </td>
+                                               <td>
+                                                   <select  style="width:90px;" required class="form-select" name="InfluenzaNo" id="InfluenzaNo">
+                                                       <option value="Yes" @(Model.InfluenzaNo == "Yes" ? "selected" : "")>Yes</option>
+                                                       <option value="No" @(Model.InfluenzaNo == "No" ? "selected" : "")>No</option>
+                                                   </select>
+                                               </td>
+                                               <td>
+                                                   <select required class="form-select" name="InfluenzaYesPrevPreg" id="InfluenzaYesPrevPreg">
+                                                       <option value="Yes" @(Model.InfluenzaYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                       <option value="No" @(Model.InfluenzaYesPrevPreg == "No" ? "selected" : "")>No</option>
+                                                   </select>
+                                               </td>
+                                               <td>
+                                                   <select required class="form-select" name="InfluenzaYesDuringPreg" id="InfluenzaYesDuringPreg">
+                                                       <option value="Yes" @(Model.InfluenzaYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                       <option value="No" @(Model.InfluenzaYesDuringPreg == "No" ? "selected" : "")>No</option>
+                                                   </select>
+                                               </td>
+                                               <td>
+                                                   <input type="date" name="Influenza_Date" value="@Model.Influenza_Date.ToShortDateString()" id="Influenza_Date" class="form-control" />
+                                               </td>
+                                               <td>
+                                                   <input type="text" name="Influenza_Dozes" value="@Model.Influenza_Dozes" id="Influenza_Dozes" class="form-control" />
+                                               </td>
+
+                                           </tr>
+                                           <tr>
+                                               <td>
+                                                   Rubella
+                                               </td>
+                                               <td>
+                                                   <select  style="width:90px;" required class="form-select" name="RubellaNo" id="RubellaNo">
+                                                       <option value="Yes" @(Model.RubellaNo == "Yes" ? "selected" : "")>Yes</option>
+                                                       <option value="No" @(Model.RubellaNo == "No" ? "selected" : "")>No</option>
+                                                   </select>
+                                               </td>
+                                               <td>
+                                                   <select  required class="form-select" name="RubellaYesPrevPreg" id="RubellaYesPrevPreg">
+                                                       <option value="Yes" @(Model.RubellaYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                       <option value="No" @(Model.RubellaYesPrevPreg == "No" ? "selected" : "")>No</option>
+                                                   </select>
+                                               </td>
+                                               <td>
+                                                   <select required class="form-select" name="RubellaYesDuringPreg" id="RubellaYesDuringPreg">
+                                                       <option value="Yes" @(Model.RubellaYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                       <option value="No" @(Model.RubellaYesDuringPreg == "No" ? "selected" : "")>No</option>
+                                                   </select>
+                                               </td>
+                                               <td>
+                                                   <input type="date" name="Rubella_Date" value="@Model.Rubella_Date.ToShortDateString()" id="Rubella_Date" class="form-control" />
+                                               </td>
+                                               <td>
+                                                   <input type="text" name="Rubella_Dozes" value="@Model.Rubella_Dozes" id="Rubella_Dozes" class="form-control" />
+                                               </td>
+                                           </tr>
+                                           <tr>
+                                               <td>Hepatitis A</td>
+                                               <td>
+                                                   <select  style="width:90px;" required class="form-select" name="Hepatitis_ANo" id="Hepatitis_ANo">
+                                                       <option value="Yes" @(Model.Hepatitis_ANo == "Yes" ? "selected" : "")>Yes</option>
+                                                       <option value="No" @(Model.Hepatitis_ANo == "No" ? "selected" : "")>No</option>
+                                                   </select>
+                                               </td>
+                                               <td>
+                                                   <select required class="form-select" name="Hepatitis_AYesPrevPreg" id="Hepatitis_AYesPrevPreg">
+                                                       <option value="Yes" @(Model.Hepatitis_AYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                       <option value="No" @(Model.Hepatitis_AYesPrevPreg == "No" ? "selected" : "")>No</option>
+                                                   </select>
+                                               </td>
+                                               <td>
+                                                   <select required class="form-select" name="Hepatitis_AYesDuringPreg" id="Hepatitis_AYesDuringPreg">
+                                                       <option value="Yes" @(Model.Hepatitis_AYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                       <option value="No" @(Model.Hepatitis_AYesDuringPreg == "No" ? "selected" : "")>No</option>
+                                                   </select>
+                                               </td>
+                                               <td>
+                                                   <input type="date" name="Hepatitis_A_Date" value="@Model.Hepatitis_A_Date.ToShortDateString()" id="Hepatitis_A_Date" class="form-control" />
+                                               </td>
+                                               <td>
+                                                   <input type="text" name="Hepatitis_A_Dozes" value="@Model.Hepatitis_A_Dozes" id="Hepatitis_A_Dozes" class="form-control" />
+                                               </td>
+                                           </tr>
+
+                                           <tr>
+                                               <td>Hepatitis B</td>
+                                               <td>
+                                                   <select  style="width:90px;" required class="form-select" name="Hepatitis_BNo" id="Hepatitis_BNo">
+                                                       <option value="Yes" @(Model.Hepatitis_BNo == "Yes" ? "selected" : "")>Yes</option>
+                                                       <option value="No" @(Model.Hepatitis_BNo == "No" ? "selected" : "")>No</option>
+                                                   </select>
+                                               </td>
+                                               <td>
+                                                   <select required class="form-select" name="Hepatitis_BYesPrevPreg" id="Hepatitis_BYesPrevPreg">
+                                                       <option value="Yes" @(Model.Hepatitis_BYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                       <option value="No" @(Model.Hepatitis_BYesPrevPreg == "No" ? "selected" : "")>No</option>
+                                                   </select>
+                                               </td>
+                                               <td>
+                                                   <select required class="form-select" name="Hepatitis_BYesDuringPreg" id="Hepatitis_BYesDuringPreg">
+                                                       <option value="Yes" @(Model.Hepatitis_BYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                       <option value="No" @(Model.Hepatitis_BYesDuringPreg == "No" ? "selected" : "")>No</option>
+                                                   </select>
+                                               </td>
+                                               <td>
+                                                   <input type="date" name="Hepatitis_B_Date" value="@Model.Hepatitis_B_Date.ToShortDateString()" id="Hepatitis_B_Date" class="form-control" />
+                                               </td>
+                                               <td>
+                                                   <input type="text" name="Hepatitis_B_Dozes" value="@Model.Hepatitis_B_Dozes" id="Hepatitis_B_Dozes" class="form-control" />
+                                               </td>
+                                           </tr>
+
+                                       </tbody>
+                                   </table>
+                                </div>
+
+
+                            </form>
+                            <button type="button" id="PAActionBtn" class="btn btn-primary">
+                                Save and Continue
+                            </button>
+                        </div>
 
 
                         <div class="tab-pane fade" id="pills-r" role="tabpanel" aria-labelledby="pills-r-tab-custom">
@@ -783,62 +1313,46 @@
 
 
     $("#BackgroundActionBtn").click(function () {
-        const form = document.getElementById('backgroundForm');
-        const requiredInputs = form.querySelectorAll('input[required]');
-        let isValid = true;
-        requiredInputs.forEach(function (input) {
-            if (input.value.trim() === '') {
-                input.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                input.classList.remove('is-invalid');
-            }
-        });
 
-        // If any required field is empty, prevent the form from being submitted
-        if (!isValid) {
-            alert("All Fields are mandatory");
-            return false;
-        } else {
-            $.ajax({
-                url: '@Url.Action("MainAction", "Background")',
-                type: "post",
-                data: $("#backgroundForm").serialize()
-            })
-                .done(function (result) {
-                    if (result.success) {
-                        alert("Saved Successfully!!");
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+        $.ajax({
+            url: '@Url.Action("MainAction", "Background")',
+            type: "post",
+            data: $("#backgroundForm").serialize()
+        })
+        .done(function (result) {
+                if (result.success) {
+                    alert("Saved Successfully!!");
+                    var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
 
-                        // get the next tab
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+                    // get the next tab
+                    var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
 
-                        // get the next tab
-                        var nextTab = activeTab.nextElementSibling;
+                    // get the next tab
+                    var nextTab = activeTab.nextElementSibling;
 
-                        // activate the next tab
-                        if (nextTab) {
-                            var tabLink = nextTab.querySelector(".nav-link");
-                            if (tabLink) {
-                                var activeTabLink = activeTab.querySelector('.nav-link.active');
-                                var nextTabLink = nextTab.querySelector('.nav-link');
-                                activeTabLink.classList.remove('active');
-                                nextTabLink.classList.add('active');
+                    // activate the next tab
+                    if (nextTab) {
+                        var tabLink = nextTab.querySelector(".nav-link");
+                        if (tabLink) {
+                            var activeTabLink = activeTab.querySelector('.nav-link.active');
+                            var nextTabLink = nextTab.querySelector('.nav-link');
+                            activeTabLink.classList.remove('active');
+                            nextTabLink.classList.add('active');
 
 
 
-                                // To remove classes
-                                $('.tab-pane.active.show').removeClass('active show');
+                            // To remove classes
+                            $('.tab-pane.active.show').removeClass('active show');
 
-                                tabLink.click();
-                                $("#pills-cg").addClass('active show');
-                            }
-                        } else {
-                            alert("Data Didn't Saved!!!!");
+                            tabLink.click();
+                            $("#pills-cg").addClass('active show');
                         }
+                    } else {
+                        alert("Data Didn't Saved!!!!");
                     }
-                });
-        }
+                }
+            });
+
     });
 
 
@@ -1091,6 +1605,252 @@
 
 
     });
+
+
+
+    $("#ObActionBtn").click(function () {
+        const form = document.getElementById('obform');
+        const requiredInputs = form.querySelectorAll('input[required]');
+        let isValid = true;
+        requiredInputs.forEach(function (input) {
+            if (input.value.trim() === '') {
+                input.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                input.classList.remove('is-invalid');
+            }
+        });
+
+        // If any required field is empty, prevent the form from being submitted
+        if (!isValid) {
+            alert("All Fields are mandatory");
+            return false;
+        } else {
+            $.ajax({
+                url: '@Url.Action("Action", "Obstetrichistory")',
+                type: "post",
+                data: $("#obform").serialize()
+            })
+                .done(function (result) {
+                    if (result.success) {
+                        alert("Saved Successfully!!");
+                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+                        // get the next tab
+                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+                        // get the next tab
+                        var nextTab = activeTab.nextElementSibling;
+
+                        // activate the next tab
+                        if (nextTab) {
+                            var tabLink = nextTab.querySelector(".nav-link");
+                            if (tabLink) {
+                                var activeTabLink = activeTab.querySelector('.nav-link.active');
+                                var nextTabLink = nextTab.querySelector('.nav-link');
+                                activeTabLink.classList.remove('active');
+                                nextTabLink.classList.add('active');
+
+
+
+                                // To remove classes
+                                $('.tab-pane.active.show').removeClass('active show');
+
+                                tabLink.click();
+                                $("#pills-ogcc").addClass('active show');
+                            }
+                        } else {
+                            alert("Data Didn't Saved!!!!");
+                        }
+                    }
+                });
+        }
+    });
+
+
+
+
+    $("#OgcActionBtn").click(function () {
+          const form = document.getElementById('ogcform');
+        const requiredInputs = form.querySelectorAll('input[required]');
+        let isValid = true;
+        requiredInputs.forEach(function (input) {
+            if (input.value.trim() === '') {
+                input.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                input.classList.remove('is-invalid');
+            }
+        });
+
+        // If any required field is empty, prevent the form from being submitted
+        if (!isValid) {
+            alert("All Fields are mandatory");
+            return false;
+        } else {
+            $.ajax({
+                url: '@Url.Action("Action", "ObstetricGynecologyClinical")',
+                type: "post",
+                data: $("#ogcform").serialize()
+            })
+                .done(function (result) {
+                    if (result.success) {
+                        alert("Saved Successfully!!");
+                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+                        // get the next tab
+                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+                        // get the next tab
+                        var nextTab = activeTab.nextElementSibling;
+
+                        // activate the next tab
+                        if (nextTab) {
+                            var tabLink = nextTab.querySelector(".nav-link");
+                            if (tabLink) {
+                                var activeTabLink = activeTab.querySelector('.nav-link.active');
+                                var nextTabLink = nextTab.querySelector('.nav-link');
+                                activeTabLink.classList.remove('active');
+                                nextTabLink.classList.add('active');
+
+
+
+                                // To remove classes
+                                $('.tab-pane.active.show').removeClass('active show');
+
+                                tabLink.click();
+                                $("#pills-cp").addClass('active show');
+                            }
+                        } else {
+                            alert("Data Didn't Saved!!!!");
+                        }
+                    }
+                });
+        }
+    });
+
+
+    $("#CPactionBtn").click(function () {
+          const form = document.getElementById('cpform');
+        const requiredInputs = form.querySelectorAll('input[required]');
+        let isValid = true;
+        requiredInputs.forEach(function (input) {
+            if (input.value.trim() === '') {
+                input.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                input.classList.remove('is-invalid');
+            }
+        });
+
+        // If any required field is empty, prevent the form from being submitted
+        if (!isValid) {
+            alert("All Fields are mandatory");
+            return false;
+        } else {
+            $.ajax({
+                url: '@Url.Action("Action", "ChronologyPregnancy")',
+                type: "post",
+                data: $("#cpform").serialize()
+            })
+                .done(function (result) {
+                    if (result.success) {
+                        alert("Saved Successfully!!");
+                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+                        // get the next tab
+                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+                        // get the next tab
+                        var nextTab = activeTab.nextElementSibling;
+
+                        // activate the next tab
+                        if (nextTab) {
+                            var tabLink = nextTab.querySelector(".nav-link");
+                            if (tabLink) {
+                                var activeTabLink = activeTab.querySelector('.nav-link.active');
+                                var nextTabLink = nextTab.querySelector('.nav-link');
+                                activeTabLink.classList.remove('active');
+                                nextTabLink.classList.add('active');
+
+
+
+                                // To remove classes
+                                $('.tab-pane.active.show').removeClass('active show');
+
+                                tabLink.click();
+                                $("#pills-pa").addClass('active show');
+                            }
+                        } else {
+                            alert("Data Didn't Saved!!!!");
+                        }
+                    }
+                });
+        }
+    });
+
+
+    $("#PAActionBtn").click(function () {
+        const form = document.getElementById('paform');
+        const requiredInputs = form.querySelectorAll('input[required]');
+        let isValid = true;
+        requiredInputs.forEach(function (input) {
+            if (input.value.trim() === '') {
+                input.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                input.classList.remove('is-invalid');
+            }
+        });
+
+        // If any required field is empty, prevent the form from being submitted
+        if (!isValid) {
+            alert("All Fields are mandatory");
+            return false;
+        } else {
+            $.ajax({
+                url: '@Url.Action("Action", "PsychosocialAssessment")',
+                type: "post",
+                data: $("#paform").serialize()
+            })
+                .done(function (result) {
+                    if (result.success) {
+                        alert("Saved Successfully!!");
+                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+                        // get the next tab
+                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+                        // get the next tab
+                        var nextTab = activeTab.nextElementSibling;
+
+                        // activate the next tab
+                        if (nextTab) {
+                            var tabLink = nextTab.querySelector(".nav-link");
+                            if (tabLink) {
+                                var activeTabLink = activeTab.querySelector('.nav-link.active');
+                                var nextTabLink = nextTab.querySelector('.nav-link');
+                                activeTabLink.classList.remove('active');
+                                nextTabLink.classList.add('active');
+
+
+
+                                // To remove classes
+                                $('.tab-pane.active.show').removeClass('active show');
+
+                                tabLink.click();
+                                $("#pills-imm").addClass('active show');
+                            }
+                        } else {
+                            alert("Data Didn't Saved!!!!");
+                        }
+                    }
+                });
+        }
+    });
+
+
+
 
 </script>
 

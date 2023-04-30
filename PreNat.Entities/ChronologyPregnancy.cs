@@ -11,6 +11,8 @@ namespace PreNat.Entities
         public int ReliableFUM { get; set; }
         public int UltrasoundObstetrics  { get; set; }
         public int FPP { get; set; }
+        public DateTime ProbableDateOfDelivery { get; set; }
+        public DateTime ProbableDateOfConception { get; set; }    
         public int FPC { get; set; }
         public int PatientID { get; set; }
 

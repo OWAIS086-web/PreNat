@@ -36,14 +36,14 @@ namespace PreNat.Controllers
                 model.Gestationes_Pregnancies = Obstetrichistory.Gestationes_Pregnancies;
                 model.Delivery = Obstetrichistory.Delivery;
                 model.Term = Obstetrichistory.Term;
-                model.Premature = Obstetrichistory.Premature;
+                model.Preterm = Obstetrichistory.Preterm;
                 model.Vaginal = Obstetrichistory.Vaginal;
                 model.Cesareas = Obstetrichistory.Cesareas;
                 model.Abortions = Obstetrichistory.Abortions;
                 model.Gemerales = Obstetrichistory.Gemerales;
-                model.Ectopicos = Obstetrichistory.Ectopicos;
-                model.Obitos = Obstetrichistory.Obitos;
-                model.Springs = Obstetrichistory.Springs;
+                model.Ectopic = Obstetrichistory.Ectopic;
+                model.Obitus = Obstetrichistory.Obitus;
+                model.Molas = Obstetrichistory.Molas;
                 model.Live_Births = Obstetrichistory.Live_Births;
               
 
@@ -58,19 +58,19 @@ namespace PreNat.Controllers
         {
             ObstetrichistoryActionViewModel model = new ObstetrichistoryActionViewModel();
             var Obstetrichistory = ObstetrichistoryServices.Instance.GetObstetrichistory(ID);
+            model.ID = Obstetrichistory.ID;
             model.Gestationes_Pregnancies = Obstetrichistory.Gestationes_Pregnancies;
             model.Delivery = Obstetrichistory.Delivery;
             model.Term = Obstetrichistory.Term;
-            model.Premature = Obstetrichistory.Premature;
+            model.Preterm = Obstetrichistory.Preterm;
             model.Vaginal = Obstetrichistory.Vaginal;
             model.Cesareas = Obstetrichistory.Cesareas;
             model.Abortions = Obstetrichistory.Abortions;
             model.Gemerales = Obstetrichistory.Gemerales;
-            model.Ectopicos = Obstetrichistory.Ectopicos;
-            model.Obitos = Obstetrichistory.Obitos;
-            model.Springs = Obstetrichistory.Springs;
+            model.Ectopic = Obstetrichistory.Ectopic;
+            model.Obitus = Obstetrichistory.Obitus;
+            model.Molas = Obstetrichistory.Molas;
             model.Live_Births = Obstetrichistory.Live_Births;
-
 
 
             return View("View", "_Layout", model);
@@ -90,14 +90,14 @@ namespace PreNat.Controllers
                 Obstetrichistory.Gestationes_Pregnancies = model.Gestationes_Pregnancies;
                 Obstetrichistory.Delivery = model.Delivery;
                 Obstetrichistory.Term = model.Term;
-                Obstetrichistory.Premature = model.Premature;
+                Obstetrichistory.Preterm = model.Preterm;
                 Obstetrichistory.Vaginal = model.Vaginal;
                 Obstetrichistory.Cesareas = model.Cesareas;
                 Obstetrichistory.Abortions = model.Abortions;
                 Obstetrichistory.Gemerales = model.Gemerales;
-                Obstetrichistory.Ectopicos = model.Ectopicos;
-                Obstetrichistory.Obitos = model.Obitos;
-                Obstetrichistory.Springs = model.Springs;
+                Obstetrichistory.Ectopic = model.Ectopic;
+                Obstetrichistory.Obitus = model.Obitus;
+                Obstetrichistory.Molas = model.Molas;
                 Obstetrichistory.Live_Births = model.Live_Births;
 
                 ObstetrichistoryServices.Instance.UpdateObstetrichistorys(Obstetrichistory);
@@ -110,14 +110,14 @@ namespace PreNat.Controllers
                 Obstetrichistory.Gestationes_Pregnancies = model.Gestationes_Pregnancies;
                 Obstetrichistory.Delivery = model.Delivery;
                 Obstetrichistory.Term = model.Term;
-                Obstetrichistory.Premature = model.Premature;
+                Obstetrichistory.Preterm = model.Preterm;
                 Obstetrichistory.Vaginal = model.Vaginal;
                 Obstetrichistory.Cesareas = model.Cesareas;
                 Obstetrichistory.Abortions = model.Abortions;
                 Obstetrichistory.Gemerales = model.Gemerales;
-                Obstetrichistory.Ectopicos = model.Ectopicos;
-                Obstetrichistory.Obitos = model.Obitos;
-                Obstetrichistory.Springs = model.Springs;
+                Obstetrichistory.Ectopic = model.Ectopic;
+                Obstetrichistory.Obitus = model.Obitus;
+                Obstetrichistory.Molas = model.Molas;
                 Obstetrichistory.Live_Births = model.Live_Births;
 
 

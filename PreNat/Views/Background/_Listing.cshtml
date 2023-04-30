@@ -55,7 +55,7 @@
                                 </th>
 
                                 <th>
-                                    VIH
+                                    HIV
                                 </th>
 
                                 <th>
@@ -63,20 +63,17 @@
                                 </th>
 
                                 <th>
-                                    Enf_Tromboembólica
+                                    Thromboembolic
                                 </th>
 
                                 <th>
-                                    IMC29
+                                    BMI>29
                                 </th>
 
                                 <th>
-                                    IMC39
+                                    BMI>39
                                 </th>
 
-                                <th>
-                                    IMC29
-                                </th>
 
                                 <th>Disc_Sang</th>
 
@@ -91,23 +88,23 @@
                             @foreach (var item in Model.Backgrounds)
                             {
                             <tr>
-                                <td>@item.Tbc</td>
-                                <td>@item.Diabetes</td>
-                                <td>@item.Hypertension</td>
-                                <td>@item.Eclampsia</td>
-                                <td>@item.Preeclampsia</td>
-                                <td>@item.Surgery</td>
-                                <td>@item.Infertility</td>
-                                <td>@item.Cardiopathy</td>
-                                <td>@item.Nephropathy</td>
-                                <td>@item.Violence</td>
-                                <td>@item.HIV</td>
-                                <td>@item.Migraine</td>
-                                <td>@item.Thromboembolic</td>
-                                <td>@item.BMI_29</td>
-                                <td>@item.BMI_39</td>
-                                <td>@item.Disc_Sang</td>
-                                <td>@item.Other</td>
+                                <td>@item.Tbc.Replace("_","|")</td>
+                                <td>@item.Diabetes.Replace("_","|")</td>
+                                <td>@item.Hypertension.Replace("_","|")</td>
+                                <td>@item.Eclampsia.Replace("_","|")</td>
+                                <td>@item.Preeclampsia.Replace("_","|")</td>
+                                <td>@item.Surgery.Replace("_","|")</td>
+                                <td>@item.Infertility.Replace("_","|")</td>
+                                <td>@item.Cardiopathy.Replace("_","|")</td>
+                                <td>@item.Nephropathy.Replace("_","|")</td>
+                                <td>@item.Violence.Replace("_","|")</td>
+                                <td>@item.HIV.Replace("_","|")</td>
+                                <td>@item.Migraine.Replace("_","|")</td>
+                                <td>@item.Thromboembolic.Replace("_","|")</td>
+                                <td>@item.BMI_29.Replace("_","|")</td>
+                                <td>@item.BMI_39.Replace("_","|")</td>
+                                <td>@item.Disc_Sang.Replace("_","|")</td>
+                                <td>@item.Other.Replace("_","|")</td>
                                 
 
                                 <td>

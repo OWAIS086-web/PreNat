@@ -61,6 +61,18 @@
     <Compile Include="Migrations\202304251515106_almostdone.designer.cs">
       <DependentUpon>202304251515106_almostdone.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304281705540_chanfesadded.cs" />
+    <Compile Include="Migrations\202304281705540_chanfesadded.designer.cs">
+      <DependentUpon>202304281705540_chanfesadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304281741108_obchanges.cs" />
+    <Compile Include="Migrations\202304281741108_obchanges.designer.cs">
+      <DependentUpon>202304281741108_obchanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304301523053_immchanges.cs" />
+    <Compile Include="Migrations\202304301523053_immchanges.designer.cs">
+      <DependentUpon>202304301523053_immchanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DSContext.cs" />
@@ -78,6 +90,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202304251515106_almostdone.resx">
       <DependentUpon>202304251515106_almostdone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304281705540_chanfesadded.resx">
+      <DependentUpon>202304281705540_chanfesadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304281741108_obchanges.resx">
+      <DependentUpon>202304281741108_obchanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304301523053_immchanges.resx">
+      <DependentUpon>202304301523053_immchanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

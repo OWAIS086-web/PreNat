@@ -31,38 +31,12 @@ namespace PreNat.Services
         {
             using (var context = new DSContext())
             {
-                if (SearchTerm != "")
-                {
-                    return context.Immunizationss.Where(p => p.TetanusDiphtheria != null && p.TetanusDiphtheria.ToLower()
-                                            .Contains(SearchTerm.ToLower()))
-                                            .OrderBy(x => x.TetanusDiphtheria)
-                                            .ToList();
-                }
-                else
-                {
+             
                     return context.Immunizationss.ToList();
-                }
+                
             }
         }
 
-
-        public List<Immunizations> GetImmunizationss(string Name, string SearchTerm = "")
-        {
-            using (var context = new DSContext())
-            {
-                if (SearchTerm != "")
-                {
-                    return context.Immunizationss.Where(p => p.TetanusDiphtheria == Name && p.TetanusDiphtheria != null && p.TetanusDiphtheria.ToLower()
-                                            .Contains(SearchTerm.ToLower()))
-                                            .OrderBy(x => x.TetanusDiphtheria)
-                                            .ToList();
-                }
-                else
-                {
-                    return context.Immunizationss.Where(x => x.TetanusDiphtheria == Name).ToList();
-                }
-            }
-        }
 
 
 
