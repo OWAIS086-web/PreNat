@@ -105,6 +105,11 @@
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" id="pills-lb-tab-custom" data-bs-toggle="pill" href="#pills-lb" role="tab" aria-bs-controls="pills-lb" aria-bs-selected="false">
+                                    Laborotory Tests
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" id="pills-r-tab-custom" data-bs-toggle="pill" href="#pills-r" role="tab" aria-bs-controls="pills-r" aria-bs-selected="false">
                                     Report
                                 </a>
@@ -155,6 +160,12 @@
                             <li class="nav-item">
                                 <a class="nav-link" id="pills-imm-tab-custom" data-toggle="pill" href="#pills-imm" role="tab" aria-controls="pills-imm" aria-selected="false">
                                     Immunizations
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-lb-tab-custom" data-toggle="pill" href="#pills-lb" role="tab" aria-controls="pills-lb" aria-selected="false">
+                                    Laborotory Tests
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -713,6 +724,7 @@
                         </div>
 
 
+
                         <div class="tab-pane fade" id="pills-ogcc" role="tabpanel" aria-labelledby="pills-ogcc-tab-custom">
                             <form id="ogcform">
                                 <div class="row">
@@ -889,216 +901,322 @@
 
 
                         <div class="tab-pane fade" id="pills-imm" role="tabpanel" aria-labelledby="pills-imm-tab-custom">
-                            <form id="paform">
+                            <form id="immform">
                                 <div class="row table-responsive">
-                                   <table class="table table-striped">
-                                       <thead>
-                                           <tr>
-                                               <th>
-                                                   Vaccines
-                                               </th>
-                                               <th>
-                                                   No
-                                               </th>
-                                               <th>
-                                                   Yes, Previous Pregnancy
-                                               </th>
-                                               <th>
-                                                   Yes, During Pregnancy
-                                               </th>
-                                               <th>
-                                                   Date of Last Dose
-                                               </th>
-                                               <th>
-                                                   Dosage No
-                                               </th>
-                                           </tr>
-                                       </thead>
-                                       <tbody>
-                                           <tr>
-                                               <td>
-                                                   Tetanus/diphtheria
-                                               </td>
-                                               <td>
-                                                   <select style="width:90px;" required class="form-select" name="TetanusDiphtheriaNo" id="TetanusDiphtheriaNo">
-                                                       <option value="Yes" @(Model.TetanusDiphtheriaNo == "Yes" ? "selected" : "")>Yes</option>
-                                                       <option value="No" @(Model.TetanusDiphtheriaNo == "No" ? "selected" : "")>No</option>
-                                                   </select>
-                                               </td>
-                                               <td>
-                                                   <select required class="form-select" name="TetanusDiphtheriaYesDuringPreg" id="TetanusDiphtheriaYesDuringPreg">
-                                                       <option value="Yes" @(Model.TetanusDiphtheriaYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                       <option value="No" @(Model.TetanusDiphtheriaYesDuringPreg == "No" ? "selected" : "")>No</option>
-                                                   </select>
-                                               </td>
-                                               <td>
-                                                   <select required class="form-select" name="TetanusDiphtheriaYesPrevPreg" id="TetanusDiphtheriaYesPrevPreg">
-                                                       <option value="Yes" @(Model.TetanusDiphtheriaYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                       <option value="No" @(Model.TetanusDiphtheriaYesPrevPreg == "No" ? "selected" : "")>No</option>
-                                                   </select>
-                                               </td>
-                                               <td>
-                                                   <input type="date" name="TetanusDiphtheria_Date" value="@Model.TetanusDiphtheria_Date.ToShortDateString()" id="TetanusDiphtheria_Date" class="form-control" />
-                                               </td>
-                                               <td>
-                                                   <input type="text" name="TetanusDiphtheriaNo" value="@Model.TetanusDiphtheriaNo" id="TetanusDiphtheriaNo" class="form-control" />
-                                               </td>
-                                           </tr>
-                                           <tr>
-                                               <td>
-                                                   TDAP
-                                               </td>
-                                               <td>
-                                                   <select  style="width:90px;" required class="form-select" name="TdapNo" id="TdapNo">
-                                                       <option value="Yes" @(Model.TdapNo == "Yes" ? "selected" : "")>Yes</option>
-                                                       <option value="No" @(Model.TdapNo == "No" ? "selected" : "")>No</option>
-                                                   </select>
-                                               </td>
-                                               <td>
-                                                   <select required class="form-select" name="TdapYesPrevPreg" id="TdapYesPrevPreg">
-                                                       <option value="Yes" @(Model.TdapYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                       <option value="No" @(Model.TdapYesPrevPreg == "No" ? "selected" : "")>No</option>
-                                                   </select>
-                                               </td>
-                                               <td>
-                                                   <select required class="form-select" name="TetanusDiphtheriaYesDuringPreg" id="TetanusDiphtheriaYesDuringPreg">
-                                                       <option value="Yes" @(Model.TetanusDiphtheriaYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                       <option value="No" @(Model.TetanusDiphtheriaYesDuringPreg == "No" ? "selected" : "")>No</option>
-                                                   </select>
-                                               </td>
-                                               <td>
-                                                   <input type="date" name="Tdap_Date" value="@Model.Tdap_Date.ToShortDateString()" id="Tdap_Date" class="form-control" />
-                                               </td>
-                                               <td>
-                                                   <input type="text" name="Tdap_Dozes" value="@Model.Tdap_Dozes" id="Tdap_Dozes" class="form-control" />
-                                               </td>
-                                           </tr>
-                                           <tr>
-                                               <td>
-                                                   Influenza
-                                               </td>
-                                               <td>
-                                                   <select  style="width:90px;" required class="form-select" name="InfluenzaNo" id="InfluenzaNo">
-                                                       <option value="Yes" @(Model.InfluenzaNo == "Yes" ? "selected" : "")>Yes</option>
-                                                       <option value="No" @(Model.InfluenzaNo == "No" ? "selected" : "")>No</option>
-                                                   </select>
-                                               </td>
-                                               <td>
-                                                   <select required class="form-select" name="InfluenzaYesPrevPreg" id="InfluenzaYesPrevPreg">
-                                                       <option value="Yes" @(Model.InfluenzaYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                       <option value="No" @(Model.InfluenzaYesPrevPreg == "No" ? "selected" : "")>No</option>
-                                                   </select>
-                                               </td>
-                                               <td>
-                                                   <select required class="form-select" name="InfluenzaYesDuringPreg" id="InfluenzaYesDuringPreg">
-                                                       <option value="Yes" @(Model.InfluenzaYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                       <option value="No" @(Model.InfluenzaYesDuringPreg == "No" ? "selected" : "")>No</option>
-                                                   </select>
-                                               </td>
-                                               <td>
-                                                   <input type="date" name="Influenza_Date" value="@Model.Influenza_Date.ToShortDateString()" id="Influenza_Date" class="form-control" />
-                                               </td>
-                                               <td>
-                                                   <input type="text" name="Influenza_Dozes" value="@Model.Influenza_Dozes" id="Influenza_Dozes" class="form-control" />
-                                               </td>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Vaccines
+                                                </th>
+                                                <th>
+                                                    No
+                                                </th>
+                                                <th>
+                                                    Yes, Previous Pregnancy
+                                                </th>
+                                                <th>
+                                                    Yes, During Pregnancy
+                                                </th>
+                                                <th>
+                                                    Date of Last Dose
+                                                </th>
+                                                <th>
+                                                    Dosage No
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    Tetanus/diphtheria
+                                                </td>
+                                                <td>
+                                                    <select style="width:90px;" required class="form-select" name="TetanusDiphtheriaNo" id="TetanusDiphtheriaNo">
+                                                        <option value="Yes" @(Model.TetanusDiphtheriaNo == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option value="No" @(Model.TetanusDiphtheriaNo == "No" ? "selected" : "")>No</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select required class="form-select" name="TetanusDiphtheriaYesDuringPreg" id="TetanusDiphtheriaYesDuringPreg">
+                                                        <option value="Yes" @(Model.TetanusDiphtheriaYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option value="No" @(Model.TetanusDiphtheriaYesDuringPreg == "No" ? "selected" : "")>No</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select required class="form-select" name="TetanusDiphtheriaYesPrevPreg" id="TetanusDiphtheriaYesPrevPreg">
+                                                        <option value="Yes" @(Model.TetanusDiphtheriaYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option value="No" @(Model.TetanusDiphtheriaYesPrevPreg == "No" ? "selected" : "")>No</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="date" name="TetanusDiphtheria_Date" value="@Model.TetanusDiphtheria_Date.ToShortDateString()" id="TetanusDiphtheria_Date" class="form-control" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="TetanusDiphtheriaNo" value="@Model.TetanusDiphtheriaNo" id="TetanusDiphtheriaNo" class="form-control" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    TDAP
+                                                </td>
+                                                <td>
+                                                    <select style="width:90px;" required class="form-select" name="TdapNo" id="TdapNo">
+                                                        <option value="Yes" @(Model.TdapNo == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option value="No" @(Model.TdapNo == "No" ? "selected" : "")>No</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select required class="form-select" name="TdapYesPrevPreg" id="TdapYesPrevPreg">
+                                                        <option value="Yes" @(Model.TdapYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option value="No" @(Model.TdapYesPrevPreg == "No" ? "selected" : "")>No</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select required class="form-select" name="TetanusDiphtheriaYesDuringPreg" id="TetanusDiphtheriaYesDuringPreg">
+                                                        <option value="Yes" @(Model.TetanusDiphtheriaYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option value="No" @(Model.TetanusDiphtheriaYesDuringPreg == "No" ? "selected" : "")>No</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="date" name="Tdap_Date" value="@Model.Tdap_Date.ToShortDateString()" id="Tdap_Date" class="form-control" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="Tdap_Dozes" value="@Model.Tdap_Dozes" id="Tdap_Dozes" class="form-control" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Influenza
+                                                </td>
+                                                <td>
+                                                    <select style="width:90px;" required class="form-select" name="InfluenzaNo" id="InfluenzaNo">
+                                                        <option value="Yes" @(Model.InfluenzaNo == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option value="No" @(Model.InfluenzaNo == "No" ? "selected" : "")>No</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select required class="form-select" name="InfluenzaYesPrevPreg" id="InfluenzaYesPrevPreg">
+                                                        <option value="Yes" @(Model.InfluenzaYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option value="No" @(Model.InfluenzaYesPrevPreg == "No" ? "selected" : "")>No</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select required class="form-select" name="InfluenzaYesDuringPreg" id="InfluenzaYesDuringPreg">
+                                                        <option value="Yes" @(Model.InfluenzaYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option value="No" @(Model.InfluenzaYesDuringPreg == "No" ? "selected" : "")>No</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="date" name="Influenza_Date" value="@Model.Influenza_Date.ToShortDateString()" id="Influenza_Date" class="form-control" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="Influenza_Dozes" value="@Model.Influenza_Dozes" id="Influenza_Dozes" class="form-control" />
+                                                </td>
 
-                                           </tr>
-                                           <tr>
-                                               <td>
-                                                   Rubella
-                                               </td>
-                                               <td>
-                                                   <select  style="width:90px;" required class="form-select" name="RubellaNo" id="RubellaNo">
-                                                       <option value="Yes" @(Model.RubellaNo == "Yes" ? "selected" : "")>Yes</option>
-                                                       <option value="No" @(Model.RubellaNo == "No" ? "selected" : "")>No</option>
-                                                   </select>
-                                               </td>
-                                               <td>
-                                                   <select  required class="form-select" name="RubellaYesPrevPreg" id="RubellaYesPrevPreg">
-                                                       <option value="Yes" @(Model.RubellaYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                       <option value="No" @(Model.RubellaYesPrevPreg == "No" ? "selected" : "")>No</option>
-                                                   </select>
-                                               </td>
-                                               <td>
-                                                   <select required class="form-select" name="RubellaYesDuringPreg" id="RubellaYesDuringPreg">
-                                                       <option value="Yes" @(Model.RubellaYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                       <option value="No" @(Model.RubellaYesDuringPreg == "No" ? "selected" : "")>No</option>
-                                                   </select>
-                                               </td>
-                                               <td>
-                                                   <input type="date" name="Rubella_Date" value="@Model.Rubella_Date.ToShortDateString()" id="Rubella_Date" class="form-control" />
-                                               </td>
-                                               <td>
-                                                   <input type="text" name="Rubella_Dozes" value="@Model.Rubella_Dozes" id="Rubella_Dozes" class="form-control" />
-                                               </td>
-                                           </tr>
-                                           <tr>
-                                               <td>Hepatitis A</td>
-                                               <td>
-                                                   <select  style="width:90px;" required class="form-select" name="Hepatitis_ANo" id="Hepatitis_ANo">
-                                                       <option value="Yes" @(Model.Hepatitis_ANo == "Yes" ? "selected" : "")>Yes</option>
-                                                       <option value="No" @(Model.Hepatitis_ANo == "No" ? "selected" : "")>No</option>
-                                                   </select>
-                                               </td>
-                                               <td>
-                                                   <select required class="form-select" name="Hepatitis_AYesPrevPreg" id="Hepatitis_AYesPrevPreg">
-                                                       <option value="Yes" @(Model.Hepatitis_AYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                       <option value="No" @(Model.Hepatitis_AYesPrevPreg == "No" ? "selected" : "")>No</option>
-                                                   </select>
-                                               </td>
-                                               <td>
-                                                   <select required class="form-select" name="Hepatitis_AYesDuringPreg" id="Hepatitis_AYesDuringPreg">
-                                                       <option value="Yes" @(Model.Hepatitis_AYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                       <option value="No" @(Model.Hepatitis_AYesDuringPreg == "No" ? "selected" : "")>No</option>
-                                                   </select>
-                                               </td>
-                                               <td>
-                                                   <input type="date" name="Hepatitis_A_Date" value="@Model.Hepatitis_A_Date.ToShortDateString()" id="Hepatitis_A_Date" class="form-control" />
-                                               </td>
-                                               <td>
-                                                   <input type="text" name="Hepatitis_A_Dozes" value="@Model.Hepatitis_A_Dozes" id="Hepatitis_A_Dozes" class="form-control" />
-                                               </td>
-                                           </tr>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Rubella
+                                                </td>
+                                                <td>
+                                                    <select style="width:90px;" required class="form-select" name="RubellaNo" id="RubellaNo">
+                                                        <option value="Yes" @(Model.RubellaNo == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option value="No" @(Model.RubellaNo == "No" ? "selected" : "")>No</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select required class="form-select" name="RubellaYesPrevPreg" id="RubellaYesPrevPreg">
+                                                        <option value="Yes" @(Model.RubellaYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option value="No" @(Model.RubellaYesPrevPreg == "No" ? "selected" : "")>No</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select required class="form-select" name="RubellaYesDuringPreg" id="RubellaYesDuringPreg">
+                                                        <option value="Yes" @(Model.RubellaYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option value="No" @(Model.RubellaYesDuringPreg == "No" ? "selected" : "")>No</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="date" name="Rubella_Date" value="@Model.Rubella_Date.ToShortDateString()" id="Rubella_Date" class="form-control" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="Rubella_Dozes" value="@Model.Rubella_Dozes" id="Rubella_Dozes" class="form-control" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Hepatitis A</td>
+                                                <td>
+                                                    <select style="width:90px;" required class="form-select" name="Hepatitis_ANo" id="Hepatitis_ANo">
+                                                        <option value="Yes" @(Model.Hepatitis_ANo == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option value="No" @(Model.Hepatitis_ANo == "No" ? "selected" : "")>No</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select required class="form-select" name="Hepatitis_AYesPrevPreg" id="Hepatitis_AYesPrevPreg">
+                                                        <option value="Yes" @(Model.Hepatitis_AYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option value="No" @(Model.Hepatitis_AYesPrevPreg == "No" ? "selected" : "")>No</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select required class="form-select" name="Hepatitis_AYesDuringPreg" id="Hepatitis_AYesDuringPreg">
+                                                        <option value="Yes" @(Model.Hepatitis_AYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option value="No" @(Model.Hepatitis_AYesDuringPreg == "No" ? "selected" : "")>No</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="date" name="Hepatitis_A_Date" value="@Model.Hepatitis_A_Date.ToShortDateString()" id="Hepatitis_A_Date" class="form-control" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="Hepatitis_A_Dozes" value="@Model.Hepatitis_A_Dozes" id="Hepatitis_A_Dozes" class="form-control" />
+                                                </td>
+                                            </tr>
 
-                                           <tr>
-                                               <td>Hepatitis B</td>
-                                               <td>
-                                                   <select  style="width:90px;" required class="form-select" name="Hepatitis_BNo" id="Hepatitis_BNo">
-                                                       <option value="Yes" @(Model.Hepatitis_BNo == "Yes" ? "selected" : "")>Yes</option>
-                                                       <option value="No" @(Model.Hepatitis_BNo == "No" ? "selected" : "")>No</option>
-                                                   </select>
-                                               </td>
-                                               <td>
-                                                   <select required class="form-select" name="Hepatitis_BYesPrevPreg" id="Hepatitis_BYesPrevPreg">
-                                                       <option value="Yes" @(Model.Hepatitis_BYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                       <option value="No" @(Model.Hepatitis_BYesPrevPreg == "No" ? "selected" : "")>No</option>
-                                                   </select>
-                                               </td>
-                                               <td>
-                                                   <select required class="form-select" name="Hepatitis_BYesDuringPreg" id="Hepatitis_BYesDuringPreg">
-                                                       <option value="Yes" @(Model.Hepatitis_BYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                       <option value="No" @(Model.Hepatitis_BYesDuringPreg == "No" ? "selected" : "")>No</option>
-                                                   </select>
-                                               </td>
-                                               <td>
-                                                   <input type="date" name="Hepatitis_B_Date" value="@Model.Hepatitis_B_Date.ToShortDateString()" id="Hepatitis_B_Date" class="form-control" />
-                                               </td>
-                                               <td>
-                                                   <input type="text" name="Hepatitis_B_Dozes" value="@Model.Hepatitis_B_Dozes" id="Hepatitis_B_Dozes" class="form-control" />
-                                               </td>
-                                           </tr>
+                                            <tr>
+                                                <td>Hepatitis B</td>
+                                                <td>
+                                                    <select style="width:90px;" required class="form-select" name="Hepatitis_BNo" id="Hepatitis_BNo">
+                                                        <option value="Yes" @(Model.Hepatitis_BNo == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option value="No" @(Model.Hepatitis_BNo == "No" ? "selected" : "")>No</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select required class="form-select" name="Hepatitis_BYesPrevPreg" id="Hepatitis_BYesPrevPreg">
+                                                        <option value="Yes" @(Model.Hepatitis_BYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option value="No" @(Model.Hepatitis_BYesPrevPreg == "No" ? "selected" : "")>No</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select required class="form-select" name="Hepatitis_BYesDuringPreg" id="Hepatitis_BYesDuringPreg">
+                                                        <option value="Yes" @(Model.Hepatitis_BYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option value="No" @(Model.Hepatitis_BYesDuringPreg == "No" ? "selected" : "")>No</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <input type="date" name="Hepatitis_B_Date" value="@Model.Hepatitis_B_Date.ToShortDateString()" id="Hepatitis_B_Date" class="form-control" />
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="Hepatitis_B_Dozes" value="@Model.Hepatitis_B_Dozes" id="Hepatitis_B_Dozes" class="form-control" />
+                                                </td>
+                                            </tr>
 
-                                       </tbody>
-                                   </table>
+                                        </tbody>
+                                    </table>
                                 </div>
 
 
                             </form>
-                            <button type="button" id="PAActionBtn" class="btn btn-primary">
+                            <button type="button" id="ImmActionBtn" class="btn btn-primary">
                                 Save and Continue
                             </button>
                         </div>
 
+
+
+                        <div class="tab-pane fade" id="pills-lb" role="tabpanel" aria-labelledby="pills-r-tab-custom">
+                            <form id="labform">
+                                <div class="row table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Factor RH
+                                                </th>
+                                                <th>
+                                                    Negative (-)
+                                                </th>
+                                                <th>
+                                                    Postive (+)
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    Grupo Sanguineo
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    Group
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" name="GroupPositve" id="GroupPositve">
+                                                        <option value="A" @(Model.GroupPositve == "A" ? "selected" : "")>A</option>
+                                                        <option value="B" @(Model.GroupPositve == "B" ? "selected" : "")>B</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" name="GroupNegative" id="GroupNegative">
+                                                        <option value="AB" @(Model.GroupNegative == "AB" ? "selected" : "")>AB</option>
+                                                        <option value="O" @(Model.GroupNegative == "O" ? "selected" : "")>O</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <select required class="form-select" name="SanguineoGroup" id="SanguineoGroup">
+                                                        <option value="Yes" @(Model.SanguineoGroup == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option value="No" @(Model.SanguineoGroup == "No" ? "selected" : "")>No</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Prueba de Laboratorio
+                                                </th>
+                                                <th>
+                                                    Negative (-)
+                                                </th>
+                                                <th>
+                                                    Postive (+)
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    Grupo Sanguineo
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    VDRL (Serologia)
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" name="VDRL" id="VDRL">
+                                                        <option value="Negative" @(Model.VDRL == "Negative" ? "selected" : "")>Negative</option>
+                                                        <option value="Positive" @(Model.VDRL == "Positive" ? "selected" : "")>Positive</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control" name="Syphilis" id="Syphilis">
+                                                        <option value="Negative" @(Model.Syphilis == "Negative" ? "selected" : "")>Negative</option>
+                                                        <option value="Positive" @(Model.Syphilis == "Positive" ? "selected" : "")>Positive</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <select required class="form-select" name="VIH_L" id="VIH_L">
+                                                        <option value="Negative" @(Model.VIH_L == "Negative" ? "selected" : "")>Negative</option>
+                                                        <option value="Positive" @(Model.VIH_L == "Positive" ? "selected" : "")>Positive</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form> <button type="button" id="LabActionBtn" class="btn btn-primary">
+                                Save and Continue
+                            </button>
+                        </div>
 
                         <div class="tab-pane fade" id="pills-r" role="tabpanel" aria-labelledby="pills-r-tab-custom">
 
@@ -1851,6 +1969,126 @@
 
 
 
+    $("#ImmActionBtn").click(function () {
+        const form = document.getElementById('immform');
+        const requiredInputs = form.querySelectorAll('input[required]');
+        let isValid = true;
+        requiredInputs.forEach(function (input) {
+            if (input.value.trim() === '') {
+                input.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                input.classList.remove('is-invalid');
+            }
+        });
+
+        // If any required field is empty, prevent the form from being submitted
+        if (!isValid) {
+            alert("All Fields are mandatory");
+            return false;
+        } else {
+            $.ajax({
+                url: '@Url.Action("Action", "Immnunzation")',
+                type: "post",
+                data: $("#immform").serialize()
+            })
+                .done(function (result) {
+                    if (result.success) {
+                        alert("Saved Successfully!!");
+                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+                        // get the next tab
+                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+                        // get the next tab
+                        var nextTab = activeTab.nextElementSibling;
+
+                        // activate the next tab
+                        if (nextTab) {
+                            var tabLink = nextTab.querySelector(".nav-link");
+                            if (tabLink) {
+                                var activeTabLink = activeTab.querySelector('.nav-link.active');
+                                var nextTabLink = nextTab.querySelector('.nav-link');
+                                activeTabLink.classList.remove('active');
+                                nextTabLink.classList.add('active');
+
+
+
+                                // To remove classes
+                                $('.tab-pane.active.show').removeClass('active show');
+
+                                tabLink.click();
+                                $("#pills-lb").addClass('active show');
+                            }
+                        } else {
+                            alert("Data Didn't Saved!!!!");
+                        }
+                    }
+                });
+        }
+    });
+
+
+
+
+    $("#LabActionBtn").click(function () {
+        const form = document.getElementById('labform');
+        const requiredInputs = form.querySelectorAll('input[required]');
+        let isValid = true;
+        requiredInputs.forEach(function (input) {
+            if (input.value.trim() === '') {
+                input.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                input.classList.remove('is-invalid');
+            }
+        });
+
+        // If any required field is empty, prevent the form from being submitted
+        if (!isValid) {
+            alert("All Fields are mandatory");
+            return false;
+        } else {
+            $.ajax({
+                url: '@Url.Action("Action", "LaboratoryTests")',
+                type: "post",
+                data: $("#labform").serialize()
+            })
+                .done(function (result) {
+                    if (result.success) {
+                        alert("Saved Successfully!!");
+                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+                        // get the next tab
+                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+                        // get the next tab
+                        var nextTab = activeTab.nextElementSibling;
+
+                        // activate the next tab
+                        if (nextTab) {
+                            var tabLink = nextTab.querySelector(".nav-link");
+                            if (tabLink) {
+                                var activeTabLink = activeTab.querySelector('.nav-link.active');
+                                var nextTabLink = nextTab.querySelector('.nav-link');
+                                activeTabLink.classList.remove('active');
+                                nextTabLink.classList.add('active');
+
+
+
+                                // To remove classes
+                                $('.tab-pane.active.show').removeClass('active show');
+
+                                tabLink.click();
+                                $("#pills-r").addClass('active show');
+                            }
+                        } else {
+                            alert("Data Didn't Saved!!!!");
+                        }
+                    }
+                });
+        }
+    });
 
 </script>
 

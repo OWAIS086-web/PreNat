@@ -33,9 +33,9 @@ namespace PreNat.Controllers
 
                 var LaboratoryTests = LaboratoryTestsServices.Instance.GetLaboratoryTests(ID);
                 model.ID = LaboratoryTests.ID;
-                model.Group = LaboratoryTests.Group;
+                model.GroupPositve = LaboratoryTests.GroupPositve;
                 model.SanguineoGroup = LaboratoryTests.SanguineoGroup;
-                model.Laboratory_Tests = LaboratoryTests.Laboratory_Tests;
+                model.GroupNegative = LaboratoryTests.GroupNegative;
                 model.VDRL = LaboratoryTests.VDRL;
                 model.Syphilis = LaboratoryTests.Syphilis;
                 model.VIH_L = LaboratoryTests.VIH_L;
@@ -52,9 +52,9 @@ namespace PreNat.Controllers
         {
             LaboratoryTestsActionViewModel model = new LaboratoryTestsActionViewModel();
             var LaboratoryTests = LaboratoryTestsServices.Instance.GetLaboratoryTests(ID);
-            model.Group = LaboratoryTests.Group;
+            model.GroupPositve = LaboratoryTests.GroupPositve;
             model.SanguineoGroup = LaboratoryTests.SanguineoGroup;
-            model.Laboratory_Tests = LaboratoryTests.Laboratory_Tests;
+            model.GroupNegative = LaboratoryTests.GroupNegative;
             model.VDRL = LaboratoryTests.VDRL;
             model.Syphilis = LaboratoryTests.Syphilis;
             model.VIH_L = LaboratoryTests.VIH_L;
@@ -75,9 +75,9 @@ namespace PreNat.Controllers
                 var LaboratoryTests = LaboratoryTestsServices.Instance.GetLaboratoryTests(model.ID);
 
                 LaboratoryTests.ID = model.ID;
-                LaboratoryTests.Group = model.Group;
+                LaboratoryTests.GroupNegative = model.GroupNegative;
                 LaboratoryTests.SanguineoGroup = model.SanguineoGroup;
-                LaboratoryTests.Laboratory_Tests = model.Laboratory_Tests;
+                LaboratoryTests.GroupPositve = model.GroupPositve;
                 LaboratoryTests.VDRL = model.VDRL;
                 LaboratoryTests.Syphilis = model.Syphilis;
                 LaboratoryTests.VIH_L = model.VIH_L;
@@ -90,9 +90,9 @@ namespace PreNat.Controllers
             else
             {
                 var LaboratoryTests = new LaboratoryTests();
-                LaboratoryTests.Group = model.Group;
+                LaboratoryTests.GroupNegative = model.GroupNegative;
                 LaboratoryTests.SanguineoGroup = model.SanguineoGroup;
-                LaboratoryTests.Laboratory_Tests = model.Laboratory_Tests;
+                LaboratoryTests.GroupPositve = model.GroupPositve;
                 LaboratoryTests.VDRL = model.VDRL;
                 LaboratoryTests.Syphilis = model.Syphilis;
                 LaboratoryTests.VIH_L = model.VIH_L;

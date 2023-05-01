@@ -14,9 +14,9 @@ namespace PreNat.ViewModels
 
     public class LaboratoryTestsActionViewModel
     {
-        public string Group { get; set; }
+        public string GroupPositve { get; set; }
         public string SanguineoGroup { get; set; }
-        public string Laboratory_Tests { get; set; }
+        public string GroupNegative { get; set; }
         public string VDRL { get; set; }
         public string Syphilis { get; set; }
         public int ID { get; set; }

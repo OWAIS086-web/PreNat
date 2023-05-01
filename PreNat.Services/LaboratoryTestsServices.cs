@@ -33,9 +33,9 @@ namespace PreNat.Services
             {
                 if (SearchTerm != "")
                 {
-                    return context.LaboratoryTestss.Where(p => p.Group != null && p.Group.ToLower()
+                    return context.LaboratoryTestss.Where(p => p.SanguineoGroup != null && p.SanguineoGroup.ToLower()
                                             .Contains(SearchTerm.ToLower()))
-                                            .OrderBy(x => x.Group)
+                                            .OrderBy(x => x.SanguineoGroup)
                                             .ToList();
                 }
                 else
@@ -46,23 +46,6 @@ namespace PreNat.Services
         }
 
 
-        public List<LaboratoryTests> GetLaboratoryTestss(string Group, string SearchTerm = "")
-        {
-            using (var context = new DSContext())
-            {
-                if (SearchTerm != "")
-                {
-                    return context.LaboratoryTestss.Where(p => p.Group == Group && p.Group != null && p.Group.ToLower()
-                                            .Contains(SearchTerm.ToLower()))
-                                            .OrderBy(x => x.Group)
-                                            .ToList();
-                }
-                else
-                {
-                    return context.LaboratoryTestss.Where(x => x.Group == Group).ToList();
-                }
-            }
-        }
 
 
 

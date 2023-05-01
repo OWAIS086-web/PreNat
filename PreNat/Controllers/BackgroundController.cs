@@ -88,23 +88,32 @@ namespace PreNat.Controllers
         {
 
             var background = new Background();
-            background.Tbc = model.Tbc.Replace(",", "_").ToString();
-            background.Diabetes = model.Diabetes.Replace(",", "_").ToString();
-            background.Hypertension = model.Hypertension.Replace(",", "_").ToString();
-            background.Eclampsia = model.Eclampsia.Replace(",", "_").ToString();
-            background.Preeclampsia = model.Preeclampsia.Replace(",", "_").ToString();
-            background.Surgery = model.Surgery.Replace(",", "_").ToString();
-            background.Infertility = model.Infertility.Replace(",", "_").ToString();
-            background.Cardiopathy = model.Cardiopathy.Replace(",", "_").ToString();
-            background.Nephropathy = model.Nephropathy.Replace(",", "_").ToString();
-            background.Violence = model.Violence.Replace(",", "_").ToString();
-            background.HIV = model.HIV.Replace(",", "_").ToString();
-            background.Migraine = model.Migraine.Replace(",", "_").ToString();
-            background.Thromboembolic = model.Thromboembolic.Replace(",", "_").ToString();
-            background.BMI_39 = model.BMI_39.Replace(",", "_").ToString();
-            background.BMI_29 = model.BMI_29.Replace(",", "_").ToString();
-            background.Disc_Sang = model.Disc_Sang.Replace(",", "_").ToString();
-            background.Other = model.Other.Replace(",", "_").ToString(); 
+            if (model?.Tbc == null || model?.Diabetes == null || model?.Hypertension == null || model?.Eclampsia == null || model?.Preeclampsia == null || model?.Surgery == null || model?.Infertility == null || model?.Cardiopathy == null || model?.Nephropathy == null || model?.Violence == null || model?.HIV == null || model?.Migraine == null || model?.Thromboembolic == null || model?.BMI_39 == null || model?.BMI_29 == null || model?.Disc_Sang == null || model?.Other == null)
+            {
+                // At least one of the background properties is null.
+            }
+            else
+            {
+                // None of the background properties are null.
+            }
+
+            background.Tbc = model.Tbc?.Replace(",", "_")?.ToString();
+            background.Diabetes = model.Diabetes?.Replace(",", "_")?.ToString();
+            background.Hypertension = model.Hypertension?.Replace(",", "_")?.ToString();
+            background.Eclampsia = model.Eclampsia?.Replace(",", "_")?.ToString();
+            background.Preeclampsia = model.Preeclampsia?.Replace(",", "_")?.ToString();
+            background.Surgery = model.Surgery?.Replace(",", "_")?.ToString();
+            background.Infertility = model.Infertility?.Replace(",", "_")?.ToString();
+            background.Cardiopathy = model.Cardiopathy?.Replace(",", "_")?.ToString();
+            background.Nephropathy = model.Nephropathy?.Replace(",", "_")?.ToString();
+            background.Violence = model.Violence?.Replace(",", "_")?.ToString();
+            background.HIV = model.HIV?.Replace(",", "_")?.ToString();
+            background.Migraine = model.Migraine?.Replace(",", "_")?.ToString();
+            background.Thromboembolic = model.Thromboembolic?.Replace(",", "_")?.ToString();
+            background.BMI_39 = model.BMI_39?.Replace(",", "_")?.ToString();
+            background.BMI_29 = model.BMI_29?.Replace(",", "_")?.ToString();
+            background.Disc_Sang = model.Disc_Sang?.Replace(",", "_")?.ToString();
+            background.Other = model.Other?.Replace(",", "_")?.ToString(); 
 
             BackgroundServices.Instance.SaveBackgrounds(background);
 
