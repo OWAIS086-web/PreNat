@@ -13012,12 +13012,12 @@ fieldset:disabled .wizard > .actions a,
   border-color: transparent;
 }
 
-.nav-tabs .nav-link.active,
-.nav-tabs .nav-item.show .nav-link {
-  color: #001737;
-  background-color: #ffffff;
-  border-color: #ebedf2 #ebedf2 #ffffff;
-}
+    .nav-tabs .nav-link.active,
+    .nav-tabs .nav-item.show .nav-link {
+        color: white;
+        background-color: #5E6C90;
+        border-color: white;
+    }
 
 .nav-tabs .dropdown-menu {
   margin-top: -1px;
@@ -25115,11 +25115,11 @@ dl li {
 }
 
 .nav-tabs .nav-link {
-  background: #f6f8fa;
-  color: #000000;
-  border-radius: 0;
-  border: 1px solid #f3f3f3;
-  padding: .75rem 1.5rem;
+    background: #45BC9B;
+    color: white;
+    border-radius: 0;
+    border: 1px solid white;
+    padding: 0.75rem 1.5rem;
 }
 
 @media (max-width: 767px) {

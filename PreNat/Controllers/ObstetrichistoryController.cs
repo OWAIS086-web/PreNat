@@ -33,7 +33,8 @@ namespace PreNat.Controllers
 
                 var Obstetrichistory = ObstetrichistoryServices.Instance.GetObstetrichistory(ID);
                 model.ID = Obstetrichistory.ID;
-                model.Gestationes_Pregnancies = Obstetrichistory.Gestationes_Pregnancies;
+                model.Gestation = Obstetrichistory.Gestation;
+                model.NoOfPregnancy = Obstetrichistory.NoOfPregnancy;
                 model.Delivery = Obstetrichistory.Delivery;
                 model.Term = Obstetrichistory.Term;
                 model.Preterm = Obstetrichistory.Preterm;
@@ -59,7 +60,8 @@ namespace PreNat.Controllers
             ObstetrichistoryActionViewModel model = new ObstetrichistoryActionViewModel();
             var Obstetrichistory = ObstetrichistoryServices.Instance.GetObstetrichistory(ID);
             model.ID = Obstetrichistory.ID;
-            model.Gestationes_Pregnancies = Obstetrichistory.Gestationes_Pregnancies;
+            model.Gestation = Obstetrichistory.Gestation;
+            model.NoOfPregnancy = Obstetrichistory.NoOfPregnancy;
             model.Delivery = Obstetrichistory.Delivery;
             model.Term = Obstetrichistory.Term;
             model.Preterm = Obstetrichistory.Preterm;
@@ -87,7 +89,8 @@ namespace PreNat.Controllers
                 var Obstetrichistory = ObstetrichistoryServices.Instance.GetObstetrichistory(model.ID);
 
                 Obstetrichistory.ID = model.ID;
-                Obstetrichistory.Gestationes_Pregnancies = model.Gestationes_Pregnancies;
+                Obstetrichistory.Gestation = model.Gestation;
+                Obstetrichistory.NoOfPregnancy = model.NoOfPregnancy;
                 Obstetrichistory.Delivery = model.Delivery;
                 Obstetrichistory.Term = model.Term;
                 Obstetrichistory.Preterm = model.Preterm;
@@ -107,7 +110,8 @@ namespace PreNat.Controllers
             else
             {
                 var Obstetrichistory = new Obstetrichistory();
-                Obstetrichistory.Gestationes_Pregnancies = model.Gestationes_Pregnancies;
+                Obstetrichistory.Gestation = model.Gestation;
+                Obstetrichistory.NoOfPregnancy  =model.NoOfPregnancy;
                 Obstetrichistory.Delivery = model.Delivery;
                 Obstetrichistory.Term = model.Term;
                 Obstetrichistory.Preterm = model.Preterm;

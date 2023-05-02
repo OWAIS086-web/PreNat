@@ -8,7 +8,8 @@ namespace PreNat.Entities
 {
     public class Obstetrichistory : BaseEntity
     {
-        public int Gestationes_Pregnancies { get; set; }
+        public int Gestation { get; set; }
+        public int NoOfPregnancy { get; set; }
         public int Delivery { get; set; }
         public int Term { get; set; }
         public int Preterm { get; set; }

@@ -77,6 +77,10 @@
     <Compile Include="Migrations\202305011403409_labororttest.designer.cs">
       <DependentUpon>202305011403409_labororttest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305021352127_changed.cs" />
+    <Compile Include="Migrations\202305021352127_changed.designer.cs">
+      <DependentUpon>202305021352127_changed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DSContext.cs" />
@@ -106,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305011403409_labororttest.resx">
       <DependentUpon>202305011403409_labororttest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305021352127_changed.resx">
+      <DependentUpon>202305021352127_changed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
