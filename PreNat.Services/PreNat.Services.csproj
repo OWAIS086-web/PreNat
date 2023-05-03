@@ -84,6 +84,7 @@
     <Compile Include="LaboratoryTestsServices.cs" />
     <Compile Include="ObstetricGynecologyClinicalServices.cs" />
     <Compile Include="ObstetrichistoryServices.cs" />
+    <Compile Include="PatientMasterServices.cs" />
     <Compile Include="PatientServices.cs" />
     <Compile Include="PregnancyConfirmationServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

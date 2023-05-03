@@ -1,24 +1,14 @@
-﻿using PreNat.Entities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace PreNat.ViewModels
+namespace PreNat.Entities
 {
-    public class MainListingViewModel
+    public class PatientMaster:BaseEntity
     {
-        public List<PatientMaster> PatientMasters { get; set; }
-        public string SearchTerm { get; set; }
-    }
-
-    public class MainActionViewModel
-    {
-        //patient
-        public User SignedInUser { get; set; }
-        public List<Patient> Patients { get; set; }
-
-        public int ID { get; set; }
+        public string CreatedBy { get; set; }
         public string Name { get; set; }
         public string Surnames { get; set; }
         public string Type_of_Identity { get; set; }  //Dropdown
@@ -59,7 +49,6 @@ namespace PreNat.ViewModels
         public string BMI_39 { get; set; }             //Absence   -   Family  - Personal
         public string Disc_Sang { get; set; }          //Absence   -   Family  - Personal
         public string Other { get; set; }       //Absence   -   Family  - Personal
-        public int PatientID { get; set; }
 
         //ChronologyPregnancy
         public int ReliableFUM { get; set; }
@@ -159,6 +148,5 @@ namespace PreNat.ViewModels
         public string ConsumeAlcohol { get; set; }
         public string ConsumeAlucinogenos { get; set; }
         public string DomesticViolence { get; set; }
-
     }
 }

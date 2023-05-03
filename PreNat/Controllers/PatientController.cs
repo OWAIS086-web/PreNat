@@ -34,6 +34,7 @@ namespace PreNat.Controllers
                 var Patient = PatientServices.Instance.GetPatient(ID);
                 model.ID = Patient.ID;
                 model.Name = Patient.Name;
+
                 model.Surnames = Patient.Surnames;
                 model.Type_of_Identity = Patient.Type_of_Identity;
                 model.Department_of_residence = Patient.Department_of_residence;

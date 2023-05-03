@@ -89,15 +89,28 @@
             <!-- partial:partials/_sidebar.html -->
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
+                    @if (User.IsInRole("Admin"))
+                    {
 
-                    <li class="nav-item">
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Dashboard", "Admin")">
+                                <i class="typcn typcn-device-desktop menu-icon"></i>
+                                <span class="menu-title">Home</span>
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("UserDashboard", "Admin")">
+                                <i class="typcn typcn-device-desktop menu-icon"></i>
+                                <span class="menu-title">Home</span>
+                            </a>
+                        </li>
+                    }
 
-                        <a class="nav-link" href="@Url.Action("", "")">
-                            <i class="typcn typcn-device-desktop menu-icon"></i>
-                            <span class="menu-title">Home</span>
-                        </a>
-                    </li>
-
+                    @if (User.IsInRole("Admin"))
+                    {
                     <li class="nav-item">
 
                         <a class="nav-link" href="@Url.Action("Index", "Background")">
@@ -183,13 +196,23 @@
                             <span class="menu-title">Users</span>
                         </a>
                     </li>
+                    <li class="nav-item">
 
+                        <a class="nav-link" href="@Url.Action("Index", "PatientMaster")">
+                            <i class="typcn typcn-device-desktop menu-icon"></i>
+                            <span class="menu-title">PatientMasters</span>
+                        </a>
+                    </li>
+                    }
+                    @if (User.Identity.IsAuthenticated)
+                    {
                     <li class="nav-item">
                         <a href="javascript:document.getElementById('logoutForm').submit()" class="dropdown-item">
                             <i class="typcn typcn-eject text-primary"></i>
                             Logout
                         </a>
                     </li>
+                    }
 
 
 

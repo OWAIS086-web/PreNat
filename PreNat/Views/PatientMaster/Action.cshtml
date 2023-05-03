@@ -1,8 +1,4 @@
 ﻿@model PreNat.ViewModels.MainActionViewModel
-@{
-    ViewBag.Title = "Dashboard";
-
-}
 
 <style>
     .form-control {
@@ -39,8 +35,9 @@
         width: 160px;
         margin-top: 0;
         margin-bottom: 0;
-        padding-left: 0;    
+        padding-left: 0;
     }
+
     .form-select {
         display: block;
         width: 100%;
@@ -60,155 +57,108 @@
         appearance: none;
     }
 </style>
-<h2>Dashboard - Welcome @Model.SignedInUser.Name</h2>
-<hr />
-<div class="row">
-    <div class="col-md-6">
-        <a href="@Url.Action("Action","PatientMaster")" class="btn btn-block btn-primary">REGISTER NEW PATIENT</a> 
-    </div>
-    <div class="col-md-6">
-        <a href="@Url.Action("Index","PatientMaster")" class="btn btn-block btn-secondary">VIEW PATIENT RECORD</a>
-    </div>
-</div>
-<!-- FORMS -->
-@*<div class="col-12">
+@if (Model != null)
+{
+
     <div class="card">
-        
         <div class="card-body">
+            <h2 class="card-title">
+                @if (Model.ID != 0)
+                {
+                    <span>Edit Patient Master</span>
+                }
+                else
+                {
+                    <span>Save Patient Master</span>
+                }
+            </h2>
+            <hr />
+
+
+
+
             <div class="row">
                 <div class="col-md-12 mx-auto">
-                    @if (@Session["PatientID"] != null)
-                    {
-                        <input type="hidden" id="PatientID" value="@Session["PatientID"].ToString()" />
-                        <ul class="nav nav-pills nav-pills-custom" id="pills-tab-custom" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="pills-pi-tab-custom" data-bs-toggle="pill" href="#pills-pi" role="tab" aria-bs-controls="pills-pi" aria-bs-selected="true">
-                                    Step 1: Patient Identification
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="pills-cop-tab-custom" data-bs-toggle="pill" href="#pills-cop" role="tab" aria-bs-controls="pills-cop" aria-bs-selected="false">
-                                    Step 2: Confirmation of Preganancy
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="pills-b-tab-custom" data-bs-toggle="pill" href="#pills-b" role="tab" aria-bs-controls="pills-b" aria-bs-selected="false">
-                                    Step 3: Background
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="pills-cg-tab-custom" data-bs-toggle="pill" href="#pills-cg" role="tab" aria-bs-controls="pills-cg" aria-bs-selected="false">
-                                    Step 4: Current Gestation
-                                </a>
-                            </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" id="pills-ogcc-tab-custom" data-bs-toggle="pill" href="#pills-ogcc" role="tab" aria-bs-controls="pills-ogcc" aria-bs-selected="false">
-                                    Step 5: Obstetric Gynecology Clinical Condition
-                                </a>
-                            </li>
+                    <ul class="nav nav-pills nav-pills-custom" id="pills-tab-custom" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="pills-pi-tab-custom" data-bs-toggle="pill" href="#pills-pi" role="tab" aria-bs-controls="pills-pi" aria-bs-selected="true">
+                                Step 1: Patient Identification
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-cop-tab-custom" data-bs-toggle="pill" href="#pills-cop" role="tab" aria-bs-controls="pills-cop" aria-bs-selected="false">
+                                Step 2: Confirmation of Preganancy
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-b-tab-custom" data-bs-toggle="pill" href="#pills-b" role="tab" aria-bs-controls="pills-b" aria-bs-selected="false">
+                                Step 3: Background
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-cg-tab-custom" data-bs-toggle="pill" href="#pills-cg" role="tab" aria-bs-controls="pills-cg" aria-bs-selected="false">
+                                Step 4: Current Gestation
+                            </a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" id="pills-cp-tab-custom" data-bs-toggle="pill" href="#pills-cp" role="tab" aria-bs-controls="pills-cp" aria-bs-selected="false">
-                                    Step 6: Chronlogical Pregnancy
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-ogcc-tab-custom" data-bs-toggle="pill" href="#pills-ogcc" role="tab" aria-bs-controls="pills-ogcc" aria-bs-selected="false">
+                                Step 5: Obstetric Gynecology Clinical Condition
+                            </a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" id="pills-pa-tab-custom" data-bs-toggle="pill" href="#pills-pa" role="tab" aria-bs-controls="pills-pa" aria-bs-selected="false">
-                                    Step 7: Psychosocial Assessment
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="pills-imm-tab-custom" data-bs-toggle="pill" href="#pills-imm" role="tab" aria-bs-controls="pills-imm" aria-bs-selected="false">
-                                    Step 8: Immunizations
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="pills-lb-tab-custom" data-bs-toggle="pill" href="#pills-lb" role="tab" aria-bs-controls="pills-lb" aria-bs-selected="false">
-                                    Step 9: Laborotory Tests
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="pills-r-tab-custom" data-bs-toggle="pill" href="#pills-r" role="tab" aria-bs-controls="pills-r" aria-bs-selected="false">
-                                    Step 10: Report
-                                </a>
-                            </li>
-                        </ul>
-                    }
-                    else
-                    {
-                        <input type="hidden" id="PatientID" value="" />
-                        <ul class="nav nav-pills nav-pills-custom" id="pills-tab-custom" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="pills-pi-tab-custom" data--toggle="pill" href="#pills-pi" role="tab" aria-controls="pills-pi" aria-selected="true">
-                                    Step 1: Patient Identification
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="pills-cop-tab-custom" data-toggle="pill" href="#pills-cop" role="tab" aria-controls="pills-cop" aria-selected="false">
-                                    Step 2: Confirmation of Preganancy
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="pills-b-tab-custom" data-toggle="pill" href="#pills-b" role="tab" aria-controls="pills-b" aria-selected="false">
-                                    Step 3: Background
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="pills-cg-tab-custom" data-toggle="pill" href="#pills-cg" role="tab" aria-controls="pills-cg" aria-selected="false">
-                                    Step 4:  Current Gestation
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="pills-ogcc-tab-custom" data-toggle="pill" href="#pills-ogcc" role="tab" aria-controls="pills-ogcc" aria-selected="false">
-                                    Step 5:  Obstetric Gynecology Clinical Condition
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-cp-tab-custom" data-bs-toggle="pill" href="#pills-cp" role="tab" aria-bs-controls="pills-cp" aria-bs-selected="false">
+                                Step 6: Chronlogical Pregnancy
+                            </a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" id="pills-cp-tab-custom" data-toggle="pill" href="#pills-cp" role="tab" aria-controls="pills-cp" aria-selected="false">
-                                    Step 6: Chronlogical Pregnancy
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-pa-tab-custom" data-bs-toggle="pill" href="#pills-pa" role="tab" aria-bs-controls="pills-pa" aria-bs-selected="false">
+                                Step 7: Psychosocial Assessment
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-imm-tab-custom" data-bs-toggle="pill" href="#pills-imm" role="tab" aria-bs-controls="pills-imm" aria-bs-selected="false">
+                                Step 8: Immunizations
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-lb-tab-custom" data-bs-toggle="pill" href="#pills-lb" role="tab" aria-bs-controls="pills-lb" aria-bs-selected="false">
+                                Step 9: Laborotory Tests
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-r-tab-custom" data-bs-toggle="pill" href="#pills-r" role="tab" aria-bs-controls="pills-r" aria-bs-selected="false">
+                                Step 10: Report
+                            </a>
+                        </li>
+                    </ul>
 
-                            <li class="nav-item">
-                                <a class="nav-link" id="pills-pa-tab-custom" data-toggle="pill" href="#pills-pa" role="tab" aria-controls="pills-pa" aria-selected="false">
-                                    Step 7: Psychosocial Assessment
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="pills-imm-tab-custom" data-toggle="pill" href="#pills-imm" role="tab" aria-controls="pills-imm" aria-selected="false">
-                                    Step 8: Immunizations
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" id="pills-lb-tab-custom" data-toggle="pill" href="#pills-lb" role="tab" aria-controls="pills-lb" aria-selected="false">
-                                    Step 9: Laborotory Tests
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="pills-r-tab-custom" data-toggle="pill" href="#pills-r" role="tab" aria-controls="pills-r" aria-selected="false">
-                                    Step 10: Report
-                                </a>
-                            </li>
-                        </ul>
-                    }
 
 
                     <br />
+                    <div class="row">
+
+                        <button type="button" id="actionButton" class="btn btn-block btn-primary">
+                            Save and Continue
+                        </button>
+                    </div>
                     <div class="tab-content tab-content-custom-pill" id="pills-tabContent-custom">
-                        <div class="tab-pane fade show active" id="pills-pi" role="tabpanel" aria-labelledby="pills-pi-tab-custom">
-                            <h3 class="text-center">
-                                Step 1: Patient Identification
-                            </h3>
-                            <hr />
-                            <form id="patientIdForm">
+                        <form id="actionForm">
+
+                            <div class="tab-pane fade show active" id="pills-pi" role="tabpanel" aria-labelledby="pills-pi-tab-custom">
+                                <h3 class="text-center">
+                                    Step 1: Patient Identification
+                                </h3>
+                                <hr />
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="name">Name</label>
+                                            <input type="hidden" class="form-control" value="@Model.ID" name="ID" id="ID">
+
                                             <input type="text" required class="form-control" value="@Model.Name" name="name" id="name">
                                         </div>
 
@@ -362,22 +312,16 @@
 
 
 
-                            </form>
-                            <hr />
-                            <div class="row">
-                                <button type="button" id="PatientIDActionBtn" class="btn btn-block btn-primary">
-                                    Save and Continue
-                                </button>
+                                <hr />
+
                             </div>
-                        </div>
 
 
-                        <div class="tab-pane fade" id="pills-cop" role="tabpanel" aria-labelledby="pills-cop-tab-custom">
-                            <h3 class="text-center">
-                                Step 2: Pregnancy Confirmation
-                            </h3>
-                            <hr />
-                            <form id="pocForm">
+                            <div class="tab-pane fade" id="pills-cop" role="tabpanel" aria-labelledby="pills-cop-tab-custom">
+                                <h3 class="text-center">
+                                    Step 2: Pregnancy Confirmation
+                                </h3>
+                                <hr />
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
@@ -444,22 +388,17 @@
 
 
 
-                            </form>
-                            <hr />
-                            <div class="row">
-                                <button type="button" id="PregConfirmActionBtn" class="btn btn-block btn-primary">
-                                    Save and Continue
-                                </button>
+
+                                <hr />
+
                             </div>
-                        </div>
 
 
-                        <div class="tab-pane fade" id="pills-b" role="tabpanel" aria-labelledby="pills-b-tab-custom">
-                            <h3 class="text-center">
-                                Step 3: Background
-                            </h3>
-                            <hr />
-                            <form id="backgroundForm">
+                            <div class="tab-pane fade" id="pills-b" role="tabpanel" aria-labelledby="pills-b-tab-custom">
+                                <h3 class="text-center">
+                                    Step 3: Background
+                                </h3>
+                                <hr />
                                 <div class="table-responsive">
                                     <table class="table table-bordered">
                                         <thead>
@@ -670,23 +609,17 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            </form>
-                            <hr />
-                            <div class="row">
-                                <button type="button" id="BackgroundActionBtn" class="btn btn-block btn-primary">
-                                    Save and Continue
-                                </button>
+                                <hr />
+
                             </div>
-                        </div>
 
 
 
-                        <div class="tab-pane fade" id="pills-cg" role="tabpanel" aria-labelledby="pills-cg-tab-custom">
-                            <h3 class="text-center">
-                                Step 4: Current Gestation
-                            </h3>
-                            <hr />
-                            <form id="obform">
+                            <div class="tab-pane fade" id="pills-cg" role="tabpanel" aria-labelledby="pills-cg-tab-custom">
+                                <h3 class="text-center">
+                                    Step 4: Current Gestation
+                                </h3>
+                                <hr />
                                 <div class="table-responsive">
                                     <table class="table table-striped">
                                         <thead>
@@ -838,23 +771,17 @@
                                 </div>
 
 
-                            </form>
-                            <hr />
-                            <div class="row">
-                                <button type="button" id="ObActionBtn" class="btn btn-block btn-primary">
-                                    Save and Continue
-                                </button>
+                                <hr />
+
                             </div>
-                        </div>
 
 
 
-                        <div class="tab-pane fade" id="pills-ogcc" role="tabpanel" aria-labelledby="pills-ogcc-tab-custom">
-                            <h3 class="text-center">
-                                Step 5: Obstetric Gynecology Clinical Condition
-                            </h3>
-                            <hr />
-                            <form id="ogcform">
+                            <div class="tab-pane fade" id="pills-ogcc" role="tabpanel" aria-labelledby="pills-ogcc-tab-custom">
+                                <h3 class="text-center">
+                                    Step 5: Obstetric Gynecology Clinical Condition
+                                </h3>
+                                <hr />
                                 <div class="row">
                                     <div class="form-group col-md-4">
                                         <label for="PlannedPregnancy">Planned Pregancies</label>
@@ -900,74 +827,68 @@
 
 
 
-                            </form>
-                            <hr />
-                            <div class="row">
 
-                                <button type="button" id="OgcActionBtn" class="btn btn-block  btn-primary">
-                                    Save and Continue
-                                </button>
-                            </div>
-
-                        </div>
-
-
-
-
-                        <div class="tab-pane fade" id="pills-cp" role="tabpanel" aria-labelledby="pills-cp-tab-custom">
-                            <h3 class="text-center">
-                                Step 6: Chronlogical Pregnancy
-                            </h3>
-                            <hr />
-
-                            <form id="cpform">
-                                <div class="row">
-                                    <div class="form-group col-md-6">
-                                        <label for="PlannedPregnancy">Reliable FUM</label>
-                                        <input class="form-control" type="text" value="@Model.ReliableFUM" name="ReliableFUM" id="ReliableFUM" />
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="PlannedPregnancy">Ultrasound Obstetrics</label>
-                                        <input class="form-control" type="text" value="@Model.UltrasoundObstetrics" name="UltrasoundObstetrics" id="UltrasoundObstetrics" />
-                                    </div>
-                                </div>
+                                <hr />
                                 <div class="row">
 
-                                    <div class="form-group col-md-6">
-                                        <label for="PreconceptionCounseling">Probable Date Of Delivery</label>
-                                        <input type="date" class="form-control" value="@Model.ProbableDateOfDelivery.ToString("MM-dd-yyyy")" name="ProbableDateOfDelivery" id="ProbableDateOfDelivery">
-
-                                    </div>
-
-                                    <div class="form-group col-md-6">
-                                        <label for="ContraceptiveFailure">Probable Date Of Conception</label>
-                                        <input type="date" class="form-control" value="@Model.ProbableDateOfConception.ToString("MM-dd-yyyy")" name="ProbableDateOfConception" id="ProbableDateOfConception">
-
-                                    </div>
+                                    <button type="button" id="OgcActionBtn" class="btn btn-block  btn-primary">
+                                        Save and Continue
+                                    </button>
                                 </div>
 
-
-                            </form>
-
-                            <hr />
-                            <div class="row">
-                                <button type="button" id="CPactionBtn" class="btn btn-block btn-primary">
-                                    Save and Continue
-                                </button>
                             </div>
-                        </div>
+
+
+
+
+                            <div class="tab-pane fade" id="pills-cp" role="tabpanel" aria-labelledby="pills-cp-tab-custom">
+                                <h3 class="text-center">
+                                    Step 6: Chronlogical Pregnancy
+                                </h3>
+                                <hr />
+
+                                <form id="cpform">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="PlannedPregnancy">Reliable FUM</label>
+                                            <input class="form-control" type="text" value="@Model.ReliableFUM" name="ReliableFUM" id="ReliableFUM" />
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="PlannedPregnancy">Ultrasound Obstetrics</label>
+                                            <input class="form-control" type="text" value="@Model.UltrasoundObstetrics" name="UltrasoundObstetrics" id="UltrasoundObstetrics" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="form-group col-md-6">
+                                            <label for="PreconceptionCounseling">Probable Date Of Delivery</label>
+                                            <input type="date" class="form-control" value="@Model.ProbableDateOfDelivery.ToString("MM-dd-yyyy")" name="ProbableDateOfDelivery" id="ProbableDateOfDelivery">
+
+                                        </div>
+
+                                        <div class="form-group col-md-6">
+                                            <label for="ContraceptiveFailure">Probable Date Of Conception</label>
+                                            <input type="date" class="form-control" value="@Model.ProbableDateOfConception.ToString("MM-dd-yyyy")" name="ProbableDateOfConception" id="ProbableDateOfConception">
+
+                                        </div>
+                                    </div>
+
+
+
+                                    <hr />
+
+                            </div>
 
 
 
 
 
-                        <div class="tab-pane fade" id="pills-pa" role="tabpanel" aria-labelledby="pills-pa-tab-custom">
-                            <h3 class="text-center">
-                                Step 7: Psychosocial Assessment
-                            </h3>
-                            <hr />
+                            <div class="tab-pane fade" id="pills-pa" role="tabpanel" aria-labelledby="pills-pa-tab-custom">
+                                <h3 class="text-center">
+                                    Step 7: Psychosocial Assessment
+                                </h3>
+                                <hr />
 
-                            <form id="paform">
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="SmokerActive">Smoker Active?</label>
@@ -1014,30 +935,23 @@
                                 </div>
 
 
-                            </form>
 
 
-                            <hr />
-                            <div class="row">
-                                <button type="button" id="PAActionBtn" class="btn btn-block btn-primary">
-                                    Save and Continue
-                                </button>
+                                <hr />
+
                             </div>
 
-                        </div>
 
 
 
 
+                            <div class="tab-pane fade" id="pills-imm" role="tabpanel" aria-labelledby="pills-imm-tab-custom">
+                                <h3 class="text-center">
+                                    Step 8: Immnunizations
+                                </h3>
+                                <hr />
 
-                        <div class="tab-pane fade" id="pills-imm" role="tabpanel" aria-labelledby="pills-imm-tab-custom">
-                            <h3 class="text-center">
-                                Step 8: Immnunizations
-                            </h3>
-                            <hr />
 
-
-                            <form id="immform">
                                 <div class="row table-responsive">
                                     <table class="table table-striped">
                                         <thead>
@@ -1241,24 +1155,18 @@
                                 </div>
 
 
-                            </form>
 
-                            <div class="row">
-                                <button type="button" id="ImmActionBtn" class="btn btn-block btn-primary">
-                                    Save and Continue
-                                </button>
+
                             </div>
-                        </div>
 
 
 
-                        <div class="tab-pane fade" id="pills-lb" role="tabpanel" aria-labelledby="pills-r-tab-custom">
-                            <h3 class="text-center">
-                                Step 9: Laboratory Tests
-                            </h3>
-                            <hr />
+                            <div class="tab-pane fade" id="pills-lb" role="tabpanel" aria-labelledby="pills-r-tab-custom">
+                                <h3 class="text-center">
+                                    Step 9: Laboratory Tests
+                                </h3>
+                                <hr />
 
-                            <form id="labform">
                                 <div class="row table-responsive">
                                     <table class="table table-striped">
                                         <thead>
@@ -1363,157 +1271,1478 @@
                                     </table>
                                 </div>
 
-                            </form>
-                            <hr />
-                            <div class="row">
+                                <hr />
 
-                                <button type="button" id="LabActionBtn" class="btn btn-block btn-primary">
-                                    Save and Continue
-                                </button>
+
                             </div>
+                        </form>
 
-                        </div>
 
                     </div>
 
-                    <div class="tab-pane fade" id="pills-r" role="tabpanel" aria-labelledby="pills-r-tab-custom">
-                        <h3 class="text-center">
-                            Step 10: Report
-                        </h3>
-                        <hr />
-                    </div>
+
                 </div>
             </div>
-        </div>
-        </div>
-    </div>*@
 
-
-<div class="modal fade" id="actionModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+        </div>
     </div>
-</div>
+
+
+
+
+
+
+    <div class="errorDiv">
+
+    </div>
+
+}
 
 <script src="~/Content/template/js/tabs.js"></script>
 
 <script>
 
-   
-    $("#PatientIDActionBtn").click(function () {
-    const form = document.getElementById('patientIdForm');
-    const requiredInputs = form.querySelectorAll('input[required], select[required]');
-    let isValid = true;
-    requiredInputs.forEach(function (input) {
-        if (input.value.trim() === '') {
-            input.classList.add('is-invalid');
-            isValid = false;
-        } else {
-            input.classList.remove('is-invalid');
-        }
-    });
-
-    // If any required field is empty, prevent the form from being submitted
-    if (!isValid) {
-        alert("All Fields are mandatory");
-        return false;
-    } else {
-        $.ajax({
-            url: '@Url.Action("Action", "PatientMaster")',
-            type: "post",
-            data: $("#patientIdForm").serialize()
-        })
-            .done(function (result) {
-                if (result.success) {
-                    alert("Saved Successfully!!");
-
-                    var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                    // get the next tab
-                    var nextTab = activeTab.nextElementSibling;
-
-                    // activate the next tab
-                    if (nextTab) {
-                        var tabLink = nextTab.querySelector(".nav-link");
-                        if (tabLink) {
-                            var activeTabLink = activeTab.querySelector('.nav-link.active');
-                            var nextTabLink = nextTab.querySelector('.nav-link');
-                            activeTabLink.classList.remove('active');
-                            nextTabLink.classList.add('active');
-
-
-
-                            // To remove classes
-                            $('.tab-pane.active.show').removeClass('active show');
-
-                            tabLink.click();
-                            $("#pills-cop").addClass('active show');
-                        }
-                    }
-                    else {
-                        alert("Data Didn't Saved!!!!");
-                    }
-                }
-            });
-    }
-});
-    $("#PregConfirmActionBtn").click(function () {
-        const form = document.getElementById('pocForm');
-        const requiredInputs = form.querySelectorAll('input[required], select[required]');
-        let isValid = true;
-        requiredInputs.forEach(function (input) {
-            if (input.value.trim() === '') {
-                input.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                input.classList.remove('is-invalid');
+     function SmokerActiv() {
+        var selectedOption = smokeractive.options[smokeractive.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < smokeractive.options.length; i++) {
+            var option = smokeractive.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
             }
-        });
-
-        // If any required field is empty, prevent the form from being submitted
-        if (!isValid) {
-            alert("All Fields are mandatory");
-            return false;
-        } else {
-            $.ajax({
-                url: '@Url.Action("Action", "PatientMaster")',
-                type: "post",
-                data: $("#pocForm").serialize()
-            })
-                .done(function (result) {
-                    if (result.success) {
-                        alert("Saved Successfully!!");
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var nextTab = activeTab.nextElementSibling;
-
-                        // activate the next tab
-                        if (nextTab) {
-                            var tabLink = nextTab.querySelector(".nav-link");
-                            if (tabLink) {
-                                var activeTabLink = activeTab.querySelector('.nav-link.active');
-                                var nextTabLink = nextTab.querySelector('.nav-link');
-                                activeTabLink.classList.remove('active');
-                                nextTabLink.classList.add('active');
-
-
-
-                                // To remove classes
-                                $('.tab-pane.active.show').removeClass('active show');
-
-                                tabLink.click();
-                                $("#pills-b").addClass('active show');
-                            }
-                        } else {
-                            alert("Data Didn't Saved!!!!");
-                        }
-                    }
-                });
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
         }
+        smokeractive.style.backgroundColor = backgroundColor;
+    }
+    function Passivesmok() {
+        var selectedOption = passivesmoker.options[passivesmoker.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < passivesmoker.options.length; i++) {
+            var option = passivesmoker.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            passivesmoker.style.backgroundColor = backgroundColor;
+    }
+    function ConsumeAlco() {
+        var selectedOption = consumealc.options[consumealc.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < consumealc.options.length; i++) {
+            var option = consumealc.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            consumealc.style.backgroundColor = backgroundColor;
+
+    }
+    function ConsumeAluc() {
+        var selectedOption = consumealu.options[consumealu.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < consumealu.options.length; i++) {
+                var option = consumealu.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            consumealu.style.backgroundColor = backgroundColor;
+
+    }
+    function DomesticVio() {
+        var selectedOption = domesticviolence.options[domesticviolence.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < domesticviolence.options.length; i++) {
+            var option = domesticviolence.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Red")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FF0000";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            domesticviolence.style.backgroundColor = backgroundColor;
+
+    }
+
+    function TetanusNookn()    {
+        var selectedOption = tetanusdiphNo.options[tetanusdiphNo.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < tetanusdiphNo.options.length; i++) {
+            var option = tetanusdiphNo.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        tetanusdiphNo.style.backgroundColor = backgroundColor;
+    }
+    function TetanusYesPP() {
+        var selectedOption = tetanusdiphYesPrevPreg.options[tetanusdiphYesPrevPreg.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < tetanusdiphYesPrevPreg.options.length; i++) {
+            var option = tetanusdiphYesPrevPreg.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        tetanusdiphYesPrevPreg.style.backgroundColor = backgroundColor;
+    }
+    function TetanusYesDP() {
+        var selectedOption = tetanusdiphYesDuringPreg.options[tetanusdiphYesDuringPreg.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < tetanusdiphYesDuringPreg.options.length; i++) {
+            var option = tetanusdiphYesDuringPreg.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        tetanusdiphYesDuringPreg.style.backgroundColor = backgroundColor;
+    }
+    function TdapNsssssso() {
+        var selectedOption = tdapNo.options[tdapNo.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < tdapNo.options.length; i++) {
+            var option = tdapNo.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if
+                    (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            tdapNo.style.backgroundColor = backgroundColor;
+
+    }
+    function TdapYesPPsss() {
+        var selectedOption = tdapYesPrevPreg.options[tdapYesPrevPreg.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < tdapYesPrevPreg.options.length; i++) {
+            var option = tdapYesPrevPreg.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            tdapYesPrevPreg.style.backgroundColor = backgroundColor;
+
+    }
+    function TDapYesDsssP() {
+        var selectedOption = tdapYesDuringPreg.options[tdapYesDuringPreg.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < tdapYesDuringPreg.options.length; i++) {
+                var option = tdapYesDuringPreg.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            tdapYesDuringPreg.style.backgroundColor = backgroundColor;
+
+    }
+    function InfluenzsaNo() {
+        var selectedOption = influenzaNo.options[influenzaNo.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < influenzaNo.options.length; i++) {
+            var option = influenzaNo.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            influenzaNo.style.backgroundColor = backgroundColor;
+
+
+    }
+    function InfluenYesPP() {
+        var selectedOption = influenzaYesPrevPreg.options[influenzaYesPrevPreg.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < influenzaYesPrevPreg.options.length; i++) {
+                var option = influenzaYesPrevPreg.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {// Check if this is one of the options you want to keep green
+                    option.style.backgroundColor = "#6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            influenzaYesPrevPreg.style.backgroundColor = backgroundColor;
+
+    }
+    function InflueaYesDP() {
+        var selectedOption = influenzaYesDuringPreg.options[influenzaYesDuringPreg.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < influenzaYesDuringPreg.options.length; i++) {
+            var option = influenzaYesDuringPreg.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep green
+                    option.style.backgroundColor = "#6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            influenzaYesDuringPreg.style.backgroundColor = backgroundColor;
+
+    }
+    function rubellaYesPr() {
+        var selectedOption = rubellaYesPrevPreg.options[rubellaYesPrevPreg.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < rubellaYesPrevPreg.options.length; i++) {
+            var option = rubellaYesPrevPreg.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        rubellaYesPrevPreg.style.backgroundColor = backgroundColor;
+    }
+    function rubellaDPreg() {
+        var selectedOption = rubellaYesDuringPreg.options[rubellaYesDuringPreg.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < rubellaYesDuringPreg.options.length; i++) {
+            var option = rubellaYesDuringPreg.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        rubellaYesDuringPreg.style.backgroundColor = backgroundColor;
+    }
+    function RubellaNoNON() {
+        var selectedOption = rubellaNo.options[rubellaNo.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < rubellaNo.options.length; i++) {
+            var option = rubellaNo.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        rubellaNo.style.backgroundColor = backgroundColor;
+
+    }
+    function HepatitisANO() {
+            var selectedOption = hepatitisANo.options[hepatitisANo.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < hepatitisANo.options.length; i++) {
+                var option = hepatitisANo.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep green
+                    option.style.backgroundColor = "#6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            hepatitisANo.style.backgroundColor = backgroundColor;
+
+    }
+    function HepatitisADP() {
+        var selectedOption = hepatitisAYesDuringPreg.options[hepatitisAYesDuringPreg.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < hepatitisAYesDuringPreg.options.length; i++) {
+                var option = hepatitisAYesDuringPreg.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep green
+                    option.style.backgroundColor = "#6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            hepatitisAYesDuringPreg.style.backgroundColor = backgroundColor;
+
+    }
+    function HepatitisAPP() {
+        var selectedOption = hepatitisAYesPrevPreg.options[hepatitisAYesPrevPreg.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < hepatitisAYesPrevPreg.options.length; i++) {
+            var option = hepatitisAYesPrevPreg.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep green
+                    option.style.backgroundColor = "#6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            hepatitisAYesPrevPreg.style.backgroundColor = backgroundColor;
+
+    }
+    function HepatitisBNo() {
+        var selectedOption = hepatitisBNo.options[hepatitisBNo.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < hepatitisBNo.options.length; i++) {
+            var option = hepatitisBNo.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        hepatitisBNo.style.backgroundColor = backgroundColor;
+
+
+    }
+    function HepatitisBDP() {
+        var selectedOption = hepatitisBYesPrevPreg.options[hepatitisBYesPrevPreg.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < hepatitisBYesPrevPreg.options.length; i++) {
+            var option = hepatitisBYesPrevPreg.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        hepatitisBYesPrevPreg.style.backgroundColor = backgroundColor;
+    }
+    function HepatitisBPP() {
+        var selectedOption = hepatitisBYesDuringPreg.options[hepatitisBYesDuringPreg.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < hepatitisBYesDuringPreg.options.length; i++) {
+            var option = hepatitisBYesDuringPreg.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        hepatitisBYesDuringPreg.style.backgroundColor = backgroundColor;
+    }
+
+    function GroupPositiveo() {
+        var selectedOption = GroupPositve.options[GroupPositve.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < GroupPositve.options.length; i++) {
+            var option = GroupPositve.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            GroupPositve.style.backgroundColor = backgroundColor;
+
+    }
+    function GroupNegativeo() {
+        var selectedOption = GroupNegative.options[GroupNegative.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < GroupNegative.options.length; i++) {
+                var option = GroupNegative.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            GroupNegative.style.backgroundColor = backgroundColor;
+
+    }
+    function VRDLGORYYYYYY() {
+        var selectedOption = VDRL.options[VDRL.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < VDRL.options.length; i++) {
+            var option = VDRL.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            VDRL.style.backgroundColor = backgroundColor;
+
+    }
+    function SyphiliISSSSs() {
+        var selectedOption = Syphilis.options[Syphilis.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < Syphilis.options.length; i++) {
+            var option = Syphilis.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            Syphilis.style.backgroundColor = backgroundColor;
+
+    }
+    function VIH_LGroupsaa() {
+        var selectedOption = VIH_L.options[VIH_L.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < VIH_L.options.length; i++) {
+            var option = VIH_L.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            VIH_L.style.backgroundColor = backgroundColor;
+
+    }
+
+
+    $(document).ready(function () {
+        SmokerActiv();
+        Passivesmok();
+        ConsumeAlco();
+        ConsumeAluc();
+        DomesticVio();
+        TetanusNookn();
+        TetanusYesPP();
+        TetanusYesDP();
+        TdapNsssssso();
+        TdapYesPPsss();
+        TDapYesDsssP();
+        InfluenzsaNo();
+        InfluenYesPP();
+        InflueaYesDP();
+        rubellaYesPr();
+        rubellaDPreg();
+        RubellaNoNON();
+        HepatitisANO();
+        HepatitisADP();
+        HepatitisAPP();
+        HepatitisBNo();
+        HepatitisBDP();
+        HepatitisBPP();
+        GroupPositiveo();
+        GroupNegativeo();
+        VRDLGORYYYYYY();
+        SyphiliISSSSs();
+        VIH_LGroupsaa();
     });
+
+
+    //Patient Coloring
+    var race = document.getElementById("race_dane_information");
+    var ethinicity = document.getElementById("ethnicity_dane_information");
+
+    race.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        race.style.backgroundColor = backgroundColor;
+    });
+    ethinicity.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        ethinicity.style.backgroundColor = backgroundColor;
+    });
+
+   //ObsetricHistory Coloring
+    var plannedpg = document.getElementById("PlannedPregnancy");
+    var desiredbg = document.getElementById("DesiredPregnancy");
+    var precounseling = document.getElementById("PreconceptionCounseling");
+    var contrafail = document.getElementById("ContraceptiveFailure");
+    var defmethod = document.getElementById("DefinitiveMethod");
+
+    plannedpg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        plannedpg.style.backgroundColor = backgroundColor;
+    });
+    desiredbg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        desiredbg.style.backgroundColor = backgroundColor;
+    });
+    precounseling.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        precounseling.style.backgroundColor = backgroundColor;
+    });
+    contrafail.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        contrafail.style.backgroundColor = backgroundColor;
+    });
+    defmethod.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        defmethod.style.backgroundColor = backgroundColor;
+    });
+
+
+
+    //Step 7 Coloring
+
+    var smokeractive = document.getElementById("SmokerActive");
+    var passivesmoker = document.getElementById("PassiveSmoking");
+    var consumealc = document.getElementById("ConsumeAlcohol");
+    var consumealu = document.getElementById("ConsumeAlucinogenos");
+    var domesticviolence = document.getElementById("DomesticViolence");
+
+    smokeractive.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        smokeractive.style.backgroundColor = backgroundColor;
+    });
+    passivesmoker.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        passivesmoker.style.backgroundColor = backgroundColor;
+    });
+    consumealc.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        consumealc.style.backgroundColor = backgroundColor;
+    });
+    consumealu.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        consumealu.style.backgroundColor = backgroundColor;
+    });
+    domesticviolence.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Red")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FF0000";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        domesticviolence.style.backgroundColor = backgroundColor;
+    });
+
+
+
+
+
+    //Step 8: Immunization Coloring
+    var tetanusdiphNo = document.getElementById("TetanusDiphtheriaNo");
+    var tetanusdiphYesPrevPreg = document.getElementById("TetanusDiphtheriaYesPrevPreg");
+    var tetanusdiphYesDuringPreg = document.getElementById("TetanusDiphtheriaYesDuringPreg");
+
+    var tdapNo = document.getElementById("TdapNo");
+    var tdapYesPrevPreg = document.getElementById("TdapYesPrevPreg");
+    var tdapYesDuringPreg = document.getElementById("TdapYesDuringPreg");
+
+    var influenzaNo = document.getElementById("InfluenzaNo");
+    var influenzaYesPrevPreg = document.getElementById("InfluenzaYesPrevPreg");
+    var influenzaYesDuringPreg = document.getElementById("InfluenzaYesDuringPreg");
+
+    var rubellaNo = document.getElementById("RubellaNo");
+    var rubellaYesPrevPreg = document.getElementById("RubellaYesPrevPreg");
+    var rubellaYesDuringPreg = document.getElementById("RubellaYesDuringPreg");
+
+    var hepatitisANo = document.getElementById("Hepatitis_ANo");
+    var hepatitisAYesPrevPreg = document.getElementById("Hepatitis_AYesPrevPreg");
+    var hepatitisAYesDuringPreg = document.getElementById("Hepatitis_AYesDuringPreg");
+
+    var hepatitisBNo = document.getElementById("Hepatitis_BNo");
+    var hepatitisBYesPrevPreg = document.getElementById("Hepatitis_BYesPrevPreg");
+    var hepatitisBYesDuringPreg = document.getElementById("Hepatitis_BYesDuringPreg");
+
+    tetanusdiphNo.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        tetanusdiphNo.style.backgroundColor = backgroundColor;
+    });
+    tetanusdiphYesPrevPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        tetanusdiphYesPrevPreg.style.backgroundColor = backgroundColor;
+    });
+    tetanusdiphYesDuringPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        tetanusdiphYesDuringPreg.style.backgroundColor = backgroundColor;
+    });
+
+    tdapNo.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if
+                (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        tdapNo.style.backgroundColor = backgroundColor;
+    });
+    tdapYesPrevPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        tdapYesPrevPreg.style.backgroundColor = backgroundColor;
+    });
+    tdapYesDuringPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        tdapYesDuringPreg.style.backgroundColor = backgroundColor;
+    });
+
+    influenzaNo.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        influenzaNo.style.backgroundColor = backgroundColor;
+    });
+    influenzaYesPrevPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {// Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        influenzaYesPrevPreg.style.backgroundColor = backgroundColor;
+    });
+    influenzaYesDuringPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        influenzaYesDuringPreg.style.backgroundColor = backgroundColor;
+    });
+
+    rubellaYesPrevPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        rubellaYesPrevPreg.style.backgroundColor = backgroundColor;
+    });
+    rubellaYesDuringPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        rubellaYesDuringPreg.style.backgroundColor = backgroundColor;
+    });
+    rubellaNo.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        rubellaNo.style.backgroundColor = backgroundColor;
+    });
+
+    hepatitisANo.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        hepatitisANo.style.backgroundColor = backgroundColor;
+    });
+    hepatitisAYesPrevPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        hepatitisAYesPrevPreg.style.backgroundColor = backgroundColor;
+    });
+    hepatitisAYesDuringPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        hepatitisAYesDuringPreg.style.backgroundColor = backgroundColor;
+    });
+
+    hepatitisBNo.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        hepatitisBNo.style.backgroundColor = backgroundColor;
+    });
+    hepatitisBYesPrevPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        hepatitisBYesPrevPreg.style.backgroundColor = backgroundColor;
+    });
+    hepatitisBYesDuringPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        hepatitisBYesDuringPreg.style.backgroundColor = backgroundColor;
+    });
+
+
+    //Step 9 Laboratory Coloring
+    var GroupPositve = document.getElementById("GroupPositve");
+    var GroupNegative = document.getElementById("GroupNegative");
+    var VDRL = document.getElementById("VDRL");
+    var Syphilis = document.getElementById("Syphilis");
+    var VIH_L = document.getElementById("VIH_L");
+
+    GroupPositve.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        GroupPositve.style.backgroundColor = backgroundColor;
+    });
+    GroupNegative.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        GroupNegative.style.backgroundColor = backgroundColor;
+    });
+    VDRL.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        VDRL.style.backgroundColor = backgroundColor;
+    });
+    Syphilis.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        Syphilis.style.backgroundColor = backgroundColor;
+    });
+    VIH_L.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        VIH_L.style.backgroundColor = backgroundColor;
+    });
+
+
+
+    function DisplayValues() {
+        var textbox1 = document.getElementById("other-absent-checkbox").value;
+        var textbox2 = document.getElementById("other-present-family-checkbox").value;
+        var textbox3 = document.getElementById("other-present-personally-checkbox").value;
+        var output = document.getElementById("Other");
+
+        output.value = textbox1 + ", " + textbox2 + ", " + textbox3;
+    }
+
+
+
+    var patientID = $("#PatientID").val();
+    $(document).ready(function () {
+        if (patientID != null && patientID != "") {
+
+        }
+    })
+    $("#FileAttachmentUpload").change(function () {
+        var element = this;
+        var formData = new FormData();
+        var totalFiles = element.files.length;
+        for (var i = 0; i < totalFiles; i++) {
+            var file = element.files[i];
+            formData.append("FileAttachment", file);
+        }
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("UploadDoc", "Shared")',
+            data: formData,
+            dataType: 'json',
+            contentType: false,
+            processData: false
+        })
+            .done(function (response) {
+                if (response.Success) {
+                    $("#Upload_document1").val(response.DocURL);
+                }
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("FAIL");
+            })
+    });
+    $("#FileAttachmentUpload2").change(function () {
+        var element = this;
+        var formData = new FormData();
+        var totalFiles = element.files.length;
+        for (var i = 0; i < totalFiles; i++) {
+            var file = element.files[i];
+            formData.append("FileAttachment", file);
+        }
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("UploadDoc", "Shared")',
+            data: formData,
+            dataType: 'json',
+            contentType: false,
+            processData: false
+        })
+            .done(function (response) {
+                if (response.Success) {
+                    $("#Upload_document2").val(response.DocURL);
+                }
+            })
+            .fail(function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("FAIL");
+            })
+    });
+    $("#actionButton").click(function () {
+		$.ajax({
+			url: '@Url.Action("Action", "PatientMaster")',
+			type: "post",
+			data: $("#actionForm").serialize()
+		})
+		.done(function () {
+
+            window.location.href = "@Url.Action("Index", "PatientMaster")";
+
+		});
+    });
+
+
+
     $(".data-btn").click(function () {
         $.ajax({
             url: $(this).attr("data-href"),
@@ -1524,48 +2753,6 @@
     });
 
 
-    $("#BackgroundActionBtn").click(function () {
-
-        $.ajax({
-                url: '@Url.Action("Action", "PatientMaster")',
-            type: "post",
-            data: $("#backgroundForm").serialize()
-        })
-        .done(function (result) {
-                if (result.success) {
-                    alert("Saved Successfully!!");
-                    var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                    // get the next tab
-                    var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                    // get the next tab
-                    var nextTab = activeTab.nextElementSibling;
-
-                    // activate the next tab
-                    if (nextTab) {
-                        var tabLink = nextTab.querySelector(".nav-link");
-                        if (tabLink) {
-                            var activeTabLink = activeTab.querySelector('.nav-link.active');
-                            var nextTabLink = nextTab.querySelector('.nav-link');
-                            activeTabLink.classList.remove('active');
-                            nextTabLink.classList.add('active');
-
-
-
-                            // To remove classes
-                            $('.tab-pane.active.show').removeClass('active show');
-
-                            tabLink.click();
-                            $("#pills-cg").addClass('active show');
-                        }
-                    } else {
-                        alert("Data Didn't Saved!!!!");
-                    }
-                }
-            });
-
-    });
 
     $(document).ready(function () {
         // TBC
@@ -1674,7 +2861,7 @@
             $('#Infertility').val(diseaseName);
         });
 
-// Cardiopathy
+        // Cardiopathy
         $('#cardiopathy-absent-checkbox, #cardiopathy-present-family-checkbox, #cardiopathy-present-personally-checkbox').click(function () {
             var diseaseName = '';
             if ($('#cardiopathy-absent-checkbox').is(':checked')) {
@@ -1816,373 +3003,8 @@
 
     });
 
-    //Background JS
 
 
 
-    $("#ObActionBtn").click(function () {
-        const form = document.getElementById('obform');
-        const requiredInputs = form.querySelectorAll('input[required]');
-        let isValid = true;
-        requiredInputs.forEach(function (input) {
-            if (input.value.trim() === '') {
-                input.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                input.classList.remove('is-invalid');
-            }
-        });
-
-        // If any required field is empty, prevent the form from being submitted
-        if (!isValid) {
-            alert("All Fields are mandatory");
-            return false;
-        } else {
-            $.ajax({
-                url: '@Url.Action("Action", "PatientMaster")',
-                type: "post",
-                data: $("#obform").serialize()
-            })
-                .done(function (result) {
-                    if (result.success) {
-                        alert("Saved Successfully!!");
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var nextTab = activeTab.nextElementSibling;
-
-                        // activate the next tab
-                        if (nextTab) {
-                            var tabLink = nextTab.querySelector(".nav-link");
-                            if (tabLink) {
-                                var activeTabLink = activeTab.querySelector('.nav-link.active');
-                                var nextTabLink = nextTab.querySelector('.nav-link');
-                                activeTabLink.classList.remove('active');
-                                nextTabLink.classList.add('active');
-
-
-
-                                // To remove classes
-                                $('.tab-pane.active.show').removeClass('active show');
-
-                                tabLink.click();
-                                $("#pills-ogcc").addClass('active show');
-                            }
-                        } else {
-                            alert("Data Didn't Saved!!!!");
-                        }
-                    }
-                });
-        }
-    });
-
-
-
-
-    $("#OgcActionBtn").click(function () {
-          const form = document.getElementById('ogcform');
-        const requiredInputs = form.querySelectorAll('input[required]');
-        let isValid = true;
-        requiredInputs.forEach(function (input) {
-            if (input.value.trim() === '') {
-                input.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                input.classList.remove('is-invalid');
-            }
-        });
-
-        // If any required field is empty, prevent the form from being submitted
-        if (!isValid) {
-            alert("All Fields are mandatory");
-            return false;
-        } else {
-            $.ajax({
-                url: '@Url.Action("Action", "PatientMaster")',
-                type: "post",
-                data: $("#ogcform").serialize()
-            })
-                .done(function (result) {
-                    if (result.success) {
-                        alert("Saved Successfully!!");
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var nextTab = activeTab.nextElementSibling;
-
-                        // activate the next tab
-                        if (nextTab) {
-                            var tabLink = nextTab.querySelector(".nav-link");
-                            if (tabLink) {
-                                var activeTabLink = activeTab.querySelector('.nav-link.active');
-                                var nextTabLink = nextTab.querySelector('.nav-link');
-                                activeTabLink.classList.remove('active');
-                                nextTabLink.classList.add('active');
-
-
-
-                                // To remove classes
-                                $('.tab-pane.active.show').removeClass('active show');
-
-                                tabLink.click();
-                                $("#pills-cp").addClass('active show');
-                            }
-                        } else {
-                            alert("Data Didn't Saved!!!!");
-                        }
-                    }
-                });
-        }
-    });
-
-
-    $("#CPactionBtn").click(function () {
-          const form = document.getElementById('cpform');
-        const requiredInputs = form.querySelectorAll('input[required]');
-        let isValid = true;
-        requiredInputs.forEach(function (input) {
-            if (input.value.trim() === '') {
-                input.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                input.classList.remove('is-invalid');
-            }
-        });
-
-        // If any required field is empty, prevent the form from being submitted
-        if (!isValid) {
-            alert("All Fields are mandatory");
-            return false;
-        } else {
-            $.ajax({
-                url: '@Url.Action("Action", "PatientMaster")',
-                type: "post",
-                data: $("#cpform").serialize()
-            })
-                .done(function (result) {
-                    if (result.success) {
-                        alert("Saved Successfully!!");
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var nextTab = activeTab.nextElementSibling;
-
-                        // activate the next tab
-                        if (nextTab) {
-                            var tabLink = nextTab.querySelector(".nav-link");
-                            if (tabLink) {
-                                var activeTabLink = activeTab.querySelector('.nav-link.active');
-                                var nextTabLink = nextTab.querySelector('.nav-link');
-                                activeTabLink.classList.remove('active');
-                                nextTabLink.classList.add('active');
-
-
-
-                                // To remove classes
-                                $('.tab-pane.active.show').removeClass('active show');
-
-                                tabLink.click();
-                                $("#pills-pa").addClass('active show');
-                            }
-                        } else {
-                            alert("Data Didn't Saved!!!!");
-                        }
-                    }
-                });
-        }
-    });
-
-
-    $("#PAActionBtn").click(function () {
-        const form = document.getElementById('paform');
-        const requiredInputs = form.querySelectorAll('input[required]');
-        let isValid = true;
-        requiredInputs.forEach(function (input) {
-            if (input.value.trim() === '') {
-                input.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                input.classList.remove('is-invalid');
-            }
-        });
-
-        // If any required field is empty, prevent the form from being submitted
-        if (!isValid) {
-            alert("All Fields are mandatory");
-            return false;
-        } else {
-            $.ajax({
-                url: '@Url.Action("Action", "PatientMaster")',
-                type: "post",
-                data: $("#paform").serialize()
-            })
-                .done(function (result) {
-                    if (result.success) {
-                        alert("Saved Successfully!!");
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var nextTab = activeTab.nextElementSibling;
-
-                        // activate the next tab
-                        if (nextTab) {
-                            var tabLink = nextTab.querySelector(".nav-link");
-                            if (tabLink) {
-                                var activeTabLink = activeTab.querySelector('.nav-link.active');
-                                var nextTabLink = nextTab.querySelector('.nav-link');
-                                activeTabLink.classList.remove('active');
-                                nextTabLink.classList.add('active');
-
-
-
-                                // To remove classes
-                                $('.tab-pane.active.show').removeClass('active show');
-
-                                tabLink.click();
-                                $("#pills-imm").addClass('active show');
-                            }
-                        } else {
-                            alert("Data Didn't Saved!!!!");
-                        }
-                    }
-                });
-        }
-    });
-
-
-
-    $("#ImmActionBtn").click(function () {
-        const form = document.getElementById('immform');
-        const requiredInputs = form.querySelectorAll('input[required]');
-        let isValid = true;
-        requiredInputs.forEach(function (input) {
-            if (input.value.trim() === '') {
-                input.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                input.classList.remove('is-invalid');
-            }
-        });
-
-        // If any required field is empty, prevent the form from being submitted
-        if (!isValid) {
-            alert("All Fields are mandatory");
-            return false;
-        } else {
-            $.ajax({
-                url: '@Url.Action("Action", "PatientMaster")',
-                type: "post",
-                data: $("#immform").serialize()
-            })
-                .done(function (result) {
-                    if (result.success) {
-                        alert("Saved Successfully!!");
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var nextTab = activeTab.nextElementSibling;
-
-                        // activate the next tab
-                        if (nextTab) {
-                            var tabLink = nextTab.querySelector(".nav-link");
-                            if (tabLink) {
-                                var activeTabLink = activeTab.querySelector('.nav-link.active');
-                                var nextTabLink = nextTab.querySelector('.nav-link');
-                                activeTabLink.classList.remove('active');
-                                nextTabLink.classList.add('active');
-
-
-
-                                // To remove classes
-                                $('.tab-pane.active.show').removeClass('active show');
-
-                                tabLink.click();
-                                $("#pills-lb").addClass('active show');
-                            }
-                        } else {
-                            alert("Data Didn't Saved!!!!");
-                        }
-                    }
-                });
-        }
-    });
-
-
-
-
-    $("#LabActionBtn").click(function () {
-        const form = document.getElementById('labform');
-        const requiredInputs = form.querySelectorAll('input[required]');
-        let isValid = true;
-        requiredInputs.forEach(function (input) {
-            if (input.value.trim() === '') {
-                input.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                input.classList.remove('is-invalid');
-            }
-        });
-
-        // If any required field is empty, prevent the form from being submitted
-        if (!isValid) {
-            alert("All Fields are mandatory");
-            return false;
-        } else {
-            $.ajax({
-                url: '@Url.Action("Action", "PatientMaster")',
-                type: "post",
-                data: $("#labform").serialize()
-            })
-                .done(function (result) {
-                    if (result.success) {
-                        alert("Saved Successfully!!");
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var nextTab = activeTab.nextElementSibling;
-
-                        // activate the next tab
-                        if (nextTab) {
-                            var tabLink = nextTab.querySelector(".nav-link");
-                            if (tabLink) {
-                                var activeTabLink = activeTab.querySelector('.nav-link.active');
-                                var nextTabLink = nextTab.querySelector('.nav-link');
-                                activeTabLink.classList.remove('active');
-                                nextTabLink.classList.add('active');
-
-
-
-                                // To remove classes
-                                $('.tab-pane.active.show').removeClass('active show');
-
-                                tabLink.click();
-                                $("#pills-r").addClass('active show');
-                            }
-                        } else {
-                            alert("Data Didn't Saved!!!!");
-                        }
-                    }
-                });
-        }
-    });
 
 </script>
-

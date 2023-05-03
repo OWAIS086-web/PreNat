@@ -30,7 +30,8 @@ namespace PreNat.Database
         public DbSet<Immunizations> Immunizationss { get; set; }
         public DbSet<ChronologyPregnancy> ChronologyPregnancys { get; set; }
         public DbSet<Background> Backgrounds { get; set; }
-        
+        public DbSet<PatientMaster> PatientMasters { get; set; }
+
 
 
     }

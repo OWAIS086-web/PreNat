@@ -147,15 +147,6 @@ namespace PreNat.Controllers
         {
 
             PregnancyConfirmationServices.Instance.DeletePregnancyConfirmations(model.ID);
-
-
-
-
-
-
-
-
-
             return Json(new { success = true });
         }
     }
