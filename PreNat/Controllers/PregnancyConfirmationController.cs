@@ -66,7 +66,7 @@ namespace PreNat.Controllers
         }
 
         [HttpPost]
-        public ActionResult MainAction(PregnancyConfirmationActionViewModel model)
+        public ActionResult MainAction(MainActionViewModel model)
         {
             
                 var PregnancyConfirmation = new PregnancyConfirmation();

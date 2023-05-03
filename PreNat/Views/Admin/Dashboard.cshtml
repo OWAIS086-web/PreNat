@@ -267,8 +267,8 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="date_of_birth">Date of Birth</label>
-                                            <input style="background-color:#FFFF00;" type="date" class="form-control" value="@Model.Date_of_birth.ToString("MM-dd-yyyy")" name="date_of_birth" id="date_of_birth">
+                                            <label for="Date_of_birth">Date of Birth</label>
+                                            <input style="background-color:#FFFF00;" type="date" class="form-control" value="@Model.Date_of_birth.ToString("MM-dd-yyyy")" name="Date_of_birth" id="Date_of_birth">
                                         </div>
 
                                     </div>
@@ -287,7 +287,7 @@
                                                 <option value="Black" @(Model.Race_DANE_Information == "Black" ? "selected" : "")>Black (Afro-descendant)</option>
                                                 <option value="Mestizo" @(Model.Race_DANE_Information == "Mestizo" ? "selected" : "")>Mestizo</option>
                                                 <option value="White" @(Model.Race_DANE_Information == "White" ? "selected" : "")>White</option>
-                                                <option  style="background-color:#FFFF00;"  value="Indigenous" @(Model.Race_DANE_Information == "Indigenous" ? "selected" : "")>Indigenous</option>
+                                                <option class="Yellow" style="background:#FFFF00;"  value="Indigenous" @(Model.Race_DANE_Information == "Indigenous" ? "selected" : "")>Indigenous</option>
                                             </select>
                                         </div>
 
@@ -298,8 +298,8 @@
                                             <select required class="form-select" name="ethnicity_dane_information" id="ethnicity_dane_information">
                                                 <option value="Palenquera" @(Model.Ethnicity_DANE_Information == "Palenquera" ? "selected" : "")>Palenquera</option>
                                                 <option value="Raizal" @(Model.Ethnicity_DANE_Information == "Raizal" ? "selected" : "")>Raizal</option>
-                                                <option  style="background-color:#FFFF00;"   value="Indigenous" @(Model.Ethnicity_DANE_Information == "Indigenous" ? "selected" : "")>Indigenous</option>
-                                                <option   style="background-color:#FFFF00;"  value="Gypsy" @(Model.Ethnicity_DANE_Information == "Gypsy" ? "selected" : "")>Gypsy</option>
+                                                <option class="Yellow" style="background:#FFFF00;"   value="Indigenous" @(Model.Ethnicity_DANE_Information == "Indigenous" ? "selected" : "")>Indigenous</option>
+                                                <option class="Yellow"  style="background:#FFFF00;"  value="Gypsy" @(Model.Ethnicity_DANE_Information == "Gypsy" ? "selected" : "")>Gypsy</option>
                                             </select>
                                         </div>
                                     </div>
@@ -853,21 +853,21 @@
                                         <label for="PlannedPregnancy">Planned Pregancies</label>
                                         <select required class="form-select" name="PlannedPregnancy" id="PlannedPregnancy">
                                             <option value="Yes" @(Model.PlannedPregnancy == "Yes" ? "selected" : "")>Yes</option>
-                                            <option style="background-color: #FFFF00" value="No" @(Model.PlannedPregnancy == "No" ? "selected" : "")>No</option>
+                                            <option class="Yellow" style="background: #FFFF00" value="No" @(Model.PlannedPregnancy == "No" ? "selected" : "")>No</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="PlannedPregnancy">Desired Pregnancy</label>
                                         <select required class="form-select" name="DesiredPregnancy" id="DesiredPregnancy">
                                             <option value="Yes" @(Model.DesiredPregnancy == "Yes" ? "selected" : "")>Yes</option>
-                                            <option style="background-color: #FFFF00" value="No" @(Model.DesiredPregnancy == "No" ? "selected" : "")>No</option>
+                                            <option class="Yellow" style="background: #FFFF00" value="No" @(Model.DesiredPregnancy == "No" ? "selected" : "")>No</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="PreconceptionCounseling">Preconception Counseling</label>
                                         <select required class="form-select" name="PreconceptionCounseling" id="PreconceptionCounseling">
                                             <option value="Yes" @(Model.PreconceptionCounseling == "Yes" ? "selected" : "")>Yes</option>
-                                            <option style="background-color: #FFFF00" value="No" @(Model.PreconceptionCounseling == "No" ? "selected" : "")>No</option>
+                                            <option class="Yellow" style="background: #FFFF00" value="No" @(Model.PreconceptionCounseling == "No" ? "selected" : "")>No</option>
                                         </select>
                                     </div>
                                 </div>
@@ -876,14 +876,14 @@
                                         <label for="ContraceptiveFailure">Contraceptive Failure</label>
                                         <select required class="form-select" name="ContraceptiveFailure" id="ContraceptiveFailure">
                                             <option value="Yes" @(Model.ContraceptiveFailure == "Yes" ? "selected" : "")>Yes</option>
-                                            <option style="background-color: #FFFF00" value="No" @(Model.ContraceptiveFailure == "No" ? "selected" : "")>No</option>
+                                            <option class="Yellow" style="background: #FFFF00" value="No" @(Model.ContraceptiveFailure == "No" ? "selected" : "")>No</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="ContraceptiveFailure">Failure of Definitive Method</label>
                                         <select required class="form-select" name="DefinitiveMethod" id="DefinitiveMethod">
                                             <option value="Yes" @(Model.DefinitiveMethod == "Yes" ? "selected" : "")>Yes</option>
-                                            <option style="background-color: #FFFF00" value="No" @(Model.DefinitiveMethod == "No" ? "selected" : "")>No</option>
+                                            <option class="Yellow" style="background: #FFFF00" value="No" @(Model.DefinitiveMethod == "No" ? "selected" : "")>No</option>
                                         </select>
                                     </div>
 
@@ -965,15 +965,15 @@
                                     <div class="form-group col-md-6">
                                         <label for="SmokerActive">Smoker Active?</label>
                                         <select required class="form-select" name="SmokerActive" id="SmokerActive">
-                                            <option style="background-color: #FFFF00;" value="Yes" @(Model.SmokerActive == "Yes" ? "selected" : "")>Yes</option>
-                                            <option style="background-color: #6AA84F; "  value="No" @(Model.SmokerActive == "No" ? "selected" : "")>No</option>
+                                            <option class="Yellow" style="background: #FFFF00;" value="Yes" @(Model.SmokerActive == "Yes" ? "selected" : "")>Yes</option>
+                                            <option class="Green" style="background: #6AA84F; "  value="No" @(Model.SmokerActive == "No" ? "selected" : "")>No</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="PassiveSmoking">Passive Smoking</label>
                                         <select required class="form-select" name="PassiveSmoking" id="PassiveSmoking">
-                                            <option style="background-color: #FFFF00;"  value="Yes" @(Model.PassiveSmoking == "Yes" ? "selected" : "")>Yes</option>
-                                            <option style="background-color: #6AA84F; "   value="No" @(Model.PassiveSmoking == "No" ? "selected" : "")>No</option>
+                                            <option class="Yellow" style="background: #FFFF00;"  value="Yes" @(Model.PassiveSmoking == "Yes" ? "selected" : "")>Yes</option>
+                                            <option class="Green" style="background: #6AA84F; "   value="No" @(Model.PassiveSmoking == "No" ? "selected" : "")>No</option>
                                         </select>
                                     </div>
                                 </div>
@@ -982,16 +982,16 @@
                                     <div class="form-group col-md-6">
                                         <label for="ConsumeAlcohol">Consume Alcohol</label>
                                         <select required class="form-select" name="ConsumeAlcohol" id="ConsumeAlcohol">
-                                            <option style="background-color: #FFFF00;"  value="Yes" @(Model.ConsumeAlcohol == "Yes" ? "selected" : "")>Yes</option>
-                                            <option style="background-color: #6AA84F; "  value="No" @(Model.ConsumeAlcohol == "No" ? "selected" : "")>No</option>
+                                            <option class="Yellow" style="background: #FFFF00;"  value="Yes" @(Model.ConsumeAlcohol == "Yes" ? "selected" : "")>Yes</option>
+                                            <option class="Green" style="background: #6AA84F; "  value="No" @(Model.ConsumeAlcohol == "No" ? "selected" : "")>No</option>
                                         </select>
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label for="ConsumeAlucinogenos">Consume Alucinogenos</label>
                                         <select required class="form-select" name="ConsumeAlucinogenos" id="ConsumeAlucinogenos">
-                                            <option style="background-color: #FFFF00;" value="Yes" @(Model.ConsumeAlucinogenos == "Yes" ? "selected" : "")>Yes</option>
-                                            <option  style="background-color: #6AA84F; "  value="No" @(Model.ConsumeAlucinogenos == "No" ? "selected" : "")>No</option>
+                                            <option class="Yellow" style="background: #FFFF00;" value="Yes" @(Model.ConsumeAlucinogenos == "Yes" ? "selected" : "")>Yes</option>
+                                            <option class="Green"  style="background: #6AA84F; "  value="No" @(Model.ConsumeAlucinogenos == "No" ? "selected" : "")>No</option>
                                         </select>
                                     </div>
                                 </div>
@@ -999,8 +999,8 @@
                                     <div class="form-group col-md-6">
                                         <label for="DomesticViolence">Victim Of Domestic Violence</label>
                                         <select required class="form-select" name="DomesticViolence" id="DomesticViolence">
-                                            <option style="background-color: #FF0000;" value="Yes" @(Model.DomesticViolence == "Yes" ? "selected" : "")>Yes</option>
-                                            <option style="background-color: #6AA84F; "   value="No" @(Model.DomesticViolence == "No" ? "selected" : "")>No</option>
+                                            <option class="Red" style="background: #FF0000;" value="Yes" @(Model.DomesticViolence == "Yes" ? "selected" : "")>Yes</option>
+                                            <option class="Green" style="background: #6AA84F; "   value="No" @(Model.DomesticViolence == "No" ? "selected" : "")>No</option>
                                         </select>
                                     </div>
 
@@ -1062,20 +1062,20 @@
                                                 </td>
                                                 <td>
                                                     <select style="width:90px;" required class="form-select" name="TetanusDiphtheriaNo" id="TetanusDiphtheriaNo">
-                                                        <option style="background-color: #FFFF00; "  value="Yes" @(Model.TetanusDiphtheriaNo == "Yes" ? "selected" : "")>Yes</option>
-                                                        <option style="background-color: #FFFF00; "  value="No" @(Model.TetanusDiphtheriaNo == "No" ? "selected" : "")>No</option>
+                                                        <option class="Yellow" style="background: #FFFF00; "  value="Yes" @(Model.TetanusDiphtheriaNo == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option class="Yellow" style="background: #FFFF00; "  value="No" @(Model.TetanusDiphtheriaNo == "No" ? "selected" : "")>No</option>
                                                     </select>
                                                 </td>
                                                 <td>
                                                     <select required class="form-select" name="TetanusDiphtheriaYesDuringPreg" id="TetanusDiphtheriaYesDuringPreg">
-                                                        <option style="background-color: #6AA84F; " value="Yes" @(Model.TetanusDiphtheriaYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                        <option style="background-color: #6AA84F; " value="No" @(Model.TetanusDiphtheriaYesDuringPreg == "No" ? "selected" : "")>No</option>
+                                                        <option class="Green" style="background: #6AA84F; " value="Yes" @(Model.TetanusDiphtheriaYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option class="Green" style="background: #6AA84F; " value="No" @(Model.TetanusDiphtheriaYesDuringPreg == "No" ? "selected" : "")>No</option>
                                                     </select>
                                                 </td>
                                                 <td>
                                                     <select required class="form-select" name="TetanusDiphtheriaYesPrevPreg" id="TetanusDiphtheriaYesPrevPreg">
-                                                        <option style="background-color: #6AA84F; " value="Yes" @(Model.TetanusDiphtheriaYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                        <option style="background-color: #6AA84F; "value="No" @(Model.TetanusDiphtheriaYesPrevPreg == "No" ? "selected" : "")>No</option>
+                                                        <option class="Green" style="background: #6AA84F; " value="Yes" @(Model.TetanusDiphtheriaYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option class="Green" style="background: #6AA84F; "value="No" @(Model.TetanusDiphtheriaYesPrevPreg == "No" ? "selected" : "")>No</option>
                                                     </select>
                                                 </td>
                                                 <td>
@@ -1091,20 +1091,20 @@
                                                 </td>
                                                 <td>
                                                     <select style="width:90px;" required class="form-select" name="TdapNo" id="TdapNo">
-                                                        <option style="background-color: #FFFF00; " value="Yes" @(Model.TdapNo == "Yes" ? "selected" : "")>Yes</option>
-                                                        <option style="background-color: #FFFF00; "value="No" @(Model.TdapNo == "No" ? "selected" : "")>No</option>
+                                                        <option class="Yellow" style="background: #FFFF00; " value="Yes" @(Model.TdapNo == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option class="Yellow"style="background: #FFFF00; "value="No" @(Model.TdapNo == "No" ? "selected" : "")>No</option>
                                                     </select>
                                                 </td>
                                                 <td>
                                                     <select required class="form-select" name="TdapYesPrevPreg" id="TdapYesPrevPreg">
-                                                        <option style="background-color: #6AA84F; " value="Yes" @(Model.TdapYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                        <option style="background-color: #6AA84F; "value="No" @(Model.TdapYesPrevPreg == "No" ? "selected" : "")>No</option>
+                                                        <option class="Green" style="background: #6AA84F; " value="Yes" @(Model.TdapYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option class="Green" style="background: #6AA84F; "value="No" @(Model.TdapYesPrevPreg == "No" ? "selected" : "")>No</option>
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    <select required class="form-select" name="TetanusDiphtheriaYesDuringPreg" id="TetanusDiphtheriaYesDuringPreg">
-                                                        <option style="background-color: #6AA84F; " value="Yes" @(Model.TetanusDiphtheriaYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                        <option style="background-color: #6AA84F; "value="No" @(Model.TetanusDiphtheriaYesDuringPreg == "No" ? "selected" : "")>No</option>
+                                                    <select required class="form-select" name="TdapYesDuringPreg" id="TdapYesDuringPreg">
+                                                        <option class="Green" style="background: #6AA84F; " value="Yes" @(Model.TdapYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option class="Green"style="background: #6AA84F; "value="No" @(Model.TdapYesDuringPreg == "No" ? "selected" : "")>No</option>
                                                     </select>
                                                 </td>
                                                 <td>
@@ -1120,20 +1120,20 @@
                                                 </td>
                                                 <td>
                                                     <select style="width:90px;" required class="form-select" name="InfluenzaNo" id="InfluenzaNo">
-                                                        <option style="background-color: #FFFF00; " value="Yes" @(Model.InfluenzaNo == "Yes" ? "selected" : "")>Yes</option>
-                                                        <option style="background-color: #FFFF00; "value="No" @(Model.InfluenzaNo == "No" ? "selected" : "")>No</option>
+                                                        <option class="Yellow" style="background: #FFFF00; " value="Yes" @(Model.InfluenzaNo == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option class="Yellow"style="background: #FFFF00; "value="No" @(Model.InfluenzaNo == "No" ? "selected" : "")>No</option>
                                                     </select>
                                                 </td>
                                                 <td>
                                                     <select required class="form-select" name="InfluenzaYesPrevPreg" id="InfluenzaYesPrevPreg">
-                                                        <option style="background-color: #6AA84F; " value="Yes" @(Model.InfluenzaYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                        <option style="background-color: #6AA84F; "value="No" @(Model.InfluenzaYesPrevPreg == "No" ? "selected" : "")>No</option>
+                                                        <option class="Green" style="background: #6AA84F; " value="Yes" @(Model.InfluenzaYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option class="Green"style="background: #6AA84F; "value="No" @(Model.InfluenzaYesPrevPreg == "No" ? "selected" : "")>No</option>
                                                     </select>
                                                 </td>
                                                 <td>
                                                     <select required class="form-select" name="InfluenzaYesDuringPreg" id="InfluenzaYesDuringPreg">
-                                                        <option style="background-color: #6AA84F; " value="Yes" @(Model.InfluenzaYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                        <option style="background-color: #6AA84F; "value="No" @(Model.InfluenzaYesDuringPreg == "No" ? "selected" : "")>No</option>
+                                                        <option class="Green" style="background: #6AA84F; " value="Yes" @(Model.InfluenzaYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option class="Green"style="background: #6AA84F; "value="No" @(Model.InfluenzaYesDuringPreg == "No" ? "selected" : "")>No</option>
                                                     </select>
                                                 </td>
                                                 <td>
@@ -1150,20 +1150,20 @@
                                                 </td>
                                                 <td>
                                                     <select style="width:90px;" required class="form-select" name="RubellaNo" id="RubellaNo">
-                                                        <option style="background-color: #FFFF00; " value="Yes" @(Model.RubellaNo == "Yes" ? "selected" : "")>Yes</option>
-                                                        <option style="background-color: #FFFF00; "value="No" @(Model.RubellaNo == "No" ? "selected" : "")>No</option>
+                                                        <option class="Yellow" style="background: #FFFF00; " value="Yes" @(Model.RubellaNo == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option class="Yellow"style="background: #FFFF00; "value="No" @(Model.RubellaNo == "No" ? "selected" : "")>No</option>
                                                     </select>
                                                 </td>
                                                 <td>
                                                     <select required class="form-select" name="RubellaYesPrevPreg" id="RubellaYesPrevPreg">
-                                                        <option style="background-color: #6AA84F; " value="Yes" @(Model.RubellaYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                        <option style="background-color: #6AA84F; "value="No" @(Model.RubellaYesPrevPreg == "No" ? "selected" : "")>No</option>
+                                                        <option class="Green" style="background: #6AA84F; " value="Yes" @(Model.RubellaYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option class="Green"style="background: #6AA84F; "value="No" @(Model.RubellaYesPrevPreg == "No" ? "selected" : "")>No</option>
                                                     </select>
                                                 </td>
                                                 <td>
                                                     <select required class="form-select" name="RubellaYesDuringPreg" id="RubellaYesDuringPreg">
-                                                        <option style="background-color: #6AA84F; " value="Yes" @(Model.RubellaYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                        <option style="background-color: #6AA84F; "value="No" @(Model.RubellaYesDuringPreg == "No" ? "selected" : "")>No</option>
+                                                        <option class="Green" style="background: #6AA84F; " value="Yes" @(Model.RubellaYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option class="Green"style="background: #6AA84F; "value="No" @(Model.RubellaYesDuringPreg == "No" ? "selected" : "")>No</option>
                                                     </select>
                                                 </td>
                                                 <td>
@@ -1177,20 +1177,20 @@
                                                 <td>Hepatitis A</td>
                                                 <td>
                                                     <select style="width:90px;" required class="form-select" name="Hepatitis_ANo" id="Hepatitis_ANo">
-                                                        <option style="background-color: #FFFF00; " value="Yes" @(Model.Hepatitis_ANo == "Yes" ? "selected" : "")>Yes</option>
-                                                        <option style="background-color: #FFFF00; "value="No" @(Model.Hepatitis_ANo == "No" ? "selected" : "")>No</option>
+                                                        <option class="Yellow" style="background: #FFFF00; " value="Yes" @(Model.Hepatitis_ANo == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option class="Yellow"style="background: #FFFF00; "value="No" @(Model.Hepatitis_ANo == "No" ? "selected" : "")>No</option>
                                                     </select>
                                                 </td>
                                                 <td>
                                                     <select required class="form-select" name="Hepatitis_AYesPrevPreg" id="Hepatitis_AYesPrevPreg">
-                                                        <option style="background-color: #6AA84F; " value="Yes" @(Model.Hepatitis_AYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                        <option style="background-color: #6AA84F; "value="No" @(Model.Hepatitis_AYesPrevPreg == "No" ? "selected" : "")>No</option>
+                                                        <option class="Green" style="background: #6AA84F; " value="Yes" @(Model.Hepatitis_AYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option class="Green"style="background: #6AA84F; "value="No" @(Model.Hepatitis_AYesPrevPreg == "No" ? "selected" : "")>No</option>
                                                     </select>
                                                 </td>
                                                 <td>
                                                     <select required class="form-select" name="Hepatitis_AYesDuringPreg" id="Hepatitis_AYesDuringPreg">
-                                                        <option style="background-color: #6AA84F; " value="Yes" @(Model.Hepatitis_AYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                        <option style="background-color: #6AA84F; "value="No" @(Model.Hepatitis_AYesDuringPreg == "No" ? "selected" : "")>No</option>
+                                                        <option class="Green" style="background: #6AA84F; " value="Yes" @(Model.Hepatitis_AYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option class="Green"style="background: #6AA84F; "value="No" @(Model.Hepatitis_AYesDuringPreg == "No" ? "selected" : "")>No</option>
                                                     </select>
                                                 </td>
                                                 <td>
@@ -1205,20 +1205,20 @@
                                                 <td>Hepatitis B</td>
                                                 <td>
                                                     <select style="width:90px;" required class="form-select" name="Hepatitis_BNo" id="Hepatitis_BNo">
-                                                        <option style="background-color: #FFFF00; " value="Yes" @(Model.Hepatitis_BNo == "Yes" ? "selected" : "")>Yes</option>
-                                                        <option style="background-color: #FFFF00; "value="No" @(Model.Hepatitis_BNo == "No" ? "selected" : "")>No</option>
+                                                        <option  class="Yellow" style="background: #FFFF00; " value="Yes" @(Model.Hepatitis_BNo == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option class="Yellow"style="background: #FFFF00; "value="No" @(Model.Hepatitis_BNo == "No" ? "selected" : "")>No</option>
                                                     </select>
                                                 </td>
                                                 <td>
                                                     <select required class="form-select" name="Hepatitis_BYesPrevPreg" id="Hepatitis_BYesPrevPreg">
-                                                        <option style="background-color: #6AA84F; " value="Yes" @(Model.Hepatitis_BYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                        <option style="background-color: #6AA84F; "value="No" @(Model.Hepatitis_BYesPrevPreg == "No" ? "selected" : "")>No</option>
+                                                        <option class="Green" style="background: #6AA84F; " value="Yes" @(Model.Hepatitis_BYesPrevPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option class="Green"style="background: #6AA84F; "value="No" @(Model.Hepatitis_BYesPrevPreg == "No" ? "selected" : "")>No</option>
                                                     </select>
                                                 </td>
                                                 <td>
                                                     <select required class="form-select" name="Hepatitis_BYesDuringPreg" id="Hepatitis_BYesDuringPreg">
-                                                        <option style="background-color: #6AA84F; " value="Yes" @(Model.Hepatitis_BYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
-                                                        <option style="background-color: #6AA84F; "value="No" @(Model.Hepatitis_BYesDuringPreg == "No" ? "selected" : "")>No</option>
+                                                        <option class="Green" style="background: #6AA84F; " value="Yes" @(Model.Hepatitis_BYesDuringPreg == "Yes" ? "selected" : "")>Yes</option>
+                                                        <option class="Green"style="background: #6AA84F; "value="No" @(Model.Hepatitis_BYesDuringPreg == "No" ? "selected" : "")>No</option>
                                                     </select>
                                                 </td>
                                                 <td>
@@ -1376,7 +1376,6 @@
             </div>
         </div>
     </div>
-</div>
 
 
 <div class="modal fade" id="actionModal" tabindex="-1" role="dialog">
@@ -1387,18 +1386,1221 @@
 <script src="~/Content/template/js/tabs.js"></script>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        race.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            race.style.backgroundColor = backgroundColor;
+        });
+        ethinicity.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            ethinicity.style.backgroundColor = backgroundColor;
+        });
+
+        plannedpg.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            plannedpg.style.backgroundColor = backgroundColor;
+        });
+        desiredbg.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            desiredbg.style.backgroundColor = backgroundColor;
+        });
+        precounseling.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            precounseling.style.backgroundColor = backgroundColor;
+        });
+        contrafail.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            contrafail.style.backgroundColor = backgroundColor;
+        });
+        defmethod.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            defmethod.style.backgroundColor = backgroundColor;
+        });
 
 
-    //var select = document.getElementById("mySelect");
-    //select.addEventListener("change", function () {
-    //    var selectedOption = this.options[this.selectedIndex];
-    //    var backgroundColor = selectedOption.style.backgroundColor;
-    //    this.style.backgroundColor = backgroundColor;
-    //});
+        smokeractive.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            smokeractive.style.backgroundColor = backgroundColor;
+        });
+        passivesmoker.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            passivesmoker.style.backgroundColor = backgroundColor;
+        });
+        consumealc.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            consumealc.style.backgroundColor = backgroundColor;
+        });
+        consumealu.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            consumealu.style.backgroundColor = backgroundColor;
+        });
+        domesticviolence.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Red")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FF0000";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            domesticviolence.style.backgroundColor = backgroundColor;
+        });
+
+        tetanusdiphNo.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            tetanusdiphNo.style.backgroundColor = backgroundColor;
+        });
+        tetanusdiphYesPrevPreg.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            tetanusdiphYesPrevPreg.style.backgroundColor = backgroundColor;
+        });
+        tetanusdiphYesDuringPreg.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            tetanusdiphYesDuringPreg.style.backgroundColor = backgroundColor;
+        });
+
+        tdapNo.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if
+                    (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            tdapNo.style.backgroundColor = backgroundColor;
+        });
+        tdapYesPrevPreg.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            tdapYesPrevPreg.style.backgroundColor = backgroundColor;
+        });
+        tdapYesDuringPreg.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            tdapYesDuringPreg.style.backgroundColor = backgroundColor;
+        });
+
+        influenzaNo.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "##6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            influenzaNo.style.backgroundColor = backgroundColor;
+        });
+        influenzaYesPrevPreg.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {// Check if this is one of the options you want to keep green
+                    option.style.backgroundColor = "#6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            influenzaYesPrevPreg.style.backgroundColor = backgroundColor;
+        });
+        influenzaYesDuringPreg.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep green
+                    option.style.backgroundColor = "#6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            influenzaYesDuringPreg.style.backgroundColor = backgroundColor;
+        });
+
+        rubellaYesPrevPreg.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep green
+                    option.style.backgroundColor = "#6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            rubellaYesPrevPreg.style.backgroundColor = backgroundColor;
+        });
+        rubellaYesDuringPreg.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep green
+                    option.style.backgroundColor = "#6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            rubellaYesDuringPreg.style.backgroundColor = backgroundColor;
+        });
+        rubellaNo.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep green
+                    option.style.backgroundColor = "#6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            rubellaNo.style.backgroundColor = backgroundColor;
+        });
+
+        hepatitisANo.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep green
+                    option.style.backgroundColor = "#6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            hepatitisANo.style.backgroundColor = backgroundColor;
+        });
+        hepatitisAYesPrevPreg.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep green
+                    option.style.backgroundColor = "#6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            hepatitisAYesPrevPreg.style.backgroundColor = backgroundColor;
+        });
+        hepatitisAYesDuringPreg.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep green
+                    option.style.backgroundColor = "#6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            hepatitisAYesDuringPreg.style.backgroundColor = backgroundColor;
+        });
+
+        hepatitisBNo.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep green
+                    option.style.backgroundColor = "#6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            hepatitisBNo.style.backgroundColor = backgroundColor;
+        });
+        hepatitisBYesPrevPreg.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep green
+                    option.style.backgroundColor = "#6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            hepatitisBYesPrevPreg.style.backgroundColor = backgroundColor;
+        });
+        hepatitisBYesDuringPreg.addEventListener("change", function () {
+            var selectedOption = this.options[this.selectedIndex];
+            var backgroundColor = selectedOption.style.background || "white";
+            for (var i = 0; i < this.options.length; i++) {
+                var option = this.options[i];
+                if (option.selected) {
+                    option.style.backgroundColor = backgroundColor;
+                } else if (option.classList.contains("Yellow")) {
+                    // Check if this is one of the options you want to keep yellow
+                    option.style.backgroundColor = "#FFFF00";
+                }
+                else if (option.classList.contains("Green")) {
+                    // Check if this is one of the options you want to keep green
+                    option.style.backgroundColor = "#6AA84F";
+                } else {
+                    option.style.backgroundColor = "white";
+                }
+            }
+            hepatitisBYesDuringPreg.style.backgroundColor = backgroundColor;
+        });
+
+
+    });
+    //Patient Coloring
+    var race = document.getElementById("race_dane_information");
+    var ethinicity = document.getElementById("ethnicity_dane_information");
+
+    race.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        race.style.backgroundColor = backgroundColor;
+    });
+    ethinicity.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        ethinicity.style.backgroundColor = backgroundColor;
+    });
+
+   //ObsetricHistory Coloring
+    var plannedpg = document.getElementById("PlannedPregnancy");
+    var desiredbg = document.getElementById("DesiredPregnancy");
+    var precounseling = document.getElementById("PreconceptionCounseling");
+    var contrafail = document.getElementById("ContraceptiveFailure");
+    var defmethod = document.getElementById("DefinitiveMethod");
+
+    plannedpg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        plannedpg.style.backgroundColor = backgroundColor;
+    });
+    desiredbg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        desiredbg.style.backgroundColor = backgroundColor;
+    });
+    precounseling.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        precounseling.style.backgroundColor = backgroundColor;
+    });
+    contrafail.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        contrafail.style.backgroundColor = backgroundColor;
+    });
+    defmethod.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        defmethod.style.backgroundColor = backgroundColor;
+    });
+
+
+
+    //Step 7 Coloring
+
+    var smokeractive = document.getElementById("SmokerActive");
+    var passivesmoker = document.getElementById("PassiveSmoking");
+    var consumealc = document.getElementById("ConsumeAlcohol");
+    var consumealu = document.getElementById("ConsumeAlucinogenos");
+    var domesticviolence = document.getElementById("DomesticViolence");
+
+    smokeractive.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        smokeractive.style.backgroundColor = backgroundColor;
+    });
+    passivesmoker.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        passivesmoker.style.backgroundColor = backgroundColor;
+    });
+    consumealc.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        consumealc.style.backgroundColor = backgroundColor;
+    });
+    consumealu.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        consumealu.style.backgroundColor = backgroundColor;
+    });
+    domesticviolence.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Red")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FF0000";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        domesticviolence.style.backgroundColor = backgroundColor;
+    });
 
 
 
 
+
+    //Step 8: Immunization Coloring
+    var tetanusdiphNo = document.getElementById("TetanusDiphtheriaNo");
+    var tetanusdiphYesPrevPreg = document.getElementById("TetanusDiphtheriaYesPrevPreg");
+    var tetanusdiphYesDuringPreg = document.getElementById("TetanusDiphtheriaYesDuringPreg");
+
+    var tdapNo = document.getElementById("TdapNo");
+    var tdapYesPrevPreg = document.getElementById("TdapYesPrevPreg");
+    var tdapYesDuringPreg = document.getElementById("TdapYesDuringPreg");
+
+    var influenzaNo = document.getElementById("InfluenzaNo");
+    var influenzaYesPrevPreg = document.getElementById("InfluenzaYesPrevPreg");
+    var influenzaYesDuringPreg = document.getElementById("InfluenzaYesDuringPreg");
+
+    var rubellaNo = document.getElementById("RubellaNo");
+    var rubellaYesPrevPreg = document.getElementById("RubellaYesPrevPreg");
+    var rubellaYesDuringPreg = document.getElementById("RubellaYesDuringPreg");
+
+    var hepatitisANo = document.getElementById("Hepatitis_ANo");
+    var hepatitisAYesPrevPreg = document.getElementById("Hepatitis_AYesPrevPreg");
+    var hepatitisAYesDuringPreg = document.getElementById("Hepatitis_AYesDuringPreg");
+
+    var hepatitisBNo = document.getElementById("Hepatitis_BNo");
+    var hepatitisBYesPrevPreg = document.getElementById("Hepatitis_BYesPrevPreg");
+    var hepatitisBYesDuringPreg = document.getElementById("Hepatitis_BYesDuringPreg");
+
+    tetanusdiphNo.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        tetanusdiphNo.style.backgroundColor = backgroundColor;
+    });
+    tetanusdiphYesPrevPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        tetanusdiphYesPrevPreg.style.backgroundColor = backgroundColor;
+    });
+    tetanusdiphYesDuringPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        tetanusdiphYesDuringPreg.style.backgroundColor = backgroundColor;
+    });
+
+    tdapNo.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if
+                (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        tdapNo.style.backgroundColor = backgroundColor;
+    });
+    tdapYesPrevPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        tdapYesPrevPreg.style.backgroundColor = backgroundColor;
+    });
+    tdapYesDuringPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        tdapYesDuringPreg.style.backgroundColor = backgroundColor;
+    });
+
+    influenzaNo.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "##6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        influenzaNo.style.backgroundColor = backgroundColor;
+    });
+    influenzaYesPrevPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {// Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        influenzaYesPrevPreg.style.backgroundColor = backgroundColor;
+    });
+    influenzaYesDuringPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        influenzaYesDuringPreg.style.backgroundColor = backgroundColor;
+    });
+
+    rubellaYesPrevPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        rubellaYesPrevPreg.style.backgroundColor = backgroundColor;
+    });
+    rubellaYesDuringPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        rubellaYesDuringPreg.style.backgroundColor = backgroundColor;
+    });
+    rubellaNo.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        rubellaNo.style.backgroundColor = backgroundColor;
+    });
+
+    hepatitisANo.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        hepatitisANo.style.backgroundColor = backgroundColor;
+    });
+    hepatitisAYesPrevPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        hepatitisAYesPrevPreg.style.backgroundColor = backgroundColor;
+    });
+    hepatitisAYesDuringPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        hepatitisAYesDuringPreg.style.backgroundColor = backgroundColor;
+    });
+
+    hepatitisBNo.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        hepatitisBNo.style.backgroundColor = backgroundColor;
+    });
+    hepatitisBYesPrevPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        hepatitisBYesPrevPreg.style.backgroundColor = backgroundColor;
+    });
+    hepatitisBYesDuringPreg.addEventListener("change", function () {
+        var selectedOption = this.options[this.selectedIndex];
+        var backgroundColor = selectedOption.style.background || "white";
+        for (var i = 0; i < this.options.length; i++) {
+            var option = this.options[i];
+            if (option.selected) {
+                option.style.backgroundColor = backgroundColor;
+            } else if (option.classList.contains("Yellow")) {
+                // Check if this is one of the options you want to keep yellow
+                option.style.backgroundColor = "#FFFF00";
+            }
+            else if (option.classList.contains("Green")) {
+                // Check if this is one of the options you want to keep green
+                option.style.backgroundColor = "#6AA84F";
+            } else {
+                option.style.backgroundColor = "white";
+            }
+        }
+        hepatitisBYesDuringPreg.style.backgroundColor = backgroundColor;
+    });
 
 
 
