@@ -1399,121 +1399,6 @@
 <script>
 
    
-    $("#PatientIDActionBtn").click(function () {
-    const form = document.getElementById('patientIdForm');
-    const requiredInputs = form.querySelectorAll('input[required], select[required]');
-    let isValid = true;
-    requiredInputs.forEach(function (input) {
-        if (input.value.trim() === '') {
-            input.classList.add('is-invalid');
-            isValid = false;
-        } else {
-            input.classList.remove('is-invalid');
-        }
-    });
-
-    // If any required field is empty, prevent the form from being submitted
-    if (!isValid) {
-        alert("All Fields are mandatory");
-        return false;
-    } else {
-        $.ajax({
-            url: '@Url.Action("Action", "PatientMaster")',
-            type: "post",
-            data: $("#patientIdForm").serialize()
-        })
-            .done(function (result) {
-                if (result.success) {
-                    alert("Saved Successfully!!");
-
-                    var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                    // get the next tab
-                    var nextTab = activeTab.nextElementSibling;
-
-                    // activate the next tab
-                    if (nextTab) {
-                        var tabLink = nextTab.querySelector(".nav-link");
-                        if (tabLink) {
-                            var activeTabLink = activeTab.querySelector('.nav-link.active');
-                            var nextTabLink = nextTab.querySelector('.nav-link');
-                            activeTabLink.classList.remove('active');
-                            nextTabLink.classList.add('active');
-
-
-
-                            // To remove classes
-                            $('.tab-pane.active.show').removeClass('active show');
-
-                            tabLink.click();
-                            $("#pills-cop").addClass('active show');
-                        }
-                    }
-                    else {
-                        alert("Data Didn't Saved!!!!");
-                    }
-                }
-            });
-    }
-});
-    $("#PregConfirmActionBtn").click(function () {
-        const form = document.getElementById('pocForm');
-        const requiredInputs = form.querySelectorAll('input[required], select[required]');
-        let isValid = true;
-        requiredInputs.forEach(function (input) {
-            if (input.value.trim() === '') {
-                input.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                input.classList.remove('is-invalid');
-            }
-        });
-
-        // If any required field is empty, prevent the form from being submitted
-        if (!isValid) {
-            alert("All Fields are mandatory");
-            return false;
-        } else {
-            $.ajax({
-                url: '@Url.Action("Action", "PatientMaster")',
-                type: "post",
-                data: $("#pocForm").serialize()
-            })
-                .done(function (result) {
-                    if (result.success) {
-                        alert("Saved Successfully!!");
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var nextTab = activeTab.nextElementSibling;
-
-                        // activate the next tab
-                        if (nextTab) {
-                            var tabLink = nextTab.querySelector(".nav-link");
-                            if (tabLink) {
-                                var activeTabLink = activeTab.querySelector('.nav-link.active');
-                                var nextTabLink = nextTab.querySelector('.nav-link');
-                                activeTabLink.classList.remove('active');
-                                nextTabLink.classList.add('active');
-
-
-
-                                // To remove classes
-                                $('.tab-pane.active.show').removeClass('active show');
-
-                                tabLink.click();
-                                $("#pills-b").addClass('active show');
-                            }
-                        } else {
-                            alert("Data Didn't Saved!!!!");
-                        }
-                    }
-                });
-        }
-    });
     $(".data-btn").click(function () {
         $.ajax({
             url: $(this).attr("data-href"),
@@ -1524,48 +1409,6 @@
     });
 
 
-    $("#BackgroundActionBtn").click(function () {
-
-        $.ajax({
-                url: '@Url.Action("Action", "PatientMaster")',
-            type: "post",
-            data: $("#backgroundForm").serialize()
-        })
-        .done(function (result) {
-                if (result.success) {
-                    alert("Saved Successfully!!");
-                    var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                    // get the next tab
-                    var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                    // get the next tab
-                    var nextTab = activeTab.nextElementSibling;
-
-                    // activate the next tab
-                    if (nextTab) {
-                        var tabLink = nextTab.querySelector(".nav-link");
-                        if (tabLink) {
-                            var activeTabLink = activeTab.querySelector('.nav-link.active');
-                            var nextTabLink = nextTab.querySelector('.nav-link');
-                            activeTabLink.classList.remove('active');
-                            nextTabLink.classList.add('active');
-
-
-
-                            // To remove classes
-                            $('.tab-pane.active.show').removeClass('active show');
-
-                            tabLink.click();
-                            $("#pills-cg").addClass('active show');
-                        }
-                    } else {
-                        alert("Data Didn't Saved!!!!");
-                    }
-                }
-            });
-
-    });
 
     $(document).ready(function () {
         // TBC
@@ -1818,8 +1661,163 @@
 
     //Background JS
 
+    $("#PatientIDActionBtn").click(function () {
+    const form = document.getElementById('patientIdForm');
+    const requiredInputs = form.querySelectorAll('input[required], select[required]');
+    let isValid = true;
+    requiredInputs.forEach(function (input) {
+        if (input.value.trim() === '') {
+            input.classList.add('is-invalid');
+            isValid = false;
+        } else {
+            input.classList.remove('is-invalid');
+        }
+    });
+
+    // If any required field is empty, prevent the form from being submitted
+    if (!isValid) {
+        alert("All Fields are mandatory");
+        return false;
+    } else {
+        $.ajax({
+            url: '@Url.Action("Action", "PatientMaster")',
+            type: "post",
+            data: $("#patientIdForm").serialize()
+        })
+            .done(function (result) {
+                if (result.success) {
+                    alert("Saved Successfully!!");
+
+                    var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+                    // get the next tab
+                    var nextTab = activeTab.nextElementSibling;
+
+                    // activate the next tab
+                    if (nextTab) {
+                        var tabLink = nextTab.querySelector(".nav-link");
+                        if (tabLink) {
+                            var activeTabLink = activeTab.querySelector('.nav-link.active');
+                            var nextTabLink = nextTab.querySelector('.nav-link');
+                            activeTabLink.classList.remove('active');
+                            nextTabLink.classList.add('active');
 
 
+
+                            // To remove classes
+                            $('.tab-pane.active.show').removeClass('active show');
+
+                            tabLink.click();
+                            $("#pills-cop").addClass('active show');
+                        }
+                    }
+                    else {
+                        alert("Data Didn't Saved!!!!");
+                    }
+                }
+            });
+    }
+});
+    $("#PregConfirmActionBtn").click(function () {
+        const form = document.getElementById('pocForm');
+        const requiredInputs = form.querySelectorAll('input[required], select[required]');
+        let isValid = true;
+        requiredInputs.forEach(function (input) {
+            if (input.value.trim() === '') {
+                input.classList.add('is-invalid');
+                isValid = false;
+            } else {
+                input.classList.remove('is-invalid');
+            }
+        });
+
+        // If any required field is empty, prevent the form from being submitted
+        if (!isValid) {
+            alert("All Fields are mandatory");
+            return false;
+        } else {
+            $.ajax({
+                url: '@Url.Action("Action", "PatientMaster")',
+                type: "post",
+                data: $("#pocForm").serialize()
+            })
+                .done(function (result) {
+                    if (result.success) {
+                        alert("Saved Successfully!!");
+                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+                        // get the next tab
+                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+                        // get the next tab
+                        var nextTab = activeTab.nextElementSibling;
+
+                        // activate the next tab
+                        if (nextTab) {
+                            var tabLink = nextTab.querySelector(".nav-link");
+                            if (tabLink) {
+                                var activeTabLink = activeTab.querySelector('.nav-link.active');
+                                var nextTabLink = nextTab.querySelector('.nav-link');
+                                activeTabLink.classList.remove('active');
+                                nextTabLink.classList.add('active');
+
+
+
+                                // To remove classes
+                                $('.tab-pane.active.show').removeClass('active show');
+
+                                tabLink.click();
+                                $("#pills-b").addClass('active show');
+                            }
+                        } else {
+                            alert("Data Didn't Saved!!!!");
+                        }
+                    }
+                });
+        }
+    });
+    $("#BackgroundActionBtn").click(function () {
+
+        $.ajax({
+                url: '@Url.Action("Action", "PatientMaster")',
+            type: "post",
+            data: $("#backgroundForm").serialize()
+        })
+        .done(function (result) {
+                if (result.success) {
+                    alert("Saved Successfully!!");
+                    var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+                    // get the next tab
+                    var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+                    // get the next tab
+                    var nextTab = activeTab.nextElementSibling;
+
+                    // activate the next tab
+                    if (nextTab) {
+                        var tabLink = nextTab.querySelector(".nav-link");
+                        if (tabLink) {
+                            var activeTabLink = activeTab.querySelector('.nav-link.active');
+                            var nextTabLink = nextTab.querySelector('.nav-link');
+                            activeTabLink.classList.remove('active');
+                            nextTabLink.classList.add('active');
+
+
+
+                            // To remove classes
+                            $('.tab-pane.active.show').removeClass('active show');
+
+                            tabLink.click();
+                            $("#pills-cg").addClass('active show');
+                        }
+                    } else {
+                        alert("Data Didn't Saved!!!!");
+                    }
+                }
+            });
+
+    });
     $("#ObActionBtn").click(function () {
         const form = document.getElementById('obform');
         const requiredInputs = form.querySelectorAll('input[required]');
@@ -1878,10 +1876,6 @@
                 });
         }
     });
-
-
-
-
     $("#OgcActionBtn").click(function () {
           const form = document.getElementById('ogcform');
         const requiredInputs = form.querySelectorAll('input[required]');
@@ -1940,8 +1934,6 @@
                 });
         }
     });
-
-
     $("#CPactionBtn").click(function () {
           const form = document.getElementById('cpform');
         const requiredInputs = form.querySelectorAll('input[required]');
@@ -2000,8 +1992,6 @@
                 });
         }
     });
-
-
     $("#PAActionBtn").click(function () {
         const form = document.getElementById('paform');
         const requiredInputs = form.querySelectorAll('input[required]');
@@ -2060,9 +2050,6 @@
                 });
         }
     });
-
-
-
     $("#ImmActionBtn").click(function () {
         const form = document.getElementById('immform');
         const requiredInputs = form.querySelectorAll('input[required]');
@@ -2121,10 +2108,6 @@
                 });
         }
     });
-
-
-
-
     $("#LabActionBtn").click(function () {
         const form = document.getElementById('labform');
         const requiredInputs = form.querySelectorAll('input[required]');

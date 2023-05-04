@@ -10,7 +10,7 @@ namespace PreNat.Controllers
     public class PatientMasterController : Controller
     {
         // GET: PatientMaster
-        public ActionResult Index(string SearchTerm)
+        public ActionResult Index(string SearchTerm="")
         {
             MainListingViewModel model = new MainListingViewModel();
             if (User.IsInRole("Admin"))
@@ -32,6 +32,7 @@ namespace PreNat.Controllers
             if (ID != 0)
             {
                 var patientmaster = PatientMasterServices.Instance.GetPatientMaster(ID);
+                model.ID = patientmaster.ID;
                 model.Name = patientmaster.Name;
                 model.Surnames = patientmaster.Surnames;
                 model.Type_of_Identity = patientmaster.Type_of_Identity;
@@ -145,454 +146,712 @@ namespace PreNat.Controllers
         }
 
         [HttpPost]
-        public ActionResult Action(MainActionViewModel model)
+        public ActionResult Action(MainActionViewModel model,string Step)
         {
-            if(model.ID != 0)
+            if (Session["PatientMasterID"] != null)
             {
-                var patientmaster = PatientMasterServices.Instance.GetPatientMaster(model.ID);
-                patientmaster.ID = model.ID;
+                var patientmaster = PatientMasterServices.Instance.GetPatientMaster(int.Parse(Session["PatientMasterID"].ToString()));
+                patientmaster.ID = patientmaster.ID;
                 patientmaster.CreatedBy = User.Identity.GetUserId();
-                patientmaster.Name = model.Name;
+                if (Step == "Step1")
+                {
+                    patientmaster.Name = model.Name;
+                    patientmaster.Surnames = model.Surnames;
+                    patientmaster.Type_of_Identity = model.Type_of_Identity;
+                    patientmaster.Department_of_residence = model.Department_of_residence;
+                    patientmaster.City_Municipality_of_residence = model.City_Municipality_of_residence;
+                    patientmaster.Address_of_residence = model.Address_of_residence;
+                    patientmaster.Telephones_Landline = model.Telephones_Landline;
+                    patientmaster.Cell_Phone = model.Cell_Phone;
+                    if (model.Date_of_birth.Year == 1)
+                    {
+                        patientmaster.Date_of_birth = DateTime.Now;
+                        patientmaster.Age = 0;
 
-                patientmaster.Surnames = model.Surnames;
-                patientmaster.Type_of_Identity = model.Type_of_Identity;
-                patientmaster.Department_of_residence = model.Department_of_residence;
-                patientmaster.City_Municipality_of_residence = model.City_Municipality_of_residence;
-                patientmaster.Address_of_residence = model.Address_of_residence;
-                patientmaster.Telephones_Landline = model.Telephones_Landline;
-                patientmaster.Cell_Phone = model.Cell_Phone;
-                if (model.Date_of_birth.Year == 1) {
-                    patientmaster.Date_of_birth = DateTime.Now;
-                    patientmaster.Age = 0;
+                    }
+                    else
+                    {
+                        patientmaster.Date_of_birth = model.Date_of_birth;
+                        patientmaster.Age = model.Age;
 
+                    }
+                    patientmaster.Race_DANE_Information = model.Race_DANE_Information;
+                    patientmaster.Ethnicity_DANE_Information = model.Ethnicity_DANE_Information;
+                    patientmaster.Level_of_Education = model.Level_of_Education;
+                    patientmaster.Marital_status = model.Marital_status;
+                    patientmaster.Affiliation_regime = model.Affiliation_regime;
+                    patientmaster.EPS_IPS = model.EPS_IPS;
                 }
-                else
+                if(Step == "Step2")
                 {
-                    patientmaster.Date_of_birth = model.Date_of_birth;
-                    patientmaster.Age = model.Age;
+                    if (model.FUM.Year == 1)
+                    {
+                        patientmaster.FUM = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.FUM = model.FUM;
 
-                }
-                patientmaster.Race_DANE_Information = model.Race_DANE_Information;
-                patientmaster.Ethnicity_DANE_Information = model.Ethnicity_DANE_Information;
-                patientmaster.Level_of_Education = model.Level_of_Education;
-                patientmaster.Marital_status = model.Marital_status;
-                patientmaster.Affiliation_regime = model.Affiliation_regime;
-                patientmaster.EPS_IPS = model.EPS_IPS;
-                patientmaster.Tbc = model.Tbc;
-                patientmaster.Diabetes = model.Diabetes;
-                patientmaster.Hypertension = model.Hypertension;
-                patientmaster.Eclampsia = model.Eclampsia;
-                patientmaster.Preeclampsia = model.Preeclampsia;
-                patientmaster.Surgery = model.Surgery;
-                patientmaster.Infertility = model.Infertility;
-                patientmaster.Cardiopathy = model.Cardiopathy;
-                patientmaster.Nephropathy = model.Nephropathy;
-                patientmaster.Violence = model.Violence;
-                patientmaster.HIV = model.HIV;
-                patientmaster.Migraine = model.Migraine;
-                patientmaster.Thromboembolic = model.Thromboembolic;
-                patientmaster.BMI_29 = model.BMI_29;
-                patientmaster.BMI_39 = model.BMI_39;
-                patientmaster.Disc_Sang = model.Disc_Sang;
-                patientmaster.Other = model.Other;
-                patientmaster.ReliableFUM = model.ReliableFUM;
-                patientmaster.UltrasoundObstetrics = model.UltrasoundObstetrics;
-                patientmaster.FPP = model.FPP;
-                patientmaster.FPC = model.FPC;
-                if(model.ProbableDateOfDelivery.Year == 1)
-                {
-                    patientmaster.ProbableDateOfDelivery = DateTime.Now;
-                }
-                else
-                {
-                    patientmaster.ProbableDateOfDelivery = model.ProbableDateOfDelivery;
-
-                }
-                if (model.ProbableDateOfConception.Year == 1)
-                {
-                    patientmaster.ProbableDateOfConception = DateTime.Now;
-                }
-                else
-                {
-                    patientmaster.ProbableDateOfConception = model.ProbableDateOfConception;
-
-                }
-                patientmaster.TetanusDiphtheriaNo = model.TetanusDiphtheriaNo;
-                patientmaster.TetanusDiphtheriaYesPrevPreg = model.TetanusDiphtheriaYesPrevPreg;
-                patientmaster.TetanusDiphtheriaYesDuringPreg = model.TetanusDiphtheriaYesDuringPreg;
-
-                if(model.TetanusDiphtheria_Date.Year == 1)
-                {
-                    patientmaster.TetanusDiphtheria_Date = DateTime.Now;
-                }
-                else
-                {
-                    patientmaster.TetanusDiphtheria_Date = model.TetanusDiphtheria_Date;
-
-                }
-                patientmaster.TetanusDiphtheria_Dozes = model.TetanusDiphtheria_Dozes;
-                patientmaster.TdapNo = model.TdapNo;
-                patientmaster.TdapYesPrevPreg = model.TdapYesPrevPreg;
-                patientmaster.TdapYesDuringPreg = model.TdapYesDuringPreg;
-                if (model.Tdap_Date.Year == 1)
-                {
-                    patientmaster.Tdap_Date = DateTime.Now;
-                }
-                else
-                {
-                    patientmaster.Tdap_Date = model.Tdap_Date;
-
-                }
-                patientmaster.Tdap_Dozes = model.Tdap_Dozes;
-                patientmaster.InfluenzaNo = model.InfluenzaNo;
-                patientmaster.InfluenzaYesPrevPreg = model.InfluenzaYesPrevPreg;
-                patientmaster.InfluenzaYesDuringPreg = model.InfluenzaYesDuringPreg;
-                if (model.Influenza_Date.Year == 1)
-                {
-                    patientmaster.Influenza_Date = DateTime.Now;
-                }
-                else
-                {
-                    patientmaster.Influenza_Date = model.Influenza_Date;
-
-                }
-                patientmaster.Influenza_Dozes = model.Influenza_Dozes;
-                patientmaster.RubellaNo = model.RubellaNo;
-                patientmaster.RubellaYesPrevPreg = model.RubellaYesPrevPreg;
-                patientmaster.RubellaYesDuringPreg = model.RubellaYesDuringPreg;
-                patientmaster.Rubella_Date = model.Rubella_Date;
-                if (model.Rubella_Date.Year == 1)
-                {
-                    patientmaster.Rubella_Date = DateTime.Now;
-                }
-                else
-                {
-                    patientmaster.Rubella_Date = model.Rubella_Date;
-
-                }
-                patientmaster.Rubella_Dozes = model.Rubella_Dozes;
-                patientmaster.Hepatitis_ANo = model.Hepatitis_ANo;
-                patientmaster.Hepatitis_AYesPrevPreg = model.Hepatitis_AYesPrevPreg;
-                patientmaster.Hepatitis_AYesDuringPreg = model.Hepatitis_AYesDuringPreg;
-                if (model.Hepatitis_A_Date.Year == 1)
-                {
-                    patientmaster.Hepatitis_A_Date = DateTime.Now;
-                }
-                else
-                {
-                    patientmaster.Hepatitis_A_Date = model.Hepatitis_A_Date;
-
-                }
-                patientmaster.Hepatitis_A_Dozes = model.Hepatitis_A_Dozes;
-                patientmaster.Hepatitis_BNo = model.Hepatitis_BNo;
-                patientmaster.Hepatitis_BYesPrevPreg = model.Hepatitis_BYesPrevPreg;
-                patientmaster.Hepatitis_BYesDuringPreg = model.Hepatitis_BYesDuringPreg;
-
-                if (model.Hepatitis_B_Date.Year == 1)
-                {
-                    patientmaster.Hepatitis_B_Date = DateTime.Now;
-                }
-                else
-                {
-                    patientmaster.Hepatitis_B_Date = model.Hepatitis_B_Date;
-
-                }
-
-                patientmaster.Hepatitis_B_Dozes = model.Hepatitis_B_Dozes;
-                patientmaster.GroupPositve = model.GroupPositve;
-                patientmaster.SanguineoGroup = model.SanguineoGroup;
-                patientmaster.GroupNegative = model.GroupNegative;
-                patientmaster.VDRL = model.VDRL;
-                patientmaster.Syphilis = model.Syphilis;
-                patientmaster.VIH_L = model.VIH_L;
-                patientmaster.PlannedPregnancy = model.PlannedPregnancy;
-                patientmaster.DesiredPregnancy = model.DesiredPregnancy;
-                patientmaster.PreconceptionCounseling = model.PreconceptionCounseling;
-                patientmaster.ContraceptiveFailure = model.ContraceptiveFailure;
-                patientmaster.DefinitiveMethod = model.DefinitiveMethod;
-                patientmaster.Failure = model.Failure;
-                patientmaster.Gestation = model.Gestation;
-                patientmaster.NoOfPregnancy = model.NoOfPregnancy;
-                patientmaster.Delivery = model.Delivery;
-                patientmaster.Term = model.Term;
-                patientmaster.Preterm = model.Preterm;
-                patientmaster.Vaginal = model.Vaginal;
-                patientmaster.Cesareas = model.Cesareas;
-                patientmaster.Abortions = model.Abortions;
-                patientmaster.Gemerales = model.Gemerales;
-                patientmaster.Ectopic = model.Ectopic;
-                patientmaster.Obitus = model.Obitus;
-                patientmaster.Molas = model.Molas;
-                patientmaster.Live_Births = model.Live_Births;
-                if (model.FUM.Year == 1)
-                {
-                    patientmaster.FUM = DateTime.Now;
-                }
-                else
-                {
-                    patientmaster.FUM = model.FUM;
-
-                }
+                    }
 
 
-                patientmaster.WeeksPregnant = model.WeeksPregnant;
-                patientmaster.Positive_HCG_presence = model.Positive_HCG_presence;
-                if (model.Positive_HCG_presence_Date.Year == 1)
-                {
-                    patientmaster.Positive_HCG_presence_Date = DateTime.Now;
-                }
-                else
-                {
-                    patientmaster.Positive_HCG_presence_Date = model.Positive_HCG_presence_Date;
+                    patientmaster.WeeksPregnant = model.WeeksPregnant;
+                    patientmaster.Positive_HCG_presence = model.Positive_HCG_presence;
+                    if (model.Positive_HCG_presence_Date.Year == 1)
+                    {
+                        patientmaster.Positive_HCG_presence_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.Positive_HCG_presence_Date = model.Positive_HCG_presence_Date;
 
-                }
+                    }
 
 
-                patientmaster.Upload_document1 = model.Upload_document1;
-                patientmaster.Positive_TV_ultrasound = model.Positive_TV_ultrasound;
-                patientmaster.Positive_TV_ultrasound_Date = model.Positive_TV_ultrasound_Date;
-                if (model.Positive_TV_ultrasound_Date.Year == 1)
-                {
-                    patientmaster.Positive_TV_ultrasound_Date = DateTime.Now;
-                }
-                else
-                {
+                    patientmaster.Upload_document1 = model.Upload_document1;
+                    patientmaster.Positive_TV_ultrasound = model.Positive_TV_ultrasound;
                     patientmaster.Positive_TV_ultrasound_Date = model.Positive_TV_ultrasound_Date;
+                    if (model.Positive_TV_ultrasound_Date.Year == 1)
+                    {
+                        patientmaster.Positive_TV_ultrasound_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.Positive_TV_ultrasound_Date = model.Positive_TV_ultrasound_Date;
 
+                    }
+
+                    patientmaster.Upload_document2 = model.Upload_document2;
+                    patientmaster.PregnancyConfirm = model.PregnancyConfirm;
                 }
+                if (Step == "Step3")
+                {
+                    patientmaster.Tbc = model.Tbc;
+                    patientmaster.Diabetes = model.Diabetes;
+                    patientmaster.Hypertension = model.Hypertension;
+                    patientmaster.Eclampsia = model.Eclampsia;
+                    patientmaster.Preeclampsia = model.Preeclampsia;
+                    patientmaster.Surgery = model.Surgery;
+                    patientmaster.Infertility = model.Infertility;
+                    patientmaster.Cardiopathy = model.Cardiopathy;
+                    patientmaster.Nephropathy = model.Nephropathy;
+                    patientmaster.Violence = model.Violence;
+                    patientmaster.HIV = model.HIV;
+                    patientmaster.Migraine = model.Migraine;
+                    patientmaster.Thromboembolic = model.Thromboembolic;
+                    patientmaster.BMI_29 = model.BMI_29;
+                    patientmaster.BMI_39 = model.BMI_39;
+                    patientmaster.Disc_Sang = model.Disc_Sang;
+                    patientmaster.Other = model.Other;
+                }
+                if(Step == "Step4")
+                {
+                    patientmaster.Gestation = model.Gestation;
+                    patientmaster.NoOfPregnancy = model.NoOfPregnancy;
+                    patientmaster.Delivery = model.Delivery;
+                    patientmaster.Term = model.Term;
+                    patientmaster.Preterm = model.Preterm;
+                    patientmaster.Vaginal = model.Vaginal;
+                    patientmaster.Cesareas = model.Cesareas;
+                    patientmaster.Abortions = model.Abortions;
+                    patientmaster.Gemerales = model.Gemerales;
+                    patientmaster.Ectopic = model.Ectopic;
+                    patientmaster.Obitus = model.Obitus;
+                    patientmaster.Molas = model.Molas;
+                    patientmaster.Live_Births = model.Live_Births;
+                }
+                if(Step == "Step5")
+                {
+                    patientmaster.PlannedPregnancy = model.PlannedPregnancy;
+                    patientmaster.DesiredPregnancy = model.DesiredPregnancy;
+                    patientmaster.PreconceptionCounseling = model.PreconceptionCounseling;
+                    patientmaster.ContraceptiveFailure = model.ContraceptiveFailure;
+                    patientmaster.DefinitiveMethod = model.DefinitiveMethod;
+                    patientmaster.Failure = model.Failure;
+                }
+                if(Step == "Step6")
+                {
+                    patientmaster.ReliableFUM = model.ReliableFUM;
+                    patientmaster.UltrasoundObstetrics = model.UltrasoundObstetrics;
+                    patientmaster.FPP = model.FPP;
+                    patientmaster.FPC = model.FPC;
+                    if (model.ProbableDateOfDelivery.Year == 1)
+                    {
+                        patientmaster.ProbableDateOfDelivery = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.ProbableDateOfDelivery = model.ProbableDateOfDelivery;
 
-                patientmaster.Upload_document2 = model.Upload_document2;
-                patientmaster.PregnancyConfirm = model.PregnancyConfirm;
-                patientmaster.SmokerActive = model.SmokerActive;
-                patientmaster.PassiveSmoking = model.PassiveSmoking;
-                patientmaster.ConsumeAlcohol = model.ConsumeAlcohol;
-                patientmaster.ConsumeAlucinogenos = model.ConsumeAlucinogenos;
-                patientmaster.DomesticViolence = model.DomesticViolence;
-                PatientMasterServices.Instance.UpdatePatientMasters(patientmaster);
+                    }
+                    if (model.ProbableDateOfConception.Year == 1)
+                    {
+                        patientmaster.ProbableDateOfConception = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.ProbableDateOfConception = model.ProbableDateOfConception;
+
+                    }
+                }
+                if(Step == "Step7")
+                {
+
+                    patientmaster.SmokerActive = model.SmokerActive;
+                    patientmaster.PassiveSmoking = model.PassiveSmoking;
+                    patientmaster.ConsumeAlcohol = model.ConsumeAlcohol;
+                    patientmaster.ConsumeAlucinogenos = model.ConsumeAlucinogenos;
+                    patientmaster.DomesticViolence = model.DomesticViolence;
+                }
+                if(Step == "Step8")
+                {
+                    patientmaster.TetanusDiphtheriaNo = model.TetanusDiphtheriaNo;
+                    patientmaster.TetanusDiphtheriaYesPrevPreg = model.TetanusDiphtheriaYesPrevPreg;
+                    patientmaster.TetanusDiphtheriaYesDuringPreg = model.TetanusDiphtheriaYesDuringPreg;
+
+                    if (model.TetanusDiphtheria_Date.Year == 1)
+                    {
+                        patientmaster.TetanusDiphtheria_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.TetanusDiphtheria_Date = model.TetanusDiphtheria_Date;
+
+                    }
+                    patientmaster.TetanusDiphtheria_Dozes = model.TetanusDiphtheria_Dozes;
+                    patientmaster.TdapNo = model.TdapNo;
+                    patientmaster.TdapYesPrevPreg = model.TdapYesPrevPreg;
+                    patientmaster.TdapYesDuringPreg = model.TdapYesDuringPreg;
+                    if (model.Tdap_Date.Year == 1)
+                    {
+                        patientmaster.Tdap_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.Tdap_Date = model.Tdap_Date;
+
+                    }
+                    patientmaster.Tdap_Dozes = model.Tdap_Dozes;
+                    patientmaster.InfluenzaNo = model.InfluenzaNo;
+                    patientmaster.InfluenzaYesPrevPreg = model.InfluenzaYesPrevPreg;
+                    patientmaster.InfluenzaYesDuringPreg = model.InfluenzaYesDuringPreg;
+                    if (model.Influenza_Date.Year == 1)
+                    {
+                        patientmaster.Influenza_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.Influenza_Date = model.Influenza_Date;
+
+                    }
+                    patientmaster.Influenza_Dozes = model.Influenza_Dozes;
+                    patientmaster.RubellaNo = model.RubellaNo;
+                    patientmaster.RubellaYesPrevPreg = model.RubellaYesPrevPreg;
+                    patientmaster.RubellaYesDuringPreg = model.RubellaYesDuringPreg;
+                    patientmaster.Rubella_Date = model.Rubella_Date;
+                    if (model.Rubella_Date.Year == 1)
+                    {
+                        patientmaster.Rubella_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.Rubella_Date = model.Rubella_Date;
+
+                    }
+                    patientmaster.Rubella_Dozes = model.Rubella_Dozes;
+                    patientmaster.Hepatitis_ANo = model.Hepatitis_ANo;
+                    patientmaster.Hepatitis_AYesPrevPreg = model.Hepatitis_AYesPrevPreg;
+                    patientmaster.Hepatitis_AYesDuringPreg = model.Hepatitis_AYesDuringPreg;
+                    if (model.Hepatitis_A_Date.Year == 1)
+                    {
+                        patientmaster.Hepatitis_A_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.Hepatitis_A_Date = model.Hepatitis_A_Date;
+
+                    }
+                    patientmaster.Hepatitis_A_Dozes = model.Hepatitis_A_Dozes;
+                    patientmaster.Hepatitis_BNo = model.Hepatitis_BNo;
+                    patientmaster.Hepatitis_BYesPrevPreg = model.Hepatitis_BYesPrevPreg;
+                    patientmaster.Hepatitis_BYesDuringPreg = model.Hepatitis_BYesDuringPreg;
+
+                    if (model.Hepatitis_B_Date.Year == 1)
+                    {
+                        patientmaster.Hepatitis_B_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.Hepatitis_B_Date = model.Hepatitis_B_Date;
+
+                    }
+
+                    patientmaster.Hepatitis_B_Dozes = model.Hepatitis_B_Dozes;
+                }
+                if(Step == "Step9")
+                {
+                    patientmaster.GroupPositve = model.GroupPositve;
+                    patientmaster.SanguineoGroup = model.SanguineoGroup;
+                    patientmaster.GroupNegative = model.GroupNegative;
+                    patientmaster.VDRL = model.VDRL;
+                    patientmaster.Syphilis = model.Syphilis;
+                    patientmaster.VIH_L = model.VIH_L;
+                }
+               
+               PatientMasterServices.Instance.UpdatePatientMasters(patientmaster);
             }
             else
             {
-                var patientmaster = new PatientMaster();
-                patientmaster.CreatedBy = User.Identity.GetUserId();
-                patientmaster.Name = model.Name;
+                if (model.ID != 0)
+                {
+                    var patientmaster = PatientMasterServices.Instance.GetPatientMaster(model.ID);
+                    patientmaster.ID = model.ID;
+                    patientmaster.CreatedBy = User.Identity.GetUserId();
+                    patientmaster.Name = model.Name;
 
-                patientmaster.Surnames = model.Surnames;
-                patientmaster.Type_of_Identity = model.Type_of_Identity;
-                patientmaster.Department_of_residence = model.Department_of_residence;
-                patientmaster.City_Municipality_of_residence = model.City_Municipality_of_residence;
-                patientmaster.Address_of_residence = model.Address_of_residence;
-                patientmaster.Telephones_Landline = model.Telephones_Landline;
-                patientmaster.Cell_Phone = model.Cell_Phone;
-                if (model.Date_of_birth.Year == 1)
-                {
-                    patientmaster.Date_of_birth = DateTime.Now;
-                    patientmaster.Age = 0;
+                    patientmaster.Surnames = model.Surnames;
+                    patientmaster.Type_of_Identity = model.Type_of_Identity;
+                    patientmaster.Department_of_residence = model.Department_of_residence;
+                    patientmaster.City_Municipality_of_residence = model.City_Municipality_of_residence;
+                    patientmaster.Address_of_residence = model.Address_of_residence;
+                    patientmaster.Telephones_Landline = model.Telephones_Landline;
+                    patientmaster.Cell_Phone = model.Cell_Phone;
+                    if (model.Date_of_birth.Year == 1)
+                    {
+                        patientmaster.Date_of_birth = DateTime.Now;
+                        patientmaster.Age = 0;
 
-                }
-                else
-                {
-                    patientmaster.Date_of_birth = model.Date_of_birth;
-                    patientmaster.Age = model.Age;
+                    }
+                    else
+                    {
+                        patientmaster.Date_of_birth = model.Date_of_birth;
+                        patientmaster.Age = model.Age;
 
-                }
-                patientmaster.Race_DANE_Information = model.Race_DANE_Information;
-                patientmaster.Ethnicity_DANE_Information = model.Ethnicity_DANE_Information;
-                patientmaster.Level_of_Education = model.Level_of_Education;
-                patientmaster.Marital_status = model.Marital_status;
-                patientmaster.Affiliation_regime = model.Affiliation_regime;
-                patientmaster.EPS_IPS = model.EPS_IPS;
-                patientmaster.Tbc = model.Tbc;
-                patientmaster.Diabetes = model.Diabetes;
-                patientmaster.Hypertension = model.Hypertension;
-                patientmaster.Eclampsia = model.Eclampsia;
-                patientmaster.Preeclampsia = model.Preeclampsia;
-                patientmaster.Surgery = model.Surgery;
-                patientmaster.Infertility = model.Infertility;
-                patientmaster.Cardiopathy = model.Cardiopathy;
-                patientmaster.Nephropathy = model.Nephropathy;
-                patientmaster.Violence = model.Violence;
-                patientmaster.HIV = model.HIV;
-                patientmaster.Migraine = model.Migraine;
-                patientmaster.Thromboembolic = model.Thromboembolic;
-                patientmaster.BMI_29 = model.BMI_29;
-                patientmaster.BMI_39 = model.BMI_39;
-                patientmaster.Disc_Sang = model.Disc_Sang;
-                patientmaster.Other = model.Other;
-                patientmaster.ReliableFUM = model.ReliableFUM;
-                patientmaster.UltrasoundObstetrics = model.UltrasoundObstetrics;
-                patientmaster.FPP = model.FPP;
-                patientmaster.FPC = model.FPC;
-                if (model.ProbableDateOfDelivery.Year == 1)
-                {
-                    patientmaster.ProbableDateOfDelivery = DateTime.Now;
-                }
-                else
-                {
-                    patientmaster.ProbableDateOfDelivery = model.ProbableDateOfDelivery;
+                    }
+                    patientmaster.Race_DANE_Information = model.Race_DANE_Information;
+                    patientmaster.Ethnicity_DANE_Information = model.Ethnicity_DANE_Information;
+                    patientmaster.Level_of_Education = model.Level_of_Education;
+                    patientmaster.Marital_status = model.Marital_status;
+                    patientmaster.Affiliation_regime = model.Affiliation_regime;
+                    patientmaster.EPS_IPS = model.EPS_IPS;
+                    patientmaster.Tbc = model.Tbc;
+                    patientmaster.Diabetes = model.Diabetes;
+                    patientmaster.Hypertension = model.Hypertension;
+                    patientmaster.Eclampsia = model.Eclampsia;
+                    patientmaster.Preeclampsia = model.Preeclampsia;
+                    patientmaster.Surgery = model.Surgery;
+                    patientmaster.Infertility = model.Infertility;
+                    patientmaster.Cardiopathy = model.Cardiopathy;
+                    patientmaster.Nephropathy = model.Nephropathy;
+                    patientmaster.Violence = model.Violence;
+                    patientmaster.HIV = model.HIV;
+                    patientmaster.Migraine = model.Migraine;
+                    patientmaster.Thromboembolic = model.Thromboembolic;
+                    patientmaster.BMI_29 = model.BMI_29;
+                    patientmaster.BMI_39 = model.BMI_39;
+                    patientmaster.Disc_Sang = model.Disc_Sang;
+                    patientmaster.Other = model.Other;
+                    patientmaster.ReliableFUM = model.ReliableFUM;
+                    patientmaster.UltrasoundObstetrics = model.UltrasoundObstetrics;
+                    patientmaster.FPP = model.FPP;
+                    patientmaster.FPC = model.FPC;
+                    if (model.ProbableDateOfDelivery.Year == 1)
+                    {
+                        patientmaster.ProbableDateOfDelivery = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.ProbableDateOfDelivery = model.ProbableDateOfDelivery;
 
-                }
-                if (model.ProbableDateOfConception.Year == 1)
-                {
-                    patientmaster.ProbableDateOfConception = DateTime.Now;
-                }
-                else
-                {
-                    patientmaster.ProbableDateOfConception = model.ProbableDateOfConception;
+                    }
+                    if (model.ProbableDateOfConception.Year == 1)
+                    {
+                        patientmaster.ProbableDateOfConception = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.ProbableDateOfConception = model.ProbableDateOfConception;
 
-                }
-                patientmaster.TetanusDiphtheriaNo = model.TetanusDiphtheriaNo;
-                patientmaster.TetanusDiphtheriaYesPrevPreg = model.TetanusDiphtheriaYesPrevPreg;
-                patientmaster.TetanusDiphtheriaYesDuringPreg = model.TetanusDiphtheriaYesDuringPreg;
+                    }
+                    patientmaster.TetanusDiphtheriaNo = model.TetanusDiphtheriaNo;
+                    patientmaster.TetanusDiphtheriaYesPrevPreg = model.TetanusDiphtheriaYesPrevPreg;
+                    patientmaster.TetanusDiphtheriaYesDuringPreg = model.TetanusDiphtheriaYesDuringPreg;
 
-                if (model.TetanusDiphtheria_Date.Year == 1)
-                {
-                    patientmaster.TetanusDiphtheria_Date = DateTime.Now;
-                }
-                else
-                {
-                    patientmaster.TetanusDiphtheria_Date = model.TetanusDiphtheria_Date;
+                    if (model.TetanusDiphtheria_Date.Year == 1)
+                    {
+                        patientmaster.TetanusDiphtheria_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.TetanusDiphtheria_Date = model.TetanusDiphtheria_Date;
 
-                }
-                patientmaster.TetanusDiphtheria_Dozes = model.TetanusDiphtheria_Dozes;
-                patientmaster.TdapNo = model.TdapNo;
-                patientmaster.TdapYesPrevPreg = model.TdapYesPrevPreg;
-                patientmaster.TdapYesDuringPreg = model.TdapYesDuringPreg;
-                if (model.Tdap_Date.Year == 1)
-                {
-                    patientmaster.Tdap_Date = DateTime.Now;
-                }
-                else
-                {
-                    patientmaster.Tdap_Date = model.Tdap_Date;
+                    }
+                    patientmaster.TetanusDiphtheria_Dozes = model.TetanusDiphtheria_Dozes;
+                    patientmaster.TdapNo = model.TdapNo;
+                    patientmaster.TdapYesPrevPreg = model.TdapYesPrevPreg;
+                    patientmaster.TdapYesDuringPreg = model.TdapYesDuringPreg;
+                    if (model.Tdap_Date.Year == 1)
+                    {
+                        patientmaster.Tdap_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.Tdap_Date = model.Tdap_Date;
 
-                }
-                patientmaster.Tdap_Dozes = model.Tdap_Dozes;
-                patientmaster.InfluenzaNo = model.InfluenzaNo;
-                patientmaster.InfluenzaYesPrevPreg = model.InfluenzaYesPrevPreg;
-                patientmaster.InfluenzaYesDuringPreg = model.InfluenzaYesDuringPreg;
-                if (model.Influenza_Date.Year == 1)
-                {
-                    patientmaster.Influenza_Date = DateTime.Now;
-                }
-                else
-                {
-                    patientmaster.Influenza_Date = model.Influenza_Date;
+                    }
+                    patientmaster.Tdap_Dozes = model.Tdap_Dozes;
+                    patientmaster.InfluenzaNo = model.InfluenzaNo;
+                    patientmaster.InfluenzaYesPrevPreg = model.InfluenzaYesPrevPreg;
+                    patientmaster.InfluenzaYesDuringPreg = model.InfluenzaYesDuringPreg;
+                    if (model.Influenza_Date.Year == 1)
+                    {
+                        patientmaster.Influenza_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.Influenza_Date = model.Influenza_Date;
 
-                }
-                patientmaster.Influenza_Dozes = model.Influenza_Dozes;
-                patientmaster.RubellaNo = model.RubellaNo;
-                patientmaster.RubellaYesPrevPreg = model.RubellaYesPrevPreg;
-                patientmaster.RubellaYesDuringPreg = model.RubellaYesDuringPreg;
-                patientmaster.Rubella_Date = model.Rubella_Date;
-                if (model.Rubella_Date.Year == 1)
-                {
-                    patientmaster.Rubella_Date = DateTime.Now;
-                }
-                else
-                {
+                    }
+                    patientmaster.Influenza_Dozes = model.Influenza_Dozes;
+                    patientmaster.RubellaNo = model.RubellaNo;
+                    patientmaster.RubellaYesPrevPreg = model.RubellaYesPrevPreg;
+                    patientmaster.RubellaYesDuringPreg = model.RubellaYesDuringPreg;
                     patientmaster.Rubella_Date = model.Rubella_Date;
+                    if (model.Rubella_Date.Year == 1)
+                    {
+                        patientmaster.Rubella_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.Rubella_Date = model.Rubella_Date;
 
-                }
-                patientmaster.Rubella_Dozes = model.Rubella_Dozes;
-                patientmaster.Hepatitis_ANo = model.Hepatitis_ANo;
-                patientmaster.Hepatitis_AYesPrevPreg = model.Hepatitis_AYesPrevPreg;
-                patientmaster.Hepatitis_AYesDuringPreg = model.Hepatitis_AYesDuringPreg;
-                if (model.Hepatitis_A_Date.Year == 1)
-                {
-                    patientmaster.Hepatitis_A_Date = DateTime.Now;
-                }
-                else
-                {
-                    patientmaster.Hepatitis_A_Date = model.Hepatitis_A_Date;
+                    }
+                    patientmaster.Rubella_Dozes = model.Rubella_Dozes;
+                    patientmaster.Hepatitis_ANo = model.Hepatitis_ANo;
+                    patientmaster.Hepatitis_AYesPrevPreg = model.Hepatitis_AYesPrevPreg;
+                    patientmaster.Hepatitis_AYesDuringPreg = model.Hepatitis_AYesDuringPreg;
+                    if (model.Hepatitis_A_Date.Year == 1)
+                    {
+                        patientmaster.Hepatitis_A_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.Hepatitis_A_Date = model.Hepatitis_A_Date;
 
-                }
-                patientmaster.Hepatitis_A_Dozes = model.Hepatitis_A_Dozes;
-                patientmaster.Hepatitis_BNo = model.Hepatitis_BNo;
-                patientmaster.Hepatitis_BYesPrevPreg = model.Hepatitis_BYesPrevPreg;
-                patientmaster.Hepatitis_BYesDuringPreg = model.Hepatitis_BYesDuringPreg;
+                    }
+                    patientmaster.Hepatitis_A_Dozes = model.Hepatitis_A_Dozes;
+                    patientmaster.Hepatitis_BNo = model.Hepatitis_BNo;
+                    patientmaster.Hepatitis_BYesPrevPreg = model.Hepatitis_BYesPrevPreg;
+                    patientmaster.Hepatitis_BYesDuringPreg = model.Hepatitis_BYesDuringPreg;
 
-                if (model.Hepatitis_B_Date.Year == 1)
-                {
-                    patientmaster.Hepatitis_B_Date = DateTime.Now;
-                }
-                else
-                {
-                    patientmaster.Hepatitis_B_Date = model.Hepatitis_B_Date;
+                    if (model.Hepatitis_B_Date.Year == 1)
+                    {
+                        patientmaster.Hepatitis_B_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.Hepatitis_B_Date = model.Hepatitis_B_Date;
 
-                }
+                    }
 
-                patientmaster.Hepatitis_B_Dozes = model.Hepatitis_B_Dozes;
-                patientmaster.GroupPositve = model.GroupPositve;
-                patientmaster.SanguineoGroup = model.SanguineoGroup;
-                patientmaster.GroupNegative = model.GroupNegative;
-                patientmaster.VDRL = model.VDRL;
-                patientmaster.Syphilis = model.Syphilis;
-                patientmaster.VIH_L = model.VIH_L;
-                patientmaster.PlannedPregnancy = model.PlannedPregnancy;
-                patientmaster.DesiredPregnancy = model.DesiredPregnancy;
-                patientmaster.PreconceptionCounseling = model.PreconceptionCounseling;
-                patientmaster.ContraceptiveFailure = model.ContraceptiveFailure;
-                patientmaster.DefinitiveMethod = model.DefinitiveMethod;
-                patientmaster.Failure = model.Failure;
-                patientmaster.Gestation = model.Gestation;
-                patientmaster.NoOfPregnancy = model.NoOfPregnancy;
-                patientmaster.Delivery = model.Delivery;
-                patientmaster.Term = model.Term;
-                patientmaster.Preterm = model.Preterm;
-                patientmaster.Vaginal = model.Vaginal;
-                patientmaster.Cesareas = model.Cesareas;
-                patientmaster.Abortions = model.Abortions;
-                patientmaster.Gemerales = model.Gemerales;
-                patientmaster.Ectopic = model.Ectopic;
-                patientmaster.Obitus = model.Obitus;
-                patientmaster.Molas = model.Molas;
-                patientmaster.Live_Births = model.Live_Births;
-                if (model.FUM.Year == 1)
-                {
-                    patientmaster.FUM = DateTime.Now;
-                }
-                else
-                {
-                    patientmaster.FUM = model.FUM;
+                    patientmaster.Hepatitis_B_Dozes = model.Hepatitis_B_Dozes;
+                    patientmaster.GroupPositve = model.GroupPositve;
+                    patientmaster.SanguineoGroup = model.SanguineoGroup;
+                    patientmaster.GroupNegative = model.GroupNegative;
+                    patientmaster.VDRL = model.VDRL;
+                    patientmaster.Syphilis = model.Syphilis;
+                    patientmaster.VIH_L = model.VIH_L;
+                    patientmaster.PlannedPregnancy = model.PlannedPregnancy;
+                    patientmaster.DesiredPregnancy = model.DesiredPregnancy;
+                    patientmaster.PreconceptionCounseling = model.PreconceptionCounseling;
+                    patientmaster.ContraceptiveFailure = model.ContraceptiveFailure;
+                    patientmaster.DefinitiveMethod = model.DefinitiveMethod;
+                    patientmaster.Failure = model.Failure;
+                    patientmaster.Gestation = model.Gestation;
+                    patientmaster.NoOfPregnancy = model.NoOfPregnancy;
+                    patientmaster.Delivery = model.Delivery;
+                    patientmaster.Term = model.Term;
+                    patientmaster.Preterm = model.Preterm;
+                    patientmaster.Vaginal = model.Vaginal;
+                    patientmaster.Cesareas = model.Cesareas;
+                    patientmaster.Abortions = model.Abortions;
+                    patientmaster.Gemerales = model.Gemerales;
+                    patientmaster.Ectopic = model.Ectopic;
+                    patientmaster.Obitus = model.Obitus;
+                    patientmaster.Molas = model.Molas;
+                    patientmaster.Live_Births = model.Live_Births;
+                    if (model.FUM.Year == 1)
+                    {
+                        patientmaster.FUM = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.FUM = model.FUM;
 
-                }
-
-
-                patientmaster.WeeksPregnant = model.WeeksPregnant;
-                patientmaster.Positive_HCG_presence = model.Positive_HCG_presence;
-                if (model.Positive_HCG_presence_Date.Year == 1)
-                {
-                    patientmaster.Positive_HCG_presence_Date = DateTime.Now;
-                }
-                else
-                {
-                    patientmaster.Positive_HCG_presence_Date = model.Positive_HCG_presence_Date;
-
-                }
+                    }
 
 
-                patientmaster.Upload_document1 = model.Upload_document1;
-                patientmaster.Positive_TV_ultrasound = model.Positive_TV_ultrasound;
-                patientmaster.Positive_TV_ultrasound_Date = model.Positive_TV_ultrasound_Date;
-                if (model.Positive_TV_ultrasound_Date.Year == 1)
-                {
-                    patientmaster.Positive_TV_ultrasound_Date = DateTime.Now;
-                }
-                else
-                {
+                    patientmaster.WeeksPregnant = model.WeeksPregnant;
+                    patientmaster.Positive_HCG_presence = model.Positive_HCG_presence;
+                    if (model.Positive_HCG_presence_Date.Year == 1)
+                    {
+                        patientmaster.Positive_HCG_presence_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.Positive_HCG_presence_Date = model.Positive_HCG_presence_Date;
+
+                    }
+
+
+                    patientmaster.Upload_document1 = model.Upload_document1;
+                    patientmaster.Positive_TV_ultrasound = model.Positive_TV_ultrasound;
                     patientmaster.Positive_TV_ultrasound_Date = model.Positive_TV_ultrasound_Date;
+                    if (model.Positive_TV_ultrasound_Date.Year == 1)
+                    {
+                        patientmaster.Positive_TV_ultrasound_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.Positive_TV_ultrasound_Date = model.Positive_TV_ultrasound_Date;
 
+                    }
+
+                    patientmaster.Upload_document2 = model.Upload_document2;
+                    patientmaster.PregnancyConfirm = model.PregnancyConfirm;
+                    patientmaster.SmokerActive = model.SmokerActive;
+                    patientmaster.PassiveSmoking = model.PassiveSmoking;
+                    patientmaster.ConsumeAlcohol = model.ConsumeAlcohol;
+                    patientmaster.ConsumeAlucinogenos = model.ConsumeAlucinogenos;
+                    patientmaster.DomesticViolence = model.DomesticViolence;
+                    PatientMasterServices.Instance.UpdatePatientMasters(patientmaster);
                 }
+                else
+                {
+                    var patientmaster = new PatientMaster();
+                    patientmaster.CreatedBy = User.Identity.GetUserId();
+                    patientmaster.Name = model.Name;
 
-                patientmaster.Upload_document2 = model.Upload_document2;
-                patientmaster.PregnancyConfirm = model.PregnancyConfirm;
-                patientmaster.SmokerActive = model.SmokerActive;
-                patientmaster.PassiveSmoking = model.PassiveSmoking;
-                patientmaster.ConsumeAlcohol = model.ConsumeAlcohol;
-                patientmaster.ConsumeAlucinogenos = model.ConsumeAlucinogenos;
-                patientmaster.DomesticViolence = model.DomesticViolence;
-                PatientMasterServices.Instance.SavePatientMasters(patientmaster);
+                    patientmaster.Surnames = model.Surnames;
+                    patientmaster.Type_of_Identity = model.Type_of_Identity;
+                    patientmaster.Department_of_residence = model.Department_of_residence;
+                    patientmaster.City_Municipality_of_residence = model.City_Municipality_of_residence;
+                    patientmaster.Address_of_residence = model.Address_of_residence;
+                    patientmaster.Telephones_Landline = model.Telephones_Landline;
+                    patientmaster.Cell_Phone = model.Cell_Phone;
+                    if (model.Date_of_birth.Year == 1)
+                    {
+                        patientmaster.Date_of_birth = DateTime.Now;
+                        patientmaster.Age = 0;
+
+                    }
+                    else
+                    {
+                        patientmaster.Date_of_birth = model.Date_of_birth;
+                        patientmaster.Age = model.Age;
+
+                    }
+                    patientmaster.Race_DANE_Information = model.Race_DANE_Information;
+                    patientmaster.Ethnicity_DANE_Information = model.Ethnicity_DANE_Information;
+                    patientmaster.Level_of_Education = model.Level_of_Education;
+                    patientmaster.Marital_status = model.Marital_status;
+                    patientmaster.Affiliation_regime = model.Affiliation_regime;
+                    patientmaster.EPS_IPS = model.EPS_IPS;
+                    patientmaster.Tbc = model.Tbc;
+                    patientmaster.Diabetes = model.Diabetes;
+                    patientmaster.Hypertension = model.Hypertension;
+                    patientmaster.Eclampsia = model.Eclampsia;
+                    patientmaster.Preeclampsia = model.Preeclampsia;
+                    patientmaster.Surgery = model.Surgery;
+                    patientmaster.Infertility = model.Infertility;
+                    patientmaster.Cardiopathy = model.Cardiopathy;
+                    patientmaster.Nephropathy = model.Nephropathy;
+                    patientmaster.Violence = model.Violence;
+                    patientmaster.HIV = model.HIV;
+                    patientmaster.Migraine = model.Migraine;
+                    patientmaster.Thromboembolic = model.Thromboembolic;
+                    patientmaster.BMI_29 = model.BMI_29;
+                    patientmaster.BMI_39 = model.BMI_39;
+                    patientmaster.Disc_Sang = model.Disc_Sang;
+                    patientmaster.Other = model.Other;
+                    patientmaster.ReliableFUM = model.ReliableFUM;
+                    patientmaster.UltrasoundObstetrics = model.UltrasoundObstetrics;
+                    patientmaster.FPP = model.FPP;
+                    patientmaster.FPC = model.FPC;
+                    if (model.ProbableDateOfDelivery.Year == 1)
+                    {
+                        patientmaster.ProbableDateOfDelivery = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.ProbableDateOfDelivery = model.ProbableDateOfDelivery;
+
+                    }
+                    if (model.ProbableDateOfConception.Year == 1)
+                    {
+                        patientmaster.ProbableDateOfConception = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.ProbableDateOfConception = model.ProbableDateOfConception;
+
+                    }
+                    patientmaster.TetanusDiphtheriaNo = model.TetanusDiphtheriaNo;
+                    patientmaster.TetanusDiphtheriaYesPrevPreg = model.TetanusDiphtheriaYesPrevPreg;
+                    patientmaster.TetanusDiphtheriaYesDuringPreg = model.TetanusDiphtheriaYesDuringPreg;
+
+                    if (model.TetanusDiphtheria_Date.Year == 1)
+                    {
+                        patientmaster.TetanusDiphtheria_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.TetanusDiphtheria_Date = model.TetanusDiphtheria_Date;
+
+                    }
+                    patientmaster.TetanusDiphtheria_Dozes = model.TetanusDiphtheria_Dozes;
+                    patientmaster.TdapNo = model.TdapNo;
+                    patientmaster.TdapYesPrevPreg = model.TdapYesPrevPreg;
+                    patientmaster.TdapYesDuringPreg = model.TdapYesDuringPreg;
+                    if (model.Tdap_Date.Year == 1)
+                    {
+                        patientmaster.Tdap_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.Tdap_Date = model.Tdap_Date;
+
+                    }
+                    patientmaster.Tdap_Dozes = model.Tdap_Dozes;
+                    patientmaster.InfluenzaNo = model.InfluenzaNo;
+                    patientmaster.InfluenzaYesPrevPreg = model.InfluenzaYesPrevPreg;
+                    patientmaster.InfluenzaYesDuringPreg = model.InfluenzaYesDuringPreg;
+                    if (model.Influenza_Date.Year == 1)
+                    {
+                        patientmaster.Influenza_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.Influenza_Date = model.Influenza_Date;
+
+                    }
+                    patientmaster.Influenza_Dozes = model.Influenza_Dozes;
+                    patientmaster.RubellaNo = model.RubellaNo;
+                    patientmaster.RubellaYesPrevPreg = model.RubellaYesPrevPreg;
+                    patientmaster.RubellaYesDuringPreg = model.RubellaYesDuringPreg;
+                    patientmaster.Rubella_Date = model.Rubella_Date;
+                    if (model.Rubella_Date.Year == 1)
+                    {
+                        patientmaster.Rubella_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.Rubella_Date = model.Rubella_Date;
+
+                    }
+                    patientmaster.Rubella_Dozes = model.Rubella_Dozes;
+                    patientmaster.Hepatitis_ANo = model.Hepatitis_ANo;
+                    patientmaster.Hepatitis_AYesPrevPreg = model.Hepatitis_AYesPrevPreg;
+                    patientmaster.Hepatitis_AYesDuringPreg = model.Hepatitis_AYesDuringPreg;
+                    if (model.Hepatitis_A_Date.Year == 1)
+                    {
+                        patientmaster.Hepatitis_A_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.Hepatitis_A_Date = model.Hepatitis_A_Date;
+
+                    }
+                    patientmaster.Hepatitis_A_Dozes = model.Hepatitis_A_Dozes;
+                    patientmaster.Hepatitis_BNo = model.Hepatitis_BNo;
+                    patientmaster.Hepatitis_BYesPrevPreg = model.Hepatitis_BYesPrevPreg;
+                    patientmaster.Hepatitis_BYesDuringPreg = model.Hepatitis_BYesDuringPreg;
+
+                    if (model.Hepatitis_B_Date.Year == 1)
+                    {
+                        patientmaster.Hepatitis_B_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.Hepatitis_B_Date = model.Hepatitis_B_Date;
+
+                    }
+
+                    patientmaster.Hepatitis_B_Dozes = model.Hepatitis_B_Dozes;
+                    patientmaster.GroupPositve = model.GroupPositve;
+                    patientmaster.SanguineoGroup = model.SanguineoGroup;
+                    patientmaster.GroupNegative = model.GroupNegative;
+                    patientmaster.VDRL = model.VDRL;
+                    patientmaster.Syphilis = model.Syphilis;
+                    patientmaster.VIH_L = model.VIH_L;
+                    patientmaster.PlannedPregnancy = model.PlannedPregnancy;
+                    patientmaster.DesiredPregnancy = model.DesiredPregnancy;
+                    patientmaster.PreconceptionCounseling = model.PreconceptionCounseling;
+                    patientmaster.ContraceptiveFailure = model.ContraceptiveFailure;
+                    patientmaster.DefinitiveMethod = model.DefinitiveMethod;
+                    patientmaster.Failure = model.Failure;
+                    patientmaster.Gestation = model.Gestation;
+                    patientmaster.NoOfPregnancy = model.NoOfPregnancy;
+                    patientmaster.Delivery = model.Delivery;
+                    patientmaster.Term = model.Term;
+                    patientmaster.Preterm = model.Preterm;
+                    patientmaster.Vaginal = model.Vaginal;
+                    patientmaster.Cesareas = model.Cesareas;
+                    patientmaster.Abortions = model.Abortions;
+                    patientmaster.Gemerales = model.Gemerales;
+                    patientmaster.Ectopic = model.Ectopic;
+                    patientmaster.Obitus = model.Obitus;
+                    patientmaster.Molas = model.Molas;
+                    patientmaster.Live_Births = model.Live_Births;
+                    if (model.FUM.Year == 1)
+                    {
+                        patientmaster.FUM = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.FUM = model.FUM;
+
+                    }
+
+
+                    patientmaster.WeeksPregnant = model.WeeksPregnant;
+                    patientmaster.Positive_HCG_presence = model.Positive_HCG_presence;
+                    if (model.Positive_HCG_presence_Date.Year == 1)
+                    {
+                        patientmaster.Positive_HCG_presence_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.Positive_HCG_presence_Date = model.Positive_HCG_presence_Date;
+
+                    }
+
+
+                    patientmaster.Upload_document1 = model.Upload_document1;
+                    patientmaster.Positive_TV_ultrasound = model.Positive_TV_ultrasound;
+                    patientmaster.Positive_TV_ultrasound_Date = model.Positive_TV_ultrasound_Date;
+                    if (model.Positive_TV_ultrasound_Date.Year == 1)
+                    {
+                        patientmaster.Positive_TV_ultrasound_Date = DateTime.Now;
+                    }
+                    else
+                    {
+                        patientmaster.Positive_TV_ultrasound_Date = model.Positive_TV_ultrasound_Date;
+
+                    }
+
+                    patientmaster.Upload_document2 = model.Upload_document2;
+                    patientmaster.PregnancyConfirm = model.PregnancyConfirm;
+                    patientmaster.SmokerActive = model.SmokerActive;
+                    patientmaster.PassiveSmoking = model.PassiveSmoking;
+                    patientmaster.ConsumeAlcohol = model.ConsumeAlcohol;
+                    patientmaster.ConsumeAlucinogenos = model.ConsumeAlucinogenos;
+                    patientmaster.DomesticViolence = model.DomesticViolence;
+                    PatientMasterServices.Instance.SavePatientMasters(patientmaster);
+                    Session["PatientMasterID"] = patientmaster.ID;
+                }
             }
+
             return Json(new { success = true });
         }
 

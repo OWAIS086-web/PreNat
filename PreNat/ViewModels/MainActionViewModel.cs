@@ -17,6 +17,7 @@ namespace PreNat.ViewModels
         //patient
         public User SignedInUser { get; set; }
         public List<Patient> Patients { get; set; }
+        public string Step { get; set; }
 
         public int ID { get; set; }
         public string Name { get; set; }
