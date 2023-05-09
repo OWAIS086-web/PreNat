@@ -1,8 +1,7 @@
 ﻿namespace PreNat.Database.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class labororttest : DbMigration
     {
         public override void Up()
@@ -12,7 +11,7 @@
             DropColumn("dbo.LaboratoryTests", "Group");
             DropColumn("dbo.LaboratoryTests", "Laboratory_Tests");
         }
-        
+
         public override void Down()
         {
             AddColumn("dbo.LaboratoryTests", "Laboratory_Tests", c => c.String());

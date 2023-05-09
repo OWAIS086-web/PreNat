@@ -5,17 +5,13 @@ using Microsoft.Owin;
 using PreNat.Database;
 using PreNat.Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PreNat.Services
 {
     public class AMUserManager : UserManager<User>
     {
-       
-        
+
+
         public AMUserManager(IUserStore<User> store)
             : base(store)
         {

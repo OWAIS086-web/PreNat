@@ -1,10 +1,6 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
+﻿using Microsoft.AspNet.Identity.Owin;
 using PreNat.Services;
 using PreNat.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
@@ -52,12 +48,12 @@ namespace PreNat.Controllers
         public ActionResult Index()
         {
             AdminViewModel model = new AdminViewModel();
-          
+
             return View(model);
         }
 
 
-       
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

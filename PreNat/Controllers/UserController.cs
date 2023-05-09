@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using PreNat.Entities;
 using PreNat.Models;
 using PreNat.Services;
 using PreNat.ViewModels;
-using PreNat.Entities;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

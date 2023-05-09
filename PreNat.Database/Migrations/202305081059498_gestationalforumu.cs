@@ -2,16 +2,16 @@
 {
     using System.Data.Entity.Migrations;
 
-    public partial class minorchange : DbMigration
+    public partial class gestationalforumu : DbMigration
     {
         public override void Up()
         {
-            AddColumn("dbo.PatientMasters", "CreatedBy", c => c.String());
+            AddColumn("dbo.PatientMasters", "GestationalFormula", c => c.String());
         }
 
         public override void Down()
         {
-            DropColumn("dbo.PatientMasters", "CreatedBy");
+            DropColumn("dbo.PatientMasters", "GestationalFormula");
         }
     }
 }

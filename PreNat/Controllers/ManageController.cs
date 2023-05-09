@@ -1,13 +1,12 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using PreNat.Models;
 using PreNat.Services;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace PreNat.Controllers
 {
@@ -33,9 +32,9 @@ namespace PreNat.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<AMSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -334,7 +333,7 @@ namespace PreNat.Controllers
             base.Dispose(disposing);
         }
 
-#region Helpers
+        #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
 
@@ -385,6 +384,6 @@ namespace PreNat.Controllers
             Error
         }
 
-#endregion
+        #endregion
     }
 }

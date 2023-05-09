@@ -1,11 +1,8 @@
 ﻿using PreNat.Database;
 using PreNat.Entities;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PreNat.Services
 {
@@ -40,7 +37,7 @@ namespace PreNat.Services
                 }
                 else
                 {
-                    return context.PatientMasters.OrderBy(x=>x.Name).ToList();
+                    return context.PatientMasters.OrderBy(x => x.Name).ToList();
                 }
             }
         }
@@ -59,7 +56,7 @@ namespace PreNat.Services
                 }
                 else
                 {
-                    return context.PatientMasters.Where(x=>x.CreatedBy == CreatedBy).OrderBy(x => x.Name).ToList();
+                    return context.PatientMasters.Where(x => x.CreatedBy == CreatedBy).OrderBy(x => x.Name).ToList();
                 }
             }
         }

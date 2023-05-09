@@ -89,6 +89,22 @@
     <Compile Include="Migrations\202305031910218_minorchange.designer.cs">
       <DependentUpon>202305031910218_minorchange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305041747365_finalchanges.cs" />
+    <Compile Include="Migrations\202305041747365_finalchanges.designer.cs">
+      <DependentUpon>202305041747365_finalchanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305051625475_newchnges.cs" />
+    <Compile Include="Migrations\202305051625475_newchnges.designer.cs">
+      <DependentUpon>202305051625475_newchnges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305081059498_gestationalforumu.cs" />
+    <Compile Include="Migrations\202305081059498_gestationalforumu.designer.cs">
+      <DependentUpon>202305081059498_gestationalforumu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305081129159_reportstatus.cs" />
+    <Compile Include="Migrations\202305081129159_reportstatus.designer.cs">
+      <DependentUpon>202305081129159_reportstatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DSContext.cs" />
@@ -127,6 +143,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305031910218_minorchange.resx">
       <DependentUpon>202305031910218_minorchange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305041747365_finalchanges.resx">
+      <DependentUpon>202305041747365_finalchanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305051625475_newchnges.resx">
+      <DependentUpon>202305051625475_newchnges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305081059498_gestationalforumu.resx">
+      <DependentUpon>202305081059498_gestationalforumu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305081129159_reportstatus.resx">
+      <DependentUpon>202305081129159_reportstatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

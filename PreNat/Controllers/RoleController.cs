@@ -4,8 +4,6 @@ using Microsoft.AspNet.Identity.Owin;
 using PreNat.Models;
 using PreNat.Services;
 using PreNat.ViewModels;
-using PreNat.Entities;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -57,7 +55,7 @@ namespace PreNat.Controllers
         public RoleController()
         {
         }
-        public RoleController(AMUserManager userManager, AMSignInManager signInManager,AMRolesManager roleManager)
+        public RoleController(AMUserManager userManager, AMSignInManager signInManager, AMRolesManager roleManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -85,7 +83,7 @@ namespace PreNat.Controllers
                 roles = roles.Where(a => a.Name.ToLower().Contains(searchTerm.ToLower()));
             }
 
-      
+
             return roles;
         }
 
@@ -103,7 +101,7 @@ namespace PreNat.Controllers
                 var role = await RolesManager.FindByIdAsync(ID);
                 model.ID = role.Id;
                 model.Name = role.Name;
-              
+
             }
             return PartialView("_Action", model);
         }
@@ -120,7 +118,7 @@ namespace PreNat.Controllers
 
                 role.Id = model.ID;
                 role.Name = model.Name;
-               
+
                 result = await RolesManager.UpdateAsync(role);
 
             }
@@ -143,7 +141,7 @@ namespace PreNat.Controllers
             RoleActionViewModel model = new RoleActionViewModel();
             var role = await RolesManager.FindByIdAsync(ID);
             model.ID = role.Id;
-           return PartialView("_Delete", model);
+            return PartialView("_Delete", model);
         }
 
         [HttpPost]

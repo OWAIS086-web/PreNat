@@ -6,6 +6,12 @@
         height: 40px;
     }
 
+    thead, tbody, tfoot, tr, td, th {
+        border-color: black;
+        border-style: solid;
+        border-width: 1px;
+    }
+
     .nav-pills.nav-pills-custom .nav-link.active {
         background: #5E6C90;
         margin-right: -15px;
@@ -278,14 +284,14 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="Date_of_birth">Date of Birth</label>
-                                                        <input style="background-color:#FFFF00;" type="date" class="form-control" value="@Model.Date_of_birth.ToString("yyyy-MM-dd")" name="Date_of_birth" id="Date_of_birth">
+                                                        <input type="date" class="form-control" value="@Model.Date_of_birth.ToString("yyyy-MM-dd")" name="Date_of_birth" id="Date_of_birth">
                                                     </div>
 
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="form-group">
                                                         <label for="age">Age</label>
-                                                        <input required type="number" class="form-control" value="@Model.Age" name="age" id="age">
+                                                        <input required type="number" class="form-control disabled" value="@Model.Age" name="age" id="age">
                                                     </div>
                                                 </div>
                                             </div>
@@ -389,10 +395,10 @@
                                                     </div>
 
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label for="age">Weeks Pregnant</label>
-                                                        <input required type="text" class="form-control" value="@Model.WeeksPregnant" name="WeeksPregnant" id="WeeksPregnant">
+                                                        <input required type="text" class="form-control disabled" value="@Model.WeeksPregnant" name="WeeksPregnant" id="WeeksPregnant">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
@@ -402,7 +408,7 @@
                                                     </div>
 
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label>Attachment</label>
                                                         <input class="form-control" value="@Model.Upload_document1" name="Upload_document1" id="Upload_document1" type="hidden" />
@@ -708,7 +714,7 @@
                                                                 Gestationes
                                                             </td>
                                                             <td>
-                                                                <input type="text" class="form-control" name="Gestation" value="@Model.Gestation" />
+                                                                <input type="text" class="form-control" id="Gestations" name="Gestation" value="@Model.Gestation" />
                                                             </td>
                                                         </tr>
 
@@ -717,7 +723,7 @@
                                                                 No Of Pregancies (Including the current one)
                                                             </td>
                                                             <td>
-                                                                <input type="text" class="form-control" name="NoOfPregnancy" value="@Model.NoOfPregnancy" />
+                                                                <input type="text" class="form-control" id="NoOfPregnancy" name="NoOfPregnancy" value="@Model.NoOfPregnancy" />
                                                             </td>
                                                         </tr>
 
@@ -726,7 +732,7 @@
                                                                 Delivery
                                                             </td>
                                                             <td>
-                                                                <input type="text" class="form-control" name="Delivery" value="@Model.Delivery" />
+                                                                <input type="text" class="form-control" id="Delivery" name="Delivery" value="@Model.Delivery" />
 
                                                             </td>
                                                         </tr>
@@ -736,7 +742,7 @@
                                                                 Term
                                                             </td>
                                                             <td>
-                                                                <input type="text" class="form-control" name="Term" value="@Model.Term" />
+                                                                <input type="text" class="form-control" id="Term" name="Term" value="@Model.Term" />
 
                                                             </td>
                                                         </tr>
@@ -746,7 +752,7 @@
                                                                 Pre Term
                                                             </td>
                                                             <td>
-                                                                <input type="text" class="form-control" name="Preterm" value="@Model.Preterm" />
+                                                                <input type="text" class="form-control" id="Preterm" name="Preterm" value="@Model.Preterm" />
 
                                                             </td>
 
@@ -756,7 +762,7 @@
                                                                 Vaginal
                                                             </td>
                                                             <td>
-                                                                <input type="text" class="form-control" name="Vaginal" value="@Model.Vaginal" />
+                                                                <input type="text" class="form-control" id="Vaginal" name="Vaginal" value="@Model.Vaginal" />
 
                                                             </td>
                                                         </tr>
@@ -765,7 +771,7 @@
                                                                 Cesareas
                                                             </td>
                                                             <td>
-                                                                <input type="text" class="form-control" name="Cesareas" value="@Model.Cesareas" />
+                                                                <input type="text" class="form-control" id="Cesareas" name="Cesareas" value="@Model.Cesareas" />
 
                                                             </td>
                                                         </tr>
@@ -775,7 +781,7 @@
                                                                 Abortions
                                                             </td>
                                                             <td>
-                                                                <input type="text" class="form-control" name="Abortions" value="@Model.Abortions" />
+                                                                <input type="text" class="form-control" id="Abortions" name="Abortions" value="@Model.Abortions" />
 
                                                             </td>
                                                         </tr>
@@ -785,7 +791,7 @@
                                                                 Gemerales
                                                             </td>
                                                             <td>
-                                                                <input type="text" class="form-control" name="Gemerales" value="@Model.Gemerales" />
+                                                                <input type="text" class="form-control" id="Gemerales" name="Gemerales" value="@Model.Gemerales" />
 
                                                             </td>
                                                         </tr>
@@ -796,7 +802,7 @@
                                                                 Ectopic
                                                             </td>
                                                             <td>
-                                                                <input type="text" class="form-control" name="Ectopic" value="@Model.Ectopic" />
+                                                                <input type="text" class="form-control" id="Ectopic" name="Ectopic" value="@Model.Ectopic" />
 
                                                             </td>
                                                         </tr>
@@ -807,7 +813,7 @@
                                                                 Obitus
                                                             </td>
                                                             <td>
-                                                                <input type="text" class="form-control" name="Obitus" value="@Model.Obitus" />
+                                                                <input type="text" class="form-control" id="Obitus" name="Obitus" value="@Model.Obitus" />
 
                                                             </td>
                                                         </tr>
@@ -818,7 +824,7 @@
                                                                 Molas
                                                             </td>
                                                             <td>
-                                                                <input type="text" class="form-control" name="Molas" value="@Model.Molas" />
+                                                                <input type="text" class="form-control" id="Molas" name="Molas" value="@Model.Molas" />
 
                                                             </td>
                                                         </tr>
@@ -828,7 +834,7 @@
                                                                 Live Births
                                                             </td>
                                                             <td>
-                                                                <input type="text" class="form-control" name="Live_Births" value="@Model.Live_Births" />
+                                                                <input type="text" class="form-control" id="Live_Births" name="Live_Births" value="@Model.Live_Births" />
 
                                                             </td>
                                                         </tr>
@@ -839,7 +845,14 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-
+                                            <div class="row">
+                                                <div class="container">
+                                                    <div class="form-group">
+                                                        <label>Gestational Formula</label>
+                                                        <input type="text" name="GestationalFormula" value="@Model.GestationalFormula" id="Formula" class="form-control disabled" />
+                                                    </div>
+                                                </div>
+                                            </div>
 
                                         </form>
                                         <hr />
@@ -938,13 +951,13 @@
 
                                                 <div class="form-group col-md-6">
                                                     <label for="PreconceptionCounseling">Probable Date Of Delivery</label>
-                                                    <input type="date" class="form-control" value="@Model.ProbableDateOfDelivery.ToString("yyyy-MM-dd")" name="ProbableDateOfDelivery" id="ProbableDateOfDelivery">
+                                                    <input type="date" class="form-control disabled" value="@Model.ProbableDateOfDelivery.ToString("yyyy-MM-dd")" name="ProbableDateOfDelivery" id="ProbableDateOfDelivery">
 
                                                 </div>
 
                                                 <div class="form-group col-md-6">
                                                     <label for="ContraceptiveFailure">Probable Date Of Conception</label>
-                                                    <input type="date" class="form-control" value="@Model.ProbableDateOfConception.ToString("yyyy-MM-dd")" name="ProbableDateOfConception" id="ProbableDateOfConception">
+                                                    <input type="date" class="form-control disabled" value="@Model.ProbableDateOfConception.ToString("yyyy-MM-dd")" name="ProbableDateOfConception" id="ProbableDateOfConception">
 
                                                 </div>
                                             </div>
@@ -1063,6 +1076,9 @@
                                                             <th>
                                                                 Dosage No
                                                             </th>
+                                                            <th>
+                                                                Vaccinated?
+                                                            </th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -1094,6 +1110,9 @@
                                                             <td>
                                                                 <input type="text" name="TetanusDiphtheriaNo" value="@Model.TetanusDiphtheriaNo" id="TetanusDiphtheriaNo" class="form-control" />
                                                             </td>
+                                                            <td>
+                                                                @Html.CheckBoxFor(m => m.TetanusCheck, new { @class = "form-check", @checked = Model.TetanusCheck })
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <td>
@@ -1123,6 +1142,9 @@
                                                             <td>
                                                                 <input type="text" name="Tdap_Dozes" value="@Model.Tdap_Dozes" id="Tdap_Dozes" class="form-control" />
                                                             </td>
+                                                            <td>
+                                                                @Html.CheckBoxFor(m => m.TdapCheck, new { @class = "form-check", @checked = Model.TdapCheck })
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <td>
@@ -1151,6 +1173,9 @@
                                                             </td>
                                                             <td>
                                                                 <input type="text" name="Influenza_Dozes" value="@Model.Influenza_Dozes" id="Influenza_Dozes" class="form-control" />
+                                                            </td>
+                                                            <td>
+                                                                @Html.CheckBoxFor(m => m.InfluencaCheck, new { @class = "form-check", @checked = Model.InfluencaCheck })
                                                             </td>
 
                                                         </tr>
@@ -1182,6 +1207,9 @@
                                                             <td>
                                                                 <input type="text" name="Rubella_Dozes" value="@Model.Rubella_Dozes" id="Rubella_Dozes" class="form-control" />
                                                             </td>
+                                                            <td>
+                                                                @Html.CheckBoxFor(m => m.RubellaCheck, new { @class = "form-check", @checked = Model.RubellaCheck })
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <td>Hepatitis A</td>
@@ -1208,6 +1236,9 @@
                                                             </td>
                                                             <td>
                                                                 <input type="text" name="Hepatitis_A_Dozes" value="@Model.Hepatitis_A_Dozes" id="Hepatitis_A_Dozes" class="form-control" />
+                                                            </td>
+                                                            <td>
+                                                                @Html.CheckBoxFor(m => m.Hepatitis_ACheck, new { @class = "form-check", @checked = Model.Hepatitis_ACheck })
                                                             </td>
                                                         </tr>
 
@@ -1236,6 +1267,9 @@
                                                             </td>
                                                             <td>
                                                                 <input type="text" name="Hepatitis_B_Dozes" value="@Model.Hepatitis_B_Dozes" id="Hepatitis_B_Dozes" class="form-control" />
+                                                            </td>
+                                                            <td>
+                                                                @Html.CheckBoxFor(m => m.Hepatitis_BCheck, new { @class = "form-check", @checked = Model.Hepatitis_BCheck })
                                                             </td>
                                                         </tr>
 
@@ -1377,14 +1411,96 @@
 
                                     </div>
 
+
+                                    <div class="tab-pane fade" id="pills-r" role="tabpanel" aria-labelledby="pills-r-tab-custom">
+                                        <h3 class="text-center">
+                                            Step 10: Report
+                                        </h3>
+                                        <hr />
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h6>Patient Name : @Model.Name @Model.Surnames (@Model.Age)</h6><br />
+                                                <h6>Native of : @Model.Address_of_residence</h6><br />
+                                                <h6>Inhabitant of : @Model.City_Municipality_of_residence</h6><br />
+                                                <h6>Gestational Formula @Model.GestationalFormula</h6><br />
+                                                <h6>Currently Pregnant : @Model.WeeksPregnant</h6> <br />
+                                                <hr />
+                                                <h6>
+                                                    It is recommended: Continue Prenatal Control in Level of Care (According to the classification)
+                                                </h6>
+                                                <br />
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered">
+                                                        <thead>
+                                                            <tr style=" border-bottom: solid 2px black; ">
+                                                                <th>
+                                                                    Classification
+                                                                </th>
+                                                                <th>
+                                                                    Risk
+                                                                </th>
+                                                                <th>
+                                                                    Conduct
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @if (Model.ReportStatus == "High")
+                                                            {
+                                                                <tr id="HighRow">
+                                                                    <td style="background-color:#FF0000">
+                                                                    </td>
+                                                                    <td>
+                                                                        <b>High-Risk</b> Pregnancy
+
+                                                                    </td>
+                                                                    <td>
+                                                                        Refer to strict control with Obstetrics at level II or III.
+                                                                    </td>
+                                                                </tr>
+
+                                                            }
+                                                            else if (Model.ReportStatus == "Low")
+                                                            {
+                                                                <tr id="LowRow">
+                                                                    <td style="background-color:#6AA84F">
+                                                                    </td>
+                                                                    <td>
+                                                                        <b>Low Risk</b> Pregnancy
+
+                                                                    </td>
+                                                                    <td>
+                                                                        Continue antenatal care at level I
+                                                                    </td>
+                                                                </tr>
+                                                            }
+                                                            else if (Model.ReportStatus == "Moderate")
+                                                            {
+                                                                <tr id="ModerateRow">
+                                                                    <td style="background-color:#FFFF00">
+                                                                    </td>
+                                                                    <td>
+                                                                        <b>Moderate-Risk</b> Pregnancy
+
+                                                                    </td>
+                                                                    <td>
+                                                                        Refer To Hospital Center of Level II
+                                                                    </td>
+                                                                </tr>
+                                                            }
+
+
+
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div class="tab-pane fade" id="pills-r" role="tabpanel" aria-labelledby="pills-r-tab-custom">
-                                    <h3 class="text-center">
-                                        Step 10: Report
-                                    </h3>
-                                    <hr />
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -1410,6 +1526,125 @@
 <script src="~/Content/template/js/tabs.js"></script>
 
 <script>
+
+
+
+
+  // Get the input elements by their IDs
+        var dobInputElement = document.getElementById("Date_of_birth");
+        var ageInputElement = document.getElementById("age");
+
+        // Add an event listener to the "Date_of_birth" input element that listens for the "change" event
+    dobInputElement.addEventListener("change", function () {
+        // Calculate the age based on the date of birth
+        var today = new Date();
+        var dob = new Date(dobInputElement.value);
+        var age = today.getFullYear() - dob.getFullYear();
+        var monthDifference = today.getMonth() - dob.getMonth();
+        if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < dob.getDate())) {
+            age--;
+        }
+
+        // Set the value of the age input element
+        ageInputElement.value = age;
+
+        // Check if the age is between 15 and 35 and change the background color accordingly
+        if (age < 15 || age > 35) {
+            ageInputElement.style.backgroundColor = "#FFFF00";
+        }
+        //if (age > 35) {
+        //    ageInputElement.style.backgroundColor = "#FFFF00";
+        //}
+        else {
+            ageInputElement.style.backgroundColor = "White"; // reset the background color to default
+        }
+    });
+
+
+
+
+
+    $(document).ready(function () {
+
+        // Attach a change event listener to relevant input fields
+        $("#NoOfPregnancy, #Vaginal, #Cesareas, #Abortions").change(function () {
+                
+            // Get the values of the input fields
+            let pregnancies = $("#NoOfPregnancy").val();
+            let vaginalDeliveries = $("#Vaginal").val();
+            let cesareanDeliveries = $("#Cesareas").val();
+            let abortions = $("#Abortions").val();
+
+            // Construct the gestational formula string
+            let gestationalFormula = `G${pregnancies}P`;
+            if (vaginalDeliveries > 0) {
+                gestationalFormula += `v${vaginalDeliveries}`;
+            }
+            if (cesareanDeliveries > 0) {
+                gestationalFormula += `C${cesareanDeliveries}`;
+            }
+            if (abortions > 0) {
+                gestationalFormula += `A${abortions}`;
+            }
+
+            // Update the output field with the gestational formula
+            if (pregnancies > 0 || vaginalDeliveries > 0 || cesareanDeliveries > 0 || abortions > 0) {
+                $("#Formula").val(gestationalFormula);
+                $("#GSS").val(gestationalFormula);
+            } else {
+                $("#Formula").val("GP");
+                $("#GSS").val("GP");
+
+            }
+        });
+    });
+
+
+    $(document).ready(function () {
+        $("#FUM").change(function () {
+            const selectedDate = new Date($("#FUM").val());
+            const today = new Date();
+            const diffTime = Math.abs(today - selectedDate);
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            const diffWeeks = (diffDays / 7);
+            $("#WeeksPregnant").val(diffWeeks.toFixed(2) + " Semanas");
+
+
+            const daysToAdd = 266;
+            const probabledateofdelivery = new Date(selectedDate.getTime() + daysToAdd * 24 * 60 * 60 * 1000);
+            console.log(probabledateofdelivery);
+
+            const isoDateString = probabledateofdelivery.toISOString().slice(0, 10);
+
+            // Set the value of the date input element
+            $('#ProbableDateOfDelivery').val(isoDateString);
+
+
+
+
+            const daysToAddConception = 23;
+            const probabledateofconception = new Date(selectedDate.getTime() + daysToAddConception * 24 * 60 * 60 * 1000);
+            console.log(probabledateofconception);
+
+            const isoDateStringConception = probabledateofconception.toISOString().slice(0, 10);
+
+            // Set the value of the date input element
+            $('#ProbableDateOfConception').val(isoDateStringConception);
+
+
+
+
+
+        });
+
+
+
+    });
+
+
+
+    // Calculate the number of weeks between the selected date and today's date
+
 
      function SmokerActiv() {
         var selectedOption = smokeractive.options[smokeractive.selectedIndex];
@@ -2802,16 +3037,16 @@
             dataType: 'json',
             contentType: false,
             processData: false
-        })
+            })
             .done(function (response) {
-                if (response.Success) {
-                    $("#Upload_document1").val(response.DocURL);
-                }
+            if (response.Success) {
+            $("#Upload_document1").val(response.DocURL);
+            }
             })
             .fail(function (XMLHttpRequest, textStatus, errorThrown) {
-                alert("FAIL");
+            alert("FAIL");
             })
-    });
+            });
     $("#FileAttachmentUpload2").change(function () {
         var element = this;
         var formData = new FormData();
@@ -2838,16 +3073,16 @@
             })
     });
     $("#actionButton").click(function () {
-		$.ajax({
-			url: '@Url.Action("Action", "PatientMaster")',
-			type: "post",
-			data: $("#actionForm").serialize()
-		})
-		.done(function () {
+        $.ajax({
+            url: '@Url.Action("Action", "PatientMaster")',
+            type: "post",
+            data: $("#actionForm").serialize()
+        })
+            .done(function () {
 
-            window.location.href = "@Url.Action("Index", "PatientMaster")";
+                window.location.href = "@Url.Action("Index", "PatientMaster")";
 
-		});
+            });
     });
 
 
@@ -2863,399 +3098,751 @@
 
 
 
-    $(document).ready(function () {
-        // TBC
-        $('#tbc-absent-checkbox, #tbc-present-family-checkbox, #tbc-present-personally-checkbox').click(function () {
+            $(document).ready(function () {
+            // TBC
+            $('#tbc-absent-checkbox, #tbc-present-family-checkbox, #tbc-present-personally-checkbox').click(function () {
             var diseaseName = '';
             if ($('#tbc-absent-checkbox').is(':checked')) {
-                diseaseName += ',Absent';
+            diseaseName += ',Absent';
             }
             if ($('#tbc-present-family-checkbox').is(':checked')) {
-                diseaseName += ', Family';
+            diseaseName += ', Family';
             }
             if ($('#tbc-present-personally-checkbox').is(':checked')) {
-                diseaseName += ', Personally';
+            diseaseName += ', Personally';
             }
             $('#Tbc').val(diseaseName);
-        });
+            });
 
 
-        // Diabetes
-        $('#diabetes-absent-checkbox, #diabetes-present-family-checkbox, #diabetes-present-personally-checkbox').click(function () {
-            var diseaseName = '';
-            if ($('#diabetes-absent-checkbox').is(':checked')) {
-                diseaseName += ',Absent';
-            }
-            if ($('#diabetes-present-family-checkbox').is(':checked')) {
-                diseaseName += ', Family';
-            }
-            if ($('#diabetes-present-personally-checkbox').is(':checked')) {
-                diseaseName += ', Personally';
-            }
-            $('#Diabetes').val(diseaseName);
-        });
+            // Diabetes
+                $('#diabetes-absent-checkbox, #diabetes-present-family-checkbox, #diabetes-present-personally-checkbox').click(function () {
+                    var diseaseName = '';
+                    if ($('#diabetes-absent-checkbox').is(':checked')) {
+                        diseaseName += ',Absent';
+                    }
+                    if ($('#diabetes-present-family-checkbox').is(':checked')) {
+                        diseaseName += ', Family';
+                    }
+                    if ($('#diabetes-present-personally-checkbox').is(':checked')) {
+                        diseaseName += ', Personally';
+                    }
+                    $('#Diabetes').val(diseaseName);
+                });
 
-        // Hypertension
-        $('#hypertension-absent-checkbox, #hypertension-present-family-checkbox, #hypertension-present-personally-checkbox').click(function () {
-            var diseaseName = '';
-            if ($('#hypertension-absent-checkbox').is(':checked')) {
-                diseaseName += ',Absent';
-            }
-            if ($('#hypertension-present-family-checkbox').is(':checked')) {
-                diseaseName += ', Family';
-            }
-            if ($('#hypertension-present-personally-checkbox').is(':checked')) {
-                diseaseName += ', Personally';
-            }
-            $('#Hypertension').val(diseaseName);
-        });
+            // Hypertension
+                $('#hypertension-absent-checkbox, #hypertension-present-family-checkbox, #hypertension-present-personally-checkbox').click(function () {
+                    var diseaseName = '';
+                    if ($('#hypertension-absent-checkbox').is(':checked')) {
+                        diseaseName += ',Absent';
+                    }
+                    if ($('#hypertension-present-family-checkbox').is(':checked')) {
+                        diseaseName += ', Family';
+                    }
+                    if ($('#hypertension-present-personally-checkbox').is(':checked')) {
+                        diseaseName += ', Personally';
+                    }
+                    $('#Hypertension').val(diseaseName);
+                });
 
-        // Eclampsia
-        $('#eclampsia-absent-checkbox, #eclampsia-present-family-checkbox, #eclampsia-present-personally-checkbox').click(function () {
+            // Eclampsia
+            $('#eclampsia-absent-checkbox, #eclampsia-present-family-checkbox, #eclampsia-present-personally-checkbox').click(function () {
             var diseaseName = '';
             if ($('#eclampsia-absent-checkbox').is(':checked')) {
-                diseaseName += ',Absent';
+            diseaseName += ',Absent';
             }
             if ($('#eclampsia-present-family-checkbox').is(':checked')) {
-                diseaseName += ', Family';
+            diseaseName += ', Family';
             }
             if ($('#eclampsia-present-personally-checkbox').is(':checked')) {
-                diseaseName += ', Personally';
+            diseaseName += ', Personally';
             }
             $('#Eclampsia').val(diseaseName);
-        });
+            });
 
-        // Preeclampsia
-        $('#preeclampsia-absent-checkbox, #preeclampsia-present-family-checkbox, #preeclampsia-present-personally-checkbox').click(function () {
+            // Preeclampsia
+            $('#preeclampsia-absent-checkbox, #preeclampsia-present-family-checkbox, #preeclampsia-present-personally-checkbox').click(function () {
             var diseaseName = '';
             if ($('#preeclampsia-absent-checkbox').is(':checked')) {
-                diseaseName += ',Absent';
+            diseaseName += ',Absent';
             }
             if ($('#preeclampsia-present-family-checkbox').is(':checked')) {
-                diseaseName += ', Family';
+            diseaseName += ', Family';
             }
             if ($('#preeclampsia-present-personally-checkbox').is(':checked')) {
-                diseaseName += ', Personally';
+            diseaseName += ', Personally';
             }
             $('#Preeclampsia').val(diseaseName);
-        });
+            });
 
-        // disc_sang
-        $('#disc_sang-absent-checkbox, #disc_sang-present-family-checkbox, #disc_sang-present-personally-checkbox').click(function () {
+            // disc_sang
+            $('#disc_sang-absent-checkbox, #disc_sang-present-family-checkbox, #disc_sang-present-personally-checkbox').click(function () {
             var diseaseName = '';
             if ($('#disc_sang-absent-checkbox').is(':checked')) {
-                diseaseName += ',Absent';
+            diseaseName += ',Absent';
             }
             if ($('#disc_sang-present-family-checkbox').is(':checked')) {
-                diseaseName += ', Family';
+            diseaseName += ', Family';
             }
             if ($('#disc_sang-present-personally-checkbox').is(':checked')) {
-                diseaseName += ', Personally';
+            diseaseName += ', Personally';
             }
             $('#disc_sang').val(diseaseName);
-        });
+            });
 
-        // Infertility
-        $('#infertility-absent-checkbox, #infertility-present-family-checkbox, #infertility-present-personally-checkbox').click(function () {
+            // Infertility
+            $('#infertility-absent-checkbox, #infertility-present-family-checkbox, #infertility-present-personally-checkbox').click(function () {
             var diseaseName = '';
             if ($('#infertility-absent-checkbox').is(':checked')) {
-                diseaseName += ',Absent';
+            diseaseName += ',Absent';
             }
             if ($('#infertility-present-family-checkbox').is(':checked')) {
-                diseaseName += ', Family';
+            diseaseName += ', Family';
             }
             if ($('#infertility-present-personally-checkbox').is(':checked')) {
-                diseaseName += ', Personally';
+            diseaseName += ', Personally';
             }
             $('#Infertility').val(diseaseName);
-        });
+            });
 
-        // Cardiopathy
-        $('#cardiopathy-absent-checkbox, #cardiopathy-present-family-checkbox, #cardiopathy-present-personally-checkbox').click(function () {
+            // Cardiopathy
+            $('#cardiopathy-absent-checkbox, #cardiopathy-present-family-checkbox, #cardiopathy-present-personally-checkbox').click(function () {
             var diseaseName = '';
             if ($('#cardiopathy-absent-checkbox').is(':checked')) {
-                diseaseName += ',Absent';
+            diseaseName += ',Absent';
             }
             if ($('#cardiopathy-present-family-checkbox').is(':checked')) {
-                diseaseName += ', Family';
+            diseaseName += ', Family';
             }
             if ($('#cardiopathy-present-personally-checkbox').is(':checked')) {
-                diseaseName += ', Personally';
+            diseaseName += ', Personally';
             }
             $('#Cardiopathy').val(diseaseName);
-        });
+            });
 
-        // Nephropathy
-        $('#nephropathy-absent-checkbox, #nephropathy-present-family-checkbox, #nephropathy-present-personally-checkbox').click(function () {
+            // Nephropathy
+            $('#nephropathy-absent-checkbox, #nephropathy-present-family-checkbox, #nephropathy-present-personally-checkbox').click(function () {
             var diseaseName = '';
             if ($('#nephropathy-absent-checkbox').is(':checked')) {
-                diseaseName += ',Absent';
+            diseaseName += ',Absent';
             }
             if ($('#nephropathy-present-family-checkbox').is(':checked')) {
-                diseaseName += ', Family';
+            diseaseName += ', Family';
             }
             if ($('#nephropathy-present-personally-checkbox').is(':checked')) {
-                diseaseName += ', Personally';
+            diseaseName += ', Personally';
             }
             $('#Nephropathy').val(diseaseName);
-        });
+            });
 
-        // Violence
-        $('#violence-absent-checkbox, #violence-present-family-checkbox, #violence-present-personally-checkbox').click(function () {
+            // Violence
+            $('#violence-absent-checkbox, #violence-present-family-checkbox, #violence-present-personally-checkbox').click(function () {
             var diseaseName = '';
             if ($('#violence-absent-checkbox').is(':checked')) {
-                diseaseName += ',Absent';
+            diseaseName += ',Absent';
             }
             if ($('#violence-present-family-checkbox').is(':checked')) {
-                diseaseName += ', Family';
+            diseaseName += ', Family';
             }
             if ($('#violence-present-personally-checkbox').is(':checked')) {
-                diseaseName += ', Personally';
+            diseaseName += ', Personally';
             }
             $('#Violence').val(diseaseName);
-        });
+            });
 
-        // HIV
-        $('#hiv-absent-checkbox, #hiv-present-family-checkbox, #hiv-present-personally-checkbox').click(function () {
+            // HIV
+            $('#hiv-absent-checkbox, #hiv-present-family-checkbox, #hiv-present-personally-checkbox').click(function () {
             var diseaseName = '';
             if ($('#hiv-absent-checkbox').is(':checked')) {
-                diseaseName += ',Absent';
+            diseaseName += ',Absent';
             }
             if ($('#hiv-present-family-checkbox').is(':checked')) {
-                diseaseName += ', Family';
+            diseaseName += ', Family';
             }
             if ($('#hiv-present-personally-checkbox').is(':checked')) {
-                diseaseName += ', Personally';
+            diseaseName += ', Personally';
             }
             $('#HIV').val(diseaseName);
-        });
+            });
 
-        // Migraine
-        $('#migraine-absent-checkbox, #migraine-present-family-checkbox, #migraine-present-personally-checkbox').click(function () {
+            // Migraine
+            $('#migraine-absent-checkbox, #migraine-present-family-checkbox, #migraine-present-personally-checkbox').click(function () {
             var diseaseName = '';
             if ($('#migraine-absent-checkbox').is(':checked')) {
-                diseaseName += ',Absent';
+            diseaseName += ',Absent';
             }
             if ($('#migraine-present-family-checkbox').is(':checked')) {
-                diseaseName += ', Family';
+            diseaseName += ', Family';
             }
             if ($('#migraine-present-personally-checkbox').is(':checked')) {
-                diseaseName += ', Personally';
+            diseaseName += ', Personally';
             }
             $('#Migraine').val(diseaseName);
-        });
+            });
 
-        // Thromboembolic
-        $('#thromboembolic-absent-checkbox, #thromboembolic-present-family-checkbox, #thromboembolic-present-personally-checkbox').click(function () {
+            // Thromboembolic
+            $('#thromboembolic-absent-checkbox, #thromboembolic-present-family-checkbox, #thromboembolic-present-personally-checkbox').click(function () {
             var diseaseName = '';
             if ($('#thromboembolic-absent-checkbox').is(':checked')) {
-                diseaseName += ',Absent';
+            diseaseName += ',Absent';
             }
             if ($('#thromboembolic-present-family-checkbox').is(':checked')) {
-                diseaseName += ', Family';
+            diseaseName += ', Family';
             }
             if ($('#thromboembolic-present-personally-checkbox').is(':checked')) {
-                diseaseName += ', Personally';
+            diseaseName += ', Personally';
             }
             $('#Thromboembolic').val(diseaseName);
-        });
+            });
 
-        // BMI 29
-        $('#bmi_29-absent-checkbox, #bmi_29-present-family-checkbox, #bmi_29-present-personally-checkbox').click(function () {
+            // BMI 29
+            $('#bmi_29-absent-checkbox, #bmi_29-present-family-checkbox, #bmi_29-present-personally-checkbox').click(function () {
             var diseaseName = '';
             if ($('#bmi_29-absent-checkbox').is(':checked')) {
-                diseaseName += ',Absent';
+            diseaseName += ',Absent';
             }
             if ($('#bmi_29-present-family-checkbox').is(':checked')) {
-                diseaseName += ', Family';
+            diseaseName += ', Family';
             }
             if ($('#bmi_29-present-personally-checkbox').is(':checked')) {
-                diseaseName += ', Personally';
+            diseaseName += ', Personally';
             }
             $('#BMI_29').val(diseaseName);
-        });
+            });
 
-        // BMI 39
-        $('#bmi_39-absent-checkbox, #bmi_39-present-family-checkbox, #bmi_39-present-personally-checkbox').click(function () {
+            // BMI 39
+            $('#bmi_39-absent-checkbox, #bmi_39-present-family-checkbox, #bmi_39-present-personally-checkbox').click(function () {
             var diseaseName = '';
             if ($('#bmi_39-absent-checkbox').is(':checked')) {
-                diseaseName += ',Absent';
+            diseaseName += ',Absent';
             }
             if ($('#bmi_39-present-family-checkbox').is(':checked')) {
-                diseaseName += ', Family';
+            diseaseName += ', Family';
             }
             if ($('#bmi_39-present-personally-checkbox').is(':checked')) {
-                diseaseName += ', Personally';
+            diseaseName += ', Personally';
             }
             $('#BMI_39').val(diseaseName);
-        });
+            });
 
-        // Disc Sang
-        $('#discsang-absent-checkbox, #discsang-present-family-checkbox, #discsang-present-personally-checkbox').click(function () {
+            // Disc Sang
+            $('#discsang-absent-checkbox, #discsang-present-family-checkbox, #discsang-present-personally-checkbox').click(function () {
             var diseaseName = '';
             if ($('#discsang-absent-checkbox').is(':checked')) {
-                diseaseName += ',Absent';
+            diseaseName += ',Absent';
             }
             if ($('#discsang-present-family-checkbox').is(':checked')) {
-                diseaseName += ', Family';
+            diseaseName += ', Family';
             }
             if ($('#discsang-present-personally-checkbox').is(':checked')) {
-                diseaseName += ', Personally';
+            diseaseName += ', Personally';
             }
             $('#Disc_Sang').val(diseaseName);
-        });
+            });
 
 
 
 
 
 
-    });
+            });
 
 
 
 
-    $("#PatientIDActionBtn").click(function () {
-    const form = document.getElementById('patientIdForm');
-    const requiredInputs = form.querySelectorAll('input[required], select[required]');
-    let isValid = true;
-    requiredInputs.forEach(function (input) {
-        if (input.value.trim() === '') {
+            $("#PatientIDActionBtn").click(function () {
+            const form = document.getElementById('patientIdForm');
+            const requiredInputs = form.querySelectorAll('input[required], select[required]');
+            let isValid = true;
+            requiredInputs.forEach(function (input) {
+            if (input.value.trim() === '') {
             input.classList.add('is-invalid');
             isValid = false;
-        } else {
+            } else {
             input.classList.remove('is-invalid');
-        }
-    });
+            }
+            });
 
-    // If any required field is empty, prevent the form from being submitted
-    if (!isValid) {
-        alert("All Fields are mandatory");
-        return false;
-    } else {
-        $.ajax({
+            // If any required field is empty, prevent the form from being submitted
+            if (!isValid) {
+            alert("All Fields are mandatory");
+            return false;
+            } else {
+            $.ajax({
             url: '@Url.Action("Action", "PatientMaster")',
             type: "post",
             data: $("#patientIdForm").serialize()
-        })
+            })
             .done(function (result) {
-                if (result.success) {
-                    alert("Saved Successfully!!");
+            if (result.success) {
+                alert("Saved Successfully!!");
+            var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
 
-                    var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+            // get the next tab
+            var nextTab = activeTab.nextElementSibling;
 
-                    // get the next tab
-                    var nextTab = activeTab.nextElementSibling;
-
-                    // activate the next tab
-                    if (nextTab) {
-                        var tabLink = nextTab.querySelector(".nav-link");
-                        if (tabLink) {
-                            var activeTabLink = activeTab.querySelector('.nav-link.active');
-                            var nextTabLink = nextTab.querySelector('.nav-link');
-                            activeTabLink.classList.remove('active');
-                            nextTabLink.classList.add('active');
-
+            // activate the next tab
+            if (nextTab) {
+            var tabLink = nextTab.querySelector(".nav-link");
+            if (tabLink) {
+            var activeTabLink = activeTab.querySelector('.nav-link.active');
+            var nextTabLink = nextTab.querySelector('.nav-link');
+            activeTabLink.classList.remove('active');
+            nextTabLink.classList.add('active');
 
 
-                            // To remove classes
-                            $('.tab-pane.active.show').removeClass('active show');
 
-                            tabLink.click();
-                            $("#pills-cop").addClass('active show');
-                        }
-                    }
-                    else {
-                        alert("Data Didn't Saved!!!!");
-                    }
-                }
-            });
-    }
-});
-    $("#PregConfirmActionBtn").click(function () {
-        const form = document.getElementById('pocForm');
-        const requiredInputs = form.querySelectorAll('input[required], select[required]');
-        let isValid = true;
-        requiredInputs.forEach(function (input) {
-            if (input.value.trim() === '') {
-                input.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                input.classList.remove('is-invalid');
+            // To remove classes
+            $('.tab-pane.active.show').removeClass('active show');
+
+            tabLink.click();
+            $("#pills-cop").addClass('active show');
             }
-        });
+            }
+            else {
+            alert("Data Didn't Saved!!!!");
+            }
+            }
+            });
+            }
+            });
+            $("#PregConfirmActionBtn").click(function () {
+            const form = document.getElementById('pocForm');
+            const requiredInputs = form.querySelectorAll('input[required], select[required]');
+            let isValid = true;
+            requiredInputs.forEach(function (input) {
+            if (input.value.trim() === '') {
+            input.classList.add('is-invalid');
+            isValid = false;
+            } else {
+            input.classList.remove('is-invalid');
+            }
+            });
 
-        // If any required field is empty, prevent the form from being submitted
-        if (!isValid) {
+            // If any required field is empty, prevent the form from being submitted
+            if (!isValid) {
             alert("All Fields are mandatory");
             return false;
-        } else {
+            } else {
             $.ajax({
-                url: '@Url.Action("Action", "PatientMaster")',
-                type: "post",
-                data: $("#pocForm").serialize() + "&Step=Step2"
+            url: '@Url.Action("Action", "PatientMaster")',
+            type: "post",
+            data: $("#pocForm").serialize() + "&Step=Step2"
             })
-                .done(function (result) {
-                    if (result.success) {
-                        alert("Saved Successfully!!");
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+            .done(function (result) {
+            if (result.success) {
+                alert("Saved Successfully!!");
 
-                        // get the next tab
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+            var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
 
-                        // get the next tab
-                        var nextTab = activeTab.nextElementSibling;
+            // get the next tab
+            var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
 
-                        // activate the next tab
-                        if (nextTab) {
-                            var tabLink = nextTab.querySelector(".nav-link");
-                            if (tabLink) {
-                                var activeTabLink = activeTab.querySelector('.nav-link.active');
-                                var nextTabLink = nextTab.querySelector('.nav-link');
-                                activeTabLink.classList.remove('active');
-                                nextTabLink.classList.add('active');
+            // get the next tab
+            var nextTab = activeTab.nextElementSibling;
+
+            // activate the next tab
+            if (nextTab) {
+            var tabLink = nextTab.querySelector(".nav-link");
+            if (tabLink) {
+            var activeTabLink = activeTab.querySelector('.nav-link.active');
+            var nextTabLink = nextTab.querySelector('.nav-link');
+            activeTabLink.classList.remove('active');
+            nextTabLink.classList.add('active');
 
 
 
-                                // To remove classes
-                                $('.tab-pane.active.show').removeClass('active show');
+            // To remove classes
+            $('.tab-pane.active.show').removeClass('active show');
 
-                                tabLink.click();
-                                $("#pills-b").addClass('active show');
-                            }
-                        } else {
-                            alert("Data Didn't Saved!!!!");
-                        }
-                    }
-                });
-        }
-    });
-    $("#BackgroundActionBtn").click(function () {
+            tabLink.click();
+            $("#pills-b").addClass('active show');
+            }
+            } else {
+            alert("Data Didn't Saved!!!!");
+            }
+            }
+            });
+            }
+            });
+            $("#BackgroundActionBtn").click(function () {
 
-        $.ajax({
+            $.ajax({
             url: '@Url.Action("Action", "PatientMaster")',
             type: "post",
             data: $("#backgroundForm").serialize() + "&Step=Step3"
-        })
-        .done(function (result) {
-                if (result.success) {
-                    alert("Saved Successfully!!");
-                    var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+            })
+            .done(function (result) {
+            if (result.success) {
+                alert("Saved Successfully!!");
+            var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
 
-                    // get the next tab
-                    var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+            // get the next tab
+            var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
 
-                    // get the next tab
-                    var nextTab = activeTab.nextElementSibling;
+            // get the next tab
+            var nextTab = activeTab.nextElementSibling;
 
-                    // activate the next tab
-                    if (nextTab) {
-                        var tabLink = nextTab.querySelector(".nav-link");
-                        if (tabLink) {
-                            var activeTabLink = activeTab.querySelector('.nav-link.active');
-                            var nextTabLink = nextTab.querySelector('.nav-link');
-                            activeTabLink.classList.remove('active');
-                            nextTabLink.classList.add('active');
+            // activate the next tab
+            if (nextTab) {
+            var tabLink = nextTab.querySelector(".nav-link");
+            if (tabLink) {
+            var activeTabLink = activeTab.querySelector('.nav-link.active');
+            var nextTabLink = nextTab.querySelector('.nav-link');
+            activeTabLink.classList.remove('active');
+            nextTabLink.classList.add('active');
+
+
+
+            // To remove classes
+            $('.tab-pane.active.show').removeClass('active show');
+
+            tabLink.click();
+            $("#pills-cg").addClass('active show');
+            }
+            } else {
+            alert("Data Didn't Saved!!!!");
+            }
+            }
+            });
+
+            });
+            $("#ObActionBtn").click(function () {
+            const form = document.getElementById('obform');
+            const requiredInputs = form.querySelectorAll('input[required]');
+            let isValid = true;
+            requiredInputs.forEach(function (input) {
+            if (input.value.trim() === '') {
+            input.classList.add('is-invalid');
+            isValid = false;
+            } else {
+            input.classList.remove('is-invalid');
+            }
+            });
+
+            // If any required field is empty, prevent the form from being submitted
+            if (!isValid) {
+            alert("All Fields are mandatory");
+            return false;
+            } else {
+            $.ajax({
+            url: '@Url.Action("Action", "PatientMaster")',
+            type: "post",
+            data: $("#obform").serialize() + "&Step=Step4"
+            })
+            .done(function (result) {
+            if (result.success) {
+                alert("Saved Successfully!!");
+
+            var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+            // get the next tab
+            var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+            // get the next tab
+            var nextTab = activeTab.nextElementSibling;
+
+            // activate the next tab
+            if (nextTab) {
+            var tabLink = nextTab.querySelector(".nav-link");
+            if (tabLink) {
+            var activeTabLink = activeTab.querySelector('.nav-link.active');
+            var nextTabLink = nextTab.querySelector('.nav-link');
+            activeTabLink.classList.remove('active');
+            nextTabLink.classList.add('active');
+
+
+
+            // To remove classes
+            $('.tab-pane.active.show').removeClass('active show');
+
+            tabLink.click();
+            $("#pills-ogcc").addClass('active show');
+            }
+            } else {
+            alert("Data Didn't Saved!!!!");
+            }
+            }
+            });
+            }
+            });
+            $("#OgcActionBtn").click(function () {
+            const form = document.getElementById('ogcform');
+            const requiredInputs = form.querySelectorAll('input[required]');
+            let isValid = true;
+            requiredInputs.forEach(function (input) {
+            if (input.value.trim() === '') {
+            input.classList.add('is-invalid');
+            isValid = false;
+            } else {
+            input.classList.remove('is-invalid');
+            }
+            });
+
+            // If any required field is empty, prevent the form from being submitted
+            if (!isValid) {
+            alert("All Fields are mandatory");
+            return false;
+            } else {
+            $.ajax({
+            url: '@Url.Action("Action", "PatientMaster")',
+            type: "post",
+            data: $("#ogcform").serialize() + "&Step=Step5"
+            })
+            .done(function (result) {
+            if (result.success) {
+                alert("Saved Successfully!!");
+
+
+
+            var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+            // get the next tab
+            var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+            // get the next tab
+            var nextTab = activeTab.nextElementSibling;
+
+            // activate the next tab
+            if (nextTab) {
+            var tabLink = nextTab.querySelector(".nav-link");
+            if (tabLink) {
+            var activeTabLink = activeTab.querySelector('.nav-link.active');
+            var nextTabLink = nextTab.querySelector('.nav-link');
+            activeTabLink.classList.remove('active');
+            nextTabLink.classList.add('active');
+
+
+
+            // To remove classes
+            $('.tab-pane.active.show').removeClass('active show');
+
+            tabLink.click();
+            $("#pills-cp").addClass('active show');
+            }
+            } else {
+            alert("Data Didn't Saved!!!!");
+            }
+            }
+            });
+            }
+            });
+            $("#CPactionBtn").click(function () {
+            const form = document.getElementById('cpform');
+            const requiredInputs = form.querySelectorAll('input[required]');
+            let isValid = true;
+            requiredInputs.forEach(function (input) {
+            if (input.value.trim() === '') {
+            input.classList.add('is-invalid');
+            isValid = false;
+            } else {
+            input.classList.remove('is-invalid');
+            }
+            });
+
+            // If any required field is empty, prevent the form from being submitted
+            if (!isValid) {
+            alert("All Fields are mandatory");
+            return false;
+            } else {
+            $.ajax({
+            url: '@Url.Action("Action", "PatientMaster")',
+            type: "post",
+            data: $("#cpform").serialize() + "&Step=Step6"
+            })
+            .done(function (result) {
+            if (result.success) {
+            alert("Saved Successfully!!");
+            var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+            // get the next tab
+            var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+            // get the next tab
+            var nextTab = activeTab.nextElementSibling;
+
+            // activate the next tab
+            if (nextTab) {
+            var tabLink = nextTab.querySelector(".nav-link");
+            if (tabLink) {
+            var activeTabLink = activeTab.querySelector('.nav-link.active');
+            var nextTabLink = nextTab.querySelector('.nav-link');
+            activeTabLink.classList.remove('active');
+            nextTabLink.classList.add('active');
+
+
+
+            // To remove classes
+            $('.tab-pane.active.show').removeClass('active show');
+
+            tabLink.click();
+            $("#pills-pa").addClass('active show');
+            }
+            } else {
+            alert("Data Didn't Saved!!!!");
+            }
+            }
+            });
+            }
+            });
+            $("#PAActionBtn").click(function () {
+            const form = document.getElementById('paform');
+            const requiredInputs = form.querySelectorAll('input[required]');
+            let isValid = true;
+            requiredInputs.forEach(function (input) {
+            if (input.value.trim() === '') {
+            input.classList.add('is-invalid');
+            isValid = false;
+            } else {
+            input.classList.remove('is-invalid');
+            }
+            });
+
+            // If any required field is empty, prevent the form from being submitted
+            if (!isValid) {
+            alert("All Fields are mandatory");
+            return false;
+            } else {
+            $.ajax({
+            url: '@Url.Action("Action", "PatientMaster")',
+            type: "post",
+            data: $("#paform").serialize() + "&Step=Step7"
+            })
+            .done(function (result) {
+            if (result.success) {
+            alert("Saved Successfully!!");
+            var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+            // get the next tab
+            var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+            // get the next tab
+            var nextTab = activeTab.nextElementSibling;
+
+            // activate the next tab
+            if (nextTab) {
+            var tabLink = nextTab.querySelector(".nav-link");
+            if (tabLink) {
+            var activeTabLink = activeTab.querySelector('.nav-link.active');
+            var nextTabLink = nextTab.querySelector('.nav-link');
+            activeTabLink.classList.remove('active');
+            nextTabLink.classList.add('active');
+
+
+
+            // To remove classes
+            $('.tab-pane.active.show').removeClass('active show');
+
+            tabLink.click();
+            $("#pills-imm").addClass('active show');
+            }
+            } else {
+            alert("Data Didn't Saved!!!!");
+            }
+            }
+            });
+            }
+            });
+            $("#ImmActionBtn").click(function () {
+            const form = document.getElementById('immform');
+            const requiredInputs = form.querySelectorAll('input[required]');
+            let isValid = true;
+            requiredInputs.forEach(function (input) {
+            if (input.value.trim() === '') {
+            input.classList.add('is-invalid');
+            isValid = false;
+            } else {
+            input.classList.remove('is-invalid');
+            }
+            });
+
+            // If any required field is empty, prevent the form from being submitted
+            if (!isValid) {
+            alert("All Fields are mandatory");
+            return false;
+            } else {
+            $.ajax({
+            url: '@Url.Action("Action", "PatientMaster")',
+            type: "post",
+            data: $("#immform").serialize() + "&Step=Step8"
+            })
+            .done(function (result) {
+            if (result.success) {
+            alert("Saved Successfully!!");
+            var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+            // get the next tab
+            var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+            // get the next tab
+            var nextTab = activeTab.nextElementSibling;
+
+            // activate the next tab
+            if (nextTab) {
+            var tabLink = nextTab.querySelector(".nav-link");
+            if (tabLink) {
+            var activeTabLink = activeTab.querySelector('.nav-link.active');
+            var nextTabLink = nextTab.querySelector('.nav-link');
+            activeTabLink.classList.remove('active');
+            nextTabLink.classList.add('active');
+
+
+
+            // To remove classes
+            $('.tab-pane.active.show').removeClass('active show');
+
+            tabLink.click();
+            $("#pills-lb").addClass('active show');
+            }
+            } else {
+            alert("Data Didn't Saved!!!!");
+            }
+            }
+            });
+            }
+            });
+            $("#LabActionBtn").click(function () {
+            const form = document.getElementById('labform');
+            const requiredInputs = form.querySelectorAll('input[required]');
+            let isValid = true;
+            requiredInputs.forEach(function (input) {
+            if (input.value.trim() === '') {
+            input.classList.add('is-invalid');
+            isValid = false;
+            } else {
+            input.classList.remove('is-invalid');
+            }
+            });
+
+            // If any required field is empty, prevent the form from being submitted
+            if (!isValid) {
+            alert("All Fields are mandatory");
+            return false;
+            } else {
+            $.ajax({
+            url: '@Url.Action("Action", "PatientMaster")',
+            type: "post",
+            data: $("#labform").serialize() + "&Step=Step9"
+            })
+            .done(function (result) {
+            if (result.success) {
+            alert("Saved Successfully!!");
+            var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+            // get the next tab
+            var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
+
+            // get the next tab
+            var nextTab = activeTab.nextElementSibling;
+
+            // activate the next tab
+            if (nextTab) {
+            var tabLink = nextTab.querySelector(".nav-link");
+            if (tabLink) {
+            var activeTabLink = activeTab.querySelector('.nav-link.active');
+            var nextTabLink = nextTab.querySelector('.nav-link');
+            activeTabLink.classList.remove('active');
+            nextTabLink.classList.add('active');
 
 
 
@@ -3263,649 +3850,300 @@
                             $('.tab-pane.active.show').removeClass('active show');
 
                             tabLink.click();
-                            $("#pills-cg").addClass('active show');
+                $("#pills-r").addClass('active show');
                         }
                     } else {
                         alert("Data Didn't Saved!!!!");
                     }
                 }
             });
+                }
+            });
 
-    });
-    $("#ObActionBtn").click(function () {
-        const form = document.getElementById('obform');
-        const requiredInputs = form.querySelectorAll('input[required]');
-        let isValid = true;
-        requiredInputs.forEach(function (input) {
-            if (input.value.trim() === '') {
-                input.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                input.classList.remove('is-invalid');
-            }
-        });
 
-        // If any required field is empty, prevent the form from being submitted
-        if (!isValid) {
-            alert("All Fields are mandatory");
-            return false;
-        } else {
-            $.ajax({
-                url: '@Url.Action("Action", "PatientMaster")',
-                type: "post",
-                data: $("#obform").serialize() + "&Step=Step4"
-            })
-                .done(function (result) {
-                    if (result.success) {
-                        alert("Saved Successfully!!");
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
 
-                        // get the next tab
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
 
-                        // get the next tab
-                        var nextTab = activeTab.nextElementSibling;
 
-                        // activate the next tab
-                        if (nextTab) {
-                            var tabLink = nextTab.querySelector(".nav-link");
-                            if (tabLink) {
-                                var activeTabLink = activeTab.querySelector('.nav-link.active');
-                                var nextTabLink = nextTab.querySelector('.nav-link');
-                                activeTabLink.classList.remove('active');
-                                nextTabLink.classList.add('active');
 
 
 
-                                // To remove classes
-                                $('.tab-pane.active.show').removeClass('active show');
 
-                                tabLink.click();
-                                $("#pills-ogcc").addClass('active show');
-                            }
-                        } else {
-                            alert("Data Didn't Saved!!!!");
-                        }
-                    }
-                });
-        }
-    });
-    $("#OgcActionBtn").click(function () {
-          const form = document.getElementById('ogcform');
-        const requiredInputs = form.querySelectorAll('input[required]');
-        let isValid = true;
-        requiredInputs.forEach(function (input) {
-            if (input.value.trim() === '') {
-                input.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                input.classList.remove('is-invalid');
-            }
-        });
 
-        // If any required field is empty, prevent the form from being submitted
-        if (!isValid) {
-            alert("All Fields are mandatory");
-            return false;
-        } else {
-            $.ajax({
-                url: '@Url.Action("Action", "PatientMaster")',
-                type: "post",
-                data: $("#ogcform").serialize() + "&Step=Step5"
-            })
-                .done(function (result) {
-                    if (result.success) {
-                        alert("Saved Successfully!!");
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
 
-                        // get the next tab
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
 
-                        // get the next tab
-                        var nextTab = activeTab.nextElementSibling;
 
-                        // activate the next tab
-                        if (nextTab) {
-                            var tabLink = nextTab.querySelector(".nav-link");
-                            if (tabLink) {
-                                var activeTabLink = activeTab.querySelector('.nav-link.active');
-                                var nextTabLink = nextTab.querySelector('.nav-link');
-                                activeTabLink.classList.remove('active');
-                                nextTabLink.classList.add('active');
 
+            //Background Checkbox Binding
+            $(document).ready(function () {
 
-
-                                // To remove classes
-                                $('.tab-pane.active.show').removeClass('active show');
-
-                                tabLink.click();
-                                $("#pills-cp").addClass('active show');
-                            }
-                        } else {
-                            alert("Data Didn't Saved!!!!");
-                        }
-                    }
-                });
-        }
-    });
-    $("#CPactionBtn").click(function () {
-          const form = document.getElementById('cpform');
-        const requiredInputs = form.querySelectorAll('input[required]');
-        let isValid = true;
-        requiredInputs.forEach(function (input) {
-            if (input.value.trim() === '') {
-                input.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                input.classList.remove('is-invalid');
-            }
-        });
-
-        // If any required field is empty, prevent the form from being submitted
-        if (!isValid) {
-            alert("All Fields are mandatory");
-            return false;
-        } else {
-            $.ajax({
-                url: '@Url.Action("Action", "PatientMaster")',
-                type: "post",
-                data: $("#cpform").serialize() + "&Step=Step6"
-            })
-                .done(function (result) {
-                    if (result.success) {
-                        alert("Saved Successfully!!");
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var nextTab = activeTab.nextElementSibling;
-
-                        // activate the next tab
-                        if (nextTab) {
-                            var tabLink = nextTab.querySelector(".nav-link");
-                            if (tabLink) {
-                                var activeTabLink = activeTab.querySelector('.nav-link.active');
-                                var nextTabLink = nextTab.querySelector('.nav-link');
-                                activeTabLink.classList.remove('active');
-                                nextTabLink.classList.add('active');
-
-
-
-                                // To remove classes
-                                $('.tab-pane.active.show').removeClass('active show');
-
-                                tabLink.click();
-                                $("#pills-pa").addClass('active show');
-                            }
-                        } else {
-                            alert("Data Didn't Saved!!!!");
-                        }
-                    }
-                });
-        }
-    });
-    $("#PAActionBtn").click(function () {
-        const form = document.getElementById('paform');
-        const requiredInputs = form.querySelectorAll('input[required]');
-        let isValid = true;
-        requiredInputs.forEach(function (input) {
-            if (input.value.trim() === '') {
-                input.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                input.classList.remove('is-invalid');
-            }
-        });
-
-        // If any required field is empty, prevent the form from being submitted
-        if (!isValid) {
-            alert("All Fields are mandatory");
-            return false;
-        } else {
-            $.ajax({
-                url: '@Url.Action("Action", "PatientMaster")',
-                type: "post",
-                data: $("#paform").serialize() + "&Step=Step7"
-            })
-                .done(function (result) {
-                    if (result.success) {
-                        alert("Saved Successfully!!");
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var nextTab = activeTab.nextElementSibling;
-
-                        // activate the next tab
-                        if (nextTab) {
-                            var tabLink = nextTab.querySelector(".nav-link");
-                            if (tabLink) {
-                                var activeTabLink = activeTab.querySelector('.nav-link.active');
-                                var nextTabLink = nextTab.querySelector('.nav-link');
-                                activeTabLink.classList.remove('active');
-                                nextTabLink.classList.add('active');
-
-
-
-                                // To remove classes
-                                $('.tab-pane.active.show').removeClass('active show');
-
-                                tabLink.click();
-                                $("#pills-imm").addClass('active show');
-                            }
-                        } else {
-                            alert("Data Didn't Saved!!!!");
-                        }
-                    }
-                });
-        }
-    });
-    $("#ImmActionBtn").click(function () {
-        const form = document.getElementById('immform');
-        const requiredInputs = form.querySelectorAll('input[required]');
-        let isValid = true;
-        requiredInputs.forEach(function (input) {
-            if (input.value.trim() === '') {
-                input.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                input.classList.remove('is-invalid');
-            }
-        });
-
-        // If any required field is empty, prevent the form from being submitted
-        if (!isValid) {
-            alert("All Fields are mandatory");
-            return false;
-        } else {
-            $.ajax({
-                url: '@Url.Action("Action", "PatientMaster")',
-                type: "post",
-                data: $("#immform").serialize() + "&Step=Step8"
-            })
-                .done(function (result) {
-                    if (result.success) {
-                        alert("Saved Successfully!!");
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var nextTab = activeTab.nextElementSibling;
-
-                        // activate the next tab
-                        if (nextTab) {
-                            var tabLink = nextTab.querySelector(".nav-link");
-                            if (tabLink) {
-                                var activeTabLink = activeTab.querySelector('.nav-link.active');
-                                var nextTabLink = nextTab.querySelector('.nav-link');
-                                activeTabLink.classList.remove('active');
-                                nextTabLink.classList.add('active');
-
-
-
-                                // To remove classes
-                                $('.tab-pane.active.show').removeClass('active show');
-
-                                tabLink.click();
-                                $("#pills-lb").addClass('active show');
-                            }
-                        } else {
-                            alert("Data Didn't Saved!!!!");
-                        }
-                    }
-                });
-        }
-    });
-    $("#LabActionBtn").click(function () {
-        const form = document.getElementById('labform');
-        const requiredInputs = form.querySelectorAll('input[required]');
-        let isValid = true;
-        requiredInputs.forEach(function (input) {
-            if (input.value.trim() === '') {
-                input.classList.add('is-invalid');
-                isValid = false;
-            } else {
-                input.classList.remove('is-invalid');
-            }
-        });
-
-        // If any required field is empty, prevent the form from being submitted
-        if (!isValid) {
-            alert("All Fields are mandatory");
-            return false;
-        } else {
-            $.ajax({
-                url: '@Url.Action("Action", "PatientMaster")',
-                type: "post",
-                data: $("#labform").serialize() + "&Step=Step9"
-            })
-                .done(function (result) {
-                    if (result.success) {
-                        alert("Saved Successfully!!");
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var activeTab = document.querySelector(".nav-pills .nav-link.active").parentNode;
-
-                        // get the next tab
-                        var nextTab = activeTab.nextElementSibling;
-
-                        // activate the next tab
-                        if (nextTab) {
-                            var tabLink = nextTab.querySelector(".nav-link");
-                            if (tabLink) {
-                                var activeTabLink = activeTab.querySelector('.nav-link.active');
-                                var nextTabLink = nextTab.querySelector('.nav-link');
-                                activeTabLink.classList.remove('active');
-                                nextTabLink.classList.add('active');
-
-
-
-                                // To remove classes
-                                $('.tab-pane.active.show').removeClass('active show');
-
-                                tabLink.click();
-                                $("#pills-r").addClass('active show');
-                            }
-                        } else {
-                            alert("Data Didn't Saved!!!!");
-                        }
-                    }
-                });
-        }
-    });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //Background Checkbox Binding
-    $(document).ready(function () {
-
-        //TBC
-        var tbcValue = "@Model.Tbc";
-        var tbcArray = tbcValue.split(",").map(function (value) { return value.trim(); });
-        if (tbcArray.includes("Absent")) {
+            //TBC
+            var tbcValue = "@Model.Tbc";
+            var tbcArray = tbcValue.split(",").map(function (value) { return value.trim(); });
+            if (tbcArray.includes("Absent")) {
             $("#tbc-absent-checkbox").prop("checked", true);
-        }
-        if (tbcArray.includes("Family")) {
+            }
+            if (tbcArray.includes("Family")) {
             $("#tbc-present-family-checkbox").prop("checked", true);
-        }
-        if (tbcArray.includes("Personally")) {
+            }
+            if (tbcArray.includes("Personally")) {
             $("#tbc-present-personally-checkbox").prop("checked", true);
-        }
+            }
 
 
 
 
-        //diabetes
-        var diabetesValue = "@Model.Diabetes";
-        var diabetesArray = diabetesValue.split(",").map(function(value) { return value.trim(); });
-        if (diabetesArray.includes("Absent")) {
+            //diabetes
+            var diabetesValue = "@Model.Diabetes";
+            var diabetesArray = diabetesValue.split(",").map(function(value) { return value.trim(); });
+            if (diabetesArray.includes("Absent")) {
             $("#diabetes-absent-checkbox").prop("checked", true);
-        }
-        if (diabetesArray.includes("Family")) {
+            }
+            if (diabetesArray.includes("Family")) {
             $("#diabetes-present-family-checkbox").prop("checked", true);
-        }
-        if (diabetesArray.includes("Personally")) {
+            }
+            if (diabetesArray.includes("Personally")) {
             $("#diabetes-present-personally-checkbox").prop("checked", true);
-        }
+            }
 
 
 
-        //hypertension
-        var hypertensionValue = "@Model.Hypertension";
-        var hypertensionArray = hypertensionValue.split(",").map(function(value) { return value.trim(); })
-        if (hypertensionArray.includes("Absent")) {
+            //hypertension
+            var hypertensionValue = "@Model.Hypertension";
+            var hypertensionArray = hypertensionValue.split(",").map(function(value) { return value.trim(); })
+            if (hypertensionArray.includes("Absent")) {
             $("#hypertension -absent-checkbox").prop("checked", true);
-        }
-        if (hypertensionArray.includes("Family")) {
+            }
+            if (hypertensionArray.includes("Family")) {
             $("#hypertension -present-family-checkbox").prop("checked", true);
-        }
-        if (hypertensionArray.includes("Personally")) {
+            }
+            if (hypertensionArray.includes("Personally")) {
             $("#hypertension -present-personally-checkbox").prop("checked", true);
-        }
+            }
 
 
-        //eclampsia
-        var eclampsiaValue = "@Model.Eclampsia";
-        var eclampsiaArray = eclampsiaValue.split(",").map(function(value) { return value.trim(); });
-        if (eclampsiaArray.includes("Absent")) {
+            //eclampsia
+            var eclampsiaValue = "@Model.Eclampsia";
+            var eclampsiaArray = eclampsiaValue.split(",").map(function(value) { return value.trim(); });
+            if (eclampsiaArray.includes("Absent")) {
             $("#eclampsia-absent-checkbox").prop("checked", true);
-        }
-        if (eclampsiaArray.includes("Family")) {
+            }
+            if (eclampsiaArray.includes("Family")) {
             $("#eclampsia-present-family-checkbox").prop("checked", true);
-        }
-        if (eclampsiaArray.includes("Personally")) {
+            }
+            if (eclampsiaArray.includes("Personally")) {
             $("#eclampsia-present-personally-checkbox").prop("checked", true);
-        }
+            }
 
 
 
-        //preeclampsia
-        var preeclampsiaValue = "@Model.Preeclampsia";
-        var preeclampsiaArray = preeclampsiaValue.split(",").map(function(value) { return value.trim(); });
-        if (preeclampsiaArray.includes("Absent")) {
+            //preeclampsia
+            var preeclampsiaValue = "@Model.Preeclampsia";
+            var preeclampsiaArray = preeclampsiaValue.split(",").map(function(value) { return value.trim(); });
+            if (preeclampsiaArray.includes("Absent")) {
             $("#preeclampsia-absent-checkbox").prop("checked", true);
-        }
-        if (preeclampsiaArray.includes("Family")) {
+            }
+            if (preeclampsiaArray.includes("Family")) {
             $("#preeclampsia-present-family-checkbox").prop("checked", true);
-        }
-        if (preeclampsiaArray.includes("Personally")) {
+            }
+            if (preeclampsiaArray.includes("Personally")) {
             $("#preeclampsia-present-personally-checkbox").prop("checked", true);
-        }
+            }
 
 
 
 
-        //disc_sang
-        var disc_sangValue = "@Model.Disc_Sang";
-        var disc_sangArray = disc_sangValue.split(",").map(function(value) { return value.trim(); });
-        if (disc_sangArray.includes("Absent")) {
+            //disc_sang
+            var disc_sangValue = "@Model.Disc_Sang";
+            var disc_sangArray = disc_sangValue.split(",").map(function(value) { return value.trim(); });
+            if (disc_sangArray.includes("Absent")) {
             $("#disc_sang-absent-checkbox").prop("checked", true);
-        }
-        if (disc_sangArray.includes("Family")) {
+            }
+            if (disc_sangArray.includes("Family")) {
             $("#disc_sang-present-family-checkbox").prop("checked", true);
-        }
-        if (disc_sangArray.includes("Personally")) {
+            }
+            if (disc_sangArray.includes("Personally")) {
             $("#disc_sang-present-personally-checkbox").prop("checked", true);
-        }
+            }
 
 
 
 
 
-        //infertility
-        var infertilityValue = "@Model.Infertility";
-        var infertilityArray = infertilityValue.split(",").map(function(value) { return value.trim(); });
-        if (infertilityArray.includes("Absent")) {
+            //infertility
+            var infertilityValue = "@Model.Infertility";
+            var infertilityArray = infertilityValue.split(",").map(function(value) { return value.trim(); });
+            if (infertilityArray.includes("Absent")) {
             $("#infertility-absent-checkbox").prop("checked", true);
-        }
-        if (infertilityArray.includes("Family")) {
+            }
+            if (infertilityArray.includes("Family")) {
             $("#infertility-present-family-checkbox").prop("checked", true);
-        }
-        if (infertilityArray.includes("Personally")) {
+            }
+            if (infertilityArray.includes("Personally")) {
             $("#infertility-present-personally-checkbox").prop("checked", true);
-        }
+            }
 
 
 
 
 
-        //cardiopathy
-        var cardiopathyValue = "@Model.Cardiopathy";
-        var cardiopathyArray = cardiopathyValue.split(",").map(function(value) { return value.trim(); });
-        if (cardiopathyArray.includes("Absent")) {
+            //cardiopathy
+            var cardiopathyValue = "@Model.Cardiopathy";
+            var cardiopathyArray = cardiopathyValue.split(",").map(function(value) { return value.trim(); });
+            if (cardiopathyArray.includes("Absent")) {
             $("#cardiopathy-absent-checkbox").prop("checked", true);
-        }
-        if (cardiopathyArray.includes("Family")) {
+            }
+            if (cardiopathyArray.includes("Family")) {
             $("#cardiopathy-present-family-checkbox").prop("checked", true);
-        }
-        if (cardiopathyArray.includes("Personally")) {
+            }
+            if (cardiopathyArray.includes("Personally")) {
             $("#cardiopathy-present-personally-checkbox").prop("checked", true);
-        }
+            }
 
 
 
 
-        //nephropathy
-        var nephropathyValue = "@Model.Nephropathy";
-        var nephropathyArray = nephropathyValue.split(",").map(function(value) { return value.trim(); });
-        if (nephropathyArray.includes("Absent")) {
+            //nephropathy
+            var nephropathyValue = "@Model.Nephropathy";
+            var nephropathyArray = nephropathyValue.split(",").map(function(value) { return value.trim(); });
+            if (nephropathyArray.includes("Absent")) {
             $("#nephropathy-absent-checkbox").prop("checked", true);
-        }
-        if (nephropathyArray.includes("Family")) {
+            }
+            if (nephropathyArray.includes("Family")) {
             $("#nephropathy-present-family-checkbox").prop("checked", true);
-        }
-        if (nephropathyArray.includes("Personally")) {
+            }
+            if (nephropathyArray.includes("Personally")) {
             $("#nephropathy-present-personally-checkbox").prop("checked", true);
-        }
+            }
 
 
 
 
-        //violence
-        var violenceValue = "@Model.Violence";
-        var violenceArray = violenceValue.split(",").map(function(value) { return value.trim(); });
-        if (violenceArray.includes("Absent")) {
+            //violence
+            var violenceValue = "@Model.Violence";
+            var violenceArray = violenceValue.split(",").map(function(value) { return value.trim(); });
+            if (violenceArray.includes("Absent")) {
             $("#violence-absent-checkbox").prop("checked", true);
-        }
-        if (violenceArray.includes("Family")) {
+            }
+            if (violenceArray.includes("Family")) {
             $("#violence-present-family-checkbox").prop("checked", true);
-        }
-        if (violenceArray.includes("Personally")) {
+            }
+            if (violenceArray.includes("Personally")) {
             $("#violence-present-personally-checkbox").prop("checked", true);
-        }
+            }
 
 
 
 
-        //HIV
-        var HIVValue = "@Model.HIV";
-        var HIVArray = HIVValue.split(",").map(function(value) { return value.trim(); });
-        if (HIVArray.includes("Absent")) {
+            //HIV
+            var HIVValue = "@Model.HIV";
+            var HIVArray = HIVValue.split(",").map(function(value) { return value.trim(); });
+            if (HIVArray.includes("Absent")) {
             $("#hiv-absent-checkbox").prop("checked", true);
-        }
-        if (HIVArray.includes("Family")) {
+            }
+            if (HIVArray.includes("Family")) {
             $("#hiv-present-family-checkbox").prop("checked", true);
-        }
-        if (HIVArray.includes("Personally")) {
+            }
+            if (HIVArray.includes("Personally")) {
             $("#hiv-present-personally-checkbox").prop("checked", true);
-        }
+            }
 
 
 
 
-        //migraine
-        var migraineValue = "@Model.Migraine";
-        debugger
-        var migraineArray = migraineValue.split(",").map(function(value) { return value.trim(); });
-        if (migraineArray.includes("Absent")) {
+            //migraine
+            var migraineValue = "@Model.Migraine";
+            var migraineArray = migraineValue.split(",").map(function(value) { return value.trim(); });
+            if (migraineArray.includes("Absent")) {
             $("#migraine-absent-checkbox").prop("checked", true);
-        }
-        if (migraineArray.includes("Family")) {
+            }
+            if (migraineArray.includes("Family")) {
             $("#migraine-present-family-checkbox").prop("checked", true);
-        }
-        if (migraineArray.includes("Personally")) {
+            }
+            if (migraineArray.includes("Personally")) {
             $("#migraine-present-personally-checkbox").prop("checked", true);
-        }
+            }
 
 
 
 
-        //thromboembolic
-        var thromboembolicValue = "@Model.Thromboembolic";
-        var thromboembolicArray = thromboembolicValue.split(",").map(function(value) { return value.trim(); });
-        if (thromboembolicArray.includes("Absent")) {
+            //thromboembolic
+            var thromboembolicValue = "@Model.Thromboembolic";
+            var thromboembolicArray = thromboembolicValue.split(",").map(function(value) { return value.trim(); });
+            if (thromboembolicArray.includes("Absent")) {
             $("#thromboembolic-absent-checkbox").prop("checked", true);
-        }
-        if (thromboembolicArray.includes("Family")) {
+            }
+            if (thromboembolicArray.includes("Family")) {
             $("#thromboembolic-present-family-checkbox").prop("checked", true);
-        }
-        if (thromboembolicArray.includes("Personally")) {
+            }
+            if (thromboembolicArray.includes("Personally")) {
             $("#thromboembolic-present-personally-checkbox").prop("checked", true);
-        }
+            }
 
 
 
 
-        //bmi_29
-        var bmi_29Value = "@Model.BMI_29";
-        var bmi_29Array = bmi_29Value.split(",").map(function(value) { return value.trim(); });
-        if (bmi_29Array.includes("Absent")) {
+            //bmi_29
+            var bmi_29Value = "@Model.BMI_29";
+            var bmi_29Array = bmi_29Value.split(",").map(function(value) { return value.trim(); });
+            if (bmi_29Array.includes("Absent")) {
             $("#bmi_29-absent-checkbox").prop("checked", true);
-        }
-        if (bmi_29Array.includes("Family")) {
+            }
+            if (bmi_29Array.includes("Family")) {
             $("#bmi_29-present-family-checkbox").prop("checked", true);
-        }
-        if (bmi_29Array.includes("Personally")) {
+            }
+            if (bmi_29Array.includes("Personally")) {
             $("#bmi_29-present-personally-checkbox").prop("checked", true);
-        }
+            }
 
 
 
-        //bmi_39
-        var bmi_39Value = "@Model.BMI_39";
-        var bmi_39Array = bmi_39Value.split(",").map(function(value) { return value.trim(); });
-        if (bmi_39Array.includes("Absent")) {
+            //bmi_39
+            var bmi_39Value = "@Model.BMI_39";
+            var bmi_39Array = bmi_39Value.split(",").map(function(value) { return value.trim(); });
+            if (bmi_39Array.includes("Absent")) {
             $("#bmi_39-absent-checkbox").prop("checked", true);
-        }
-        if (bmi_39Array.includes("Family")) {
+            }
+            if (bmi_39Array.includes("Family")) {
             $("#bmi_39-present-family-checkbox").prop("checked", true);
-        }
-        if (bmi_39Array.includes("Personally")) {
+            }
+            if (bmi_39Array.includes("Personally")) {
             $("#bmi_39-present-personally-checkbox").prop("checked", true);
-        }
+            }
 
 
 
-        //disc_sang
-        var disc_sangValue = "@Model.Disc_Sang";
-        var disc_sangArray = disc_sangValue.split(",").map(function(value) { return value.trim(); });
-        if (disc_sangArray.includes("Absent")) {
+            //disc_sang
+            var disc_sangValue = "@Model.Disc_Sang";
+            var disc_sangArray = disc_sangValue.split(",").map(function(value) { return value.trim(); });
+            if (disc_sangArray.includes("Absent")) {
             $("#discsang-absent-checkbox").prop("checked", true);
-        }
-        if (disc_sangArray.includes("Family")) {
+            }
+            if (disc_sangArray.includes("Family")) {
             $("#discsang-present-family-checkbox").prop("checked", true);
-        }
-        if (disc_sangArray.includes("Personally")) {
+            }
+            if (disc_sangArray.includes("Personally")) {
             $("#discsang-present-personally-checkbox").prop("checked", true);
-        }
+            }
 
 
 
-        var otherValue = "@Model.Other";
+            var otherValue = "@Model.Other";
 
-        var otherArray = otherValue.split(",").map(function(value) { return value.trim(); })
-        if (otherArray.length > 0) {
+            var otherArray = otherValue.split(",").map(function(value) { return value.trim(); })
+            if (otherArray.length > 0) {
 
             if (otherArray.includes("Absent")) {
-                $("#other-absent-checkbox").val(otherArray[0]);
+            $("#other-absent-checkbox").val(otherArray[0]);
             }
             if (otherArray.includes("Family")) {
-                $("#other-present-family-checkbox").val(otherArray[1]);
+            $("#other-present-family-checkbox").val(otherArray[1]);
             }
             if (otherArray.includes("Personally")) {
-                $("#other-present-personally-checkbox").val(otherArray[2]);
+            $("#other-present-personally-checkbox").val(otherArray[2]);
             }
 
-        }
+            }
 
-    });
+            });
 
 </script>

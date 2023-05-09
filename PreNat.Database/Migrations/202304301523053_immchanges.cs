@@ -1,8 +1,7 @@
 ﻿namespace PreNat.Database.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class immchanges : DbMigration
     {
         public override void Up()
@@ -52,7 +51,7 @@
             DropColumn("dbo.Immunizations", "Hepatitis_A");
             DropColumn("dbo.Immunizations", "Hepatitis_A_Quantity");
         }
-        
+
         public override void Down()
         {
             AddColumn("dbo.Immunizations", "Hepatitis_A_Quantity", c => c.Int(nullable: false));
