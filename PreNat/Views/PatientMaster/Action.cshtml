@@ -723,7 +723,7 @@
                                                                 No Of Pregancies (Including the current one)
                                                             </td>
                                                             <td>
-                                                                <input type="text" class="form-control" id="NoOfPregnancy" name="NoOfPregnancy" value="@Model.NoOfPregnancy" />
+                                                                <input onchange="GenerateGestationalFormula()"  type="text" class="form-control" id="NoOfPregnancy" name="NoOfPregnancy" value="@Model.NoOfPregnancy" />
                                                             </td>
                                                         </tr>
 
@@ -1534,6 +1534,11 @@
         var dobInputElement = document.getElementById("Date_of_birth");
         var ageInputElement = document.getElementById("age");
 
+
+    var pregnancies = document.getElementById("NoOfPregnancy");
+    var vaginalDeliveries = document.getElementById("Vaginal");
+    var cesareanDeliveries = document.getElementById("Cesareas");
+    var abortions = document.getElementById("Abortions");
         // Add an event listener to the "Date_of_birth" input element that listens for the "change" event
     dobInputElement.addEventListener("change", function () {
         // Calculate the age based on the date of birth
@@ -1561,43 +1566,58 @@
     });
 
 
-
-
-
-    $(document).ready(function () {
-
-        // Attach a change event listener to relevant input fields
-        $("#NoOfPregnancy, #Vaginal, #Cesareas, #Abortions").change(function () {
-                
-            // Get the values of the input fields
-            let pregnancies = $("#NoOfPregnancy").val();
-            let vaginalDeliveries = $("#Vaginal").val();
-            let cesareanDeliveries = $("#Cesareas").val();
-            let abortions = $("#Abortions").val();
-
-            // Construct the gestational formula string
-            let gestationalFormula = `G${pregnancies}P`;
-            if (vaginalDeliveries > 0) {
-                gestationalFormula += `v${vaginalDeliveries}`;
-            }
-            if (cesareanDeliveries > 0) {
-                gestationalFormula += `C${cesareanDeliveries}`;
-            }
-            if (abortions > 0) {
-                gestationalFormula += `A${abortions}`;
-            }
-
-            // Update the output field with the gestational formula
-            if (pregnancies > 0 || vaginalDeliveries > 0 || cesareanDeliveries > 0 || abortions > 0) {
-                $("#Formula").val(gestationalFormula);
-                $("#GSS").val(gestationalFormula);
-            } else {
-                $("#Formula").val("GP");
-                $("#GSS").val("GP");
-
-            }
-        });
+    pregnancies.addEventListener("change", function () {
+        // Calculate the age based on the date of birth
+        if (pregnancies.value > 0) {
+            GenerateGestationalFormula();
+        }
     });
+    vaginalDeliveries.addEventListener("change", function () {
+        // Calculate the age based on the date of birth
+            GenerateGestationalFormula();
+        
+    });
+    cesareanDeliveries.addEventListener("change", function () {
+        // Calculate the age based on the date of birth
+            GenerateGestationalFormula();
+        
+    });
+    abortions.addEventListener("change", function () {
+        // Calculate the age based on the date of birth
+            GenerateGestationalFormula();
+        
+    });
+
+
+
+    function GenerateGestationalFormula() {
+        // Get the values of the input fields
+        let pregnancies = $("#NoOfPregnancy").val();
+        let vaginalDeliveries = $("#Vaginal").val();
+        let cesareanDeliveries = $("#Cesareas").val();
+        let abortions = $("#Abortions").val();
+
+        // Construct the gestational formula string
+        let gestationalFormula = `G${pregnancies}P`;
+        if (vaginalDeliveries > 0) {
+            gestationalFormula += `v${vaginalDeliveries}`;
+        }
+        if (cesareanDeliveries > 0) {
+            gestationalFormula += `C${cesareanDeliveries}`;
+        }
+        if (abortions > 0) {
+            gestationalFormula += `A${abortions}`;
+        }
+
+        // Update the output field with the gestational formula
+        if (pregnancies > 0 || vaginalDeliveries > 0 || cesareanDeliveries > 0 || abortions > 0) {
+            $("#Formula").val(gestationalFormula);
+        } else {
+            $("#Formula").val("GP");
+
+        }
+    }
+ 
 
 
     $(document).ready(function () {
