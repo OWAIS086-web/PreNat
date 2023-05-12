@@ -119,9 +119,8 @@ namespace PreNat.Controllers
                 model.Hepatitis_B_Dozes = patientmaster.Hepatitis_B_Dozes;
                 model.Hepatitis_BCheck = patientmaster.Hepatitis_BCheck;
 
-                model.GroupPositve = patientmaster.GroupPositve;
+                model.Group = patientmaster.Group;
                 model.SanguineoGroup = patientmaster.SanguineoGroup;
-                model.GroupNegative = patientmaster.GroupNegative;
                 model.VDRL = patientmaster.VDRL;
                 model.Syphilis = patientmaster.Syphilis;
                 model.VIH_L = patientmaster.VIH_L;
@@ -419,9 +418,8 @@ namespace PreNat.Controllers
                 }
                 if (Step == "Step9")
                 {
-                    patientmaster.GroupPositve = model.GroupPositve;
+                    patientmaster.Group = model.Group;
                     patientmaster.SanguineoGroup = model.SanguineoGroup;
-                    patientmaster.GroupNegative = model.GroupNegative;
                     patientmaster.VDRL = model.VDRL;
                     patientmaster.Syphilis = model.Syphilis;
                     patientmaster.VIH_L = model.VIH_L;
@@ -532,6 +530,7 @@ namespace PreNat.Controllers
                     }
 
                     #endregion
+                    
                     if (patientmaster.Age > 35 || patientmaster.Age < 15
                     || patientmaster.Race_DANE_Information == "Indigenous"
                     || patientmaster.Ethnicity_DANE_Information == "Indigenous"
@@ -572,14 +571,14 @@ namespace PreNat.Controllers
                     || patientmaster.PassiveSmoking == "Yes"
                     || patientmaster.ConsumeAlcohol == "Yes"
                     || patientmaster.ConsumeAlucinogenos == "Yes"
-                    || patientmaster.TetanusDiphtheriaNo == "No"
-                    || patientmaster.InfluenzaNo == "No"
-                    || patientmaster.RubellaNo == "No"
-                    || patientmaster.Hepatitis_ANo == "No"
-                    || patientmaster.Hepatitis_BNo == "No"
-                    || patientmaster.TdapNo == "No"
-                    || patientmaster.GroupPositve == "AB"
-                    || patientmaster.GroupPositve == "O"
+                    || patientmaster.TetanusDiphtheriaNo == "Yes"
+                    || patientmaster.InfluenzaNo == "Yes"
+                    || patientmaster.RubellaNo == "Yes"
+                    || patientmaster.Hepatitis_ANo == "Yes"
+                    || patientmaster.Hepatitis_BNo == "Yes"
+                    || patientmaster.TdapNo == "Yes"
+                    || patientmaster.Group == "AB"
+                    || patientmaster.Group == "O"
                     || patientmaster.VDRL == "Positive"
                     || patientmaster.Syphilis == "Positive"
                     || patientmaster.HIV == "Positive")
@@ -591,7 +590,7 @@ namespace PreNat.Controllers
 
                     #region HighRegion
 
-                    if (TBC.Contains("Personally") == true
+                    else if (TBC.Contains("Personally") == true
                         || Diabetes.Contains("Personally") == true
                         || Hypertension.Contains("Personally") == true
                         || Eclampsia.Contains("Personally") == true
@@ -609,6 +608,12 @@ namespace PreNat.Controllers
                     {
                         patientmaster.ReportStatus = "High";
                     }
+                    else
+                    {
+                        patientmaster.ReportStatus = "Low";
+
+                    }
+
                     #endregion
                 }
 
@@ -868,9 +873,8 @@ namespace PreNat.Controllers
                     }
                     if (Step == "Step9")
                     {
-                        patientmaster.GroupPositve = model.GroupPositve;
                         patientmaster.SanguineoGroup = model.SanguineoGroup;
-                        patientmaster.GroupNegative = model.GroupNegative;
+                        patientmaster.Group = model.Group;
                         patientmaster.VDRL = model.VDRL;
                         patientmaster.Syphilis = model.Syphilis;
                         patientmaster.VIH_L = model.VIH_L;
@@ -1028,8 +1032,8 @@ namespace PreNat.Controllers
                         || patientmaster.Hepatitis_ANo == "No"
                         || patientmaster.Hepatitis_BNo == "No"
                         || patientmaster.TdapNo == "No"
-                        || patientmaster.GroupPositve == "AB"
-                        || patientmaster.GroupPositve == "O"
+                        || patientmaster.Group == "AB"
+                        || patientmaster.Group == "O"
                         || patientmaster.VDRL == "Positive"
                         || patientmaster.Syphilis == "Positive"
                         || patientmaster.HIV == "Positive")

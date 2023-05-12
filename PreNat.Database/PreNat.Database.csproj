@@ -105,6 +105,10 @@
     <Compile Include="Migrations\202305081129159_reportstatus.designer.cs">
       <DependentUpon>202305081129159_reportstatus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305121819283_GroupFixed.cs" />
+    <Compile Include="Migrations\202305121819283_GroupFixed.designer.cs">
+      <DependentUpon>202305121819283_GroupFixed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DSContext.cs" />
@@ -155,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305081129159_reportstatus.resx">
       <DependentUpon>202305081129159_reportstatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305121819283_GroupFixed.resx">
+      <DependentUpon>202305121819283_GroupFixed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

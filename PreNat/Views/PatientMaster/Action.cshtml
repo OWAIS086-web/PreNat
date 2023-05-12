@@ -4,7 +4,9 @@
     .form-control {
         border: solid 1px black;
         height: 40px;
+        border-radius: 20px;
     }
+
 
     thead, tbody, tfoot, tr, td, th {
         border-color: black;
@@ -13,18 +15,36 @@
     }
 
     .nav-pills.nav-pills-custom .nav-link.active {
-        background: #5E6C90;
+        background: #2B3D98;
         margin-right: -15px;
         color: white;
     }
 
     .nav-pills.nav-pills-custom .nav-link {
-        border-radius: 0px;
+        border-radius: 10px;
         margin-right: -15px;
+        font-size: x-small;
         padding: 0.5rem 2.5rem;
-        background: #45BC9B;
+        background: #7C7672;
         color: white;
     }
+
+
+        .nav-pills.nav-pills-custom .nav-link.active:hover {
+            margin-right: -15px;
+            color: white;
+            background: #7C7672;
+        }
+
+        .nav-pills.nav-pills-custom .nav-link:hover {
+            border-radius: 10px;
+            margin-right: -15px;
+            font-size: x-small;
+            padding: 0.5rem 2.5rem;
+            background: #2B3D98;
+            color: white;
+        }
+
 
     .form-check text-center {
         position: relative;
@@ -58,7 +78,7 @@
         background-position: right 0.75rem center;
         background-size: 16px 12px;
         border: 1px solid black;
-        border-radius: 0.25rem;
+        border-radius: 20px;
         transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         appearance: none;
     }
@@ -81,66 +101,63 @@
             <hr />
 
 
-            <div class="col-12">
-                <div class="card">
-
-                    <div class="card-body">
+         
                         <div class="row">
                             <div class="col-md-12 mx-auto">
                                 @if (Model.ID != 0)
                                 {
                                     <ul class="nav nav-pills nav-pills-custom" id="pills-tab-custom" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link active" id="pills-pi-tab-custom" data-bs-toggle="pill" href="#pills-pi" role="tab" aria-bs-controls="pills-pi" aria-bs-selected="true">
-                                                Step 1: Patient Identification
+                                            <a class="nav-link active text-center" id="pills-pi-tab-custom" data-bs-toggle="pill" href="#pills-pi" role="tab" aria-bs-controls="pills-pi" aria-bs-selected="true">
+                                                Step 1: Patient <br> Identification
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="pills-cop-tab-custom" data-bs-toggle="pill" href="#pills-cop" role="tab" aria-bs-controls="pills-cop" aria-bs-selected="false">
-                                                Step 2: Confirmation of Preganancy
+                                            <a class="nav-link text-center" id="pills-cop-tab-custom" data-bs-toggle="pill" href="#pills-cop" role="tab" aria-bs-controls="pills-cop" aria-bs-selected="false">
+                                                Step 2: Confirmation <br /> of Preganancy
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="pills-b-tab-custom" data-bs-toggle="pill" href="#pills-b" role="tab" aria-bs-controls="pills-b" aria-bs-selected="false">
-                                                Step 3: Background
+                                            <a class="nav-link text-center" id="pills-b-tab-custom" data-bs-toggle="pill" href="#pills-b" role="tab" aria-bs-controls="pills-b" aria-bs-selected="false">
+                                                Step 3: <br /> Background
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="pills-cg-tab-custom" data-bs-toggle="pill" href="#pills-cg" role="tab" aria-bs-controls="pills-cg" aria-bs-selected="false">
-                                                Step 4: Current Gestation
-                                            </a>
-                                        </li>
-
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="pills-ogcc-tab-custom" data-bs-toggle="pill" href="#pills-ogcc" role="tab" aria-bs-controls="pills-ogcc" aria-bs-selected="false">
-                                                Step 5: Obstetric Gynecology Clinical Condition
+                                            <a class="nav-link text-center" id="pills-cg-tab-custom" data-bs-toggle="pill" href="#pills-cg" role="tab" aria-bs-controls="pills-cg" aria-bs-selected="false">
+                                                Step 4: Current<br /> Gestation
                                             </a>
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" id="pills-cp-tab-custom" data-bs-toggle="pill" href="#pills-cp" role="tab" aria-bs-controls="pills-cp" aria-bs-selected="false">
-                                                Step 6: Chronlogical Pregnancy
+                                            <a class="nav-link text-center" id="pills-ogcc-tab-custom" data-bs-toggle="pill" href="#pills-ogcc" role="tab" aria-bs-controls="pills-ogcc" aria-bs-selected="false">
+                                                Step 5: Obstetric <br /> Gynecology Clinical Condition
                                             </a>
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" id="pills-pa-tab-custom" data-bs-toggle="pill" href="#pills-pa" role="tab" aria-bs-controls="pills-pa" aria-bs-selected="false">
-                                                Step 7: Psychosocial Assessment
+                                            <a class="nav-link text-center" id="pills-cp-tab-custom" data-bs-toggle="pill" href="#pills-cp" role="tab" aria-bs-controls="pills-cp" aria-bs-selected="false">
+                                                Step 6: <br />Chronlogical Pregnancy
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a class="nav-link text-center" id="pills-pa-tab-custom" data-bs-toggle="pill" href="#pills-pa" role="tab" aria-bs-controls="pills-pa" aria-bs-selected="false">
+                                                Step 7:<br /> Psychosocial Assessment
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="pills-imm-tab-custom" data-bs-toggle="pill" href="#pills-imm" role="tab" aria-bs-controls="pills-imm" aria-bs-selected="false">
-                                                Step 8: Immunizations
+                                            <a class="nav-link text-center" id="pills-imm-tab-custom" data-bs-toggle="pill" href="#pills-imm" role="tab" aria-bs-controls="pills-imm" aria-bs-selected="false">
+                                                Step 8: <br /> Immunizations
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="pills-lb-tab-custom" data-bs-toggle="pill" href="#pills-lb" role="tab" aria-bs-controls="pills-lb" aria-bs-selected="false">
-                                                Step 9: Laborotory Tests
+                                            <a class="nav-link text-center" id="pills-lb-tab-custom" data-bs-toggle="pill" href="#pills-lb" role="tab" aria-bs-controls="pills-lb" aria-bs-selected="false">
+                                                Step 9: <br /> Laborotory Tests
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="pills-r-tab-custom" data-bs-toggle="pill" href="#pills-r" role="tab" aria-bs-controls="pills-r" aria-bs-selected="false">
-                                                Step 10: Report
+                                            <a class="nav-link text-center" id="pills-r-tab-custom" data-bs-toggle="pill" href="#pills-r" role="tab" aria-bs-controls="pills-r" aria-bs-selected="false">
+                                                Step 10: <br />Report
                                             </a>
                                         </li>
                                     </ul>
@@ -150,56 +167,56 @@
                                     <input type="hidden" id="PatientID" value="" />
                                     <ul class="nav nav-pills nav-pills-custom" id="pills-tab-custom" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link active" id="pills-pi-tab-custom" data--toggle="pill" href="#pills-pi" role="tab" aria-controls="pills-pi" aria-selected="true">
-                                                Step 1: Patient Identification
+                                            <a class="nav-link active text-center" id="pills-pi-tab-custom" data--toggle="pill" href="#pills-pi" role="tab" aria-controls="pills-pi" aria-selected="true">
+                                                Step 1: Patient <br> Identification
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="pills-cop-tab-custom" data-toggle="pill" href="#pills-cop" role="tab" aria-controls="pills-cop" aria-selected="false">
-                                                Step 2: Confirmation of Preganancy
+                                            <a class="nav-link text-center" id="pills-cop-tab-custom" data-toggle="pill" href="#pills-cop" role="tab" aria-controls="pills-cop" aria-selected="false">
+                                                Step 2: Confirmation <br /> of Preganancy
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="pills-b-tab-custom" data-toggle="pill" href="#pills-b" role="tab" aria-controls="pills-b" aria-selected="false">
-                                                Step 3: Background
+                                            <a class="nav-link text-center" id="pills-b-tab-custom" data-toggle="pill" href="#pills-b" role="tab" aria-controls="pills-b" aria-selected="false">
+                                                Step 3: <br /> Background
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="pills-cg-tab-custom" data-toggle="pill" href="#pills-cg" role="tab" aria-controls="pills-cg" aria-selected="false">
-                                                Step 4:  Current Gestation
+                                            <a class="nav-link text-center" id="pills-cg-tab-custom" data-toggle="pill" href="#pills-cg" role="tab" aria-controls="pills-cg" aria-selected="false">
+                                                Step 4: Current<br /> Gestation
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="pills-ogcc-tab-custom" data-toggle="pill" href="#pills-ogcc" role="tab" aria-controls="pills-ogcc" aria-selected="false">
-                                                Step 5:  Obstetric Gynecology Clinical Condition
-                                            </a>
-                                        </li>
-
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="pills-cp-tab-custom" data-toggle="pill" href="#pills-cp" role="tab" aria-controls="pills-cp" aria-selected="false">
-                                                Step 6: Chronlogical Pregnancy
+                                            <a class="nav-link text-center" id="pills-ogcc-tab-custom" data-toggle="pill" href="#pills-ogcc" role="tab" aria-controls="pills-ogcc" aria-selected="false">
+                                                Step 5: Obstetric <br /> Gynecology Clinical Condition
                                             </a>
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" id="pills-pa-tab-custom" data-toggle="pill" href="#pills-pa" role="tab" aria-controls="pills-pa" aria-selected="false">
-                                                Step 7: Psychosocial Assessment
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="pills-imm-tab-custom" data-toggle="pill" href="#pills-imm" role="tab" aria-controls="pills-imm" aria-selected="false">
-                                                Step 8: Immunizations
+                                            <a class="nav-link text-center" id="pills-cp-tab-custom" data-toggle="pill" href="#pills-cp" role="tab" aria-controls="pills-cp" aria-selected="false">
+                                                Step 6: <br />Chronlogical Pregnancy
                                             </a>
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" id="pills-lb-tab-custom" data-toggle="pill" href="#pills-lb" role="tab" aria-controls="pills-lb" aria-selected="false">
-                                                Step 9: Laborotory Tests
+                                            <a class="nav-link text-center" id="pills-pa-tab-custom" data-toggle="pill" href="#pills-pa" role="tab" aria-controls="pills-pa" aria-selected="false">
+                                                Step 7:<br /> Psychosocial Assessment
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="pills-r-tab-custom" data-toggle="pill" href="#pills-r" role="tab" aria-controls="pills-r" aria-selected="false">
-                                                Step 10: Report
+                                            <a class="nav-link text-center" id="pills-imm-tab-custom" data-toggle="pill" href="#pills-imm" role="tab" aria-controls="pills-imm" aria-selected="false">
+                                                Step 8: <br /> Immunizations
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a class="nav-link text-center" id="pills-lb-tab-custom" data-toggle="pill" href="#pills-lb" role="tab" aria-controls="pills-lb" aria-selected="false">
+                                                Step 9: <br /> Laborotory Tests
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-center" id="pills-r-tab-custom" data-toggle="pill" href="#pills-r" role="tab" aria-controls="pills-r" aria-selected="false">
+                                                Step 10: <br />Report
                                             </a>
                                         </li>
                                     </ul>
@@ -1304,11 +1321,9 @@
                                                                 Factor RH
                                                             </th>
                                                             <th>
-                                                                Negative (-)
+                                                                Group
                                                             </th>
-                                                            <th>
-                                                                Postive (+)
-                                                            </th>
+                                                           
                                                         </tr>
 
                                                     </thead>
@@ -1319,16 +1334,13 @@
                                                             </td>
                                                             <td>
                                                                 <select class="form-select" name="GroupPositve" id="GroupPositve">
-                                                                    <option class="Green" style="background:#6AA84F" value="A" @(Model.GroupPositve == "A" ? "selected" : "")>A</option>
-                                                                    <option class="Green" style="background:#6AA84F" value="B" @(Model.GroupPositve == "B" ? "selected" : "")>B</option>
+                                                                    <option class="Green" style="background:#6AA84F" value="A" @(Model.Group == "A" ? "selected" : "")>A</option>
+                                                                    <option class="Green" style="background:#6AA84F" value="B" @(Model.Group == "B" ? "selected" : "")>B</option>
+                                                                    <option class="Yellow" style="background: #FFFF00" value="AB" @(Model.Group == "AB" ? "selected" : "")>AB</option>
+                                                                    <option class="Yellow" style="background: #FFFF00" value="O" @(Model.Group == "O" ? "selected" : "")>O</option>
                                                                 </select>
                                                             </td>
-                                                            <td>
-                                                                <select class="form-select" name="GroupNegative" id="GroupNegative">
-                                                                    <option class="Yellow" style="background: #FFFF00" value="AB" @(Model.GroupNegative == "AB" ? "selected" : "")>AB</option>
-                                                                    <option class="Yellow" style="background: #FFFF00" value="O" @(Model.GroupNegative == "O" ? "selected" : "")>O</option>
-                                                                </select>
-                                                            </td>
+                                                            
                                                         </tr>
 
                                                         <tr>
@@ -1503,10 +1515,7 @@
 
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-
+             
 
 
         </div>
@@ -1569,6 +1578,7 @@
     pregnancies.addEventListener("change", function () {
         // Calculate the age based on the date of birth
         if (pregnancies.value > 0) {
+            
             GenerateGestationalFormula();
         }
     });
@@ -1591,6 +1601,7 @@
 
 
     function GenerateGestationalFormula() {
+        
         // Get the values of the input fields
         let pregnancies = $("#NoOfPregnancy").val();
         let vaginalDeliveries = $("#Vaginal").val();
