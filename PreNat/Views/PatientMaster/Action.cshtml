@@ -301,7 +301,14 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="Date_of_birth">Date of Birth</label>
-                                                        <input type="date" class="form-control" value="@Model.Date_of_birth.ToString("yyyy-MM-dd")" name="Date_of_birth" id="Date_of_birth">
+                                                        @if (Model.ID != 0)
+                                                        {
+                                                            <input type="date" class="form-control" value="@Model.Date_of_birth.ToString("yyyy-MM-dd")" name="Date_of_birth" id="Date_of_birth">
+                                                        }
+                                                        else
+                                                        {
+                                                            <input type="date" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" name="Date_of_birth" id="Date_of_birth">
+                                                        }
                                                     </div>
 
                                                 </div>
@@ -1471,6 +1478,8 @@
                                                                     </td>
                                                                 </tr>
 
+
+
                                                             }
                                                             else if (Model.ReportStatus == "Low")
                                                             {
@@ -1504,6 +1513,27 @@
 
 
 
+                                                        </tbody>
+                                                    </table>
+                                                    <br />
+                                                    <hr />
+                                                    <table class="table table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>
+                                                                    Reason of Status
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach (var item in Model.ReasonsLists)
+                                                            {
+                                                                <tr>
+                                                                    <td>
+                                                                        @item
+                                                                    </td>
+                                                                </tr>
+                                                            }
                                                         </tbody>
                                                     </table>
                                                 </div>

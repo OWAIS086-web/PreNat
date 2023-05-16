@@ -163,6 +163,8 @@ namespace PreNat.ViewModels
 
         public string GestationalFormula { get; set; }
         public string ReportStatus { get; set; }
+        public string ReasonsList { get; set; }
+        public List<string> ReasonsLists { get; set; }
 
     }
 }

@@ -149,5 +149,9 @@ namespace PreNat.Entities
 
         public string GestationalFormula { get; set; }
         public string ReportStatus { get; set; }
+
+
+
+        public string ReasonsList { get; set; }
     }
 }

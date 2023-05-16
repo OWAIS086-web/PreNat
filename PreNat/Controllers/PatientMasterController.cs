@@ -44,6 +44,7 @@ namespace PreNat.Controllers
                 model.Address_of_residence = patientmaster.Address_of_residence;
                 model.Telephones_Landline = patientmaster.Telephones_Landline;
                 model.Cell_Phone = patientmaster.Cell_Phone;
+              
                 model.Date_of_birth = patientmaster.Date_of_birth;
                 model.Age = patientmaster.Age;
                 model.Race_DANE_Information = patientmaster.Race_DANE_Information;
@@ -159,6 +160,7 @@ namespace PreNat.Controllers
                 model.DomesticViolence = patientmaster.DomesticViolence;
                 model.GestationalFormula=patientmaster.GestationalFormula;
                 model.ReportStatus = patientmaster.ReportStatus;
+                model.ReasonsLists = patientmaster.ReasonsList.Split(',').ToList();
             }
             return View(model);
         }
@@ -166,11 +168,17 @@ namespace PreNat.Controllers
         [HttpPost]
         public ActionResult Action(MainActionViewModel model, string Step)
         {
+            var ReasonsList = new List<string>();
+            var ReasonsListForHigh = new List<string>();
             if (Session["PatientMasterID"] != null)
             {
+              
+
                 var patientmaster = PatientMasterServices.Instance.GetPatientMaster(int.Parse(Session["PatientMasterID"].ToString()));
                 patientmaster.ID = patientmaster.ID;
                 patientmaster.CreatedBy = User.Identity.GetUserId();
+     
+
                 if (Step == "Step1")
                 {
                     patientmaster.Name = model.Name;
@@ -423,6 +431,8 @@ namespace PreNat.Controllers
                     patientmaster.VDRL = model.VDRL;
                     patientmaster.Syphilis = model.Syphilis;
                     patientmaster.VIH_L = model.VIH_L;
+
+
                     #region ModerateRegion
 
 
@@ -530,7 +540,255 @@ namespace PreNat.Controllers
                     }
 
                     #endregion
-                    
+
+                    #region ReasonsListForModerate
+                    if (patientmaster.Age > 35 || patientmaster.Age < 15)
+                    {
+                        ReasonsList.Add("Age is not suitable");
+                    }
+                    if (patientmaster.Race_DANE_Information == "Indigenous")
+                    {
+                        ReasonsList.Add("Race Dance Information is Indigenous");
+                    }
+                    if(patientmaster.Ethnicity_DANE_Information == "Indigenous" || patientmaster.Ethnicity_DANE_Information == "Gypsy")
+                    {
+                        ReasonsList.Add("Ethnicity Dance Information is Indigenous or Gypsy");
+                    }
+                    if(TBC.Contains("Family") == true)
+                    {
+                        ReasonsList.Add("Family have TBC");
+                    }
+                    if (Diabetes.Contains("Family") == true)
+                    {
+                        ReasonsList.Add("Family has Diabetes");
+                    }
+
+                    if (Migraine.Contains("Family") == true)
+                    {
+                        ReasonsList.Add("Family has Migraine");
+                    }
+
+                    if (Hypertension.Contains("Family") == true)
+                    {
+                        ReasonsList.Add("Family has Hypertension");
+                    }
+
+                    if (Eclampsia.Contains("Family") == true)
+                    {
+                        ReasonsList.Add("Family has Eclampsia");
+                    }
+
+                    if (Preeclampsia.Contains("Family") == true)
+                    {
+                        ReasonsList.Add("Family has Preeclampsia");
+                    }
+
+                    if (Surgery.Contains("Family") == true)
+                    {
+                        ReasonsList.Add("Family has undergone Surgery");
+                    }
+
+                    if (Cardiopathy.Contains("Family") == true)
+                    {
+                        ReasonsList.Add("Family has Cardiopathy");
+                    }
+
+                    if (Infertility.Contains("Family") == true)
+                    {
+                        ReasonsList.Add("Family has Infertility");
+                    }
+
+                    if (Nephropathy.Contains("Family") == true)
+                    {
+                        ReasonsList.Add("Family has Nephropathy");
+                    }
+
+                    if (Violence.Contains("Family") == true)
+                    {
+                        ReasonsList.Add("Family has Violence");
+                    }
+
+                    if (HIV.Contains("Family") == true)
+                    {
+                        ReasonsList.Add("Family has HIV");
+                    }
+
+                    if (Thromboembolic.Contains("Family") == true)
+                    {
+                        ReasonsList.Add("Family has Thromboembolic disorders");
+                    }
+
+                    if (BMI29.Contains("Family") == true)
+                    {
+                        ReasonsList.Add("Family has BMI over 29");
+                    }
+
+                    if (BMI39.Contains("Family") == true)
+                    {
+                        ReasonsList.Add("Family has BMI over 39");
+                    }
+
+                    if (Disc_Sang.Contains("Family") == true)
+                    {
+                        ReasonsList.Add("Family has Disc_Sang disorder");
+                    }
+                    if (Surgery.Contains("Personally") == true)
+                    {
+                        ReasonsList.Add("Personally had Surgery");
+                    }
+
+                    if (Migraine.Contains("Personally") == true)
+                    {
+                        ReasonsList.Add("Personally has Migraine");
+                    }
+
+                    if (BMI29.Contains("Personally") == true)
+                    {
+                        ReasonsList.Add("Personally has BMI over 29");
+                    }
+
+                    if (patientmaster.Preterm > 0)
+                    {
+                        ReasonsList.Add("Personally had Preterm");
+                    }
+
+                    if (patientmaster.Cesareas > 0)
+                    {
+                        ReasonsList.Add("Personally had Cesareas");
+                    }
+
+                    if (patientmaster.Abortions > 0)
+                    {
+                        ReasonsList.Add("Personally had Abortions");
+                    }
+
+                    if (patientmaster.Gemerales > 0)
+                    {
+                        ReasonsList.Add("Personally had Gemerales");
+                    }
+
+                    if (patientmaster.Ectopic > 0)
+                    {
+                        ReasonsList.Add("Personally had Ectopic");
+                    }
+
+                    if (patientmaster.Obitus > 0)
+                    {
+                        ReasonsList.Add("Personally had Obitus");
+                    }
+
+                    if (patientmaster.Molas > 0)
+                    {
+                        ReasonsList.Add("Personally had Molas");
+                    }
+
+                    if (patientmaster.PlannedPregnancy == "No")
+                    {
+                        ReasonsList.Add("Personally has No Planned Pregnancy");
+                    }
+
+                    if (patientmaster.DesiredPregnancy == "No")
+                    {
+                        ReasonsList.Add("Personally has No Desired Pregnancy");
+                    }
+
+                    if (patientmaster.PreconceptionCounseling == "No")
+                    {
+                        ReasonsList.Add("Personally has No Preconception Counseling");
+                    }
+
+                    if (patientmaster.ContraceptiveFailure == "No")
+                    {
+                        ReasonsList.Add("Personally has No Contraceptive Failure");
+                    }
+
+                    if (patientmaster.Failure == "No")
+                    {
+                        ReasonsList.Add("Personally has No Failure");
+                    }
+
+                    if (patientmaster.DefinitiveMethod == "No")
+                    {
+                        ReasonsList.Add("Personally has No Definitive Method");
+                    }
+
+                    if (patientmaster.SmokerActive == "Yes")
+                    {
+                        ReasonsList.Add("Personally is an Active Smoker");
+                    }
+
+                    if (patientmaster.PassiveSmoking == "Yes")
+                    {
+                        ReasonsList.Add("Personally is Exposed to Passive Smoking");
+                    }
+
+                    if (patientmaster.ConsumeAlcohol == "Yes")
+                    {
+                        ReasonsList.Add("Personally Consumes Alcohol");
+                    }
+
+                    if (patientmaster.ConsumeAlucinogenos == "Yes")
+                    {
+                        ReasonsList.Add("Personally Consumes Alucinogenos");
+                    }
+
+                    if (patientmaster.TetanusDiphtheriaNo == "Yes")
+                    {
+                        ReasonsList.Add("Personally has No Tetanus Diphtheria Vaccination");
+                    }
+
+                    if (patientmaster.InfluenzaNo == "Yes")
+                    {
+                        ReasonsList.Add("Personally has No Influenza Vaccination");
+                    }
+
+                    if (patientmaster.RubellaNo == "Yes")
+                    {
+                        ReasonsList.Add("Personally has No Rubella Vaccination");
+                    }
+
+                    if (patientmaster.Hepatitis_ANo == "Yes")
+                    {
+                        ReasonsList.Add("Personally has No Hepatitis A Vaccination");
+                    }
+
+                    if (patientmaster.Hepatitis_BNo == "Yes")
+                    {
+                        ReasonsList.Add("Personally has No Hepatitis B Vaccination");
+                    }
+
+                    if (patientmaster.TdapNo == "Yes")
+                    {
+                        ReasonsList.Add("Personally has No Tdap Vaccination");
+                    }
+
+                    if (patientmaster.Group == "AB")
+                    {
+                        ReasonsList.Add("Personally belongs to Blood Group AB");
+                    }
+
+                    if (patientmaster.Group == "O")
+                    {
+                        ReasonsList.Add("Personally belongs to Blood Group O");
+                    }
+
+                    if (patientmaster.VDRL == "Positive")
+                    {
+                        ReasonsList.Add("Personally tested Positive for VDRL");
+                    }
+
+                    if (patientmaster.Syphilis == "Positive")
+                    {
+                        ReasonsList.Add("Personally tested Positive for Syphilis");
+                    }
+
+                    if (patientmaster.HIV == "Positive")
+                    {
+                        ReasonsList.Add("Personally tested Positive for HIV");
+                    }
+                    #endregion
+
+
                     if (patientmaster.Age > 35 || patientmaster.Age < 15
                     || patientmaster.Race_DANE_Information == "Indigenous"
                     || patientmaster.Ethnicity_DANE_Information == "Indigenous"
@@ -590,7 +848,8 @@ namespace PreNat.Controllers
 
                     #region HighRegion
 
-                    else if (TBC.Contains("Personally") == true
+                    else if (
+                           TBC.Contains("Personally") == true
                         || Diabetes.Contains("Personally") == true
                         || Hypertension.Contains("Personally") == true
                         || Eclampsia.Contains("Personally") == true
@@ -603,7 +862,6 @@ namespace PreNat.Controllers
                         || Thromboembolic.Contains("Personally") == true
                         || BMI39.Contains("Personally") == true
                         || Disc_Sang.Contains("Personally") == true
-
                         || patientmaster.DomesticViolence == "Yes")
                     {
                         patientmaster.ReportStatus = "High";
@@ -1044,8 +1302,78 @@ namespace PreNat.Controllers
                         #endregion
 
                         #region HighRegion
+                        if (TBC.Contains("Personally") == true)
+                        {
+                            ReasonsListForHigh.Add("Personally has TBC");
+                        }
 
-                        if (TBC.Contains("Personally") == true
+                        if (Diabetes.Contains("Personally") == true)
+                        {
+                            ReasonsListForHigh.Add("Personally has Diabetes");
+                        }
+
+                        if (Hypertension.Contains("Personally") == true)
+                        {
+                            ReasonsListForHigh.Add("Personally has Hypertension");
+                        }
+
+                        if (Eclampsia.Contains("Personally") == true)
+                        {
+                            ReasonsListForHigh.Add("Personally has Eclampsia");
+                        }
+
+                        if (Preeclampsia.Contains("Personally") == true)
+                        {
+                            ReasonsListForHigh.Add("Personally has Preeclampsia");
+                        }
+
+                        if (Infertility.Contains("Personally") == true)
+                        {
+                            ReasonsListForHigh.Add("Personally has Infertility");
+                        }
+
+                        if (Cardiopathy.Contains("Personally") == true)
+                        {
+                            ReasonsListForHigh.Add("Personally has Cardiopathy");
+                        }
+
+                        if (Nephropathy.Contains("Personally") == true)
+                        {
+                            ReasonsListForHigh.Add("Personally has Nephropathy");
+                        }
+
+                        if (Violence.Contains("Personally") == true)
+                        {
+                            ReasonsListForHigh.Add("Personally has Violence");
+                        }
+
+                        if (HIV.Contains("Personally") == true)
+                        {
+                            ReasonsListForHigh.Add("Personally has HIV");
+                        }
+
+                        if (Thromboembolic.Contains("Personally") == true)
+                        {
+                            ReasonsListForHigh.Add("Personally has Thromboembolic disorders");
+                        }
+
+                        if (BMI39.Contains("Personally") == true)
+                        {
+                            ReasonsListForHigh.Add("Personally has BMI over 39");
+                        }
+
+                        if (Disc_Sang.Contains("Personally") == true)
+                        {
+                            ReasonsListForHigh.Add("Personally has Disc_Sang disorder");
+                        }
+
+                        if (patientmaster.DomesticViolence == "Yes")
+                        {
+                            ReasonsListForHigh.Add("Personally experienced Domestic Violence");
+                        }
+
+                        if (
+                               TBC.Contains("Personally") == true
                             || Diabetes.Contains("Personally") == true
                             || Hypertension.Contains("Personally") == true
                             || Eclampsia.Contains("Personally") == true
@@ -1058,12 +1386,20 @@ namespace PreNat.Controllers
                             || Thromboembolic.Contains("Personally") == true
                             || BMI39.Contains("Personally") == true
                             || Disc_Sang.Contains("Personally") == true
-                           
                             || patientmaster.DomesticViolence == "Yes")
                         {
                             patientmaster.ReportStatus = "High";
                         }
                         #endregion
+                    }
+                    if (patientmaster.ReportStatus == "Moderate")
+                    {
+                        patientmaster.ReasonsList = String.Join(",", ReasonsList);
+                    }
+                    else if(patientmaster.ReportStatus == "High")
+                    {
+                        patientmaster.ReasonsList = String.Join(",", ReasonsListForHigh);
+
                     }
                     PatientMasterServices.Instance.UpdatePatientMasters(patientmaster);
                 }

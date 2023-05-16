@@ -109,6 +109,10 @@
     <Compile Include="Migrations\202305121819283_GroupFixed.designer.cs">
       <DependentUpon>202305121819283_GroupFixed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305160543435_reasonsadded.cs" />
+    <Compile Include="Migrations\202305160543435_reasonsadded.designer.cs">
+      <DependentUpon>202305160543435_reasonsadded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DSContext.cs" />
@@ -162,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305121819283_GroupFixed.resx">
       <DependentUpon>202305121819283_GroupFixed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305160543435_reasonsadded.resx">
+      <DependentUpon>202305160543435_reasonsadded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
